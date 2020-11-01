@@ -1,0 +1,103 @@
+%################################################################################################
+% packages
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[babel]{csquotes}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{gensymb}
+\usepackage{hyperref}
+
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{makecell}
+\usepackage{booktabs}
+
+
+%\usepackage{setspace}
+
+%\sisetup{math-micro=\text{µ},text-micro=µ}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+%\usepackage{float}
+\usepackage[font = small, labelfont=bf]{caption}
+\usepackage{subcaption}
+%\usepackage{subcaption,mwe}
+
+%\usepackage[left=2.5cm,right=2cm,top=0.5cm,bottom=1cm,includeheadfoot]{geometry}
+%\usepackage{fontspec}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17} % removes weird warning about ticks in plots
+\usepackage{siunitx}
+%\usetikzlibrary{calc}
+\usepackage{pst-optexp}
+
+\bibliographystyle{unsrtnat}
+\usepackage[
+    natbib=true,
+    style=numeric,
+    sorting=none
+]{biblatex}
+\addbibresource{Mendeley.bib}
+
+% packages
+%################################################################################################
+
+%################################################################################################
+% title
+\title{
+{thz waveplates and achromatic stuff something}\\
+{\large Institution of THz}\\
+{\includegraphics[scale=0.1]{IMG_0060.JPG}}
+}
+\author{ALEX}
+\date{10 10 1910}
+% title
+%################################################################################################
+
+% beginning of the end ...
+\begin{document}
+\maketitle
+
+%################################################################################################
+% frontmatter
+\chapter*{Abstract}
+
+\chapter*{Dedication?}
+
+\chapter*{Declaration?}
+
+\chapter*{Acknowledgements}
+I want to thank Jan :)
+
+\tableofcontents
+% frontmatter
+%################################################################################################
+
+\chapter{Introduction}
+\input{chapters/introduction}
+
+\chapter{THz Time Domain Spectroscopy}
+\input{chapters/chapter02}
+
+\chapter{Theory}
+\input{chapters/chapter03}
+
+\chapter{Experimental setup and procedure}
+\input{chapters/chapter04}
+
+\chapter{Results}
+\input{chapters/chapter05}
+
+\chapter{Conclusion}
+\input{chapters/conclusion}
+
+\appendix
+\chapter{Appendix Title}
+\input{chapters/appendix}
+
+% phew
+\end{document}

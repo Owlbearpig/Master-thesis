@@ -1,0 +1,19 @@
+\section{combine 2 and 4, not sure what to put here yet}
+
+\begin{tikzpicture}
+	\begin{axis}[
+	axis line style = very thick,
+	%every tick/.style={black, very thick},
+	xlabel=Time (yrs),
+    ylabel=Work done (\SI{}{Nm}),
+    anchor=origin,
+    legend entries={Alex}
+	]
+	
+	\addplot +[thin, mark options={scale=0}] table [
+	x expr=\thisrowno{0}/1000, 
+	y expr=\thisrowno{2}*1000, col sep=comma]
+	{plot_data/2020-10-15T15-22-54.690036-vertical-122.000 mm.csv};
+	
+	\end{axis}
+\end{tikzpicture}
