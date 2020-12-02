@@ -1,57 +1,31 @@
-%################################################################################################
-% packages
-\documentclass[12pt]{report}
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
-\usepackage[babel]{csquotes}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-%\usepackage{gensymb}
-\usepackage{hyperref}
+\documentclass[12pt, a4paper]{report}
+\input{Packages.tex}
 
-\usepackage{tabularx}
-\usepackage{longtable}
-\usepackage{makecell}
-\usepackage{booktabs}
+\hypersetup{pdftitle = Thesis, pdfauthor = {First Last}, pdfstartview=FitH, pdfkeywords = essay, pdfpagemode=FullScreen, colorlinks, anchorcolor = red, citecolor = blue, urlcolor=blue, filecolor=green, linkcolor=red, plainpages=false}
 
+\pagestyle{fancy}
+\rhead{\thepage}
+\chead{}
+\lhead{\nouppercase{\rightmark}}
+\lfoot{\date{}}
+\cfoot{}
+\rfoot{}
 
-%\usepackage{setspace}
+% Top and Bottom Line Rules
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyheadoffset{9pt}
+\fancyfootoffset{9pt}
 
-%\sisetup{math-micro=\text{µ},text-micro=µ}
-\usepackage{graphicx}
-\graphicspath{ {images/} }
-%\usepackage{float}
-\usepackage[font = small, labelfont=bf]{caption}
-\usepackage{subcaption}
-%\usepackage{subcaption,mwe}
-
-%\usepackage[left=2.5cm,right=2cm,top=0.5cm,bottom=1cm,includeheadfoot]{geometry}
-%\usepackage{fontspec}
-\usepackage{tikz}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.17} % removes weird warning about ticks in plots
-\usepackage{siunitx}
-%\usetikzlibrary{calc}
-\usepackage{pst-optexp}
-
-\bibliographystyle{unsrtnat}
-\usepackage[
-    natbib=true,
-    style=numeric,
-    sorting=none
-]{biblatex}
-\addbibresource{references.bib}
-
-% packages
-%################################################################################################
+% Line spacing
+\renewcommand{\baselinestretch}{1.0}
 
 %################################################################################################
 % title
 \title{
-{thz waveplates and achromatic stuff something}\\
+{Achromatic Composite Waveplates in the Terahertz Frequency Range}\\
 {\large Institution of THz}\\
-{\includegraphics[scale=0.1]{IMG_0060.JPG}}
+%{\includegraphics[]{tcVF8.jpg}}
 }
 \author{ALEX}
 \date{10 10 1910}
@@ -74,30 +48,33 @@
 I want to thank Jan :)
 
 \tableofcontents
+
+\listoffigures
+
 % frontmatter
 %################################################################################################
 
 \chapter{Introduction}
-\input{chapters/introduction}
+\input{chapters/1_introduction}
 
 \chapter{THz Time Domain Spectroscopy}
-\input{chapters/chapter02}
+\input{chapters/2_chapter02}
 
 \chapter{Theory}
-\input{chapters/chapter03}
+\input{chapters/3_chapter03}
 
 \chapter{Experimental setup and procedure}
-\input{chapters/chapter04}
+\input{chapters/4_chapter04}
 
 \chapter{Results}
-\input{chapters/chapter05}
+\input{chapters/5_chapter05}
 
 \chapter{Conclusion}
-\input{chapters/conclusion}
+\input{chapters/6_conclusion}
 
 \appendix
 \chapter{Clunky stuff}
-\input{chapters/appendix}
+\input{chapters/7_appendix}
 
 \printbibliography
 
