@@ -1,7 +1,117 @@
-\section{Birefringence}
-Birefringence is a physical phenomena which was observed for the first time in calcite crystals, by the Danish scientist Rasmus Bartholin in 1669 \cite{RasmusBartholin1669ExperimentaDetegitur}. The effect of birefringence is relatively easy to show. One can simply place a birefringent crystal on top of some text, as it is shown in figure \ref{fig:3birefringence}. Two images of the text become visible through the crystal and each image is shifted by a different amount. These images are not simply reflections at the crystal-air interface. Since the images are brighter compared to images formed through reflections, and they are even visible when looking down directly from above. Also if the crystal is rotated then one of the pictures will be stationary, while the other one will move around the stationary image. The same effect can be illustrated by sending an unpolarized laser beam through the crystal. The beam is split in two as it propagates through the crystal. \cite{Roth2019Optik}
+In this chapter we will introduce the basic principles required to understand what waveplates are and how they work in general. Simply put the purpose of a waveplate is to change the polarization of EM waves, most commonly by using a birefringent material. The polarization of EM waves, birefringence and how the waveplates work are explained in more detail in the sections \ref{sec:polellipse}, \ref{sec:birefringence} and \ref{sec:waveplates}. This change of the polarization state caused by the waveplate, and the state itself, can be described mathematically using Jones calculus or almost equivalently using Mueller calculus, which will be shown in section \ref{sec:mathdescription}. Finally, this leads to the description of the design and the design optimization problem in the last section (\ref{sec:design}) of this chapter.
 
-\begin{figure}
+
+\section{The polarization ellipse}
+\label{sec:polellipse}
+There are several ways to describe the polarization state of EM-waves. One of them is the polarization ellipse which is a geometrical representation of the polarization. This remained the only satisfactory way to visualize the different polarization states for almost the entire 19\textsuperscript{th} century, although it is not very practical for carrying out calculations. At the end of the century another representation was proposed by Henri Poincaré, now known as the Poincaré sphere, which could be used for both calculations and visualization of the polarization states \cite{Collett2008VisualizationSphere}. Poincaré's representation will be explained in section \ref{sec:muellercalc}. The polarization ellipse can be derived either directly from a solution to the EM-wave equation or starting from Maxwell's equations.  It is practical to start from Maxwell's equations, since they are used for derivations later on in this work and almost all equations used originate from them. In differential form Maxwell's equations are given by: 
+\par
+\noindent\begin{minipage}{.5\linewidth}
+\begin{align}
+    \bm{\nabla}\cdot\bm{D} &=\rho_{f}\;,\label{eq:maxwell1}
+    \vphantom{\frac{\partial\bm{B}}{\partial t}}\\
+    \bm{\nabla}\cdot\bm{B} &=0\;,\vphantom{\frac{\partial\bm{B}}{\partial t}}\label{eq:maxwell2}
+\end{align}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\begin{align}
+    \bm{\nabla}\times\bm{E} &=-\frac{\partial\bm{B}}{\partial t}\;,\label{eq:maxwell3}
+    \\
+    \bm{\nabla}\times\bm{H} &=\bm{J}_f
+    +\frac{\partial\bm{D}}{\partial t}\;,\label{eq:maxwell4}
+\end{align}
+\end{minipage}
+\newline
+
+where $\bm{E}, \bm{H}$ denote the electric and magnetizing fields respectively,  $\bm{D}=\hat{\epsilon} \bm{E}$ is the electric displacement, $\hat{\epsilon}$ is the permittivity of the material and t denotes time. The materials used in this work are non magnetic, which means that the magnetic and magnetizing fields are proportional: $\bm{B} = \mu_0 \bm{H}$, where $\mu_0$ denotes the vacuum permeability. $\rho_f, \bm{J}_f$ is the free charge and current density respectively. Usually in optics there are no free charge carriers or free currents, which is also the case for all materials in this work, so we set $\rho_f=\bm{J}_f=0$ \cite{Roth2019Optik}. If we then also assume that the materials are homogeneous so that $\hat{\epsilon}$ does not depend on position, then we can reduce equations \ref{eq:maxwell1}-\ref{eq:maxwell4} to the following:
+
+\noindent\begin{minipage}{.5\linewidth}
+\begin{align}
+    \bm{\nabla}\cdot \bm{E} &=0\;,\label{eq:maxwell1reduced}
+    \vphantom{\frac{\partial\bm{B}}{\partial t}}\\
+    \bm{\nabla}\cdot\bm{B} &=0\;,\vphantom{\frac{\partial\bm{B}}{\partial t}}\label{eq:maxwell2reduced}
+\end{align}
+\end{minipage}%
+\begin{minipage}{.5\linewidth}
+\begin{align}
+    \bm{\nabla}\times\bm{E} &=-\frac{\partial\bm{B}}{\partial t}\;,\label{eq:maxwell3reduced}
+    \\
+    \bm{\nabla}\times\bm{B} &=\mu_0 \hat{\epsilon} \frac{\partial\bm{E}}{\partial t}\;,\label{eq:maxwell4reduced}
+\end{align}
+\end{minipage}
+\newline
+
+Applying $\bm{\nabla}\times$ to equation \ref{eq:maxwell3reduced} and with equation \ref{eq:maxwell4reduced} we decouple $\bm{E}$ and $\bm{B}$: 
+\begin{equation}
+    \bm{\nabla}\times \bm{\nabla}\times \bm{E} = -\mu_0 \hat{\epsilon} \frac{\partial^2\bm{E}}{\partial t^2}
+\end{equation}
+Then using the vector calculus identity: $\bm{\nabla}\times \bm{\nabla}\times \bm{F} = \bm{\nabla} \left( \bm{\nabla} \cdot \bm{F} \right) - \bm{\nabla}^2 \bm{F}$, for any function $\bm{F}$, together with equation \ref{eq:maxwell1reduced} we get the EM-wave equation: \footnote{We neglect the magnetic field, since we are only concerned with non magnetic materials in this work. But the derivation of the wave equation for the magnetic field would be exactly the same}
+\begin{equation}
+    \label{eq:waveeq}
+    \bm{\nabla}^2 \bm{E} = \mu_0 \hat{\epsilon} \frac{\partial^2\bm{E}}{\partial t^2}
+\end{equation}
+or in frequency space $(\partial_t \xrightarrow{\mathscr{F}} i\omega)$:
+\begin{equation}
+    \label{eq:waveeqfreq}
+    \bm{\nabla}^2 \bm{E} = -\mu_0 \hat{\epsilon} \omega^2 \bm{E},
+\end{equation}
+where $\omega$ is the angular frequency.
+A solution to the wave equation is a coherent plane wave at frequency $\omega$ which is given by: 
+\begin{equation}
+    \label{eq:planewave}
+    \bm{E} = \bm{E_0} e^{i(\bm{k}\bm{r} - \omega t)},
+\end{equation}
+where $\bm{r}$ and $\bm{k}$ denote the position and wave vector respectively and $\bm{E_0}$ denotes the maximum amplitude of the wave. If we assume the wave propagates along the z-direction in a Cartesian coordinate system, then the amplitude will be orthogonal to the z-direction, i.e a transverse wave. This follows directly from equation \ref{eq:maxwell1reduced}. From the wave equation in frequency space we then find the requirement that the wave number, which is the magnitude of the wave vector, and the angular frequency are related by:
+\begin{equation}
+    k = \sqrt{\mu_0 \hat{\epsilon}} \omega
+\end{equation}
+The phase velocity of the wave can then be expressed as:
+\begin{equation}
+    v = \frac{\omega}{k} = \frac{1}{\sqrt{\mu_0 \hat{\epsilon}}} = \frac{c}{n},\:n = \sqrt{\frac{\hat{\epsilon}}{\epsilon_0}},
+\end{equation}
+where $c$, $\epsilon_0$ and $n$ is the speed of light in vacuum, vacuum permittivity and refractive index respectively.
+So that from the wave equation we get two decoupled wave equations, each describing an oscillation in the x-z plane and the y-z plane. This is also known as Fresnel's wave theory which was proposed around 1820 by Augustin-Jean Fresnel and it was verified experimentally, more than 40 years before Maxwell's equations were published \cite{Collett2009FieldPolarization,Jackson1998ClassicalEdition}.
+This means equation \ref{eq:planewave} consists of only two perpendicular components. Additionally, if we consider that Maxwell's equations \ref{eq:maxwell1reduced}-\ref{eq:maxwell4reduced} are all linear and real, then it follows that the real part of any particular solution is also a solution to the wave equation. \footnote{This only works if the equations are real. For example, Schrödinger's equation is linear but complex, therefore even if $\psi$ is a solution $\operatorname{Re}(\psi)$ and $\operatorname{Im}(\psi)$ are not.} We can then write equation \ref{eq:planewave} as two sinusoidal waves:
+\begin{equation}
+\label{eq:plane_wave_realparts}
+\begin{aligned}
+    E_x(z, t) = E_{0x}\cos(kz-\omega t + \delta_x) \\
+    E_y(z, t) = E_{0y}\cos(kz-\omega t + \delta_y), 
+\end{aligned}
+\end{equation}
+where $\delta_x$ and $\delta_y$ are arbitrary phases. Depending on the values of $E_{0x}, E_{0y}$ and the relative phase, which is $\delta = \delta_y - \delta_x$, we get different polarization states. Figure \ref{fig:Ex_Ey_planewaves} shows the real parts of the two plane wave components for a wave traveling along the z-direction when $\delta=0$ and $E_{0x}=E_{0y}$.
+
+\begin{figure}[h]
+    \centering
+    \includestandalone{3_chapter03/tikz_e_wave}
+    \caption{The two sinusoidal waves given in equation \ref{eq:plane_wave_realparts}, which are the real parts of the plane wave components. In this case both have the same amplitude and phase.}
+    \label{fig:Ex_Ey_planewaves}
+\end{figure}
+
+From here we can visualize the different polarization states, that is the different directions the field, or simply the light, can oscillate in. If the light is confined to a plane along the direction of propagation it is said to be linearly polarized. An example of this is shown in figure \ref{fig:E_planewave}, where the polarization plane is at an angle of \SI{45}{\degree} relative to the x-axis. 
+
+\begin{figure}[h]
+    \centering
+    \includestandalone{3_chapter03/tikz_linear_pol}
+    \caption{The black curve shows the real part of a linearly polarized plane wave at an angle of \SI{45}{\degree} to the x-axis.}
+    \label{fig:E_planewave}
+\end{figure}
+
+Now, if $\delta$ is exactly $\nicefrac{\pi}{2}$ and $E_{0x} = E_{0y}$, then we get the case shown in figure \ref{fig:circ_pol_planewave}
+
+\begin{figure}[h]
+    \centering
+    \includestandalone{3_chapter03/tikz_circ_pol}
+    \caption{}
+    \label{fig:circ_pol_planewave}
+\end{figure}
+
+
+
+\section{Birefringence}
+\label{sec:birefringence}
+Birefringence is the material property responsible for the phenomenon of double refraction. This phenomenon was observed for the first time in calcite crystals by the Danish scientist Rasmus Bartholin in 1669 \cite{RasmusBartholin1669ExperimentaDetegitur}. The effect of double refraction on a light beam passing through a birefringent material is relatively easy to show. One can simply place a birefringent crystal on top of some text, as it is shown in figure \ref{fig:3birefringence}. Two images of the text become visible through the crystal and each image is shifted by a different amount. These images are not simply reflections at the crystal-air interface, since the images are brighter compared to images formed through reflections, and they are even visible when looking down directly from above. Also if the crystal is rotated then one of the pictures will be stationary, while the other one will circle around the stationary image. The same effect can be illustrated by sending an unpolarized laser beam through the crystal. The beam is split in two as it propagates through the crystal. Another effect of birefringence, which is more subtle, is that each of the two beams exiting the crystal will be polarized perpendicular to each other \cite{Roth2019Optik}.
+
+\begin{figure}[h]
     \centering
     \includegraphics[scale=0.35]{images/3_chapter03/birefringence.png}
     \caption{A calcite crystal placed on top of some text. This demonstrates the effect of birefringence on the original image seen through the crystal. \cite{Roth2019Optik}}
@@ -13,12 +123,20 @@ Birefringence is a physical phenomena which was observed for the first time in c
 \subsection{Form birefringence}
 
 \section{Waveplates}
+\label{sec:waveplates}
 
-\section{Jones calculus}
+\section{Mathematical description}
+\label{sec:mathdescription}
 
-\section{Mueller calculus}
+\subsection{Boundary conditions}
 
-\section{Uniaxial media boundary conditions}
+\subsection{Jones calculus}
 
-\section{Optimization?}
+\subsection{Mueller calculus}
+\label{sec:muellercalc}
+
+\section{Design description}
+\label{sec:design}
+
+\subsection{Optimization?}
 - describe algorithm

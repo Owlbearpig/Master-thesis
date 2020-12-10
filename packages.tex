@@ -1,5 +1,5 @@
 \usepackage[T1]{fontenc}
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{csquotes}
 \usepackage{siunitx}
@@ -7,13 +7,14 @@
 \usepackage{tipa} % for the \ark{} command
 \usepackage{graphics} % for pdf, bitmapped graphics files
 \usepackage{times} % assumes new font selection scheme installed
-\usepackage{amsmath}
+\usepackage[leqno]{amsmath}
+\usepackage{nicefrac}
 \usepackage{latexsym}
 \usepackage{amscd}% for commutative diagrams
 \usepackage{mathrsfs} %this package is for the script font \mathscr
 \usepackage{relsize}
 \usepackage{delarray}
-\usepackage{pstricks}
+%\usepackage{pstricks}
 \usepackage{theorem}
 \usepackage{changepage}
 \usepackage{euscript}
@@ -33,6 +34,7 @@
 \usepackage{datetime}
 \usepackage{caption}
 \usepackage{smartdiagram}
+\usepackage{bm}
 \usesmartdiagramlibrary{additions}
 %Set Abstract Page
 \usepackage{abstract}
@@ -58,6 +60,7 @@
 \setlength{\dashlinedash}{.4pt}
 \setlength{\dashlinegap}{.8pt}
 
+% For drawings
 \usepackage{booktabs}
 \usepackage{graphicx}
 \graphicspath{ {images/} }
@@ -95,12 +98,14 @@ intersections
 \def\eea{\end{eqnarray}}
 \def\bsy{\boldsymbol}
 \def\gray#1{{\color{gray}#1}}
+\usepackage{standalone}
 
 %% COUNTERS
 \setcounter{MaxMatrixCols}{20}
 \renewcommand{\thesection}{\arabic{section}}
 \renewcommand{\thesection}{\thechapter.\number\numexpr\value{section}}
 \renewcommand{\thesubsection}{\thesection.\number\numexpr\value{subsection}}
+
 %%For changemargin
 \def\quote{\list{}{\rightmargin\leftmargin}\item[]}
 \let\endquote=\endlist 
@@ -193,6 +198,7 @@ intersections
 \def\gray#1{{\color{gray}#1}}
 \usepackage{titlesec}
 \usepackage{multirow}
+
 %To reference within text
 \usepackage{hyperref}
 \usepackage{lipsum}
@@ -253,6 +259,10 @@ intersections
 \usepackage[
     natbib=true,
     style=numeric,
-    sorting=none
+    sorting=none,
+    url = false
 ]{biblatex}
 \addbibresource{references.bib}
+
+% Roman numbering for equations
+%\renewcommand{\theequation}{\roman{equation}}
