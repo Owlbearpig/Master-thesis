@@ -69,7 +69,7 @@ The phase velocity of the wave can then be expressed as:
     v = \frac{\omega}{k} = \frac{1}{\sqrt{\mu_0 \hat{\epsilon}}} = \frac{c}{n},\:n = \sqrt{\frac{\hat{\epsilon}}{\epsilon_0}},
 \end{equation}
 where $c$, $\epsilon_0$ and $n$ is the speed of light in vacuum, vacuum permittivity and refractive index respectively.
-So that from the wave equation we get two decoupled wave equations, each describing an oscillation in the x-z plane and the y-z plane. This is also known as Fresnel's wave theory which was proposed around 1820 by Augustin-Jean Fresnel and it was verified experimentally, more than 40 years before Maxwell's equations were published \cite{Collett2009FieldPolarization,Jackson1998ClassicalEdition}.
+So that from the wave equation we get two decoupled wave equations, each describing an oscillation in the x-z plane and the y-z plane. This is also known as Fresnel's wave theory which was proposed and verified experimentally around 1820 by Augustin-Jean Fresnel and François Arago, more than 40 years before Maxwell's equations were published \cite{Collett2009FieldPolarization,Jackson1998ClassicalEdition}.
 This means equation \ref{eq:planewave} consists of only two perpendicular components. Additionally, if we consider that Maxwell's equations \ref{eq:maxwell1reduced}-\ref{eq:maxwell4reduced} are all linear and real, then it follows that the real part of any particular solution is also a solution to the wave equation. \footnote{This only works if the equations are real. For example, Schrödinger's equation is linear but complex, therefore even if $\psi$ is a solution $\operatorname{Re}(\psi)$ and $\operatorname{Im}(\psi)$ are not.} We can then write equation \ref{eq:planewave} as two sinusoidal waves:
 \begin{equation}
 \label{eq:plane_wave_realparts}
@@ -83,7 +83,7 @@ where $\delta_x$ and $\delta_y$ are arbitrary phases. Depending on the values of
 \begin{figure}[h]
     \centering
     \includestandalone{3_chapter03/tikz_e_wave}
-    \caption{The two sinusoidal waves given in equation \ref{eq:plane_wave_realparts}, which are the real parts of the plane wave components. In this case both have the same amplitude and phase.}
+    \caption{This figure shows the two sinusoidal waves given in equation \ref{eq:plane_wave_realparts}, which are the real parts of the plane wave components. Both waves have the same amplitude and phase.}
     \label{fig:Ex_Ey_planewaves}
 \end{figure}
 
@@ -92,24 +92,29 @@ From here we can visualize the different polarization states, that is the differ
 \begin{figure}[h]
     \centering
     \includestandalone{3_chapter03/tikz_linear_pol}
-    \caption{The black curve shows the real part of a linearly polarized plane wave at an angle of \SI{45}{\degree} to the x-axis.}
+    \caption{The black curve shows the superposition of the two sinusoidal waves from equation \ref{eq:plane_wave_realparts}, which is the same as the real part of a linearly polarized plane wave at an angle of \SI{45}{\degree} to the x-axis. In addition, the horizontal and the vertical components of the field vector are shown as the red and blue curves respectively.}
     \label{fig:E_planewave}
 \end{figure}
 
-Now, if $\delta$ is exactly $\nicefrac{\pi}{2}$ and $E_{0x} = E_{0y}$, then we get the case shown in figure \ref{fig:circ_pol_planewave}
+Now, if $\delta$ is exactly $\nicefrac{\pi}{2}$ and $E_{0x} = E_{0y}$, then we get the case shown to the right in figure \ref{fig:circ_pol_planewave}. A field with this kind of polarization traces out a circle as time passes for a fixed position in space. On the other hand, if we keep time fixed then the field vector describes a helix along the direction of propagation. This means the field only changes direction but not its magnitude. This type of polarization is therefore called circular polarization (CP). Additionally, because we can trace out a circle in two different directions (clockwise or counterclockwise) we therefore get two different types of circular polarizations. These two types are called right CP (RCP) or left CP (LCP) depending on the direction the circle is traced out, which is either in a left- or right-handed sense. This is also called the handedness of the light, which can be determined using the right hand rule. To do that the right thumb must point in the direction of propagation so that the curl direction of the other four fingers is then either following or going against the curve of the helix. If the fingers are following the curve then the field is RCP and otherwise it is LCP. 
 
 \begin{figure}[h]
-    \centering
-    \includestandalone{3_chapter03/tikz_circ_pol}
-    \caption{}
+\centering
+    \begin{subfigure}
+        \centering
+        \includestandalone[scale=0.8]{3_chapter03/tikz_circ_pol_lh}
+    \end{subfigure}
+    \begin{subfigure}
+        \centering
+        \includestandalone[scale=0.8]{3_chapter03/tikz_circ_pol_rh}
+    \end{subfigure}
+    \caption{The left figure shows an example of LCP light and the right figure RCP light. Furthermore, handedness is determined by the leading component. In the case of LCP light the vertical component leads the horizontal component and vice versa for RCP light.}
     \label{fig:circ_pol_planewave}
 \end{figure}
 
-
-
 \section{Birefringence}
 \label{sec:birefringence}
-Birefringence is the material property responsible for the phenomenon of double refraction. This phenomenon was observed for the first time in calcite crystals by the Danish scientist Rasmus Bartholin in 1669 \cite{RasmusBartholin1669ExperimentaDetegitur}. The effect of double refraction on a light beam passing through a birefringent material is relatively easy to show. One can simply place a birefringent crystal on top of some text, as it is shown in figure \ref{fig:3birefringence}. Two images of the text become visible through the crystal and each image is shifted by a different amount. These images are not simply reflections at the crystal-air interface, since the images are brighter compared to images formed through reflections, and they are even visible when looking down directly from above. Also if the crystal is rotated then one of the pictures will be stationary, while the other one will circle around the stationary image. The same effect can be illustrated by sending an unpolarized laser beam through the crystal. The beam is split in two as it propagates through the crystal. Another effect of birefringence, which is more subtle, is that each of the two beams exiting the crystal will be polarized perpendicular to each other \cite{Roth2019Optik}.
+Birefringence is the material property responsible for the phenomenon of double refraction. This phenomenon was observed for the first time in calcite crystals by the Danish scientist Rasmus Bartholin in 1669 \cite{RasmusBartholin1669ExperimentaDetegitur, Restaino2015PolarizationDevices}. The effect of double refraction on a light beam passing through a birefringent material is relatively easy to show. One can simply place a birefringent crystal on top of some text, as it is shown in figure \ref{fig:3birefringence}. Two images of the text become visible through the crystal and each image is shifted by a different amount. These images are not simply reflections at the crystal-air interface, since the images are brighter compared to images formed through reflections, and they are even visible when looking down directly from above. Also if the crystal is rotated then one of the pictures will be stationary, while the other one will circle around the stationary image. The same effect can be illustrated by sending an unpolarized laser beam through the crystal. The beam is split in two as it propagates through the crystal. Another effect of birefringence, which is more subtle, is that each of the two beams exiting the crystal will be polarized perpendicular to each other \cite{Roth2019Optik}.
 
 \begin{figure}[h]
     \centering
