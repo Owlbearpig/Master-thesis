@@ -16,7 +16,7 @@
         \draw[black,thick] plot[domain=-0.5:4.5,samples=200] (\x,{cos(deg(pi*\x))},-{cos(deg(pi*\x))});
         % Arrows
         \foreach \x in {-0.5,-0.3,...,4.4} {
-          \draw[->, help lines] (\x,0,0) -- (\x,{cos(deg(pi*\x))},-{cos(deg(pi*\x))});
+          \draw[-, help lines] (\x,0,0) -- (\x,{cos(deg(pi*\x))},-{cos(deg(pi*\x))});
         }
         % Labels
         \node[above right] at (0,1,-1) {$\bm{E}$};

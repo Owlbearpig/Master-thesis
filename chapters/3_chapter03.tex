@@ -78,7 +78,7 @@ This means equation \ref{eq:planewave} consists of only two perpendicular compon
     E_y(z, t) = E_{0y}\cos(kz-\omega t + \delta_y), 
 \end{aligned}
 \end{equation}
-where $\delta_x$ and $\delta_y$ are arbitrary phases. Depending on the values of $E_{0x}, E_{0y}$ and the relative phase, which is $\delta = \delta_y - \delta_x$, we get different polarization states. Figure \ref{fig:Ex_Ey_planewaves} shows the real parts of the two plane wave components for a wave traveling along the z-direction when $\delta=0$ and $E_{0x}=E_{0y}$.
+where $\delta_x$ and $\delta_y$ are arbitrary phases. Depending on the values of $E_{0x}, E_{0y}$ and the relative phase or phase shift, which is $\delta = \delta_y - \delta_x$, we get different polarization states. Figure \ref{fig:Ex_Ey_planewaves} shows the real parts of the two plane wave components for a wave traveling along the z-direction when $\delta=0$ and $E_{0x}=E_{0y}$.
 
 \begin{figure}[h]
     \centering
@@ -87,16 +87,16 @@ where $\delta_x$ and $\delta_y$ are arbitrary phases. Depending on the values of
     \label{fig:Ex_Ey_planewaves}
 \end{figure}
 
-From here we can visualize the different polarization states, that is the different directions the field, or simply the light, can oscillate in. If the light is confined to a plane along the direction of propagation it is said to be linearly polarized. An example of this is shown in figure \ref{fig:E_planewave}, where the polarization plane is at an angle of \SI{45}{\degree} relative to the x-axis. 
+From here we can visualize the different polarization states, that is the different directions the electrical field, or simply the light, can oscillate in. If the light is confined to a plane along the direction of propagation it is said to be linearly polarized (LP). An example of this is shown in figure \ref{fig:E_planewave}, where the polarization plane is at an angle of \SI{45}{\degree} relative to the x-axis. 
 
 \begin{figure}[h]
     \centering
     \includestandalone{3_chapter03/tikz_linear_pol}
-    \caption{The black curve shows the superposition of the two sinusoidal waves from equation \ref{eq:plane_wave_realparts}, which is the same as the real part of a linearly polarized plane wave at an angle of \SI{45}{\degree} to the x-axis. In addition, the horizontal and the vertical components of the field vector are shown as the red and blue curves respectively.}
+    \caption{The black curve shows the superposition of the two sinusoidal waves from equation \ref{eq:plane_wave_realparts}, which is the same as the real part of a LP plane wave at an angle of \SI{45}{\degree} to the x-axis. In addition, the horizontal and the vertical components of the field vector are shown as the red and blue curves respectively.}
     \label{fig:E_planewave}
 \end{figure}
 
-Now, if $\delta$ is exactly $\nicefrac{\pi}{2}$ and $E_{0x} = E_{0y}$, then we get the case shown to the right in figure \ref{fig:circ_pol_planewave}. A field with this kind of polarization traces out a circle as time passes for a fixed position in space. On the other hand, if we keep time fixed then the field vector describes a helix along the direction of propagation. This means the field only changes direction but not its magnitude. This type of polarization is therefore called circular polarization (CP). Additionally, because we can trace out a circle in two different directions (clockwise or counterclockwise) we therefore get two different types of circular polarizations. These two types are called right CP (RCP) or left CP (LCP) depending on the direction the circle is traced out, which is either in a left- or right-handed sense. This is also called the handedness of the light, which can be determined using the right hand rule. To do that the right thumb must point in the direction of propagation so that the curl direction of the other four fingers is then either following or going against the curve of the helix. If the fingers are following the curve then the field is RCP and otherwise it is LCP. 
+Now, if $\delta$ is exactly $\nicefrac{\pi}{2}$ and $E_{0x} = E_{0y}$, then we get the case shown to the right in figure \ref{fig:circ_pol_planewave}. A field with this kind of polarization traces out a circle as time passes for a fixed position in space. On the other hand, if we keep time fixed then the field vector describes a helix along the direction of propagation. This means the field only changes direction but not its magnitude. This type of polarization is therefore called circular polarization (CP). Additionally, because we can trace out a circle in two different directions (clockwise or counterclockwise) we therefore get two different types of circular polarizations. These two types are called right CP (RCP) or left CP (LCP) depending on the direction the circle is traced out, so either in a left- or right-handed sense. This is called the handedness of the light, which can be determined using the right hand rule. For that we fix the right hand at a point on the helix and point the thumb away from the receiver, that is against the direction of propagation. Then the light is right-handed if the helix is traced out in the direction of the other fingers as time revolves, otherwise it is left-handed. The light shown to the left of figure \ref{fig:circ_pol_planewave} is therefore left-handed while the example on the right side of figure \ref{fig:circ_pol_planewave} shows right-handed CP light. The reason why we have two types of CP in the first place, is because of the fact that one component can lead the other, as we can see in figure \ref{fig:circ_pol_planewave}. Where for RCP the horizontal component leads the vertical one by a quarter period ($\delta = -\nicefrac{\pi}{2}$), for LCP it is the other way around and $\delta = \nicefrac{\pi}{2}$. 
 
 \begin{figure}[h]
 \centering
@@ -108,9 +108,17 @@ Now, if $\delta$ is exactly $\nicefrac{\pi}{2}$ and $E_{0x} = E_{0y}$, then we g
         \centering
         \includestandalone[scale=0.8]{3_chapter03/tikz_circ_pol_rh}
     \end{subfigure}
-    \caption{The left figure shows an example of LCP light and the right figure RCP light. Furthermore, handedness is determined by the leading component. In the case of LCP light the vertical component leads the horizontal component and vice versa for RCP light.}
+    \caption{The left figure shows an example of LCP light and the right figure RCP light. Furthermore, handedness originates from one component leading the other. In the case of LCP light the vertical component leads the horizontal component and vice versa for RCP light.}
     \label{fig:circ_pol_planewave}
 \end{figure}
+
+Finally, the last polarization state we have not mentioned yet, even though it is in fact the most general, is the elliptical polarization state. The polarization states we have dealt with so far have all been limiting cases of this state. For a fixed position this is fairly simple to visualize geometrically; LP light traces out a line while CP light traces out a circle, both of these shapes are degenerate forms of an ellipse. We can also realize this mathematically by eliminating the time and position dependency of the two components in equation \ref{fig:Ex_Ey_planewaves}, so that we get:
+
+\begin{equation}
+    \frac{1}{\sin^2 \delta} \left[ \left(\frac{E_x}{E_{0x}}\right)^2+\left(\frac{E_y}{E_{0y}}\right)^2-2\frac{E_x E_y}{E_{0x} E_{0y}}\cos \delta \right]=1
+\end{equation}
+
+To finish off the section we will talk about the conventions. Tomorrow
 
 \section{Birefringence}
 \label{sec:birefringence}
