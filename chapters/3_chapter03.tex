@@ -78,7 +78,7 @@ This means equation \ref{eq:planewave} consists of only two perpendicular compon
     E_y(z, t) = E_{0y}\cos(kz-\omega t + \delta_y), 
 \end{aligned}
 \end{equation}
-where $\delta_x$ and $\delta_y$ are arbitrary phases. Depending on the values of $E_{0x}, E_{0y}$ and the relative phase or phase shift, which is $\delta = \delta_y - \delta_x$, we get different polarization states. Figure \ref{fig:Ex_Ey_planewaves} shows the real parts of the two plane wave components for a wave traveling along the z-direction when $\delta=0$ and $E_{0x}=E_{0y}$.
+where $\delta_x$ and $\delta_y$ are arbitrary phases. Depending on the values of $E_{0x}, E_{0y}$ and the relative phase or simply phase, which is $\delta = \delta_y - \delta_x$, we get different polarization states. Figure \ref{fig:Ex_Ey_planewaves} shows the real parts of the two plane wave components for a wave traveling along the z-direction when $\delta=0$ and $E_{0x}=E_{0y}$.
 
 \begin{figure}[h]
     \centering
@@ -91,7 +91,7 @@ From here we can visualize the different polarization states, that is the differ
 
 \begin{figure}[h]
     \centering
-    \includestandalone{3_chapter03/tikz_linear_pol}
+    \includestandalone[scale=1.1]{3_chapter03/tikz_linear_pol}
     \caption{The black curve shows the superposition of the two sinusoidal waves from equation \ref{eq:plane_wave_realparts}, which is the same as the real part of a LP plane wave at an angle of \SI{45}{\degree} to the x-axis. In addition, the horizontal and the vertical components of the field vector are shown as the red and blue curves respectively.}
     \label{fig:E_planewave}
 \end{figure}
@@ -112,13 +112,34 @@ Now, if $\delta$ is exactly $\nicefrac{\pi}{2}$ and $E_{0x} = E_{0y}$, then we g
     \label{fig:circ_pol_planewave}
 \end{figure}
 
-Finally, the last polarization state we have not mentioned yet, even though it is in fact the most general, is the elliptical polarization state. The polarization states we have dealt with so far have all been limiting cases of this state. For a fixed position this is fairly simple to visualize geometrically; LP light traces out a line while CP light traces out a circle, both of these shapes are degenerate forms of an ellipse. We can also realize this mathematically by eliminating the time and position dependency of the two components in equation \ref{fig:Ex_Ey_planewaves}, so that we get:
+\newpage
+
+Finally, the last polarization state we have not mentioned yet, even though it is in fact the most general, is the elliptical polarization state. The polarization states we have dealt with so far have all been limiting cases of this state. For a fixed position this is fairly simple to visualize geometrically; LP light traces out a line while CP light traces out a circle, both of these shapes are degenerate forms of an ellipse. A summary of the different degenerate states and the corresponding amplitude and phase combinations are shown in table \ref{tab:pol_state_summary}, which is divided into three parts with a pair of states in each. At the top there str the linear horizontal/vertical polarization (LHP/LVP) stated, the linear $\pm\SI{45}{\degree}$ polarization ($L_{\pm45}P$) states are in the middle and the CP states are at the bottom. The last column shows the corresponding degenerate ellipse figure for each state.
+
+\begin{table}
+    \centering
+    \includestandalone{3_chapter03/pol_summary_table}
+    \caption{Summary of the different degenerate polarization states, with corresponding conditions figures. The first four states are linearly polarized at different angles relative to the x-axis; $\SI{0}{\degree}$, $\SI{90}{\degree}$, $\SI{45}{\degree}$ and $\SI{-45}{\degree}$ respectively. The last two are the RCP and LCP states.}
+    \label{tab:pol_state_summary}
+\end{table}
+
+We can also realize this mathematically by eliminating the time and position dependency of the two components in equation \ref{fig:Ex_Ey_planewaves}, so that we get:
 
 \begin{equation}
-    \frac{1}{\sin^2 \delta} \left[ \left(\frac{E_x}{E_{0x}}\right)^2+\left(\frac{E_y}{E_{0y}}\right)^2-2\frac{E_x E_y}{E_{0x} E_{0y}}\cos \delta \right]=1
+    \centering
+    \frac{1}{\sin^2 \delta} \left[ \left(\frac{E_x}{E_{0x}}\right)^2+\left(\frac{E_y}{E_{0y}}\right)^2-2\frac{E_x E_y}{E_{0x} E_{0y}}\cos \delta \right]=1,
 \end{equation}
 
-To finish off the section we will talk about the conventions. Tomorrow
+which describes an ellipse in its nonstandard form. 
+
+\begin{figure}[h]
+    \centering
+    \includestandalone{3_chapter03/tikz_pol_ellipse}
+    \caption{}
+    \label{fig:pol_ellipse}
+\end{figure}
+
+To finish off the section we will talk about the conventions. Tomorrow, again ...
 
 \section{Birefringence}
 \label{sec:birefringence}
