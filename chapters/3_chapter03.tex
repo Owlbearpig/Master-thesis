@@ -22,7 +22,7 @@ There are several ways to describe the polarization state of EM-waves. One of th
 \end{minipage}
 \newline
 
-where $\bm{E}, \bm{H}$ denote the electric and magnetizing fields respectively,  $\bm{D}=\hat{\epsilon} \bm{E}$ is the electric displacement, $\hat{\epsilon}$ is the permittivity of the material and t denotes time. The materials used in this work are non magnetic, which means that the magnetic and magnetizing fields are proportional: $\bm{B} = \mu_0 \bm{H}$, where $\mu_0$ denotes the vacuum permeability. $\rho_f, \bm{J}_f$ is the free charge and current density respectively. Usually in optics there are no free charge carriers or free currents, which is also the case for all materials in this work, so we set $\rho_f=\bm{J}_f=0$ \cite{Roth2019Optik}. If we then also assume that the materials are homogeneous so that $\hat{\epsilon}$ does not depend on position, then we can reduce equations \ref{eq:maxwell1}-\ref{eq:maxwell4} to the following:
+where $\bm{E}, \bm{H}$ denote the electric and magnetizing fields respectively,  $\bm{D}=\hat{\epsilon} \bm{E}$ is the electric displacement, t is the time and $\hat{\epsilon}$ is the permittivity, which depends on the material and is a complex function of the frequency. The materials used in this work are non magnetic, which means that the magnetic and magnetizing fields are proportional: $\bm{B} = \mu_0 \bm{H}$, where $\mu_0$ denotes the vacuum permeability. $\rho_f, \bm{J}_f$ is the free charge and current density respectively. Usually in optics there are no free charge carriers or free currents, which is also the case for all materials in this work, so we set $\rho_f=\bm{J}_f=0$ \cite{Roth2019Optik}. If we then also assume that the materials are homogeneous so that $\hat{\epsilon}$ does not depend on position, then we can reduce equations \ref{eq:maxwell1}-\ref{eq:maxwell4} to the following:
 
 \noindent\begin{minipage}{.5\linewidth}
 \begin{align}
@@ -49,7 +49,7 @@ Then using the vector calculus identity: $\bm{\nabla}\times \bm{\nabla}\times \b
     \label{eq:waveeq}
     \bm{\nabla}^2 \bm{E} = \mu_0 \hat{\epsilon} \frac{\partial^2\bm{E}}{\partial t^2}
 \end{equation}
-or in frequency space $(\partial_t \xrightarrow{\mathscr{F}} i\omega)$:
+and via a Fourier transform $(\partial_t \xrightarrow{\mathscr{F}} i\omega)$ we readily get the Helmholtz equation for $\bm{E}$:
 \begin{equation}
     \label{eq:waveeqfreq}
     \bm{\nabla}^2 \bm{E} = -\mu_0 \hat{\epsilon} \omega^2 \bm{E},
@@ -62,6 +62,7 @@ A solution to the wave equation is a coherent plane wave at frequency $\omega$ w
 \end{equation}
 where $\bm{r}$ and $\bm{k}$ denote the position and wave vector respectively and $\bm{E_0}$ denotes the maximum amplitude of the wave. If we assume the wave propagates along the z-direction in a Cartesian coordinate system, then the amplitude will be orthogonal to the z-direction, i.e a transverse wave. This follows directly from equation \ref{eq:maxwell1reduced}. From the wave equation in frequency space we then find the requirement that the wave number, which is the magnitude of the wave vector, and the angular frequency are related by:
 \begin{equation}
+    \label{eq:wavevector_req}
     k = \sqrt{\mu_0 \hat{\epsilon}} \omega
 \end{equation}
 The phase velocity of the wave can then be expressed as:
@@ -112,8 +113,6 @@ Now, if $\delta$ is exactly $\nicefrac{\pi}{2}$ and $E_{0x} = E_{0y}$, then we g
     \label{fig:circ_pol_planewave}
 \end{figure}
 
-\newpage
-
 Finally, the last polarization state we have not mentioned yet, even though it is in fact the most general, is the elliptical polarization state. The polarization states we have dealt with so far have all been limiting cases of this state. For a fixed position this is fairly simple to visualize geometrically; LP light traces out a line while CP light traces out a circle, both of these shapes are degenerate forms of an ellipse. A summary of the different degenerate states and the corresponding amplitude and phase combinations are shown in table \ref{tab:pol_state_summary}, which is divided into three parts with a pair of states in each. At the top there str the linear horizontal/vertical polarization (LHP/LVP) stated, the linear $\pm\SI{45}{\degree}$ polarization ($L_{\pm45}P$) states are in the middle and the CP states are at the bottom. The last column shows the corresponding degenerate ellipse for each state.
 
 \begin{table}
@@ -147,13 +146,22 @@ Figure \ref{fig:pol_ellipse} shows an example of a polarization ellipse together
     \label{fig:pol_ellipse}
 \end{figure}
 
-To round off this section of the chapter it is worth mentioning the conventions used here, since some choices might appear arbitrary.
-Namings?
-The convention used so far
-To finish off the section we will talk about the conventions. Tomorrow, again x2 LOL...
+We finish off this section, as a bit of a side note, by mentioning the conventions used so far. If we go back to the plane wave solution (equation \ref{eq:planewave}) of the wave equation we see that a replacement of $i$ with $-i$ yields another valid linearly independent solution. This leads to two different sets of definitions, depending on the of the imaginary unit. The first one, with a positive sign and the one used here, is commonly used in physics texts. While the other one with a negative sign is mainly used in electrical engineering texts. Mathematically the difference between these two conventions is simply the direction of rotation of the phasor in the complex plane with increasing time. An example of this is shown for a phasor $x$ in figure \ref{fig:phasor}. 
 
-\section{Birefringence}
-\label{sec:birefringence}[h]
+\begin{figure}[h]
+    \centering
+    \includestandalone[scale=1.25]{3_chapter03/tikz_phasor_rotation}
+    \caption{Example of a phasor in the complex plane. The sign of the imaginary unit determines the direction of rotation for increasing times, that is either clockwise $(-i)$ or counterclockwise $(+i)$.}
+    \label{fig:phasor}
+\end{figure}
+
+The choice of sign has other implications. We know from equation \ref{eq:wavevector_req} that the wavevector is in general complex because the permittivity is. On the other hand with Euler's Theorem we can rewrite any of the sinusoidal waves from equation \ref{eq:plane_wave_realparts}, for example the vertical component:
+\begin{equation}
+    E_y(z, t) = \frac{E_{0y}}{2}\left(e^{i(kz-\omega t + \delta_x)}+e^{-i(kz-\omega t + \delta_x)}\right)
+\end{equation}
+
+\section{Birefringence}[h]
+\label{sec:birefringence}
 Birefringence is the material property responsible for the phenomenon of double refraction. This phenomenon was observed for the first time in calcite crystals by the Danish scientist Rasmus Bartholin in 1669 \cite{RasmusBartholin1669ExperimentaDetegitur, Restaino2015PolarizationDevices}. The effect of double refraction on a light beam passing through a birefringent material is relatively easy to show. One can simply place a birefringent crystal on top of some text, as it is shown in figure \ref{fig:3birefringence}. Two images of the text become visible through the crystal and each image is shifted by a different amount. These images are not simply reflections at the crystal-air interface, since the images are brighter compared to images formed through reflections, and they are even visible when looking down directly from above. Also if the crystal is rotated then one of the pictures will be stationary, while the other one will circle around the stationary image. The same effect can be illustrated by sending an unpolarized laser beam through the crystal. The beam is split in two as it propagates through the crystal. Another effect of birefringence, which is more subtle, is that each of the two beams exiting the crystal will be polarized perpendicular to each other \cite{Roth2019Optik}.
 
 \begin{figure}[h]
