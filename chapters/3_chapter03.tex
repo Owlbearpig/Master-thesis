@@ -58,16 +58,16 @@ where $\omega$ is the angular frequency.
 A solution to the wave equation is a coherent plane wave at frequency $\omega$ which is given by: 
 \begin{equation}
     \label{eq:planewave}
-    \bm{E} = \bm{E_0} e^{i(\bm{k}\bm{r} - \omega t)},
+    \bm{E} = \bm{E_0} e^{i(\bm{k}\bm{r} - \omega t + \delta)},
 \end{equation}
-where $\bm{r}$ and $\bm{k}$ denote the position and wave vector respectively and $\bm{E_0}$ denotes the maximum amplitude of the wave. If we assume the wave propagates along the z-direction in a Cartesian coordinate system, then the amplitude will be orthogonal to the z-direction, i.e a transverse wave. This follows directly from equation \ref{eq:maxwell1reduced}. From the wave equation in frequency space we then find the requirement that the wave number, which is the magnitude of the wave vector, and the angular frequency are related by:
+where $\bm{r}$ and $\bm{k}$ denote the position and wave vector respectively, $\bm{E_0}$ denotes the maximum amplitude of the wave and $\delta$ is the phase constant. If we assume the wave propagates along the z-direction in a Cartesian coordinate system, then the amplitude will be orthogonal to the z-direction, i.e a transverse wave. This follows directly from equation \ref{eq:maxwell1reduced}. From the wave equation in frequency space we then find the requirement that the wave number, which is the magnitude of the wave vector, and the angular frequency are related by:
 \begin{equation}
     \label{eq:wavevector_req}
     k = \sqrt{\mu_0 \hat{\epsilon}} \omega
 \end{equation}
 The phase velocity of the wave can then be expressed as:
 \begin{equation}
-    v = \frac{\omega}{k} = \frac{1}{\sqrt{\mu_0 \hat{\epsilon}}} = \frac{c}{n},\:n = \sqrt{\frac{\hat{\epsilon}}{\epsilon_0}},
+    v = \frac{\omega}{k} = \frac{1}{\sqrt{\mu_0 \hat{\epsilon}}} = \frac{c}{\tilde{n}},\:\tilde{n} = \sqrt{\frac{\hat{\epsilon}}{\epsilon_0}},
 \end{equation}
 where $c$, $\epsilon_0$ and $n$ is the speed of light in vacuum, vacuum permittivity and refractive index respectively.
 So that from the wave equation we get two decoupled wave equations, each describing an oscillation in the x-z plane and the y-z plane. This is also known as Fresnel's wave theory which was proposed and verified experimentally around 1820 by Augustin-Jean Fresnel and François Arago, more than 40 years before Maxwell's equations were published \cite{Collett2009FieldPolarization,Jackson1998ClassicalEdition}.
@@ -79,7 +79,7 @@ This means equation \ref{eq:planewave} consists of only two perpendicular compon
     E_y(z, t) = E_{0y}\cos(kz-\omega t + \delta_y), 
 \end{aligned}
 \end{equation}
-where $\delta_x$ and $\delta_y$ are arbitrary phases. Depending on the values of $E_{0x}, E_{0y}$ and the relative phase or simply phase, which is $\delta = \delta_y - \delta_x$, we get different polarization states. Figure \ref{fig:Ex_Ey_planewaves} shows the real parts of the two plane wave components for a wave traveling along the z-direction when $\delta=0$ and $E_{0x}=E_{0y}$.
+where $\delta_x$ and $\delta_y$ are arbitrary phases of the two components. Depending on the values of $E_{0x}, E_{0y}$ and the relative phase or simply phase, which is $\delta = \delta_y - \delta_x$, we get different polarization states. Figure \ref{fig:Ex_Ey_planewaves} shows the real parts of the two plane wave components for a wave traveling along the z-direction when $\delta=0$ and $E_{0x}=E_{0y}$.
 
 \begin{figure}[h]
     \centering
@@ -122,7 +122,7 @@ Finally, the last polarization state we have not mentioned yet, even though it i
     \label{tab:pol_state_summary}
 \end{table}
 
-We can also realize this mathematically by eliminating the time and position dependency of the two components in equation \ref{fig:Ex_Ey_planewaves}, so that we get \footnote{The derivation is given in \ref{deriv:pol_ellipse}}:
+We can also realize this mathematically by eliminating the time and position dependency of the two components in equation \ref{fig:Ex_Ey_planewaves}, so that we get \footnote{The derivation is given in \ref{sec:deriv_pol_ellipse}}:
 
 \begin{equation}
     \centering
@@ -146,21 +146,48 @@ Figure \ref{fig:pol_ellipse} shows an example of a polarization ellipse together
     \label{fig:pol_ellipse}
 \end{figure}
 
-We finish off this section, as a bit of a side note, by mentioning the conventions used so far. If we go back to the plane wave solution (equation \ref{eq:planewave}) of the wave equation we see that a replacement of $i$ with $-i$ yields another valid linearly independent solution. This leads to two different sets of definitions, depending on the of the imaginary unit. The first one, with a positive sign and the one used here, is commonly used in physics texts. While the other one with a negative sign is mainly used in electrical engineering texts. Mathematically the difference between these two conventions is simply the direction of rotation of the phasor in the complex plane with increasing time. An example of this is shown for a phasor $x$ in figure \ref{fig:phasor}. 
+We finish off this section, as a bit of a side note, by mentioning the conventions used so far. If we go back to the plane wave solution (equation \ref{eq:planewave}) of the wave equation we see that a replacement of $i$ with $-i$ yields another valid linearly independent solution. This leads to two different sets of definitions, depending on the of the imaginary unit. The first one, with a positive sign and the one used here, is commonly used in physics texts. While the other one with a negative sign is mainly used in electrical engineering (EE) texts. Mathematically the difference between these two conventions is simply the direction of rotation of the phasor in the complex plane with increasing time. An example of this is shown for a phasor $x$ in figure \ref{fig:phasor}. 
 
 \begin{figure}[h]
     \centering
     \includestandalone[scale=1.25]{3_chapter03/tikz_phasor_rotation}
-    \caption{Example of a phasor in the complex plane. The sign of the imaginary unit determines the direction of rotation for increasing times, that is either clockwise $(-i)$ or counterclockwise $(+i)$.}
+    \caption{Example of a phasor $x$ in the complex plane. The sign of the imaginary unit determines the direction of rotation for increasing times. The rotation is indicated by the blue arrows and is either in the clockwise $(-i)$ or counterclockwise $(+i)$ direction.}
     \label{fig:phasor}
 \end{figure}
 
-The choice of sign has other implications. We know from equation \ref{eq:wavevector_req} that the wavevector is in general complex because the permittivity is. On the other hand with Euler's Theorem we can rewrite any of the sinusoidal waves from equation \ref{eq:plane_wave_realparts}, for example the vertical component:
+The choice of sign has other implications. We know from equation \ref{eq:wavevector_req} that the wavevector is in general complex because the permittivity is, so we can write it as $k=\beta + i \alpha$. On the other hand we get two expressions for a plane wave propagating in the z-direction, one for each definition:
+\begin{align}
+    &\bm{E_{0}}e^{i((\beta + i \alpha)z-\omega t + \delta)} \\
+    &\bm{E_{0}}e^{-i((\beta + i \alpha)z-\omega t + \delta)}, 
+\end{align}
+if we factor out the $\alpha$ dependency we get:
+\begin{align}
+    e^{-\alpha z}&\bm{E_{0}}e^{i(\beta z-\omega t + \delta)} \\
+    e^{\alpha z}&\bm{E_{0}}e^{-i(\beta z-\omega t + \delta)}. 
+\end{align}
+We see that in case of the EE definition the amplitude would increase as the wave propagates, which is nonsense.\footnote{This problem also arises in the derivation of the Lorentz oscillator model. More about this in the appendix (section \ref{sec:lorentz_model_sign}), since it is out of scope of this work.} Therefore the sign of the imaginary part of the wavevector must be chosen accordingly. So for the EE definition we get:
 \begin{equation}
-    E_y(z, t) = \frac{E_{0y}}{2}\left(e^{i(kz-\omega t + \delta_x)}+e^{-i(kz-\omega t + \delta_x)}\right)
+    k=\beta - i \alpha
+\end{equation}
+and 
+\begin{equation}
+    k=\beta + i \alpha
+\end{equation}
+for the physics definition.
+As a result the sign of the imaginary part of the refractive index will also depend on the chosen definition. When the EE definition is used:
+\begin{equation}
+    \tilde{n}= n - i \kappa
+\end{equation}
+and using the physics definition:  
+\begin{equation}
+    \tilde{n}= n + i \kappa
 \end{equation}
 
-\section{Birefringence}[h]
+The physics definition is used for example in the textbooks by John D. Jackson \cite{Jackson1998ClassicalEdition} and David J. Griffiths \cite{Griffiths2017IntroductionElectrodynamics} and also in \cite{Collett2009FieldPolarization}, which is the reference used for most of this section.
+There are not only convention differences between engineers and physicists but also even between different branches of physics. The definition of CP handedness relies on the point of view; that is either looking from the source in the direction of propagation or from the receiver against the direction of propagation. Here we use the version which is defined from the point of view of the receiver. This is also the convention commonly used in optics \cite{Bass2016HandbookOptics, M.LandiDeglInnocenti2004PolarizationLines} as well as by SPIE \cite{Collett2009FieldPolarization}.
+The other convention is used by radio astronomers \cite{1973CommissionAstronomie}, quantum physicists, because it is consistent with the convention of handedness for a particle's spin and it is also used by electrical engineers \cite{Orfanidis2004ElectromagneticAntennas}.
+
+\section{Birefringence}
 \label{sec:birefringence}
 Birefringence is the material property responsible for the phenomenon of double refraction. This phenomenon was observed for the first time in calcite crystals by the Danish scientist Rasmus Bartholin in 1669 \cite{RasmusBartholin1669ExperimentaDetegitur, Restaino2015PolarizationDevices}. The effect of double refraction on a light beam passing through a birefringent material is relatively easy to show. One can simply place a birefringent crystal on top of some text, as it is shown in figure \ref{fig:3birefringence}. Two images of the text become visible through the crystal and each image is shifted by a different amount. These images are not simply reflections at the crystal-air interface, since the images are brighter compared to images formed through reflections, and they are even visible when looking down directly from above. Also if the crystal is rotated then one of the pictures will be stationary, while the other one will circle around the stationary image. The same effect can be illustrated by sending an unpolarized laser beam through the crystal. The beam is split in two as it propagates through the crystal. Another effect of birefringence, which is more subtle, is that each of the two beams exiting the crystal will be polarized perpendicular to each other \cite{Roth2019Optik}.
 
