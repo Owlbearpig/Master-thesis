@@ -137,7 +137,7 @@ which describes an ellipse in its nonstandard form. Because of this the equation
 \begin{equation}
     \sin 2\chi = \frac{2E_{0x}E_{0y}}{E_{0x}^2 + E_{0y}^2}\sin \delta,\: \nicefrac{-\pi}{4}\leqslant\chi\leqslant\nicefrac{\pi}{4}.
 \end{equation}
-Figure \ref{fig:pol_ellipse} shows an example of a polarization ellipse together with the orientation and ellipticity angles. We see from the figure that for $\psi \rightarrow 0/\pi$ or $\psi \rightarrow \nicefrac{pi}{2}$ the major and minor axes $(a$ and $b)$ coincide with the coordinate axes. Likewise for $\chi \rightarrow 0$ the ellipse degenerates to a line and for $\chi \rightarrow \pm\nicefrac{\pi}{4}$ we get a circle \cite{Collett2009FieldPolarization}.
+Figure \ref{fig:pol_ellipse} shows an example of a polarization ellipse together with the orientation and ellipticity angles. We see from the figure that for $\psi \rightarrow 0/\pi$ or $\psi \rightarrow \nicefrac{pi}{2}$ the major and minor axes $(a$ and $b)$ coincide with the coordinate axes. Likewise for $\chi \rightarrow 0$ the ellipse degenerates to a line and for $\chi \rightarrow \pm\nicefrac{\pi}{4}$ we get a circle \cite{Collett2009FieldPolarization}. Actually, in most cases a lightbeam is a mixture of different polarization states, this is referred to as unpolarized light. It consists of a high number of short wave trains which are emitted from the individual atoms. In most cases these wave trains are radiated from dipoles and are therefore linearly polarized, but since every atom oscillates in a different direction the polarization will also vary for each wave train. Hence, the beam will be a mixture of different states \cite{Roth2019Optik}. 
 
 \begin{figure}[h]
     \centering
@@ -198,7 +198,18 @@ indexellipsoid.
 
 \subsection{Dichroism}
 \label{sec:dichroism}
-In general, the term dichroism refers to the selective absorption of one of the two perpendicular components of the light. This can be used in for example polarizers, which are extremely anisotropic so that one component is almost completely extinguished by the polarizer, while it is transparent to the other component. The simplest polarizer of this sort is a grid of parallel conducting wires, which is outlined in figure TODO.  
+In general, the term dichroism refers to the selective absorption of one of the two perpendicular field components of the light. This can be used in for example polarizers, which are extremely anisotropic so that one component is almost completely extinguished by the polarizer, while it is transparent to the other field component. The simplest polarizer of this sort is a grid of parallel conducting wires as it is shown in figure \ref{fig:wire_grid_polarizer} which is also known as a wire grid polarizer (WGP). The WGP is similar to a conducting diffraction grating with a sub-wavelength period. Now, if we assume that the light initially is unpolarized as it propagates towards the wire grid from the left, then the light will be linearly polarized perpendicular to the wires after the WGP. We can see this by considering the interaction of the two field components with the wires separately. One component can then be set to be parallel to the wires and the other perpendicular. The electrons are free to move in the y-direction, because the wires are conducting, so that a current is generated due to the acceleration of the electrons by the parallel field component. This current results in joule heating of the wires so that a part of the energy of the electric field is turned into heat. Additionally, the accelerated electrons radiate in both the forward and backward directions. The part that is radiated forwards, along the direction of propagation, mostly cancels the transmitted incident wave and the other part appears as the reflected wave. On the other hand, the electrons along the x-direction, that is perpendicular to the wires, are not free to move very far so that the corresponding wave component passes almost freely. So, at the end the component parallel to the wires is mostly extinguished and the light is therefore linearly polarized perpendicular to the wires.
+
+\begin{figure}[h]
+    \centering
+    \includestandalone[scale=1.20]{3_chapter03/tikz_wire_grid_polarizer}
+    \caption{This figure shows a wire grid polarizer which is essentially a conducting sub-wavelength grating. From the left unpolarized light interacts with the wire grid so that field components parallel to the wires are eliminated. After passing the polarizer the light is therefore linearly polarized perpendicular to the wires.}
+    \label{fig:wire_grid_polarizer}
+\end{figure}
+
+\begin{equation}
+    3 = 4
+\end{equation}
 
 \subsection{Birefringence}
 \label{sec:birefringence}
