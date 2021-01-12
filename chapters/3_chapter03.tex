@@ -1,5 +1,4 @@
-In this chapter we will introduce the basic principles required to understand what waveplates are and how they work in general. Simply put the purpose of a waveplate is to change the polarization of EM waves, most commonly by using a birefringent material. The polarization of EM waves, birefringence and how the waveplates work are explained in more detail in the sections \ref{sec:polellipse}, \ref{sec:birefringence} and \ref{sec:waveplates}. This change of the polarization state caused by the waveplate, and the state itself, can be described mathematically using Jones calculus or almost equivalently using Mueller calculus, which will be shown in section \ref{sec:mathdescription}. Finally, this leads to the description of the design and the design optimization problem in the last section (\ref{sec:design}) of this chapter.
-
+In this chapter we will introduce the basic principles required to understand what waveplates are and how the most common ones work. Simply put the purpose of a waveplate is to change the polarization of EM waves, most commonly by using a birefringent material. This as well as the underlying physical principles birefringence and dichroism are explained in more detail in the sections \ref{sec:polellipse}, \ref{sec:birefringence} and \ref{sec:waveplates}. Any change to the polarization state caused by the waveplate, and the state itself, can be described mathematically using Jones calculus or almost equivalently using Mueller calculus, which will be shown in section \ref{sec:mathdescription}. Finally, this leads to the description of the waveplate design as it is used in this work as well as the design optimization problem which are presented in the last section (\ref{sec:design}) of this chapter.
 
 \section{The polarization ellipse}
 \label{sec:polellipse}
@@ -129,12 +128,14 @@ We can also realize this mathematically by eliminating the time and position dep
     \frac{1}{\sin^2 \delta} \left[ \left(\frac{E_x}{E_{0x}}\right)^2+\left(\frac{E_y}{E_{0y}}\right)^2-2\frac{E_x E_y}{E_{0x} E_{0y}}\cos \delta \right]=1,
 \end{equation}
 
-which describes an ellipse in its nonstandard form. Because of this the equation is called the polarization ellipse. It is worth noting that even though the time and position dependencies have been explicitly eliminated, the wave components $E_x$ and $E_y$ continue to depend on them. That means $E_{0x}$, $E_{0y}$ and $\delta$ are the polarization ellipse parameters, which then define the shape of the ellipse. Therefore, even though the light propagates the shape remains constant. There are several ways to parameterize the polarization ellipse or ellipses in general using two variables. One way is to use the ellipticity angle $\chi$ and the orientation angle $\psi$, which both can be expressed through the polarization ellipse parameters: 
+which describes an ellipse in its nonstandard form. Because of this the equation is called the polarization ellipse. It is worth noting that even though the time and position dependencies have been explicitly eliminated, the wave components $E_x$ and $E_y$ continue to depend on them. That means $E_{0x}$, $E_{0y}$ and $\delta$ are the polarization ellipse parameters, which then define the shape of the ellipse. Therefore, even though the light propagates the shape remains constant. There are several ways to parameterize the polarization ellipse or ellipses in general using two variables. One way is to use the orientation angle $\psi$ and the ellipticity angle $\chi$, which both can be expressed through the polarization ellipse parameters: 
 
 \begin{equation}
+    \label{eq:ellipse_orientation}
     \tan 2\psi = \frac{2E_{0x}E_{0y}}{E_{0x}^2 - E_{0y}^2}\cos \delta,\: 0\leqslant\psi\leqslant\pi,
 \end{equation}
 \begin{equation}
+    \label{eq:ellipse_ellipticity}
     \sin 2\chi = \frac{2E_{0x}E_{0y}}{E_{0x}^2 + E_{0y}^2}\sin \delta,\: \nicefrac{-\pi}{4}\leqslant\chi\leqslant\nicefrac{\pi}{4}.
 \end{equation}
 Figure \ref{fig:pol_ellipse} shows an example of a polarization ellipse together with the orientation and ellipticity angles. We see from the figure that for $\psi \rightarrow 0/\pi$ or $\psi \rightarrow \nicefrac{pi}{2}$ the major and minor axes $(a$ and $b)$ coincide with the coordinate axes. Likewise for $\chi \rightarrow 0$ the ellipse degenerates to a line and for $\chi \rightarrow \pm\nicefrac{\pi}{4}$ we get a circle \cite{Collett2009FieldPolarization}. Actually, in most cases a lightbeam is a mixture of different polarization states, this is referred to as unpolarized light. It consists of a high number of short wave trains which are emitted from the individual atoms. In most cases these wave trains are radiated from dipoles and are therefore linearly polarized, but since every atom oscillates in a different direction the polarization will also vary for each wave train. Hence, the beam will be a mixture of different states \cite{Roth2019Optik}. 
@@ -188,12 +189,12 @@ There are not only convention differences between engineers and physicists but a
 The other convention is used by radio astronomers \cite{1973CommissionAstronomie}, quantum physicists, because it is consistent with the convention of handedness for a particle's spin and it is also used by electrical engineers \cite{Orfanidis2004ElectromagneticAntennas}.
 
 \section{Modifying the polarization state}
-In the previous section we saw that the electrical field consists of two components which trace out an ellipse as time propagates for a fixed position. Additionally, the shape and orientation of the ellipse depends on the relative phase of the two components as well as their amplitudes. Naturally this dependency is symmetrical in the two amplitudes and the relative phase. Therefore in order to change the polarization state, the change in each of the individual phases must be different and or that of the two amplitudes. If not, then the change would simply change the scale of the ellipse and not its shape or orientation. Consequently, for this to happen the medium the wave is propagating in must be anisotropic. Now, if the absorption of the material depends on the direction, then the amplitude will vary differently for the two components. Materials with this property are said to be dichroic. Likewise, some materials cause different phase changes. This material property is called birefringence. In the following section we will explain these two properties phenomenologically as well as their underlying physical principles.
+In the previous section we saw that the electrical field consists of two perpendicular components which trace out an ellipse as time propagates for any fixed position. Additionally, the shape and orientation of the ellipse depends on the relative phase of the two components as well as their amplitudes. Naturally this dependency is symmetrical in the two amplitudes and the relative phase, as can be seen directly from equations \ref{eq:ellipse_orientation} and \ref{eq:ellipse_ellipticity}. Therefore in order to change the polarization state, the change in each of the individual phases must be different and or that of the two amplitudes. Otherwise simply the scale of the ellipse would change and not its shape or orientation. Consequently, for this to happen the medium the wave is propagating in must be anisotropic. Now, if the absorption of the material is direction dependent, then the amplitude will vary differently for the two components. Materials with this property are said to be dichroic. Likewise, some materials cause different phase changes between the two components. This material property is called birefringence. In the following section we will explain these two properties phenomenologically as well as their underlying physical principle.
 
 TODO Add E perp to K and B etc. in beginning of maxwell stuff...
+
 TODO maybe add small note about why dealing with single frequency makes sense -> fft, superposition principle stuff (griffiths explains it 7.12 or something)
 
-two main effects that change polarization why? stuff do intro -> birefringence, dichroism phenomelogical -> explanation optics by eugene 351
 indexellipsoid.
 
 \subsection{Dichroism}
@@ -203,7 +204,7 @@ In general, the term dichroism refers to the selective absorption of one of the 
 \begin{figure}[h]
     \centering
     \includestandalone[scale=1.20]{3_chapter03/tikz_wire_grid_polarizer}
-    \caption{This figure shows a wire grid polarizer which is essentially a conducting sub-wavelength grating. From the left unpolarized light interacts with the wire grid so that field components parallel to the wires are eliminated. After passing the polarizer the light is therefore linearly polarized perpendicular to the wires.}
+    \caption{This figure shows a wire grid polarizer which is essentially a conducting sub-wavelength grating. From the left unpolarized light interacts with the wire grid so that the field components parallel to the wires are eliminated. After passing the polarizer the light is therefore linearly polarized perpendicular to the wires.}
     \label{fig:wire_grid_polarizer}
 \end{figure}
 
@@ -217,30 +218,30 @@ Birefringence is the material property responsible for the phenomenon of double 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.3]{images/3_chapter03/birefringence.png}
-    \caption{A calcite crystal placed on top of some text. This demonstrates the effect of birefringence on the original image seen through the crystal. \cite{Roth2019Optik}}
+    \caption{A calcite crystal placed on top of some text. This demonstrates the effect of birefringence on the original image seen through the crystal \cite{Roth2019Optik}.}
     \label{fig:3birefringence}
 \end{figure}
 
-The explanation of the underlying principle is similar to that of dichroism and can be explained by considering the structure of the material. We can represent the binding of the electron cloud to the nuclei at each crystal lattice point using a mechanical model. The model consists of a shell bound to the nuclei with springs. Furthermore the springs have different spring constants and the nuclei is fixed in space. 
+The explanation of the underlying physical principle of birefringence is similar to that of dichroism; it can be explained by considering the structure of the material. We can represent the binding of the electron cloud to the nuclei at each crystal lattice point using a harmonic oscillator model. The model, which is shown in figure \ref{fig:electron_shell}, consists of a shell bound to the nuclei with springs. Furthermore, the springs have different spring constants and the nuclei is fixed in space. So, if an electron is displaced parallel to one of the springs it will oscillate with a different frequency relative to any other direction. How this finally influences the refractive index can be explained by considering the propagation of light through a transparent medium. As the wave propagates through the medium the electrical field excites the electrons which in turn reradiate. These reradiated wavelets recombine to form the refracted wave. Additionally, the phase velocity of the refracted wave will be determined by the frequency difference between the natural oscillation of the electrons and the frequency of the electrical field. Since the refractive index is simply the ratio between the speed of light in vacuum and in the medium it will change too depending on this frequency difference. If we go back to figure \ref{fig:electron_shell} this means that for example a wave linearly polarized parallel to the x-axis experiences a different refractive index compared to one polarized parallel to the z-axis. That is also the definition of birefringence; a material with two or more different refractive indices. Another related and important concept is the optic axis of a crystal\footnote{In the context of crystals it is called the optic axis, otherwise it is called the optical axis like the axis perpendicular to the center of a lens.}. That is, if we have the case in which two springs have the same rigidity, for example those in the xy-plane, then the optic axis will be parallel to the z-axis. The special property of the optic axis is that any wave propagating parallel to it will not undergo any birefringence effects, because the material is optically symmetrical under any rotation about this axis so that the two components of the wave will experience the same refractive index. Since this symmetry is at any lattice point, the optic axis is actually a direction and not just a line that goes through a single point. 
 
 \begin{figure}[h]
     \centering
     \includestandalone[scale=1.00]{3_chapter03/tikz_electron_shell}
-    \caption{Model of an electron cloud bound to its nucleus via springs of different strength. The nucleus is fixed in space. This model is a simplification of an optical anisotropic material, a model closer to reality would require a quantum mechanical description of the system.}
+    \caption{Mechanical model of an electron cloud, which is represented by a spherical shell. It is bound to its nucleus via springs of different strength. The nucleus is fixed in space. This model is a simplification of an optical anisotropic material, for an isotropic material the spring constants would be equal. Calculating the refractive index for a specific crystal uses a quantum mechanical description as it is done in for example \cite{Rerat2020FromApproach}.}
     \label{fig:electron_shell}
 \end{figure}
 
-\subsection{Natural}
+Furthermore, this explains the phenomena described at the beginning of this section. 
 
 \subsection{Form birefringence}
+
+\subsection{Boundary conditions}
 
 \section{Waveplates}
 \label{sec:waveplates}
 
 \section{Mathematical description}
 \label{sec:mathdescription}
-
-\subsection{Boundary conditions}
 
 \subsection{Jones calculus}
 
