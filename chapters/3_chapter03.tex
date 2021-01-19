@@ -21,7 +21,7 @@ There are several ways to describe the polarization state of EM-waves. One of th
 \end{minipage}
 \newline
 
-where $\bm{E}, \bm{H}$ denote the electric and magnetizing fields respectively,  $\bm{D}=\hat{\epsilon} \bm{E}$ is the electric displacement, t is the time and $\hat{\epsilon}$ is the permittivity, which depends on the material and is a complex function of the frequency. The materials used in this work are non magnetic, which means that the magnetic and magnetizing fields are proportional: $\bm{B} = \mu_0 \bm{H}$, where $\mu_0$ denotes the vacuum permeability. $\rho_f, \bm{J}_f$ is the free charge and current density respectively. Usually in optics there are no free charge carriers or free currents, which is also the case for all materials in this work, so we set $\rho_f=\bm{J}_f=0$ \cite{Roth2019Optik}. If we then also assume that the materials are homogeneous so that $\hat{\epsilon}$ does not depend on position, then we can reduce equations \ref{eq:maxwell1}-\ref{eq:maxwell4} to the following:
+where $\bm{E}, \bm{H}$ denote the electric and magnetizing fields respectively,  $\bm{D}=\hat{\epsilon} \bm{E}$ is the electric displacement for a linear medium, t is the time and $\hat{\epsilon}$ is the permittivity, which depends on the material and is a complex function of the frequency. The materials used in this work are non magnetic, which means that the magnetic and magnetizing fields are proportional: $\bm{B} = \mu_0 \bm{H}$, where $\mu_0$ denotes the vacuum permeability. $\rho_f, \bm{J}_f$ is the free charge and current density respectively. Usually in optics there are no free charge carriers or free currents, which is also the case for all materials in this work, so we set $\rho_f=\bm{J}_f=0$ \cite{Roth2019Optik}. If we then also assume that the materials are homogeneous so that $\hat{\epsilon}$ does not depend on position, then we can reduce equations \ref{eq:maxwell1}-\ref{eq:maxwell4} to the following:
 
 \noindent\begin{minipage}{.5\linewidth}
 \begin{align}
@@ -188,7 +188,7 @@ The physics definition is used for example in the textbooks by John D. Jackson \
 There are not only convention differences between engineers and physicists but also even between different branches of physics. The definition of CP handedness relies on the point of view; that is either looking from the source in the direction of propagation or from the receiver against the direction of propagation. Here we use the version which is defined from the point of view of the receiver. This is also the convention commonly used in optics \cite{Bass2016HandbookOptics, M.LandiDeglInnocenti2004PolarizationLines} as well as by SPIE \cite{Collett2009FieldPolarization}.
 The other convention is used by radio astronomers \cite{1973CommissionAstronomie}, quantum physicists, because it is consistent with the convention of handedness for a particle's spin and it is also used by electrical engineers \cite{Orfanidis2004ElectromagneticAntennas}.
 
-\section{Modifying the polarization state}
+\section{Modifying the polarization state - EM-propagation in anisotropic media}
 In the previous section we saw that the electrical field consists of two perpendicular components which trace out an ellipse as time propagates for any fixed position. Additionally, the shape and orientation of the ellipse depends on the relative phase of the two components as well as their amplitudes. Naturally this dependency is symmetrical in the two amplitudes and the relative phase, as can be seen directly from equations \ref{eq:ellipse_orientation} and \ref{eq:ellipse_ellipticity}. Therefore in order to change the polarization state, the change in each of the individual phases must be different and or that of the two amplitudes. Otherwise simply the scale of the ellipse would change and not its shape or orientation. Consequently, for this to happen the medium the wave is propagating in must be anisotropic. Now, if the absorption of the material is direction dependent, then the amplitude will vary differently for the two components. Materials with this property are said to be dichroic. Likewise, some materials cause different phase changes between the two components. This material property is called birefringence. In the following section we will explain these two properties phenomenologically as well as their underlying physical principle.
 -TODO Add E perp to K and B etc. in beginning of maxwell stuff...
 -TODO maybe add small note about why dealing with single frequency makes sense -> fft, superposition principle stuff (griffiths explains it 7.12 or something)
@@ -223,28 +223,73 @@ The explanation of the underlying physical principle of birefringence is similar
 
 \begin{figure}[h]
     \centering
-    \includestandalone[scale=1.00]{3_chapter03/tikz_electron_shell}
+    \includestandalone[scale=0.90]{3_chapter03/tikz_electron_shell}
     \caption{Mechanical model of an electron cloud, which is represented by a spherical shell. It is bound to its nucleus via springs of different strength. The nucleus is fixed in space. This model is a simplification of an optical anisotropic material, for an isotropic material the spring constants would be equal. Calculating the refractive index for a specific crystal uses a quantum mechanical description as it is done in for example \cite{Rerat2020FromApproach}.}
     \label{fig:electron_shell}
 \end{figure}
 
-Furthermore, this explains the phenomena described at the beginning of this section. Going back to the calcite crystal shown in figure \ref{fig:3birefringence} we see that the optic axis must be at an angle, not parallel or perpendicular, to the surface normal. Otherwise we would not observe double refraction. Additionally, the field components perpendicular to the optic axis will not be refracted and therefore form the o-rays, which makes the image look like it is seen through an ordinary piece of glass. The other field components will have a part parallel to the optic axis and one perpendicular to it. This means that the wavefront gets distorted and that part is therefore refracted. Those refracted parts then form the e-rays. Finally, this also explains why the polarizations states of the o- and e-rays are orthogonal because of the spatial separation of the two field components. For clarity a sketch of the field, as it passes through the calcite crystal, is shown in figure \ref{fig:calcite_beams}. A crystal with exactly one symmetry axis or optic axis like calcite is said to be uniaxial and one with two is biaxial but we will not encounter the latter in this work. 
+Furthermore, this explains the phenomena described at the beginning of this section. Going back to the calcite crystal shown in figure \ref{fig:3birefringence} we see that the optic axis must be at an angle, not parallel or perpendicular, to the surface normal. Otherwise we would not observe double refraction. Additionally, the field components perpendicular to the optic axis will not be refracted and therefore form the o-rays, which makes the image look like it is seen through an ordinary piece of glass. The other field components will have a part parallel to the optic axis and one perpendicular to it. This means that the wavefront gets distorted and that part is therefore refracted. Those refracted parts then form the e-rays. Finally, this also explains why the polarizations states of the o- and e-rays are orthogonal because of the spatial separation of the two field components. For clarity a sketch of the field, as it passes through the calcite crystal, is shown in figure \ref{fig:calcite_beams}. A crystal with exactly one symmetry axis or optic axis like calcite is said to be uniaxial. Crystals with two optic axes also exists, i.e. the case shown in figure \ref{fig:electron_shell} where the springs in the x-, y- and z-directions all differ, these crystals are called biaxial but we will not encounter them in this work. 
 
 \begin{figure}[h]
     \centering
-    \includestandalone[scale=1]{3_chapter03/tikz_calcite_beams}
-    \caption{The field components are separated as the light passes through the calcite crystal forming the e- and o-ray. The component perpendicular to the optic axis passes through as expected for normal incidence, while the other component is refracted. It also explains why the polarization states of the two rays are orthogonal.}
+    \includestandalone[scale=0.95]{3_chapter03/tikz_calcite_beams}
+    \caption{The field components are separated as the light passes through the calcite crystal forming the e- and o-wave. The component perpendicular to the optic axis passes through as expected for normal incidence, while the other component is refracted. It also explains why the polarization states of the two rays are orthogonal.}
     \label{fig:calcite_beams}
 \end{figure}
 
-Figure \ref{fig:uniaxial_source} shows the propagation of a wave emitted from an unpolarized source within an uniaxial crystal. The component of the field perpendicular to the optic axis will propagate with the same phase velocity $(v_{\bot})$ in all directions, so that the wavefronts form the o-wave which further expands in a circle. Meanwhile the field component, which is not everywhere perpendicular to the optic axis, will be traveling with a phase velocity $v_{\parallel}$ in the directions perpendicular to the optic axis. The wavefronts of the e-wave therefore forms an ellipse. We see that uniaxial crystals or materials have two different refractive indices, that is $n_e = c/v_{\parallel}$ and $n_o = c/v_{\bot}$. 
+Figure \ref{fig:uniaxial_source} shows the propagation of a wave emitted from an unpolarized source placed within an uniaxial crystal. The component of the field perpendicular to the optic axis will propagate with the same phase velocity $v_{\bot}$ in all directions, so that the wavefronts form the o-wave which further expands in the shape of a circle. Meanwhile the field component, which is not everywhere perpendicular to the optic axis, will be traveling with a phase velocity $v_{\parallel}$ in the directions perpendicular to the optic axis. The wavefronts of the e-wave therefore form an ellipse. We therefore end up with different refractive indices with extrema along and perpendicular to the optic axis. In this case the highest refractive index $n_o = \nicefrac{c}{v_{\bot}}$ is found in the directions parallel to the optic axis, while it is lowest for the perpendicular directions. Because $v_{\parallel} > v_{\bot}$ and since the refractive index perpendicular to the optic axis is given by $n_e = \nicefrac{c}{v_{\parallel}}$ it follows that $n_e < n_o$. With this it is possible to quantify the birefringent strength of the crystal or material via the difference $\Delta n = n_e - n_o$ in the refractive indices of the o- and e-wave. The difference $\Delta n$ is simply known as the birefringence of the material. If $\Delta n$ is negative the crystal is said to be negative uniaxial which is the case for calcite and the example shown in figure \ref{fig:uniaxial_source}. On the other hand, if $\Delta n$ is positive the material is positive uniaxial and in that case the ellipse formed by the wavefronts of the e-wave are enclosed within the circle formed by the wavefronts of the o-wave. 
 
 \begin{figure}[h]
     \centering
-    \includestandalone[scale=0.8]{3_chapter03/tikz_uniaxial_source}
-    \caption{Unpolarized light source inside an uniaxial crystal. The components which are everywhere perpendicular to the optic axis form the o-wave and expands in a circle, while the other components propagate faster }
+    \includestandalone[scale=1.0]{3_chapter03/tikz_uniaxial_source}
+    \caption{Unpolarized light source inside an uniaxial crystal. The red dots represent components which are everywhere perpendicular to the optic axis. They form the o-wave and expand in a circle because they experience the same refractive index everywhere. The components represented by the blue arrows lie in the plane of the figure, they are partly pointing in the direction of the optic axis. Depending on their orientation to the optic axis they therefore experience a different refractive index so that the wavefront forms an ellipse.}
     \label{fig:uniaxial_source}
 \end{figure}
+
+For biaxial crystals birefringence is still defined as the biggest difference between the refractive indices along the different directions. For completeness, it is worth mentioning the case in which the refractive indices along all the directions are equal. The unit cell of these materials is cubic causing them to be isotropic \cite{HechtOpticsEdition}. 
+Finally, to conclude this section we will give a description of the same situation but from another point of view. To that extend we consider the energy density of an em-wave in an anisotropic medium.
+We start by introducing a charge density $\rho$ and then express the work done by the fields moving it a distance $d\bm{l}=\bm{v}dt$ in terms of the fields themselves. Since that gives us an idea of the energy stored in the fields. The force acting on the charge distribution is the Lorentz force density $\bm{f}$:
+\begin{equation}
+    \bm{f}d\bm{l}=\rho(\bm{E}+\bm{v}\times\bm{B})\cdot\bm{v}dt=\rho\bm{E}\cdot\bm{v}dt
+\end{equation}
+We get the last equality because $\bm{v}\cdot(\bm{v}\times\bm{B})$ is zero for any $v$ and $\bm{B}$. 
+If we then integrate over the volume $V$ enclosing the charge distribution and use the fact that $\bm{J}=\rho\bm{v}$ we get:
+\begin{equation}
+    \int_V \bm{f} dV d\bm{l}=\int_V \bm{E}\cdot\bm{J} dVdt
+\end{equation}
+since $\int_V \bm{f} dV = \bm{F}$ and $dW = \bm{F} d\bm{l}$ we finally end up with:
+\begin{equation}
+    \label{eq:emf_work}
+    \frac{dW}{dt} = \int_V \bm{E}\cdot\bm{J} dV
+\end{equation}
+Since we want to express this in terms of the fields only we use the Ampère-Maxwell law, that is equation \ref{eq:maxwell4}:
+\begin{equation}
+    \bm{J}\cdot\bm{E} = \frac{1}{\mu_0}\bm{E}\cdot(\bm{\nabla}\times\bm{B})-\bm{E}\cdot\frac{\partial\bm{D}}{\partial t}
+\end{equation}
+We can rewrite $\bm{E}\cdot(\bm{\nabla}\times\bm{B})$ as $-\bm{B}\cdot\frac{\partial \bm{B}}{\partial t} - \bm{\nabla}\cdot(\bm{E}\times\bm{B})$ using a product rule from vector calculus and the Maxwell–Faraday law (equation \ref{eq:maxwell3}). With the fact that $\bm{A}\cdot\frac{\partial \bm{A}}{\partial t} = \frac{1}{2} \frac{\partial A^2}{\partial t}$ for any vector $\bm{A}$ we finally end up with:
+\begin{equation}
+    \bm{E}\cdot\bm{J} = -\frac{1}{2}\frac{\partial}{\partial t}\left(\frac{1}{\mu_0}B^2+\bm{E}\cdot\bm{D}\right)-\frac{1}{\mu_0}\bm{\nabla}\cdot(\bm{E}\times\bm{B})
+\end{equation}
+which we then substitute back into equation \ref{eq:emf_work} and with the help of Gauss's theorem we get:
+\begin{equation}
+    \label{eq:poyntings_theorem}
+    \frac{dW}{dt} = -\frac{\partial}{\partial t} \int_V \frac{1}{2}\left(\frac{1}{\mu_0}B^2+\bm{E}\cdot\bm{D}\right)dV -\frac{1}{\mu_0}\oint_{\partial V} (\bm{E}\times\bm{B}) \cdot d\bm{s}
+\end{equation}
+This is known as Poynting's theorem in integral form and can be compared to the work-energy theorem of classical mechanics. That is, the work done by an electromagnetic force on a charge distribution equals the decrease of energy stored in the fields. It also has the same shape as a continuity equation like the heat flow equation or the continuity equation in quantum mechanics related to the conservation of probability. The volume integral of equation \ref{eq:poyntings_theorem} is the total energy stored in the fields while the surface integral describes the energy flux or rate of transport out of the volume by the fields. We can therefore rewrite equation \ref{eq:poyntings_theorem} as:
+\begin{equation}
+    \label{eq:poyntings_theorem}
+    \frac{dW}{dt} = -\frac{\partial}{\partial t} \int_V u\, dV -\oint_{\partial V} \bm{S} \cdot d\bm{s}
+\end{equation}
+where we set
+\begin{equation}
+    u = \frac{1}{2}\left(\frac{1}{\mu_0}B^2+\bm{E}\cdot\bm{D}\right),\; \bm{S} = \frac{1}{\mu_0}(\bm{E}\times\bm{B}),
+\end{equation}
+$u$ is the energy density of the fields and $\bm{S}$ is the energy flux density known as the Poyinting vector. Finally, if we take only the electric field contribution to the energy density, that is $u_e = \frac{1}{2}\bm{E}\cdot\bm{D}$, and choose a coordinate system in which the dielectric tensor is diagonal, known as the principal coordinate system, then we can write the electrical displacement vectors for which $u_e$ is constant as:
+\begin{equation}
+    \frac{D_x^2}{\epsilon_x}+\frac{D_y^2}{\epsilon_y}+\frac{D_z^2}{\epsilon_z}= 2u_e
+\end{equation}
+
+\cite{Yariv1984OpticalRadiation, Griffiths2017IntroductionElectrodynamics}
 
 \subsection{Form birefringence}
 
