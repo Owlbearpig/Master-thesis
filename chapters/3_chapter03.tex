@@ -1,4 +1,4 @@
-In this chapter we will introduce the basic principles required to understand what waveplates are and how the most common ones work. Simply put the purpose of a waveplate is to change the polarization of EM waves, most commonly by using a birefringent material. This as well as the underlying physical principles birefringence and dichroism are explained in more detail in the sections \ref{sec:polellipse}, \ref{sec:birefringence} and \ref{sec:waveplates}. Any change to the polarization state caused by the waveplate, and the state itself, can be described mathematically using Jones calculus or almost equivalently using Mueller calculus, which will be shown in section \ref{sec:mathdescription}. Finally, this leads to the description of the waveplate design as it is used in this work as well as the design optimization problem which are presented in the last section (\ref{sec:design}) of this chapter.
+In this chapter we will introduce the basic principles required to understand what waveplates are and how the standard birefringent ones work. Simply put the purpose of a waveplate is to change the polarization of EM waves, most commonly by using a birefringent material. To that extend, the underlying physical principles birefringence and dichroism are explained in more detail in the sections \ref{sec:dichroism} and \ref{sec:birefringence}. Any change to the polarization state caused by the waveplate, and the state itself, can be described mathematically using Jones calculus or almost equivalently using Mueller calculus, which will be shown in section \ref{sec:mathdescription}. Finally, this leads to the description of the waveplate design as it is used in this work as well as the design optimization problem which is presented in the last section (\ref{sec:design}) of this chapter.
 
 \section{The polarization ellipse}
 \label{sec:polellipse}
@@ -138,11 +138,11 @@ which describes an ellipse in its nonstandard form. Because of this the equation
     \label{eq:ellipse_ellipticity}
     \sin 2\chi = \frac{2E_{0x}E_{0y}}{E_{0x}^2 + E_{0y}^2}\sin \delta,\: \nicefrac{-\pi}{4}\leqslant\chi\leqslant\nicefrac{\pi}{4}.
 \end{equation}
-Figure \ref{fig:pol_ellipse} shows an example of a polarization ellipse together with the orientation and ellipticity angles. We see from the figure that for $\psi \rightarrow 0/\pi$ or $\psi \rightarrow \nicefrac{pi}{2}$ the major and minor axes $(a$ and $b)$ coincide with the coordinate axes. Likewise for $\chi \rightarrow 0$ the ellipse degenerates to a line and for $\chi \rightarrow \pm\nicefrac{\pi}{4}$ we get a circle \cite{Collett2009FieldPolarization}. Actually, in most cases a lightbeam is a mixture of different polarization states, this is referred to as unpolarized light. It consists of a high number of short wave trains which are emitted from the individual atoms. In most cases these wave trains are radiated from dipoles and are therefore linearly polarized, but since every atom oscillates in a different direction the polarization will also vary for each wave train. Hence, the beam will be a mixture of different states \cite{Roth2019Optik}. 
+Figure \ref{fig:pol_ellipse} shows an example of a polarization ellipse together with the orientation and ellipticity angles. We see from the figure that for $\psi \rightarrow 0/\pi$ or $\psi \rightarrow \nicefrac{pi}{2}$ the major and minor axes $(a$ and $b)$ coincide with the coordinate axes. Likewise for $\chi \rightarrow 0$ the ellipse degenerates to a line and for $\chi \rightarrow \pm\nicefrac{\pi}{4}$ we get a circle \cite{Collett2009FieldPolarization}. Actually, in most cases a light beam is a mixture of different polarization states, this is referred to as unpolarized light. It consists of a high number of short wave trains which are emitted from the individual atoms. In most cases these wave trains are radiated from dipoles and are therefore linearly polarized, but since every atom oscillates in a different direction the polarization will also vary for each wave train. Hence, the beam will be a mixture of different states \cite{Roth2019Optik}. 
 
 \begin{figure}[h]
     \centering
-    \includestandalone{3_chapter03/tikz_pol_ellipse}
+    \includestandalone[scale=1.1]{3_chapter03/tikz_pol_ellipse}
     \caption{Example of a polarization ellipse, which shows the ellipticity and orientation angle geometrically. The major and minor axes of the polarization ellipse are denoted by $a$ and $b$ respectively. We see that $\chi$ changes with the shape of the ellipse while $\psi$ is simply the orientation relative to the x-axis.}
     \label{fig:pol_ellipse}
 \end{figure}
@@ -151,7 +151,7 @@ We finish off this section, as a bit of a side note, by mentioning the conventio
 
 \begin{figure}[h]
     \centering
-    \includestandalone[scale=1.25]{3_chapter03/tikz_phasor_rotation}
+    \includestandalone[scale=1.3]{3_chapter03/tikz_phasor_rotation}
     \caption{Example of a phasor $x$ in the complex plane. The sign of the imaginary unit determines the direction of rotation for increasing times. The rotation is indicated by the blue arrows and is either in the clockwise $(-i)$ or counterclockwise $(+i)$ direction.}
     \label{fig:phasor}
 \end{figure}
@@ -188,11 +188,8 @@ The physics definition is used for example in the textbooks by John D. Jackson \
 There are not only convention differences between engineers and physicists but also even between different branches of physics. The definition of CP handedness relies on the point of view; that is either looking from the source in the direction of propagation or from the receiver against the direction of propagation. Here we use the version which is defined from the point of view of the receiver. This is also the convention commonly used in optics \cite{Bass2016HandbookOptics, M.LandiDeglInnocenti2004PolarizationLines} as well as by SPIE \cite{Collett2009FieldPolarization}.
 The other convention is used by radio astronomers \cite{1973CommissionAstronomie}, quantum physicists, because it is consistent with the convention of handedness for a particle's spin and it is also used by electrical engineers \cite{Orfanidis2004ElectromagneticAntennas}.
 
-\section{Modifying the polarization state - EM-propagation in anisotropic media}
+\section{EM-propagation in anisotropic media}
 In the previous section we saw that the electrical field consists of two perpendicular components which trace out an ellipse as time propagates for any fixed position. Additionally, the shape and orientation of the ellipse depends on the relative phase of the two components as well as their amplitudes. Naturally this dependency is symmetrical in the two amplitudes and the relative phase, as can be seen directly from equations \ref{eq:ellipse_orientation} and \ref{eq:ellipse_ellipticity}. Therefore in order to change the polarization state, the change in each of the individual phases must be different and or that of the two amplitudes. Otherwise simply the scale of the ellipse would change and not its shape or orientation. Consequently, for this to happen the medium the wave is propagating in must be anisotropic. Now, if the absorption of the material is direction dependent, then the amplitude will vary differently for the two components. Materials with this property are said to be dichroic. Likewise, some materials cause different phase changes between the two components. This material property is called birefringence. In the following section we will explain these two properties phenomenologically as well as their underlying physical principle.
--TODO Add E perp to K and B etc. in beginning of maxwell stuff...
--TODO maybe add small note about why dealing with single frequency makes sense -> fft, superposition principle stuff (griffiths explains it 7.12 or something)
--indexellipsoid.
 
 \subsection{Dichroism}
 \label{sec:dichroism}
@@ -200,13 +197,13 @@ In general, the term dichroism refers to the selective absorption of one of the 
 
 \begin{figure}[h]
     \centering
-    \includestandalone[scale=1.20]{3_chapter03/tikz_wire_grid_polarizer}
+    \includestandalone[scale=1.30]{3_chapter03/tikz_wire_grid_polarizer}
     \caption{This figure shows a wire grid polarizer which is essentially a conducting sub-wavelength grating. From the left unpolarized light interacts with the wire grid so that the field components parallel to the wires are eliminated. After passing the polarizer the light is therefore linearly polarized perpendicular to the wires.}
     \label{fig:wire_grid_polarizer}
 \end{figure}
 
-It has been shown that it is possible to polarize even visible light using these wire grids. In 1960 George R. Bird and Maxfield Parrish fabricated a WGP having 2160 wires per mm, making it suitable for Near-Infrared light \cite{Bird1960ThePolarizer}. Naturally, WGPs also exist for the lower THz-range. An example of this is an aluminum-based WGP whith a frequency range of \SIrange{0.3}{2.5}{\tera \hertz} and an extinction ratio ranging from \SI{45}{\dB} for lower frequencies and \SI{30}{\dB} for the higher ones. The extinction ratio is simply the ratio of the transmitted power coefficients for the field components perpendicular and parallel to the wires in decibel, so it is a measure of how well the light is only transmitted perpendicular to the wires after passing the polarizer \cite{Ferraro2016FlexibleLoss}. 
-In contrast to a WGP some materials are inherently dichroic. For example the mineral tourmaline has a specific axis, which in general is called the optic axis. Light propagating parallel to this axis experiences a smaller absorption coefficient compared to any other direction. Additionally, this selective absorption depends on the wavelength of the light. Therefore if the crystal is illuminated with white polarized light, then the absorbed colors will change depending on the polarization and so the crystal will change color depending on the polarization. This is where the name dichroic comes from, meaning two colors. The mechanism that gives rise to dichroism in crystals can be explained by considering its microscopic structure. The electrons bound to the lattice points of the crystal interact with electrons bound to other nuclei, especially the nearest neighbors. So if the crystal lattice is asymmetrical then the binding forces of the electrons will also be asymmetrical resulting in a polarization dependent response. Additionally, if the conductivity depends on the direction so will the amount of joule heating generated due to the induced currents. As a consequence the absorption will be direction dependent \cite{HechtOpticsEdition}.
+It has been shown that it is possible to polarize even visible light using these wire grids. In 1960 George R. Bird and Maxfield Parrish fabricated a WGP having 2160 wires per mm, making it suitable for Near-Infrared light \cite{Bird1960ThePolarizer}. Naturally, WGPs also exist for the lower THz-range. An example of this is an aluminum-based WGP with a frequency range of \SIrange{0.3}{2.5}{\tera \hertz} and an extinction ratio ranging from \SI{45}{\dB} for lower frequencies and \SI{30}{\dB} for the higher ones. The extinction ratio is simply the ratio of the transmitted power coefficients for the field components perpendicular and parallel to the wires in decibel, so it is a measure of how well the light is only transmitted perpendicular to the wires after passing the polarizer \cite{Ferraro2016FlexibleLoss}. 
+In contrast to a WGP some materials are inherently dichroic. For example the mineral tourmaline has a specific axis, which in general is called the optic axis. Light propagating parallel to this axis experiences a smaller absorption coefficient compared to any other direction. Additionally, this selective absorption depends on the wavelength of the light. Therefore if the crystal is illuminated with white polarized light, then the absorbed colors will change depending on the polarization and so the crystal will change color depending on the polarization. This is where the name dichroic comes from, meaning two colors. The mechanism that gives rise to dichroism in crystals can be explained by considering its microscopic structure. The electrons bound to the lattice points of the crystal interact with electrons bound to other nuclei, especially the nearest neighbors. So if the crystal lattice is asymmetrical then the binding forces of the electrons will also be asymmetrical resulting in a polarization dependent response. Additionally, if the conductivity depends on the direction so will the amount of joule heating generated due to the induced currents. As a consequence the absorption will be direction dependent. To summarize, in this section we discussed two types of dichroism; one originating from a non-zero anisotropic conductivity of the structure on a macroscopic scale explained using the example of a WGP and the other type arising from asymmetries on the atomic scale. Loosely speaking, the effects of dichroism and birefringence in the cases relevant for this work can be explained by a direction and polarization dependent imaginary and real part of the refractive index respectively. This complicates the description of em-wave propagation in anisotropic materials, as we will see in the following section which introduces the most relevant concepts related to birefringence \cite{HechtOpticsEdition}.
 
 \subsection{Birefringence}
 \label{sec:birefringence}
@@ -214,7 +211,7 @@ Birefringence is the material property responsible for the phenomenon of double 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.3]{images/3_chapter03/birefringence.png}
+    \includegraphics[scale=0.25]{images/3_chapter03/birefringence.png}
     \caption{A calcite crystal placed on top of some text. This demonstrates the effect of birefringence on the original image seen through the crystal \cite{Roth2019Optik}.}
     \label{fig:3birefringence}
 \end{figure}
@@ -223,8 +220,8 @@ The explanation of the underlying physical principle of birefringence is similar
 
 \begin{figure}[h]
     \centering
-    \includestandalone[scale=0.90]{3_chapter03/tikz_electron_shell}
-    \caption{Mechanical model of an electron cloud, which is represented by a spherical shell. It is bound to its nucleus via springs of different strength. The nucleus is fixed in space. This model is a simplification of an optical anisotropic material, for an isotropic material the spring constants would be equal. Calculating the refractive index for a specific crystal uses a quantum mechanical description as it is done in for example \cite{Rerat2020FromApproach}.}
+    \includestandalone[scale=0.9]{3_chapter03/tikz_electron_shell}
+    \caption{Mechanical model of an electron cloud, which is represented by a spherical shell. It is bound to its nucleus via springs of different strength. The nucleus is fixed in space. This model is a simplification of an optical anisotropic material, for an isotropic material the spring constants would all be equal. Calculating the refractive index for a specific crystal uses a quantum mechanical description as it is done in for example \cite{Rerat2020FromApproach}.}
     \label{fig:electron_shell}
 \end{figure}
 
@@ -233,16 +230,16 @@ Furthermore, this explains the phenomena described at the beginning of this sect
 \begin{figure}[h]
     \centering
     \includestandalone[scale=0.95]{3_chapter03/tikz_calcite_beams}
-    \caption{The field components are separated as the light passes through the calcite crystal forming the e- and o-wave. The component perpendicular to the optic axis passes through as expected for normal incidence, while the other component is refracted. It also explains why the polarization states of the two rays are orthogonal.}
+    \caption{The field components are separated as the light passes through the calcite crystal thereby forming the e- and o-wave. The components perpendicular to the optic axis shown as red dots pass through as expected for normal incidence, while the other components represented by the blue arrows are refracted. It also explains why the polarization states of the two rays are orthogonal.}
     \label{fig:calcite_beams}
 \end{figure}
 
-Figure \ref{fig:uniaxial_source} shows the propagation of a wave emitted from an unpolarized source placed within an uniaxial crystal. The component of the field perpendicular to the optic axis will propagate with the same phase velocity $v_{\bot}$ in all directions, so that the wavefronts form the o-wave which further expands in the shape of a circle. Meanwhile the field component, which is not everywhere perpendicular to the optic axis, will be traveling with a phase velocity $v_{\parallel}$ in the directions perpendicular to the optic axis. The wavefronts of the e-wave therefore form an ellipse. We therefore end up with different refractive indices with extrema along and perpendicular to the optic axis. In this case the highest refractive index $n_o = \nicefrac{c}{v_{\bot}}$ is found in the directions parallel to the optic axis, while it is lowest for the perpendicular directions. Because $v_{\parallel} > v_{\bot}$ and since the refractive index perpendicular to the optic axis is given by $n_e = \nicefrac{c}{v_{\parallel}}$ it follows that $n_e < n_o$. With this it is possible to quantify the birefringent strength of the crystal or material via the difference $\Delta n = n_e - n_o$ in the refractive indices of the o- and e-wave. The difference $\Delta n$ is simply known as the birefringence of the material. If $\Delta n$ is negative the crystal is said to be negative uniaxial which is the case for calcite and the example shown in figure \ref{fig:uniaxial_source}. On the other hand, if $\Delta n$ is positive the material is positive uniaxial and in that case the ellipse formed by the wavefronts of the e-wave are enclosed within the circle formed by the wavefronts of the o-wave. 
+Figure \ref{fig:uniaxial_source} shows the propagation of a wave emitted from an unpolarized source placed within an uniaxial crystal. The component of the field perpendicular to the optic axis will propagate with the same phase velocity $v_{\bot}$ in all directions, so that the wavefronts form the o-wave which further expands in the shape of a circle. Meanwhile the field component, which is not everywhere perpendicular to the optic axis, will be traveling with a phase velocity $v_{\parallel}$ in the directions perpendicular to the optic axis. The wavefronts of the e-wave therefore form an ellipse. We therefore end up with different refractive indices with extrema along and perpendicular to the optic axis. In this case the highest refractive index $n_o = \nicefrac{c}{v_{\bot}}$ is found in the directions parallel to the optic axis, while it is lowest for the perpendicular directions. Because $v_{\parallel} > v_{\bot}$ and since the refractive index perpendicular to the optic axis is given by $n_e = \nicefrac{c}{v_{\parallel}}$ it follows that $n_e < n_o$. With this it is possible to quantify the birefringent strength of the material via the difference $\Delta n = n_e - n_o$ in the refractive indices of the o- and e-wave. The difference $\Delta n$ is known as the birefringence of the material. If $\Delta n$ is negative the crystal is said to be negative uniaxial which is the case for calcite and the example shown in figure \ref{fig:uniaxial_source}. Likewise, if $\Delta n$ is positive the material is positive uniaxial and in that case the ellipse formed by the wavefronts of the e-wave are enclosed within the circle formed by the wavefronts of the o-wave. 
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includestandalone[scale=1.0]{3_chapter03/tikz_uniaxial_source}
-    \caption{Unpolarized light source inside an uniaxial crystal. The red dots represent components which are everywhere perpendicular to the optic axis. They form the o-wave and expand in a circle because they experience the same refractive index everywhere. The components represented by the blue arrows lie in the plane of the figure, they are partly pointing in the direction of the optic axis. Depending on their orientation to the optic axis they therefore experience a different refractive index so that the wavefront forms an ellipse.}
+    \includestandalone[scale=0.73]{3_chapter03/tikz_uniaxial_source}
+    \caption{Cross section perpendicular to the optic axis of an unpolarized light source inside an uniaxial crystal. The red dots represent components which are everywhere perpendicular to the optic axis. They form the o-wave and expand in a circle because they experience the same refractive index everywhere. The components represented by the blue arrows are partly pointing in the direction of the optic axis. Therefore, depending on their orientation to the optic axis they experience a different refractive index so that the wavefront forms an ellipse.}
     \label{fig:uniaxial_source}
 \end{figure}
 
@@ -270,7 +267,7 @@ We can rewrite $\bm{E}\cdot(\bm{\nabla}\times\bm{B})$ as $-\bm{B}\cdot\frac{\par
 \begin{equation}
     \bm{E}\cdot\bm{J} = -\frac{1}{2}\frac{\partial}{\partial t}\left(\frac{1}{\mu_0}B^2+\bm{E}\cdot\bm{D}\right)-\frac{1}{\mu_0}\bm{\nabla}\cdot(\bm{E}\times\bm{B})
 \end{equation}
-which we then substitute back into equation \ref{eq:emf_work} and with the help of Gauss's theorem we get:
+which we then substitute back into equation \ref{eq:emf_work} and with the help of the divergence theorem we get:
 \begin{equation}
     \label{eq:poyntings_theorem}
     \frac{dW}{dt} = -\frac{\partial}{\partial t} \int_V \frac{1}{2}\left(\frac{1}{\mu_0}B^2+\bm{E}\cdot\bm{D}\right)dV -\frac{1}{\mu_0}\oint_{\partial V} (\bm{E}\times\bm{B}) \cdot d\bm{s}
@@ -280,7 +277,7 @@ This is known as Poynting's theorem in integral form and can be compared to the 
     \label{eq:poyntings_theorem}
     \frac{dW}{dt} = -\frac{\partial}{\partial t} \int_V u\, dV -\oint_{\partial V} \bm{S} \cdot d\bm{s}
 \end{equation}
-where we set
+where we have set
 \begin{equation}
     u = \frac{1}{2}\left(\frac{1}{\mu_0}B^2+\bm{E}\cdot\bm{D}\right),\; \bm{S} = \frac{1}{\mu_0}(\bm{E}\times\bm{B}),
 \end{equation}
@@ -288,10 +285,25 @@ $u$ is the energy density of the fields and $\bm{S}$ is the energy flux density 
 \begin{equation}
     \frac{D_x^2}{\epsilon_x}+\frac{D_y^2}{\epsilon_y}+\frac{D_z^2}{\epsilon_z}= 2u_e
 \end{equation}
-
-\cite{Yariv1984OpticalRadiation, Griffiths2017IntroductionElectrodynamics}
+where $\epsilon_x$, $\epsilon_y$ and $\epsilon_z$ are the dielectric constants on the diagonal of $\hat{\epsilon}$ called the principal dielectric constants. Additionally we scale $\bm{D}$ by $\nicefrac{1}{\sqrt{2u_e}}$, replace it with $\bm{r}$ and set $n_i^2 = \nicefrac{\epsilon_i}{\epsilon_0},\; (i=x,y,z)$. This gives us:
+\begin{equation}
+    \frac{x^2}{n_x^2}+\frac{y^2}{n_y^2}+\frac{z^2}{n_z^2}=1,
+\end{equation}
+which is the equation of an ellipsoid and is therefore called the index ellipsoid. In an uniaxial crystal two of the three principal dielectric constants are equal because of the symmetry plane oriented perpendicular to the optic axis. In that case the index ellipsoid reduces to:
+\begin{equation}
+    \frac{x^2+y^2}{n_o^2}+\frac{z^2}{n_e^2}=1,
+\end{equation}
+going back to figure \ref{fig:uniaxial_source} we see that the optic axis is along the z-axis and the xy-plane is perpendicular to it. According to convention the symmetry axis is chosen as the z-axis so that $n_x=n_y=n_o$ and $n_z=n_e$. The index ellipsoid can also be used to find the propagation directions of the e- and o-wave as well as the optic axis of a biaxial or uniaxial crystal given a wavevector $\bm{k}$. To do that $\bm{k}$ is placed at the center of the index ellipsoid. A plane normal to $\bm{k}$ is then drawn centered at the origin so that the intersection of the plane and the ellipsoid forms an ellipse. The semi-axes then show the directions of the e- and o-wave and their length is equal to $n_e$ and $n_o$. If the intersection forms a circle instead of an ellipse then it indicates that $\bm{k}$ is parallel to an optic axis, which is then the only optic axis in the case of an uniaxial medium \footnote{Why this method works is shown in section \ref{sec:index_ellipse_proof} of the appendix} \cite{Yariv1984OpticalRadiation, Griffiths2017IntroductionElectrodynamics}. 
+In this section we mainly discussed the effects of birefringence on an atomic scale
+materials anisotropic materials on a microscopic scale.
+Following section anisotropy on a macro scale because of infinite layered medium gives rise to type of birefringence called form birefringence
+The ideas of this section still apply though
+The underlying physical principle responsible for birefringence is different
+\newline
+Blargh
 
 \subsection{Form birefringence}
+\label{sec:form_birefringence}
 
 \subsection{Boundary conditions}
 
