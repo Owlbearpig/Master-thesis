@@ -221,7 +221,7 @@ The explanation of the underlying physical principle of birefringence is similar
 \begin{figure}[h]
     \centering
     \includestandalone[scale=0.9]{3_chapter03/tikz_electron_shell}
-    \caption{Mechanical model of an electron cloud, which is represented by a spherical shell. It is bound to its nucleus via springs of different strength. The nucleus is fixed in space. This model is a simplification of an optical anisotropic material, for an isotropic material the spring constants would all be equal. Calculating the refractive index for a specific crystal uses a quantum mechanical description as it is done in for example \cite{Rerat2020FromApproach}.}
+    \caption{Mechanical spring model of an electron cloud, which is represented by a spherical shell. It is bound to its nucleus via springs of different strength. The nucleus is fixed in space. This model is a simplification of an optical anisotropic material, for an isotropic material the spring constants would all be equal. Calculating the refractive index for a specific crystal uses a quantum mechanical description as it is done in for example \cite{Rerat2020FromApproach}.}
     \label{fig:electron_shell}
 \end{figure}
 
@@ -265,14 +265,14 @@ Since we want to express this in terms of the fields only we use the Ampère-Max
 \end{equation}
 We can rewrite $\bm{E}\cdot(\bm{\nabla}\times\bm{B})$ as $-\bm{B}\cdot\frac{\partial \bm{B}}{\partial t} - \bm{\nabla}\cdot(\bm{E}\times\bm{B})$ using a product rule from vector calculus and the Maxwell–Faraday law (equation \ref{eq:maxwell3}). With the fact that $\bm{A}\cdot\frac{\partial \bm{A}}{\partial t} = \frac{1}{2} \frac{\partial A^2}{\partial t}$ for any vector $\bm{A}$ we finally end up with:
 \begin{equation}
-    \bm{E}\cdot\bm{J} = -\frac{1}{2}\frac{\partial}{\partial t}\left(\frac{1}{\mu_0}B^2+\bm{E}\cdot\bm{D}\right)-\frac{1}{\mu_0}\bm{\nabla}\cdot(\bm{E}\times\bm{B})
+    \bm{J}\cdot\bm{E} = -\frac{1}{2}\frac{\partial}{\partial t}\left(\frac{1}{\mu_0}B^2+\bm{E}\cdot\bm{D}\right)-\frac{1}{\mu_0}\bm{\nabla}\cdot(\bm{E}\times\bm{B})
 \end{equation}
 which we then substitute back into equation \ref{eq:emf_work} and with the help of the divergence theorem we get:
 \begin{equation}
     \label{eq:poyntings_theorem}
     \frac{dW}{dt} = -\frac{\partial}{\partial t} \int_V \frac{1}{2}\left(\frac{1}{\mu_0}B^2+\bm{E}\cdot\bm{D}\right)dV -\frac{1}{\mu_0}\oint_{\partial V} (\bm{E}\times\bm{B}) \cdot d\bm{s}
 \end{equation}
-This is known as Poynting's theorem in integral form and can be compared to the work-energy theorem of classical mechanics. That is, the work done by an electromagnetic force on a charge distribution equals the decrease of energy stored in the fields. It also has the same shape as a continuity equation like the heat flow equation or the continuity equation in quantum mechanics related to the conservation of probability. The volume integral of equation \ref{eq:poyntings_theorem} is the total energy stored in the fields while the surface integral describes the energy flux or rate of transport out of the volume by the fields. We can therefore rewrite equation \ref{eq:poyntings_theorem} as:
+This is known as Poynting's theorem in integral form and can be compared to the work-energy theorem of classical mechanics. That is, the work done by an electromagnetic force on a charge distribution equals the decrease of energy stored in the fields. The volume integral of equation \ref{eq:poyntings_theorem} is the total energy stored in the fields while the surface integral describes the energy flux or rate of transport out of the volume by the fields. We can therefore rewrite equation \ref{eq:poyntings_theorem} as:
 \begin{equation}
     \label{eq:poyntings_theorem}
     \frac{dW}{dt} = -\frac{\partial}{\partial t} \int_V u\, dV -\oint_{\partial V} \bm{S} \cdot d\bm{s}
@@ -281,7 +281,12 @@ where we have set
 \begin{equation}
     u = \frac{1}{2}\left(\frac{1}{\mu_0}B^2+\bm{E}\cdot\bm{D}\right),\; \bm{S} = \frac{1}{\mu_0}(\bm{E}\times\bm{B}),
 \end{equation}
-$u$ is the energy density of the fields and $\bm{S}$ is the energy flux density known as the Poyinting vector. Finally, if we take only the electric field contribution to the energy density, that is $u_e = \frac{1}{2}\bm{E}\cdot\bm{D}$, and choose a coordinate system in which the dielectric tensor is diagonal, known as the principal coordinate system, then we can write the electrical displacement vectors for which $u_e$ is constant as:
+$u$ is the energy density of the fields and $\bm{S}$ is the energy flux density known as the Poyinting vector. Since we have no free charges for the cases considered in this work, that is free space or neutrally charged media, we set $\frac{dW}{dt}=0$. With equation \ref{eq:emf_work} we get the differential form:
+\begin{equation}
+    \label{eq:poynting_theorem_diff_form}
+    \frac{\partial u}{\partial t} = -\bm{\nabla} \cdot \bm{S},
+\end{equation}
+because the volume integral (equation \ref{eq:emf_work}) is zero for any volume. We see that \ref{eq:poynting_theorem_diff_form} has the same shape as a continuity equation like the heat flow equation or the continuity equation in quantum mechanics related to the conservation of probability, in this case it shows that energy is conserved locally. Finally, if we take only the electric field contribution to the energy density, that is $u_e = \frac{1}{2}\bm{E}\cdot\bm{D}$, and choose a coordinate system in which the dielectric tensor is diagonal, known as the principal coordinate system, then we can write the electrical displacement vectors for which $u_e$ is constant as:
 \begin{equation}
     \frac{D_x^2}{\epsilon_x}+\frac{D_y^2}{\epsilon_y}+\frac{D_z^2}{\epsilon_z}= 2u_e
 \end{equation}
@@ -291,19 +296,22 @@ where $\epsilon_x$, $\epsilon_y$ and $\epsilon_z$ are the dielectric constants o
 \end{equation}
 which is the equation of an ellipsoid and is therefore called the index ellipsoid. In an uniaxial crystal two of the three principal dielectric constants are equal because of the symmetry plane oriented perpendicular to the optic axis. In that case the index ellipsoid reduces to:
 \begin{equation}
-    \frac{x^2+y^2}{n_o^2}+\frac{z^2}{n_e^2}=1,
+    \frac{x^2+y^2}{n_o^2}+\frac{z^2}{n_e^2}=1.
 \end{equation}
-going back to figure \ref{fig:uniaxial_source} we see that the optic axis is along the z-axis and the xy-plane is perpendicular to it. According to convention the symmetry axis is chosen as the z-axis so that $n_x=n_y=n_o$ and $n_z=n_e$. The index ellipsoid can also be used to find the propagation directions of the e- and o-wave as well as the optic axis of a biaxial or uniaxial crystal given a wavevector $\bm{k}$. To do that $\bm{k}$ is placed at the center of the index ellipsoid. A plane normal to $\bm{k}$ is then drawn centered at the origin so that the intersection of the plane and the ellipsoid forms an ellipse. The semi-axes then show the directions of the e- and o-wave and their length is equal to $n_e$ and $n_o$. If the intersection forms a circle instead of an ellipse then it indicates that $\bm{k}$ is parallel to an optic axis, which is then the only optic axis in the case of an uniaxial medium \footnote{Why this method works is shown in section \ref{sec:index_ellipse_proof} of the appendix} \cite{Yariv1984OpticalRadiation, Griffiths2017IntroductionElectrodynamics}. 
-In this section we mainly discussed the effects of birefringence on an atomic scale
-materials anisotropic materials on a microscopic scale.
-Following section anisotropy on a macro scale because of infinite layered medium gives rise to type of birefringence called form birefringence
-The ideas of this section still apply though
-The underlying physical principle responsible for birefringence is different
-\newline
-Blargh
+Going back to figure \ref{fig:uniaxial_source} we see that the optic axis is along the z-axis and the xy-plane is perpendicular to it. According to convention the symmetry axis is chosen as the z-axis so that $n_x=n_y=n_o$ and $n_z=n_e$. The index ellipsoid can also be used to find the propagation directions of the e- and o-wave as well as the optic axis of a biaxial or uniaxial crystal given a wavevector $\bm{k}$. To do that $\bm{k}$ is placed at the center of the index ellipsoid. A plane normal to $\bm{k}$ is then drawn centered at the origin so that the intersection of the plane and the ellipsoid forms an ellipse. The semi-axes then show the directions of the e- and o-wave and their length is equal to $n_e$ and $n_o$. If the intersection forms a circle instead of an ellipse then it indicates that $\bm{k}$ is parallel to an optic axis, which is then the only optic axis in the case of an uniaxial medium \footnote{Why this method works is shown in section \ref{sec:index_ellipse_proof} of the appendix} \cite{Yariv1984OpticalRadiation, Griffiths2017IntroductionElectrodynamics}. 
+In this section we discussed a physical model based on relative simple classical mechanical assumptions. It explains the observed phenomena of double refraction and the related effects.  This model surely only works to some extend and a better model of the interaction between the em-fields and the charged particles requires a quantum mechanical description. Birefringence does not only have its origin at the atomic level. Surprisingly it is also possible for a material to appear birefringent even though all sets of springs are equally stiff in the mechanical spring model. A possible realization of such a material is an infinite medium consisting of alternating layers of two different homogeneous and isotropic media. Even though each individual layer is isotropic the material as a whole acts as an anisotropic medium. It can be shown that TE and TM modes propagate at different speeds so that the periodic medium is birefringent this type of birefringence is called form birefringence. Even though it is a different type the ideas and principles of this section still apply with the exception of the physical explanation of course because it is caused by a different mechanism. Therefore, the derivation and explanation of form birefringence will be the focus of the next section which is based on the works by Rytov \cite{Rytov1956ElectromagneticMedium}. 
 
 \subsection{Form birefringence}
 \label{sec:form_birefringence}
+Form birefringence has the interesting property that the birefringence can be controlled or tuned to some extend directly via the geometry of the medium. It will become clear later in the chapter why this is useful for the purposes and applications of this work. As mentioned in the previous subsection \ref{sec:birefringence} in this subsection we will consider the propagation of an em-wave in a medium consisting of alternating layers. The material of each layer is homogeneous with no other restrictions on the dielectric constants. According to Rytov's work, for sufficiently long wavelengths compared to the structural periodicity of the medium, it will then appear anisotropic and be birefringent as well as dichroic if we consider absorption. For each layer we set the permeability of the material as $\epsilon_1$ and $\epsilon_2$ respectively. Additionally, we let the width of the layer with $\epsilon_1$ be $a$ and $b$ for the other layer.
+The idea is then to calculate the average value of the field over the width $a+b\equiv d$.
+
+\begin{figure}[h]
+    \centering
+    \includestandalone[scale=2]{3_chapter03/tikz_stratified_structure}
+    \caption{Finely stratified medium}
+    \label{fig:stratified_structure}
+\end{figure}
 
 \subsection{Boundary conditions}
 
