@@ -274,7 +274,6 @@ which we then substitute back into equation \ref{eq:emf_work} and with the help 
 \end{equation}
 This is known as Poynting's theorem in integral form and can be compared to the work-energy theorem of classical mechanics. That is, the work done by an electromagnetic force on a charge distribution equals the decrease of energy stored in the fields. The volume integral of equation \ref{eq:poyntings_theorem} is the total energy stored in the fields while the surface integral describes the energy flux or rate of transport out of the volume by the fields. We can therefore rewrite equation \ref{eq:poyntings_theorem} as:
 \begin{equation}
-    \label{eq:poyntings_theorem}
     \frac{dW}{dt} = -\frac{\partial}{\partial t} \int_V u\, dV -\oint_{\partial V} \bm{S} \cdot d\bm{s}
 \end{equation}
 where we have set
@@ -308,7 +307,49 @@ The idea is then to calculate the average value of the field over the width $a+b
 \begin{equation}
     kd|n|\ll 1,
 \end{equation}
-where n is the effective index of refraction. It is clear that there are three different directions in which the wave can propagate since every other direction is equivalent in the sense that it is either mirrored or a superposition of two of the three directions. In two of the cases the wave propagates parallel to the layers and then either the magnetic or the electric field is also parallel to the layers. The third case is for normal incidence which is shown in figure \ref{fig:stratified_structure}. This is the geometry that is relevant for the applications we discuss in this work. We set the z-axis perpendicular to the layers so that $\bm{k}$ and $\hat{\bm{e}}_z$ are perpendicular. For this case the electric field has two components and the magnetic has one: $\bm{E}=\bm{E_{\bot}} + \bm{E_{\parallel}} = E_x \bm{e}_x + E_{z} \bm{e}_z$ and $\bm{H}=H_y \bm{e}_y$. That is we set the x- and y-axis along the directions of $\bm{E_{\bot}}$ and $\bm{H}$ respectively. 
+where n is the effective index of refraction. It is clear that there are three different directions in which the wave can propagate since every other direction is equivalent in the sense that it is either mirrored or a superposition of two of the three directions. In two of the cases the wave propagates parallel to the layers and then either the magnetic or the electric field is also parallel to the layers. The third case is for normal incidence which is shown in figure \ref{fig:tikz_rytov_derivation}. This is the geometry that is relevant for the applications we discuss in this work. 
+
+\begin{figure}[h]
+    \centering
+    \includestandalone[scale=1.5]{3_chapter03/tikz_rytov_derivation}
+    \caption{Infinite finely stratified medium. The medium consists of two homogeneous material layers with dielectric constants $\epsilon_1$ (width a) and $\epsilon_2$ (width b). Here we consider the case for a wave propagating parallel to the layers along the x-axis so that one component of the electric field is perpendicular to the layering and the other one is parallel.}
+    \label{fig:tikz_rytov_derivation}
+\end{figure}
+
+We set the z-axis perpendicular to the layers so that $\bm{k}$ and $\hat{\bm{e}}_z$ are perpendicular. For this case the electric field has two components and the magnetic has one: $\bm{E}=\bm{E_{\bot}} + \bm{E_{\parallel}} = E_x \bm{e}_x + E_{z} \bm{e}_z$ and $\bm{B}=B_y=B \bm{e}_y$. That is we set the x- and y-axis along the directions of $\bm{E_{\bot}}$ and $\bm{B}$ respectively. The materials in this work are non-magnetic, we therefore have that $\bm{B} = \mu_0 \bm{H}$. Again, we start from Maxwells equations. We use Ampère's law (equation \ref{eq:maxwell3reduced}) and Faraday's law of induction (equation \ref{eq:maxwell4reduced}) which we write in k-space $(\partial_t \xrightarrow{\mathscr{F}} ik)$ as:
+
+\noindent
+\begin{minipage}{.5\linewidth}
+\begin{align}
+    \bm{\nabla}\times\bm{E} &=-ik\bm{B}\;,
+\end{align}
+\end{minipage}
+\begin{minipage}{.5\linewidth}
+\begin{align}
+    \bm{\nabla}\times\bm{B} &=\hat{\epsilon} \mu_0 ik \bm{E}.
+\end{align}
+\end{minipage}
+\newline
+We substitute in the fields and use the fact that both materials are homogeneous. This gives us three equations for the field components:
+\begin{equation}
+    \label{eq:rytov_maxwell}
+    \partial_x B = \mu_0 \epsilon ik E_z, \; -\partial_z B = \mu_0 \epsilon ik E_x, \; 
+    \partial_z E_x - \partial_x E_z = -ik B.
+\end{equation}
+The fact that the structure of the material is periodic means that $\epsilon$ is as well.
+Therefore the solution to the equations in \ref{eq:rytov_maxwell} must be periodic too in $z$ with a period $d$. A good ansatz are plane waves:
+\begin{equation}
+    B = U(z)e^{-iknx},\; E_x = V(z)e^{-iknx},\; E_z = W(z)e^{-iknx},
+\end{equation}
+which we substitute into equation \ref{eq:rytov_maxwell} to get a set of equations connecting the amplitudes:
+\begin{equation}
+    \partial_z U = ik \epsilon V,\; -Un = \epsilon W,\; \partial_z V + iknW = -ikn\mu_0 U.
+\end{equation}
+For this set of equations there exists analytical solutions:
+\begin{equation}
+    U=A\cos(\alpha_1)
+\end{equation}
+
 
 \begin{figure}[h]
     \centering
