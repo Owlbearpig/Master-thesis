@@ -307,7 +307,7 @@ The idea is then to calculate the average value of the field over the width $a+b
 \begin{equation}
     kd|n|\ll 1,
 \end{equation}
-where n is the effective index of refraction. It is clear that there are three different directions in which the wave can propagate since every other direction is equivalent in the sense that it is either mirrored or a superposition of two of the three directions. In two of the cases the wave propagates parallel to the layers and then either the magnetic or the electric field is also parallel to the layers. The third case is for normal incidence which is shown in figure \ref{fig:tikz_rytov_derivation}. This is the geometry that is relevant for the applications we discuss in this work. 
+where n is the effective index of refraction. It is clear that there are three different directions in which the wave can propagate in the medium since every other direction is equivalent in the sense that it is either mirrored or a superposition of two of the three directions. In two of the cases the wave propagates parallel to the layers and then either the magnetic or the electric field is parallel to the layers as well. In the third case the wave propagates perpendicular to the layers. One of the two cases for parallel propagation is shown in \ref{fig:tikz_rytov_derivation}. This is the geometry that is relevant for the applications we discuss in this work, that is one of the electric field components is perpendicular to the layering and one is parallel. 
 
 \begin{figure}[h]
     \centering
@@ -317,39 +317,96 @@ where n is the effective index of refraction. It is clear that there are three d
 \end{figure}
 
 We set the z-axis perpendicular to the layers so that $\bm{k}$ and $\hat{\bm{e}}_z$ are perpendicular. For this case the electric field has two components and the magnetic has one: $\bm{E}=\bm{E_{\bot}} + \bm{E_{\parallel}} = E_x \bm{e}_x + E_{z} \bm{e}_z$ and $\bm{B}=B_y=B \bm{e}_y$. That is we set the x- and y-axis along the directions of $\bm{E_{\bot}}$ and $\bm{B}$ respectively. The materials in this work are non-magnetic, we therefore have that $\bm{B} = \mu_0 \bm{H}$. Again, we start from Maxwells equations. We use Ampère's law (equation \ref{eq:maxwell3reduced}) and Faraday's law of induction (equation \ref{eq:maxwell4reduced}) which we write in k-space $(\partial_t \xrightarrow{\mathscr{F}} ik)$ as:
+\begin{equation}
+    \bm{\nabla}\times\bm{E} =-ik\bm{B},
+    \qquad
+    \bm{\nabla}\times\bm{B} =\hat{\epsilon} \mu_0 ik \bm{E}.
+\end{equation}
 
-\noindent
-\begin{minipage}{.5\linewidth}
-\begin{align}
-    \bm{\nabla}\times\bm{E} &=-ik\bm{B}\;,
-\end{align}
-\end{minipage}
-\begin{minipage}{.5\linewidth}
-\begin{align}
-    \bm{\nabla}\times\bm{B} &=\hat{\epsilon} \mu_0 ik \bm{E}.
-\end{align}
-\end{minipage}
-\newline
 We substitute in the fields and use the fact that both materials are homogeneous. This gives us three equations for the field components:
 \begin{equation}
     \label{eq:rytov_maxwell}
-    \partial_x B = \mu_0 \epsilon ik E_z, \; -\partial_z B = \mu_0 \epsilon ik E_x, \; 
+    \partial_x B = \mu_0 \epsilon ik E_z,
+    \qquad
+    -\partial_z B = \mu_0 \epsilon ik E_x,
+    \qquad
     \partial_z E_x - \partial_x E_z = -ik B.
 \end{equation}
 The fact that the structure of the material is periodic means that $\epsilon$ is as well.
 Therefore the solution to the equations in \ref{eq:rytov_maxwell} must be periodic too in $z$ with a period $d$. A good ansatz are plane waves:
+
 \begin{equation}
-    B = U(z)e^{-iknx},\; E_x = V(z)e^{-iknx},\; E_z = W(z)e^{-iknx},
+    \label{eq:rytov_field_ansatz}
+    B = U(z)e^{-iknx},
+    \qquad
+    E_x = V(z)e^{-iknx},
+    \qquad
+    E_z = W(z)e^{-iknx},
 \end{equation}
 which we substitute into equation \ref{eq:rytov_maxwell} to get a set of equations connecting the amplitudes:
 \begin{equation}
-    \partial_z U = ik \epsilon V,\; -Un = \epsilon W,\; \partial_z V + iknW = -ikn\mu_0 U.
+    \partial_z U = ik \epsilon V,
+    \qquad
+    -Un = \epsilon W,
+    \qquad
+    \partial_z V + iknW = -ikn\mu_0 U.
 \end{equation}
 For this set of equations there exists analytical solutions:
+\begin{align}
+\begin{split}
+    \label{eq:rytov_amplitudes}
+    U=A_j\cos \alpha_jz + B_j\cos \alpha_j & z, 
+    \qquad
+    V=\frac{-\alpha_j}{ik\epsilon_j}(A_j\sin \alpha_j z -B_j\cos \alpha_j z ),
+    \\
+    &W=\frac{n}{\epsilon_j}U,
+\end{split}
+\end{align}
+where $\alpha_j = k \sqrt{\epsilon_j-n^2}$ and $j$ is 1 $\text{if $z \bmod d \in [0, a)$}$ else $2$. The field components parallel to the layers must be continuous at the interfaces and therefore also periodic. I.e. because of equation \ref{eq:rytov_field_ansatz} the amplitudes at $\pm 0$ and $a, -b$ are equal:
+\begin{align}
+\begin{split}
+    &U(+0) = U(-0), 
+    \qquad
+    V(+0) = V(-0),
+    \\
+    &U(+a) = U(-b),
+    \qquad
+    V(+a) = V(-b).
+\end{split}
+\end{align}
+We substitute the amplitudes (equation \ref{eq:rytov_amplitudes}) in these boundary conditions so that we get four equations for the coefficients $A_1,A_2,B_1$ and $B_2$:
+\begin{align}
+\begin{split}
+    A_2 = A_1, 
+    \qquad
+    &A_2\cos \alpha_2 b - B_2 \sin \alpha_2 b= A_1 \cos \alpha_1 a + B_1 \sin \alpha_1 a,
+    \\
+    B_2=\beta B_1,
+    \qquad
+    &A_2 \sin \alpha_2 b + B_2 \cos \alpha_2 b = -\beta (A_1 \sin \alpha_1 a - B_1 \cos \alpha_1 a),
+\end{split}
+\end{align}
+where $\beta = \frac{\epsilon_2 \alpha_1}{\epsilon_1 \alpha_2}$. A homogeneous system of equations has infinitely many solutions if its determinant is zero. This is the interesting case since otherwise we would be left with the trivial solution only. 
 \begin{equation}
-    U=A\cos(\alpha_1)
+   0\overset{!}{=}
+   \begin{vmatrix} 
+   1 & 0 & -1 & 0 \\
+   \cos \alpha_1 a & -\sin \alpha_1 a & \cos \alpha_2 b & -\sin \alpha_2 b \\
+   0 & -\beta & 0 & 1 \\
+   \beta \sin \alpha_1 a & -\beta \cos \alpha_1 a & \sin \alpha_2 b & \cos \alpha_2 b \\
+   \end{vmatrix} 
 \end{equation}
-
+calculating this determinant we get:
+\begin{equation}
+    (1+\beta^2) \sin \alpha_1 a \sin \alpha_2 b + 2\beta (1-\cos \alpha_1 a \cos \alpha_2 b) = 0,
+\end{equation}
+i.e. a dispersion relation since $alpha$ is a function of $n$ and $k$. This equation is quadratic in $\beta$ so we end up with two solutions $\beta_1$ and $\beta_2$:
+\begin{equation}
+    \beta_1 = -\frac{\tan \frac{\alpha_2 b}{2}}{\tan \frac{\alpha_1 a}{2}},
+    \qquad
+    \beta_2 = -\frac{\tan \frac{\alpha_1a}{2}}{\tan \frac{\alpha_2 b}{2}}.
+\end{equation}
+%At this point we are ready to calculate the mean values of the fields. 
 
 \begin{figure}[h]
     \centering
