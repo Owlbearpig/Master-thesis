@@ -302,43 +302,40 @@ In this section we discussed a physical model based on a classical mechanical de
 
 \subsection{Form birefringence}
 \label{sec:form_birefringence}
-Form birefringence has the interesting property that the birefringence can be controlled or tuned to some extend directly via the geometry of the medium. It will become clear later in the chapter why this is useful for the purposes and applications of this work. As mentioned in the previous subsection \ref{sec:birefringence} in this subsection we will consider the propagation of an em-wave in a medium consisting of alternating layers. The material of each layer is homogeneous with no other restrictions on the dielectric constants. According to Rytov's work, for sufficiently long wavelengths compared to the structural periodicity of the medium, it will then appear anisotropic and be birefringent as well as dichroic if we consider absorption. For each layer we set the permeability of the material as $\epsilon_1$ and $\epsilon_2$ respectively. Additionally, we let the width of the layer with $\epsilon_1$ be $a$ and $b$ for the other layer.
-The idea is then to calculate the average value of the field over the width $a+b\equiv d$. This means though that the calculation only makes sense if the change of the field is small over a period. This condition can be written as:
+Form birefringence has the interesting property that the birefringence can be controlled or tuned to some extend directly via the geometry of the medium. It will become clear later in the chapter why this is useful for the purposes and applications of this work. As mentioned in the previous subsection \ref{sec:birefringence} in this subsection we will consider the propagation of an em-wave in a medium consisting of alternating layers. The material of each layer is homogeneous with no other restrictions on the optical properties, e.i. the permittivity and permeability are scalars instead of tensors. According to Rytov's work, for sufficiently long wavelengths compared to the structural periodicity of the medium, the periodic layering will then appear anisotropic. So that it in the end is birefringent as well as dichroic if we take absorption into consideration. For each layer we set the permittivity and permeability of the material as $\epsilon_1, \mu_1$ and $\epsilon_2, \mu_2$ respectively. As mentioned earlier the materials used for the applications in this work are actually non-magnetic, but for reasons we will explain later we allow the permeabilities of each layer to be different from $\mu_0$. Additionally, we let the width of the layer with $\epsilon_1$ be $a$ and $b$ for the other layer. The derivation is fairly tedious but it is interesting since it shows which approximations and assumptions are made as well as how the wave actually propagates in the structure. The idea of the derivation is to calculate the average value of the fields over the width $a+b\equiv d$. Therefore the calculation only makes sense if the change of the field is small over a period $d$. This condition can be written as:
 \begin{equation}
     \label{eq:rytov_cond1}
     kd|n|\ll 1,
 \end{equation}
-where n is the effective index of refraction. It is clear that there are three different directions in which the wave can propagate in the medium since every other direction is equivalent in the sense that it is either mirrored or a superposition of two of the three directions. In two of the cases the wave propagates parallel to the layers and then either the magnetic or the electric field is parallel to the layers as well. In the third case the wave propagates perpendicular to the layers. One of the two cases for parallel propagation is shown in \ref{fig:tikz_rytov_derivation}. This is the geometry that is relevant for the applications we discuss in this work, that is one of the electric field components is perpendicular to the layering and one is parallel. 
+where n is the effective index of refraction. It is clear that there are three different directions in which the wave can propagate in the medium. That is because any other direction is equivalent in the sense that it is either mirrored or a superposition of two of the three directions. In two of the cases the wave propagates parallel to the layers and then either the magnetic or the electric field is parallel to the layers as well. In the third case the wave propagates perpendicular to the layers. One of the two cases for parallel propagation is shown in \ref{fig:tikz_rytov_derivation}. This is the geometry that is relevant for the applications we discuss in this work, that is one of the electric field components is perpendicular to the layering and one is parallel. 
 
 \begin{figure}[h]
     \centering
     \includestandalone[scale=1.5]{3_chapter03/tikz_rytov_derivation}
-    \caption{Infinite finely stratified medium. The medium consists of two homogeneous material layers with dielectric constants $\epsilon_1$ (width a) and $\epsilon_2$ (width b). Here we consider the case for a wave propagating parallel to the layers along the x-axis so that one component of the electric field is perpendicular to the layering and the other one is parallel.}
+    \caption{Infinite finely stratified medium. The medium consists of two homogeneous material layers with dielectric constants and permeabilities $\epsilon_1, \mu_1$ (width a) and $\epsilon_2, \mu_2$ (width b). Here we consider the case for a wave propagating parallel to the layers along the x-axis so that one component of the electric field is perpendicular to the layering and the other one is parallel.}
     \label{fig:tikz_rytov_derivation}
 \end{figure}
 
-We set the z-axis perpendicular to the layers so that $\bm{k}$ and $\hat{\bm{e}}_z$ are perpendicular. For this case the electric field has two components and the magnetic has one: $\bm{E}=\bm{E_{\bot}} + \bm{E_{\parallel}} = E_x \bm{e}_x + E_{z} \bm{e}_z$ and $\bm{B}=B_y=B \bm{e}_y$. That is we set the x- and y-axis along the directions of $\bm{E_{\bot}}$ and $\bm{B}$ respectively. The materials in this work are non-magnetic, we therefore have that $\bm{B} = \mu_0 \bm{H}$. Again, we start from Maxwells equations. We use Ampère's law (equation \ref{eq:maxwell3reduced}) and Faraday's law of induction (equation \ref{eq:maxwell4reduced}) which we write in k-space $(\partial_t \xrightarrow{\mathscr{F}} ik)$ as:
+We set the z-axis perpendicular to the layers so that $\bm{k}$ and $\hat{\bm{e}}_z$ are perpendicular. For this case the electric field has two components and the magnetic has one: $\bm{E}=\bm{E_{\bot}} + \bm{E_{\parallel}} = E_x \hat{\bm{e}}_x + E_{z} \hat{\bm{e}}_z$ and $\bm{H}=H_y=H \hat{\bm{e}}_y$. That is we set the x- and y-axis along the directions of $\bm{E_{\bot}}$ and $\bm{H}$ respectively. Again, we start from Maxwells equations. We use Ampère's law (equation \ref{eq:maxwell3}) and Faraday's law of induction (equation \ref{eq:maxwell4}). Again there are no free charges or currents but this time $\bm{B} = \hat{\mu} \bm{H}$. The equations transformed into k-space $(\partial_t \xrightarrow{\mathscr{F}} ik)$ are:
 \begin{equation}
-    \bm{\nabla}\times\bm{E} =-ik\bm{B},
+    \bm{\nabla}\times\bm{E} =-ik \hat{\mu} \bm{H},
     \qquad
-    \bm{\nabla}\times\bm{B} =\hat{\epsilon} \mu_0 ik \bm{E}.
+    \bm{\nabla}\times\bm{H} = ik \hat{\epsilon} \bm{E}.
 \end{equation}
 
 We substitute in the fields and use the fact that both materials are homogeneous. This gives us three equations for the field components:
 \begin{equation}
     \label{eq:rytov_maxwell}
-    \partial_z E_x - \partial_x E_z = -ik B,
+    \partial_z E_x - \partial_x E_z = - ik \mu H,
     \qquad
-    \partial_x B = \mu_0 \epsilon ik E_z,
+    \partial_x H = ik \epsilon E_z,
     \qquad
-    -\partial_z B = \mu_0 \epsilon ik E_x.
+    \partial_z H = -ik \epsilon E_x.
 \end{equation}
-The fact that the structure of the material is periodic means that $\epsilon$ is as well.
-Therefore the solution to the equations in \ref{eq:rytov_maxwell} must be periodic too in $z$ with a period $d$. A good ansatz are plane waves:
-
+Necessarily, since the structure of the material is periodic $\epsilon$ and $\mu$ must be periodic as well. Therefore the solution to the equations in \ref{eq:rytov_maxwell} must be periodic too in $z$ with a period $d$ so a good guess or ansatz are plane waves:
 \begin{equation}
     \label{eq:rytov_field_ansatz}
-    B = U(z)e^{-iknx},
+    H = U(z)e^{-iknx},
     \qquad
     E_x = V(z)e^{-iknx},
     \qquad
@@ -346,7 +343,7 @@ Therefore the solution to the equations in \ref{eq:rytov_maxwell} must be period
 \end{equation}
 which we substitute into equation \ref{eq:rytov_maxwell} to get a set of equations connecting the amplitudes:
 \begin{equation}
-    \partial_z V + iknW = -ikn\mu_0 U,
+    \partial_z V + iknW = -ikn \mu U,
     \qquad
     -Un = \epsilon W,
     \qquad
@@ -363,16 +360,16 @@ For this set of equations there exists analytical solutions:
     &W=\frac{n}{\epsilon_j}U,
 \end{split}
 \end{align}
-where $\alpha_j = k \sqrt{\epsilon_j-n^2}$ and $j$ is 1 $\text{if $z \bmod d \in [0, a)$}$ else $2$. The field components parallel to the layers must be continuous at the interfaces. This implies that the components must also be periodic, since e.g. the interface at $0$ is indistinguishable from the one at $a$. Furthermore, the same conditions apply to the amplitudes because of equation \ref{eq:rytov_field_ansatz}, that is they must be equal at the interfaces $\pm 0$ and $a, -b$:
+where $\alpha_j = k \sqrt{\epsilon_j-n^2}$ and $j$ is 1 $\text{if $z \bmod d \in [0, a)$}$ else $2$. The field components parallel to the layers must be continuous at the interfaces. This implies that the components have to be periodic, since e.g. the interface at $0$ is indistinguishable from the one at $a$. Furthermore, the same conditions apply to the amplitudes because of equation \ref{eq:rytov_field_ansatz}, that is they must be equal at the interfaces $\pm 0$ and $a, -b$:
 \begin{align}
 \begin{split}
-    &U(+0) = U(-0), 
+    U(+0) = U(-0), 
     \qquad
-    V(+0) = V(-0),
+    &V(+0) = V(-0),
     \\
-    &U(a-0) = U(-b+0),
+    U(a-0) = U(-b+0),
     \qquad
-    V(a-0) = V(-b+0),
+    &V(a-0) = V(-b+0),
 \end{split}
 \end{align}
 where the signs indicate the directions of the limits. We substitute the amplitudes (equation \ref{eq:rytov_amplitudes}) in these boundary conditions so that we get four equations for the coefficients $A_1,A_2,B_1$ and $B_2$:
@@ -402,7 +399,7 @@ calculating this determinant we get:
 \begin{equation}
     (1+\beta^2) \sin \alpha_1 a \sin \alpha_2 b + 2\beta (1-\cos \alpha_1 a \cos \alpha_2 b) = 0,
 \end{equation}
-i.e. a dispersion relation since $alpha$ is a function of $n$ and $k$. This equation is quadratic in $\beta$ so we end up with two solutions $\beta_1$ and $\beta_2$:
+i.e. a dispersion relation since $\alpha$ is a function of $n$ and $k$. This equation is quadratic in $\beta$ so we end up with two solutions $\beta_1$ and $\beta_2$:
 \begin{equation}
     \beta_1 = -\frac{\tan \frac{\alpha_2 b}{2}}{\tan \frac{\alpha_1 a}{2}},
     \qquad
@@ -411,7 +408,7 @@ i.e. a dispersion relation since $alpha$ is a function of $n$ and $k$. This equa
 The question is which of these two solutions are of physical interest. To answer that we calculate the mean of the field components over the period $d$ and tryout each of the two possible values for $\beta$. To calculate the mean values we have to split the integral over the full width $d$ into two; one where $z$ goes from $0$ to $a$ and one from $0$ to $-b$. Together with equation \ref{eq:rytov_waves} we can then calculate the ratios of the means which simplifies the expressions. Specifically, we compare the mean field of the perpendicular component to the two parallel mean fields:
 \begin{equation}
     \label{eq:rytov_mean_ratios}
-    \frac{\overline{U}}{\overline{W}} = \frac{\overline{B}}{\overline{E_z}} = \frac{\epsilon_1 \alpha_2^2 - \epsilon_2 \alpha_1^2}{n\left(\alpha_2^2-\alpha_1^2 \right)},
+    \frac{\overline{U}}{\overline{W}} = \frac{\overline{H}}{\overline{E_z}} = \frac{\epsilon_1 \alpha_2^2 - \epsilon_2 \alpha_1^2}{n\left(\alpha_2^2-\alpha_1^2 \right)},
     \qquad
     \frac{\overline{V}}{\overline{W}} = \frac{\overline{E_x}}{\overline{E_z}} = \frac{\epsilon_1^{-1} - \epsilon_2^{-1}}{k^2\left(\alpha_1^{-2} - \alpha_2^{-2} \right)}P,
 \end{equation}
@@ -419,19 +416,42 @@ with
 \begin{equation}
     P = \frac{U(a-0)-U(+0)}{V(a-0)-V(+0)} = -\frac{ik\epsilon_1}{\alpha_1}\frac{1}{\tan \frac{\alpha_2 b}{2}}\frac{\beta \tan \frac{\alpha_1 a}{2} + \tan \frac{\alpha_2 b}{2}}{\beta \tan \frac{\alpha_2 b}{2} + \tan \frac{\alpha_1 a}{2}}.
 \end{equation}
-We see that then depending on which solution we choose the last factor of $P$ is either $0$ or tends to infinity. Furthermore, we see that if $\beta = \beta_1$ is chosen then because of equation \ref{eq:rytov_mean_ratios}$ \overline{E_x}$ is $0$. This means the mean field is a transverse wave in this case. For $\beta = \beta_2$ it is possible to show that $E_z$ and $B$ are odd functions and $E_x$ is even around the middle of each layer. The mean of $E_z$ and $B$ vanishes and only $E_x$ is left. But $E_z$ and $B$ are odd therefore the fields are $0$ in the middle of each layer. This situation is similar to a rectangular waveguide in the sense that the parallel component of the electric field and the normal component of the magnetic field is $0$ at the inner walls. This means that waves with frequencies below the cutoff frequency will be attenuated and will not propagate far. Because of the condition that the wavelength must be greater than the period $d$ (equation \ref{eq:rytov_cond1}), $\beta = \beta_2$ is not an option and therefore $\beta = \beta_1$. The mean fields also satisfy equations \ref{eq:rytov_maxwell} but without the field component along the x-axis:
+We see that then depending on which solution we choose the last factor of $P$ is either $0$ or tends to infinity. Furthermore, we see that if $\beta = \beta_1$ is chosen then because of equation \ref{eq:rytov_mean_ratios} $\overline{E_x}$ is $0$. This means the mean field is a transverse wave in this case. For $\beta = \beta_2$ it is possible to show that $E_z$ and $H$ are odd functions and $E_x$ is even around the middle of each layer. The mean of $E_z$ and $H$ therefore vanishes and only $E_x$ is left. But $E_z$ and $B$ are odd and so the fields are $0$ in the middle of each layer. This situation is similar to a rectangular waveguide in the sense that the parallel component of the electric field and the normal component of the magnetic field is $0$ at the inner walls. This means that waves with frequencies below the cutoff frequency will be exponentially attenuated and will not propagate far. Because of the condition that the wavelength must be greater than the period $d$ (equation \ref{eq:rytov_cond1}) causing the frequency to be below the cutoff frequency. Consequently, $\beta = \beta_2$ is not an option and therefore $\beta = \beta_1$. The mean fields also satisfy equations \ref{eq:rytov_maxwell} but without the field component along the x-axis:
 \begin{equation}
     \label{eq:rytov_maxwell_reduced}
-    \partial_x \overline{B} = \mu_0 \epsilon_e ik \overline{E_z},
+    \partial_x \overline{H} = ik \epsilon_e \overline{E_z},
     \qquad
-    \partial_x \overline{E_z} = ik \overline{B},
+    \partial_x \overline{E_z} = ik \mu_e \overline{H},
 \end{equation}
-where $\epsilon_e \mu_0 =n^2$ is the effective permittivity of the layers. Substituting in the mean fields we get:
+where $\epsilon_e \mu_e =n^2$ is the effective permittivity of the layers. Substituting in the mean fields we get:
 \begin{equation}
-    \left(\frac{\overline{U}}{\overline{W}}\right)^2 = \mu_0 \epsilon_e
-\end{equation} so that with equation \ref{eq:rytov_mean_ratios} we end up with:
+    \left(\frac{\overline{U}}{\overline{W}}\right)^2 = \frac{\mu_e}{\epsilon_e}, 
+\end{equation} so that with equation \ref{eq:rytov_mean_ratios} we get an expression for the effective permittivity and permeability:
 \begin{equation}
-    \epsilon_e = \frac{\epsilon_1 \alpha_2^2 - \epsilon_2 \alpha_1^2}{\alpha_2^2-\alpha_1^2}.
+    \epsilon_e = \frac{\epsilon_1 \alpha_2^2 - \epsilon_2 \alpha_1^2}{\alpha_2^2-\alpha_1^2},
+    \qquad
+    \mu_e = n^2\frac{\alpha_2^2-\alpha_1^2}{\epsilon_1 \alpha_2^2 - \epsilon_2 \alpha_1^2},
+\end{equation}
+and $n$ is determined by the first root ($\beta_1$) of the dispersion relation:
+\begin{equation}
+    \label{eq:rytov_n}
+    \frac{\alpha_2}{\epsilon_2}\tan \frac{\alpha_2 b}{2} = -\frac{\alpha_1}{\epsilon_1}\tan \frac{\alpha_1 a}{2}.    
+\end{equation}
+This would be a good place to stop and use the previous result to determine $n$ but that is easier said than done. The problem is that \ref{eq:rytov_n} is a transcendental equation which often are not solvable in closed form, like in this case. That is also why equation \ref{eq:rytov_cond1} cannot be written in a more explicit form by solving equation \ref{eq:rytov_n} for $n$. There are of course numerical methods which can be used to calculate the roots but that brings other issues. A way of dealing with this is by approximating the tangent function by its taylor series around the origin. Since the error of this approximation increases for larger arguments we require that the arguments of the tangent functions are small:
+\begin{equation}
+    |\alpha_1 a| \ll 1, 
+    \qquad
+    |\alpha_1 b| \ll 1.
+\end{equation}
+It follows from the definition of $\alpha$ that the wavelength must be large compared to $a$ and $b$. The first three terms of the taylor series are: $\tan x \approx x + \frac{1}{3}x^3 + \frac{2}{15}x^5 + ...$ The first order approximation is therefore simply replacing tangent by its argument. Solving for $n$ and using $n=\sqrt{\epsilon_e \mu_e}$:
+\begin{equation}
+    \epsilon_{e,0} = \frac{a \epsilon_1+b \epsilon_2}{a+b},
+    \qquad
+    \mu_{e,0} = \frac{a\mu_2+b\mu_1}{\mu_1 \mu_2 (a+b)}
+\end{equation}
+The cubic term makes the expression more lengthy but it can be determined in the same way:
+\begin{equation}
+    \epsilon_{e,1} = \epsilon_{e,0} \left(1 + \frac{k^2a^2b^2}{12d^2}\frac{\epsilon_{e,0} \mu^2}{1} \right)
 \end{equation}
 
 \begin{figure}[h]
