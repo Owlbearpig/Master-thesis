@@ -6,9 +6,9 @@
 
     \begin{tikzpicture}[x={(-10:1cm)},y={(90:1cm)},z={(210:1cm)}]
         % Axes
-        \draw[<->] (-0.75,0,0) node[above] {$z$} -- (8,0,0);
-        \draw[<->] (0,-0.75,0) -- (0,1,0) node[above] {$y$};
-        \draw[<->] (0,0,0.75) -- (0,0,-1) node[left] {$x$};
+        \draw[<->, >=stealth] (-0.75,0,0) node[above] {$z$} -- (8,0,0);
+        \draw[<->, >=stealth] (0,-0.75,0) -- (0,1,0) node[above] {$y$};
+        \draw[<->, >=stealth] (0,0,0.75) -- (0,0,-1) node[left] {$x$};
 
         % Unpolarized light
         \draw[red,thick,opacity=0.8] plot[domain=1.5:4.5,samples=200] (\x,{cos(deg(pi*\x))},0);
@@ -43,7 +43,7 @@
         
         \draw[<->, >=stealth, thick, red] (7,0,-0.4) -- (7,0,0.4);
         
-        \draw[->,ultra thick] (3,1.25,0) -- node[above] {} (4,1.25,0);
+        \draw[->,ultra thick, >=stealth] (3,1.25,0) -- node[above] {} (4,1.25,0);
         
     \end{tikzpicture}
 

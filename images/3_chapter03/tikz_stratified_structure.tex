@@ -22,12 +22,14 @@
 \begin{tikzpicture}
     
     % Center two blocks
-    \draw (0,0) -- (0.75,0) -- (0.75,0.5) -- (0,0.5) -- (0,0);
+    \draw[fill=gray!40] (0,0) -- (0.75,0) -- (0.75,0.5) -- (0,0.5) -- (0,0);
     \draw (0.75,0) -- (1.5,0) -- (1.5,0.5) -- (0.75,0.5);
     
     % backline
     %\draw (0,0.5) -- (0.75,1.25) -- (1.5,1.25) -- (0.75,0.5);
     
+    \draw[fill=gray!40, draw=none] (0,0.5) -- (1,1.5) -- (1.75,1.5) -- (0.75,0.5) -- (0,0.5);
+    \shade[bottom color=gray!40, top color=white] (1.2,1.7) -- (2.0,1.75) -- (1.75,1.5) -- (0.95,1.45) -- (1.25,1.75);
     \draw (0,0.5) -- (1,1.5);
     \draw[dotted] (1,1.5) -- (1.25,1.75);
     
@@ -97,10 +99,17 @@
     \draw[thick, blue, ->, >=stealth] (1.25,1) -- (1.85,1);
     \draw[thick, red, ->, >=stealth] (1.25,1) -- (0.875,0.625);
     
+    % coordinate system axes
+    \draw[->, >=stealth] (2.9,0.5) -- (3.6,0.5) node[below] {\small $z$};
+    \draw[->, >=stealth] (3,0.6) -- (3,-0.2) node[left] {\small $x$};
+    \draw[->, >=stealth] (2.9,0.4) -- (3.5,1) node[below] {\small $y$};
+    
     % labels
     \node at (1.5,1.75) {$\bm{k}$};
     \node at (1.85,1.23) {\footnotesize $\bm{E_{\bot}}$};
     \node at (0.675,0.825) {\footnotesize $\bm{E_{\parallel}}$};
+    
+    
     
 \end{tikzpicture}
 \end{document}

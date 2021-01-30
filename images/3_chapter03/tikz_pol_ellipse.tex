@@ -179,8 +179,8 @@
     \coordinate (g) at ($ (-.2in,0) + (0,\Eoynorm in) $);
 
     %draw the x-y plane
-    \draw[axis_line, ->] (-\Eoxnorm in,0) -- (1.2 in,0) node[textlabel,anchor=west]{$x$};
-    \draw[axis_line, ->] (0,-\Eoynorm in) -- (0,0.9 in) node[textlabel,anchor=south]{$y$};
+    \draw[axis_line, ->, >=stealth] (-\Eoxnorm in,0) -- (1.2 in,0) node[textlabel,anchor=west]{$x$};
+    \draw[axis_line, ->, >=stealth] (0,-\Eoynorm in) -- (0,0.9 in) node[textlabel,anchor=south]{$y$};
     
     %draw the major and minor axis lines
     \draw[dimension_line,rotate=\orang] (-\a in,0) -- (\a in,0);
@@ -199,8 +199,8 @@
 
     %draw the ellipse and arrows showing the sense of rotation
     \draw[object_line,rotate=\orang,->] (0,0) ellipse (\a in and \b in);
-    \draw[object_line,->] (arrow1back) -- (arrow1front);
-    \draw[object_line,->] (arrow2back) -- (arrow2front);
+    \draw[object_line,->, >=stealth] (arrow1back) -- (arrow1front);
+    \draw[object_line,->, >=stealth] (arrow2back) -- (arrow2front);
 
     %label major-minor axes
     \FPifgt{\b}{.1}    %threshold for displaying major-minor axis labels
@@ -208,7 +208,7 @@
         \draw (b) node[textlabel]{$b$}; %=\b);  %uncomment and merge if you want to display the minor axis size.  Maybe do a \FPround{\b}{\b}{1} beforehand!
     \else \fi
     
-    \draw[object_line,<->] (arrow2back) -- (arrow2front);
+    \draw[object_line,<->, >=stealth] (arrow2back) -- (arrow2front);
     %\node at (-\Eoxnorm in,-\Eoynorm in) (nA) {A};
     %\node at (\Eoxnorm in,-\Eoynorm in) (nB) {B};
     %\Dimline[($(nA)+(0,1)$)][($(nB)+(0,1)$)]['test'];

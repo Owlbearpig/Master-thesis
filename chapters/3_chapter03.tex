@@ -112,7 +112,7 @@ Now, if $\delta$ is exactly $\nicefrac{\pi}{2}$ and $E_{0x} = E_{0y}$, then we g
     \label{fig:circ_pol_planewave}
 \end{figure}
 
-Finally, the last polarization state we have not mentioned yet, even though it is in fact the most general, is the elliptical polarization state. The polarization states we have dealt with so far have all been limiting cases of this state. For a fixed position this is fairly simple to visualize geometrically; LP light traces out a line while CP light traces out a circle, both of these shapes are degenerate forms of an ellipse. A summary of the different degenerate states and the corresponding amplitude and phase combinations are shown in table \ref{tab:pol_state_summary}, which is divided into three parts with a pair of states in each. At the top there str the linear horizontal/vertical polarization (LHP/LVP) stated, the linear $\pm\SI{45}{\degree}$ polarization ($L_{\pm45}P$) states are in the middle and the CP states are at the bottom. The last column shows the corresponding degenerate ellipse for each state.
+Finally, the last polarization state we have not mentioned yet, even though it is in fact the most general, is the elliptical polarization state. The polarization states we have dealt with so far have all been limiting cases of this state. For a fixed position this is fairly simple to visualize geometrically; LP light traces out a line while CP light traces out a circle, both of these shapes are degenerate forms of an ellipse. A summary of the different degenerate states and the corresponding amplitude and phase combinations are shown in table \ref{tab:pol_state_summary}, which is divided into three parts with a pair of states in each. The linear horizontal/vertical polarization (LHP/LVP) states are at the top, the linear $\pm\SI{45}{\degree}$ polarization ($L_{\pm45}P$) states are in the middle and the CP states are at the bottom. The last column shows the corresponding degenerate ellipse for each state.
 
 \begin{table}[h]
     \centering
@@ -302,7 +302,7 @@ In this section we discussed a physical model based on a classical mechanical de
 
 \subsection{Form birefringence}
 \label{sec:form_birefringence}
-Form birefringence has the interesting property that the birefringence can be controlled or tuned to some extend directly via the geometry of the medium. It will become clear later in the chapter why this is useful for the purposes and applications of this work. As mentioned in the previous subsection \ref{sec:birefringence} in this subsection we will consider the propagation of an em-wave in a medium consisting of alternating layers. The material of each layer is homogeneous with no other restrictions on the optical properties, e.i. the permittivity and permeability are scalars instead of tensors. According to Rytov's work, for sufficiently long wavelengths compared to the structural periodicity of the medium, the periodic layering will then appear anisotropic. So that it in the end is birefringent as well as dichroic if we take absorption into consideration. For each layer we set the permittivity and permeability of the material as $\epsilon_1, \mu_1$ and $\epsilon_2, \mu_2$ respectively. As mentioned earlier the materials used for the applications in this work are actually non-magnetic, but for reasons we will explain later we allow the permeabilities of each layer to be different from $\mu_0$. Additionally, we let the width of the layer with $\epsilon_1$ be $a$ and $b$ for the other layer. The derivation is fairly tedious but it is interesting since it shows which approximations and assumptions are made as well as how the wave actually propagates in the structure. The idea of the derivation is to calculate the average value of the fields over the width $a+b\equiv d$. Therefore the calculation only makes sense if the change of the field is small over a period $d$. This condition can be written as:
+Form birefringence has the interesting property that the birefringence can be controlled or tuned to some extend directly via the geometry of the medium. It will become clear later in the chapter why this is useful for the purposes and applications of this work. As mentioned in the previous subsection \ref{sec:birefringence} in this subsection we will consider the propagation of an em-wave in a medium consisting of alternating layers. The material of each layer is homogeneous with no other restrictions on the optical properties, e.i. the permittivity and permeability are scalars instead of tensors. According to Rytov's work, for sufficiently long wavelengths compared to the structural periodicity of the medium, the periodic layering will then appear anisotropic. So that it in the end is birefringent as well as dichroic if we take absorption into consideration. For each layer we set the refractive index of the layer material as $n_i^2 = \epsilon_i \mu_i, \: i=1,2$. As mentioned earlier the materials used for the applications in this work are actually non-magnetic, but for reasons we will explain later we allow the permeabilities of each layer to be different from $\mu_0$. Additionally, we let the width of the layer with $\epsilon_1$ be $a$ and $b$ for the other layer. The derivation is fairly tedious but it is interesting since it shows which approximations and assumptions are made as well as how the wave actually propagates in the structure. The idea of the derivation is to calculate the average value of the fields over the width $a+b\equiv d$. Therefore the calculation only makes sense if the change of the field is small over a period $d$. This condition can be written as:
 \begin{equation}
     \label{eq:rytov_cond1}
     kd|n|\ll 1,
@@ -316,7 +316,7 @@ where n is the effective index of refraction. It is clear that there are three d
     \label{fig:tikz_rytov_derivation}
 \end{figure}
 
-We set the z-axis perpendicular to the layers so that $\bm{k}$ and $\hat{\bm{e}}_z$ are perpendicular. For this case the electric field has two components and the magnetic has one: $\bm{E}=\bm{E_{\bot}} + \bm{E_{\parallel}} = E_x \hat{\bm{e}}_x + E_{z} \hat{\bm{e}}_z$ and $\bm{H}=H_y=H \hat{\bm{e}}_y$. That is we set the x- and y-axis along the directions of $\bm{E_{\bot}}$ and $\bm{H}$ respectively. Again, we start from Maxwells equations. We use Ampère's law (equation \ref{eq:maxwell3}) and Faraday's law of induction (equation \ref{eq:maxwell4}). Again there are no free charges or currents but this time $\bm{B} = \hat{\mu} \bm{H}$. The equations transformed into k-space $(\partial_t \xrightarrow{\mathscr{F}} ik)$ are:
+We set the z-axis perpendicular to the layers so that $\bm{k}$ and $\hat{\bm{e}}_z$ are perpendicular. For this case the electric field has two components and the magnetic has one: $\bm{E}=\bm{E_{\bot}} + \bm{E_{\parallel}} = E_x \hat{\bm{e}}_x + E_{z} \hat{\bm{e}}_z$ and $\bm{H}=H_y=H \hat{\bm{e}}_y$. That is we set the x- and y-axis along the directions of $\bm{E_{\bot}}$ and $\bm{H}$ respectively. Again, we start from Maxwells equations. We use Ampère's law (equation \ref{eq:maxwell3}) and Faraday's law of induction (equation \ref{eq:maxwell4}). Again there are no free charges or currents but now $\bm{B} = \hat{\mu} \bm{H}$. The equations transformed into k-space $(\partial_t \xrightarrow{\mathscr{F}} ik)$ are:
 \begin{equation}
     \bm{\nabla}\times\bm{E} =-ik \hat{\mu} \bm{H},
     \qquad
@@ -443,16 +443,46 @@ This would be a good place to stop and use the previous result to determine $n$ 
     \qquad
     |\alpha_1 b| \ll 1.
 \end{equation}
-It follows from the definition of $\alpha$ that the wavelength must be large compared to $a$ and $b$. The first three terms of the taylor series are: $\tan x \approx x + \frac{1}{3}x^3 + \frac{2}{15}x^5 + ...$ The first order approximation is therefore simply replacing tangent by its argument. Solving for $n$ and using $n=\sqrt{\epsilon_e \mu_e}$:
+It follows from the definition of $\alpha$ that the wavelength must be large compared to $a$ and $b$. The first three terms of the taylor series are: $\tan x \approx x + \frac{1}{3}x^3 + \frac{2}{15}x^5 + ...$ The first order approximation is therefore simply replacing tangent by its argument. Solving for $n$ and using $n=\sqrt{\epsilon_e \mu_e}$ we get:
 \begin{equation}
-    \epsilon_{e,0} = \frac{a \epsilon_1+b \epsilon_2}{a+b},
+    \label{eq:rytov_1st_order}
+    \epsilon_{e,0} = \frac{\epsilon_1 \epsilon_2 (a+b)}{a\epsilon_2+b\epsilon_1},
     \qquad
-    \mu_{e,0} = \frac{a\mu_2+b\mu_1}{\mu_1 \mu_2 (a+b)}
+    \mu_{e,0} = \frac{a\mu_1+b\mu_2}{a+b}.
 \end{equation}
-The cubic term makes the expression more lengthy but it can be determined in the same way:
+The cubic term makes the expression more lengthy but it can be determined in a similar way resulting in:
+\begin{align}
+\begin{split}
+    \label{eq:rytov_2nd_order}
+    \epsilon_{e} &= \epsilon_{e,0} + \frac{k^2a^2b^2}{12d^2} \frac{a\epsilon_1+b\epsilon_2}{(a+b)\epsilon_1^2\epsilon_2^2}\left(n_1^2-n_2^2\right)\left(\epsilon_1-\epsilon_2\right)\epsilon_{e,0}^3,
+    \\
+    \mu_{e} &= \mu_{e,0} + \frac{k^2a^2b^2}{12d^2}\frac{a\epsilon_1 + b\epsilon_2}{a\epsilon_2 + b\epsilon_1}\left(n_1^2-n_2^2\right)\left(\mu_1-\mu_2\right).
+\end{split}
+\end{align}
+The $x^5$ term becomes too difficult to solve for $n$, so this is a good place to stop the expansion. The expressions as they are given in equation \ref{eq:rytov_2nd_order} are not directly applicable to the geometries and devices discussed later in this work. Like the geometry we just discussed the structure of these devices are also layered, but the fields in question have field components parallel and perpendicular to the layering. This geometry is shown in figure \ref{fig:stratified_structure} where the electric field has components $E_{\bot}$ and $E_{\parallel}$ which are respectively perpendicular and parallel to the layering. The geometries shown in figure \ref{fig:tikz_rytov_derivation} and \ref{fig:stratified_structure} are equivalent except that the former has been rotated by $\SI{-90}{\degree}$ around the y-axis. We can take any field propagating parallel to the x-axis and decompose it into a parallel and perpendicular component. Now, since Maxwell's equations are symmetric under the interchange of the electric and magnetic field in regions without free charge or currents, we can go back to the start of the derivation and apply the following transformation: $(\bm{H},\bm{E},\hat{\epsilon},\hat{\mu}) \rightarrow (\bm{E},\bm{-H},\hat{\mu},\hat{\epsilon})$. The derivation and the equations are still valid with this replacement. By doing this we quickly get an expression for the effective permittivity in the direction parallel to the layers. Specifically, we simply replace $\mu_i$ with $\epsilon_i$ and vice versa in equations \ref{eq:rytov_1st_order} and \ref{eq:rytov_2nd_order}. This also explains the open question of why we assigned each layer a permeability different from $\mu_0$. If we had assumed both layers were non magnetic, then we could not have made this replacement. Finally, because Maxwell's equations are linear it follows that a superposition of two valid solutions is again a valid solution. Using this fact, setting $\mu_1=\mu_2=\mu_0$ and carrying out the replacement described above we obtain an expression for the approximate effective permittivities of the parallel and perpendicular field components:
+\begin{align}
+\begin{split}
+    \label{eq:rytov_2nd_order_final}
+    \epsilon_{s} &= \tilde{\epsilon}_{s} + \frac{k^2a^2b^2}{12d^2} \frac{a\epsilon_1+b\epsilon_2}{(a+b)\epsilon_1^2\epsilon_2^2}\left(n_1^2-n_2^2\right)\left(\epsilon_1-\epsilon_2\right){\tilde{\epsilon}_{s}}^3,
+    \\
+    \epsilon_{p} &= \tilde{\epsilon}_{p} + \frac{k^2a^2b^2}{12d^2}\left(n_1^2-n_2^2\right)\left(\epsilon_1-\epsilon_2\right), 
+\end{split}
+\end{align}
+with the first order terms:
 \begin{equation}
-    \epsilon_{e,1} = \epsilon_{e,0} \left(1 + \frac{k^2a^2b^2}{12d^2}\frac{\epsilon_{e,0} \mu^2}{1} \right)
+    \label{eq:rytov_1st_order_final}
+    \tilde{\epsilon}_{s} = \frac{\epsilon_1 \epsilon_2 (a+b)}{a\epsilon_2+b\epsilon_1},
+    \qquad
+    \tilde{\epsilon}_{p} = \frac{a\epsilon_1+b\epsilon_2}{a+b},
 \end{equation}
+where $s$ and $p$ indicate the perpendicular and parallel directions respectively. Equations \ref{eq:rytov_2nd_order_final} and \ref{eq:rytov_1st_order_final} are used throughout this work to calculate the birefringence. 
+Rest of this section:
+- Summary?
+- Need to do fig caption below correct.
+- Connection to birefringence, think about what about other angles. Are these the directions with highest birefringence or what is going on?
+-> Uniaxial structure
+- Mention that we can show that parallel < perpendicular and stuff...
+- bridge to next section (boundary conditions)
 
 \begin{figure}[h]
     \centering
