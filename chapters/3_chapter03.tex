@@ -234,7 +234,7 @@ Furthermore, this explains the phenomena described at the beginning of this sect
     \label{fig:calcite_beams}
 \end{figure}
 
-Figure \ref{fig:uniaxial_source} shows the propagation of a wave emitted from an unpolarized source placed within an uniaxial crystal. The component of the field perpendicular to the optic axis will propagate with the same phase velocity $v_{\bot}$ in all directions, so that the wavefronts form the o-wave which further expands in the shape of a circle. Meanwhile the field component, which is not everywhere perpendicular to the optic axis, will be traveling with a phase velocity $v_{\parallel}$ in the directions perpendicular to the optic axis. The wavefronts of the e-wave therefore form an ellipse. We therefore end up with different refractive indices with extrema along and perpendicular to the optic axis. In this case the highest refractive index $n_o = \nicefrac{c}{v_{\bot}}$ is found in the directions parallel to the optic axis, while it is lowest for the perpendicular directions. Because $v_{\parallel} > v_{\bot}$ and since the refractive index perpendicular to the optic axis is given by $n_e = \nicefrac{c}{v_{\parallel}}$ it follows that $n_e < n_o$. With this it is possible to quantify the birefringent strength of the material via the difference $\Delta n = n_e - n_o$ in the refractive indices of the o- and e-wave. The difference $\Delta n$ is known as the birefringence of the material. If $\Delta n$ is negative the crystal is said to be negative uniaxial which is the case for calcite and the example shown in figure \ref{fig:uniaxial_source}. Likewise, if $\Delta n$ is positive the material is positive uniaxial and in that case the ellipse formed by the wavefronts of the e-wave are enclosed within the circle formed by the wavefronts of the o-wave. 
+Figure \ref{fig:uniaxial_source} shows the propagation of a wave emitted from an unpolarized source placed within an uniaxial crystal. The component of the field perpendicular to the optic axis will propagate with the same phase velocity $v_{\bot}$ in all directions, so that the wavefronts form the o-wave which further expands in the shape of a circle. Meanwhile the field component, which is not everywhere perpendicular to the optic axis, will be traveling with a phase velocity $v_{\parallel}$ in the directions perpendicular to the optic axis. The wavefronts of the e-wave therefore form an ellipse. We therefore end up with different refractive indices with extrema along and perpendicular to the optic axis. In this case the highest refractive index $n_o = \nicefrac{c}{v_{\bot}}$ is found in the directions parallel to the optic axis, while it is lowest for the perpendicular directions. Because $v_{\parallel} > v_{\bot}$ and since the refractive index perpendicular to the optic axis is given by $n_e = \nicefrac{c}{v_{\parallel}}$ it follows that $n_e < n_o$. With this it is possible to quantify the birefringent strength of the material via the difference $\Delta n = n_e - n_o$ in the refractive indices of the o- and e-wave. The difference $\Delta n$ is known as the birefringence of the material. Furthermore, if $\Delta n$ is negative then the crystal is said to be negative uniaxial which is the case for calcite and the example shown in figure \ref{fig:uniaxial_source}. Likewise, if $\Delta n$ is positive the material is positive uniaxial and in that case the ellipse formed by the wavefronts of the e-wave are enclosed within the circle formed by the wavefronts of the o-wave. 
 
 \begin{figure}[h]
     \centering
@@ -318,6 +318,7 @@ where n is the effective index of refraction. It is clear that there are three d
 
 We set the z-axis perpendicular to the layers so that $\bm{k}$ and $\hat{\bm{e}}_z$ are perpendicular. For this case the electric field has two components and the magnetic has one: $\bm{E}=\bm{E_{\bot}} + \bm{E_{\parallel}} = E_x \hat{\bm{e}}_x + E_{z} \hat{\bm{e}}_z$ and $\bm{H}=H_y=H \hat{\bm{e}}_y$. That is we set the x- and y-axis along the directions of $\bm{E_{\bot}}$ and $\bm{H}$ respectively. Again, we start from Maxwells equations. We use Ampère's law (equation \ref{eq:maxwell3}) and Faraday's law of induction (equation \ref{eq:maxwell4}). Again there are no free charges or currents but now $\bm{B} = \hat{\mu} \bm{H}$. The equations transformed into k-space $(\partial_t \xrightarrow{\mathscr{F}} ik)$ are:
 \begin{equation}
+    \label{eq:rytov_maxwell_initial}
     \bm{\nabla}\times\bm{E} =-ik \hat{\mu} \bm{H},
     \qquad
     \bm{\nabla}\times\bm{H} = ik \hat{\epsilon} \bm{E}.
@@ -372,7 +373,7 @@ where $\alpha_j = k \sqrt{\epsilon_j-n^2}$ and $j$ is 1 $\text{if $z \bmod d \in
     &V(a-0) = V(-b+0),
 \end{split}
 \end{align}
-where the signs indicate the directions of the limits. We substitute the amplitudes (equation \ref{eq:rytov_amplitudes}) in these boundary conditions so that we get four equations for the coefficients $A_1,A_2,B_1$ and $B_2$:
+where the signs indicate the directions of the limits. We substitute the amplitudes (equation \ref{eq:rytov_amplitudes}) in these boundary conditions so that we get four equations determining the coefficients $A_1,A_2,B_1$ and $B_2$:
 \begin{align}
 \begin{split}
     \label{eq:rytov_waves}
@@ -475,10 +476,10 @@ with the first order terms:
     \qquad
     \tilde{\epsilon}_{p} = \frac{a\epsilon_1+b\epsilon_2}{a+b},
 \end{equation}
-where $s$ and $p$ indicate the perpendicular and parallel directions respectively. Equations \ref{eq:rytov_2nd_order_final} and \ref{eq:rytov_1st_order_final} are used throughout this work to calculate the birefringence. 
+where $s$ and $p$ indicate the perpendicular and parallel directions respectively. Equations \ref{eq:rytov_2nd_order_final} and \ref{eq:rytov_1st_order_final} are used throughout this work to calculate the birefringence if not stated otherwise. Additionally, we see that Maxwell's equations at the start of the derivation as well as the boundary conditions are invariant under rotations of the structure around the z-axis. This means that equations \ref{eq:rytov_2nd_order_final} and \ref{eq:rytov_1st_order_final} are invariant under such rotations as well. The optic axis must therefore be along the z-direction. Furthermore, this means that the effective permeability is $\epsilon_{p}$ throughout the whole xy-plane. Therefore the structure has one optic axis and so is uniaxial. The question is though whether it is positive or negative uniaxial. To answer that we need to determine if $\epsilon_{s} < \epsilon_{p}$. Since the permittivities of the individual layers are complex numbers the effective permittivities are as well. For the inequality to make sense we therefore only compare the real parts. It is fairly straight to show that the inequality is true for the first order, even for any values of the parameters. For the second order we need to make some reasonable restrictions on the parameters to obtain an answer. Specifically, the layering of the structures with which we are concerned in this work are alternating air or dielectric. The refractive index of the dielectric is assumed to be lower than four, which is the case for the materials used in this work. With this it is possible to show that $\epsilon_{s} < \epsilon_{p}$ is true also for the second order approximation. The proof is given in the appendix. So finally we can conclude that the structure is negative uniaxial. Can we??? im going to bed lol
+
 Rest of this section:
 - Summary?
-- Need to do fig caption below correct.
 - Connection to birefringence, think about what about other angles. Are these the directions with highest birefringence or what is going on?
 -> Uniaxial structure
 - Mention that we can show that parallel < perpendicular and stuff...
@@ -487,7 +488,7 @@ Rest of this section:
 \begin{figure}[h]
     \centering
     \includestandalone[scale=2]{3_chapter03/tikz_stratified_structure}
-    \caption{Infinite finely stratified medium. The medium consists of two homogeneous material layers with dielectric constants $\epsilon_1$ (width a) and $\epsilon_2$ (width b). Here we consider the case for a wave propagating parallel to the layers so that one component of the electric field is perpendicular to the layering and the other is parallel.}
+    \caption{This is the same structure as is shown in figure \ref{fig:tikz_rytov_derivation} but from a different point of view and in this case the material is non-magnetic. In this figure the structure is rotated by $\SI{-90}{\degree}$ around the y-axis. In general the electric field has two components parallel to the yz-plane at normal incidence. They can be decomposed into a perpendicular and parallel component. This is useful since the effective permittivity is known along those two directions. The magnetic field vector is not shown since we are only interested in the electric field.}
     \label{fig:stratified_structure}
 \end{figure}
 
