@@ -1,0 +1,62 @@
+\documentclass[tikz,border=3.14mm]{standalone}
+\usepackage{tikz-3dplot}
+\usepackage{bm}
+\begin{document}
+\tdplotsetmaincoords{60}{130}
+\begin{tikzpicture}[scale=3.2,tdplot_main_coords,>=latex,line join=bevel]
+    \coordinate (O) at (0,0,0);
+    \draw[thick,->] (-0.65,0,0) -- (0.9,0,0) node[anchor=north east]{$x$};
+    \draw[thick,->] (0,-0.6,0) -- (0,0.9,0) node[anchor=north west]{$y$};
+    \draw[thick,->] (0,0,-1.0) -- (0,0,1.1) node[anchor=south]{$z$};
+    %\draw[dashed] (O) -- (-1.2,0,0);
+    \pgfmathsetmacro{\mya}{0.4}
+    \pgfmathsetmacro{\myb}{0.8}
+    
+    % lines in the background
+    \draw[gray,dashed] plot[variable=\x,domain=-70:-250,smooth,samples=51]({\mya*cos(\x)},{0},{\myb*sin(\x)});
+    \draw[blue,dashed, thick] plot[variable=\x,domain=-90:-270,smooth,samples=51]({0},{\mya*cos(\x)},{\myb*sin(\x)});
+    \draw[gray,dashed, thick,opacity=1] plot[variable=\x,domain=\tdplotmainphi+5:\tdplotmainphi+180,smooth,samples=51]({\mya*cos(\x)},{\mya*sin(\x)},0);
+    
+    % fill
+    \pgfmathtruncatemacro{\Xstart}{\tdplotmainphi-180}
+    \pgfmathtruncatemacro{\DeltaX}{10}
+    \pgfmathtruncatemacro{\Xnext}{\Xstart+\DeltaX}
+    \pgfmathtruncatemacro{\Xend}{\tdplotmainphi+180}
+    \begin{scope}[transparency group,opacity=0.5]
+    \foreach \X in {\Xstart,\Xnext,...,\Xend}
+    {\tdplotsetrotatedcoords{0}{0}{\X}
+    \begin{scope}[tdplot_rotated_coords]
+    \path[fill=gray!40] plot[variable=\x,domain=-90:90,smooth,samples=51]({\mya*cos(\x)},{0},{{\myb*sin(\x)}});
+    %\draw[thick, black, ->] (0,0,0) -- (0,0,0.5) node[right] {$\bm{k}$};   
+    \end{scope}}
+    \end{scope}
+    
+    % lines in the foreground
+    \draw[gray] plot[variable=\x,domain=-70:110,smooth,samples=51]({\mya*cos(\x)},{0},{\myb*sin(\x)});
+    \draw[blue, thick] plot[variable=\x,domain=-90:90,smooth,samples=51]({0},{\mya*cos(\x)},{\myb*sin(\x)});
+    \draw[gray] plot[variable=\x,domain=\tdplotmainphi-180:\tdplotmainphi,smooth,samples=51]({\mya*cos(\x)},{\mya*sin(\x)},0); 
+    
+    % redraw "visible" part of the axes
+    \draw[thick,->] (\mya,0,0) -- (0.9,0,0);
+    \draw[thick,->] (0,\mya,0) -- (0,0.9,0);
+    \draw[thick,->] (0,0,\myb) -- (0,0,1.1);   
+    \pgfmathsetmacro{\rvec}{1.5}
+    \pgfmathsetmacro{\thetavec}{40}
+    \pgfmathsetmacro{\phivec}{60}
+    \tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+   %\node[anchor=south west,color=red] at (P) {};
+   %\draw[-stealth,color=red,very thick] (O) -- (P);
+   
+   % ellipse axes
+   \draw[blue] (0,-0.4,0) -- (0,0.4,0);
+   \draw[blue] (0,0,-0.8) -- (0,0,0.8);
+   
+   % k-vector
+   \draw[thick,->, red] (0,0,0) -- (0.6,0,0) node[below]{$\bm{k}$};
+   
+    % labels
+    \node[below] at (-0.2,0.55,0.06) {$n_p$};
+    \node[above] at (0.75,0,0.05) {$n_p$};
+    \node[below] at (-0.12,0,0.95) {$n_s$};
+\end{tikzpicture}
+\end{document}
