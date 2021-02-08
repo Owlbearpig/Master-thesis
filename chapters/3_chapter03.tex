@@ -379,11 +379,11 @@ where the signs indicate the directions of the limits. We substitute the amplitu
 \begin{split}
     \label{eq:rytov_waves}
     A_2 = A_1, 
-    \qquad
+    \quad
     &A_2\cos \alpha_2 b - B_2 \sin \alpha_2 b= A_1 \cos \alpha_1 a + B_1 \sin \alpha_1 a,
     \\
     B_2=\beta B_1,
-    \qquad
+    \quad
     &A_2 \sin \alpha_2 b + B_2 \cos \alpha_2 b = -\beta (A_1 \sin \alpha_1 a - B_1 \cos \alpha_1 a),
 \end{split}
 \end{align}
@@ -488,6 +488,7 @@ with the first order terms:
 \end{equation}
 where $s$ and $p$ indicate the perpendicular and parallel directions respectively. If not stated otherwise then equations \ref{eq:rytov_2nd_order_final} and \ref{eq:rytov_1st_order_final} are used throughout this work to calculate the birefringence. Additionally, we see that Maxwell's equations at the start of the derivation in this section as well as the boundary conditions are invariant under rotations of the geometry around the z-axis. This means that equations \ref{eq:rytov_2nd_order_final} and \ref{eq:rytov_1st_order_final} are invariant under such rotations as well. The optic axis must therefore be along the z-direction. Furthermore, this means that the effective permeability is $\epsilon_{p}$ throughout the whole xy-plane. Therefore the structure has one optic axis which makes it uniaxial. Moreover, we can write the dielectric tensor in the principal coordinate system of the geometry as:
 \begin{equation}
+    \label{eq:rytov_tensor}
     \hat{\epsilon} = 
     \begin{pmatrix}
         \epsilon_{p} & 0 & 0 \\
@@ -524,18 +525,16 @@ Similarly we can define the dichroism $\Delta \kappa$ as the difference of the i
 In summary, we considered the propagation of an em-wave in an evenly layered medium. To that extend we went through the derivation of an equation for the mean field effective refractive index. Since we considered the spatial average of the field for this derivation, the result is only valid in the case of long waves relative to the structural period. I.e. the field variation has to be small compared to the period in order to justify using the mean field. The resulting equation does not in general permit an expression of the effective refractive index in terms of the widths and optical parameters of the layers. Following, a Taylor expansion is carried out and approximate expressions are obtained for the effective permittivities of the mean field components. With these expressions the birefringence of the structure can be approximated, where the error of the approximation increases for increasing wavelength. Furthermore, we saw that the stratified structures with which we are concerned appear uniaxial. In total, we considered propagation within the stratified medium only, following the next section will be about what happens at the boundary between two media with different dielectric tensors.
 
 \subsection{Interface conditions}
-The previous section answered the question about how each field component propagates inside the stratified medium in the case of long waves. The question that still remains is what happens with the wave as it enters the medium. There are two possible cases: Either one medium is isotropic and one is anisotropic or in the other case both media are anisotropic. The third case is described by the Fresnel equations. We will only consider the case of normal incidence since that is given by the geometry of the measurements in this work. We know that the o-wave travels at the same speed in every direction as if the medium were isotropic. The o-wave therefore obeys Snell's Law and will not be refracted at normal incidence. Similarly, since the e-wave is everywhere parallel to the optic axis it will also effectively experience an isotropic medium and the refraction can therefore be described by Snell's Law. In contrast to the calcite crystal example we will therefore not get two spatially separated waves and there will be no refraction at the interfaces. We will still get a reflected wave. In the case of an interface between two isotropic materials we could use the Fresnel equations but since the material in this case appears anisotropic we have to take this into account in the derivation of the transmission and reflection coefficients. This is shown in figure \ref{fig:interface_derivation} where the wave ($\bm{k_i}$) is normally incident on the interface between two anisotropic media. In general we get a reflected ($\bm{k_r}$) and a transmitted wave ($\bm{k_t}$). 
+The previous section answered the question about how each field component propagates inside the stratified medium in the case of long waves. The question that still remains is what happens with the wave as it enters the medium. There are three cases: Either one medium is isotropic and one is anisotropic or in the second case both media are anisotropic. The third case is less interesting since it is already described by the Fresnel equations. Furthermore, we will only consider the case of normal incidence, since that is given by the geometry of the measurements in this work. We do not have to consider double refraction since we know that the o-wave travels at the same speed in every direction as if the medium was isotropic. The o-wave therefore obeys Snell's Law and will not be refracted at normal incidence. Similarly, since the e-wave is everywhere parallel to the optic axis it will also effectively experience an isotropic medium and the refraction can therefore be described by Snell's Law. In contrast to the calcite crystal example described in section \ref{sec:birefringence} we will therefore not get two spatially separated waves. However, we will still get a reflected wave. In the case of an interface between two isotropic materials we could use the Fresnel equations but since the material in this case appears anisotropic we have to take this into account in the derivation of the transmission and reflection coefficients. The geometry is shown in figure \ref{fig:interface_derivation} where the wave ($\bm{k_i}$) is normally incident on the interface between two anisotropic media. According to the wave equation we will in general get a reflected ($\bm{k_r}$) and a transmitted wave ($\bm{k_t}$). 
 
 \begin{figure}[h]
     \centering
-    \includestandalone[scale=3]{3_chapter03/tikz_interface_derivation}
+    \includestandalone[scale=2.7]{3_chapter03/tikz_interface_derivation}
     \caption{A wave with wavevector $\bm{k_i}$ which is normally incident on the boundary between two anisotropic media. The wave propagates along the x-direction. The general solution to the wave equation allows a wave propagating in both positive and negative x-direction; a transmitted and reflected wave with wavevectors $\bm{k_t}$ and $\bm{k_r}$ respectively.}
     \label{fig:interface_derivation}
 \end{figure}
 
-\newpage
-
-Once more we start with Maxwell's equations (\ref{eq:maxwell1reduced}-\ref{eq:maxwell4reduced}) specifically Faraday's law of induction:
+To begin with we derive conditions relating the parallel electric and normal magnetic field components at both sides of any neutrally charged non-conducting interface. These conditions will be useful for the calculation of the reflection and transmissions coefficients at the interface between two anisotropic media. Once more we start with Maxwell's equations (\ref{eq:maxwell1reduced}-\ref{eq:maxwell4reduced}) specifically Faraday's law of induction:
 \begin{equation}
     \bm{\nabla}\times\bm{E} =-\frac{\partial\bm{B}}{\partial t}.
 \end{equation}
@@ -556,7 +555,35 @@ where $\bm{n}$ is normal to the interface, $\bm{E_1}$ and $\bm{E_2}$ are the ele
 \begin{equation}
     \bm{n}\cdot(\bm{B_1}-\bm{B_2}) = 0,
 \end{equation}
-likewise $\bm{B_1}$ and $\bm{B_2}$ are the magnetic fields in medium one and two respectively. In other words the normal component of the magnetic field is continuous across the interface.
+likewise $\bm{B_1}$ and $\bm{B_2}$ are the magnetic fields in medium one and two respectively. In other words the normal component of the magnetic field is continuous across the interface \cite{Griffiths2017IntroductionElectrodynamics}.
+
+\newpage
+
+Specifically, in the context of this work we are interested in the reflection and transmission coefficients of the interface between two periodically stratified media 1 and 2. In the previous section $\ref{sec:form_birefringence}$ about form birefringence we derived approximations for the dielectric tensors of such periodic media given the individual layer material and thickness. Additionally, in the case we consider the two anisotropic media on each side of the interface are rotated at some angles $\alpha_1$ and $\alpha_2$ around a common x-axis. This means that in a third system the dielectric tensors of both media given by equation \ref{eq:rytov_tensor} will not be diagonal. We could use the principal coordinate system of one media but since there in general are multiple interfaces we instead use a lab system as the reference system. In the lab system $\hat{\epsilon}$ is given by:
+\begin{equation}
+    \hat{\epsilon_i}(\alpha_i) = R_x(\alpha_i) \hat{\epsilon_i}' R_x(-\alpha_i),
+\end{equation}
+where $\hat{\epsilon_i}'$ is the dielectric tensor in its principal coordinate system, $i=1,2$ and $R_x(\alpha_i)$ rotates a vector around the x-axis by an angle $\alpha_i$. $R_x(\alpha_i)$ can be represented as:
+\begin{equation}
+    \label{eq:x_rotation_matrix}
+    R_x(\alpha_i) = 
+    \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & \cos (\alpha_i) & -\sin (\alpha_i) \\
+        0 & \sin (\alpha_i) & \cos (\alpha_i) \\
+    \end{pmatrix}.
+\end{equation}
+With this we can proceed with the derivation of the reflection and transmission coefficients. Respectively, we can represent the incident, transmitted and reflected wave as follows:
+\begin{align}
+\begin{split}
+    \bm{E_i} = \bm{E_{0,i}}e^{i(\bm{k_i}\bm{r}-\omega_i t)},
+    \quad
+    \bm{E_t} = \bm{E_{0,t}}e^{i(\bm{k_t}\bm{r}-\omega_t t)},
+    \quad
+    \bm{E_r} = \bm{E_{0,r}}e^{i(\bm{k_r}\bm{r}-\omega_r t)}.
+\end{split}
+\end{align}
+Following???, from the boundary conditions it follows that: 
 
 \section{Waveplates}
 \label{sec:waveplates}
