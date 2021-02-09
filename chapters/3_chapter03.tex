@@ -181,7 +181,7 @@ As a result the sign of the imaginary part of the refractive index will also dep
 \end{equation}
 and using the physics definition:  
 \begin{equation}
-    \tilde{n}= n + i \kappa
+    \tilde{n}= n + i \kappa.
 \end{equation}
 
 The physics definition is used for example in the textbooks by John D. Jackson \cite{Jackson1998ClassicalEdition} and David J. Griffiths \cite{Griffiths2017IntroductionElectrodynamics} and also in \cite{Collett2009FieldPolarization}, which is the reference used for most of this section.
@@ -534,7 +534,7 @@ The previous section answered the question about how each field component propag
     \label{fig:interface_derivation}
 \end{figure}
 
-To begin with we derive conditions relating the parallel electric and normal magnetic field components at both sides of any neutrally charged non-conducting interface. These conditions will be useful for the calculation of the reflection and transmissions coefficients at the interface between two anisotropic media. Once more we start with Maxwell's equations (\ref{eq:maxwell1reduced}-\ref{eq:maxwell4reduced}) specifically Faraday's law of induction:
+To begin with, we derive conditions relating the parallel and normal field components at both sides of any neutrally charged non-conducting interface. These conditions will be useful for the calculation of the reflection and transmissions coefficients at the interface between two anisotropic media. Once more we start with Maxwell's equations (\ref{eq:maxwell1reduced}-\ref{eq:maxwell4reduced}) specifically Faraday's law of induction:
 \begin{equation}
     \bm{\nabla}\times\bm{E} =-\frac{\partial\bm{B}}{\partial t}.
 \end{equation}
@@ -547,43 +547,84 @@ where $\delta A$ is the boundary of the area $A$. We set this surface $A$ in the
 \begin{equation}
     \int_{l_{1,t}} E_{1,t} dl - \int_{l_{2,t}} E_{2,t} dl = 0,
 \end{equation}
-where $t$ denotes the field components and paths tangential to both sides of the interface. Since  we did not choose any specific interface or electric field we can omit the integration. This gives us the continuity condition for the tangential components of the electric field at the interface:
+where the $t$ subscript denotes the field components and paths tangential to both sides of the interface. Since  we did not choose any specific interface or electric field we can omit the integration. This gives us the continuity condition for the tangential components of the electric field at the interface:
 \begin{equation}
+    \label{eq:t_boundary_cond_e}
     \bm{n} \times (\bm{E_1} - \bm{E_2}) = 0,
 \end{equation}
-where $\bm{n}$ is normal to the interface, $\bm{E_1}$ and $\bm{E_2}$ are the electric fields in medium one and two respectively. Again, we can apply the same procedure for the magnetic field. Here instead we use Gauss's law for magnetism $(\bm{\nabla}\cdot \bm{B} = 0)$. Integrating over a volume enclosing the interface and then shrinking the width of this volume gives us a condition for the magnetic field at the boundary:
+where $\bm{n}$ is normal to the interface, $\bm{E_1}$ and $\bm{E_2}$ are the electric fields in medium one and two respectively. Furthermore, since we have no free currents and the materials are non-magnetic we can derive a condition for the tangential components of the magnetic field in a similar manner. We use Ampère's circuital law (\ref{eq:maxwell4reduced}) which we write it in integral form. Subsequently we shrink the integration area around the interface. This yields:
 \begin{equation}
-    \bm{n}\cdot(\bm{B_1}-\bm{B_2}) = 0,
+    \label{eq:t_boundary_cond_b}
+    \bm{n} \times (\bm{B_1} - \bm{B_2}) = 0,
 \end{equation}
-likewise $\bm{B_1}$ and $\bm{B_2}$ are the magnetic fields in medium one and two respectively. In other words the normal component of the magnetic field is continuous across the interface \cite{Griffiths2017IntroductionElectrodynamics}.
-
-\newpage
-
-Specifically, in the context of this work we are interested in the reflection and transmission coefficients of the interface between two periodically stratified media 1 and 2. In the previous section $\ref{sec:form_birefringence}$ about form birefringence we derived approximations for the dielectric tensors of such periodic media given the individual layer material and thickness. Additionally, in the case we consider the two anisotropic media on each side of the interface are rotated at some angles $\alpha_1$ and $\alpha_2$ around a common x-axis. This means that in a third system the dielectric tensors of both media given by equation \ref{eq:rytov_tensor} will not be diagonal. We could use the principal coordinate system of one media but since there in general are multiple interfaces we instead use a lab system as the reference system. In the lab system $\hat{\epsilon}$ is given by:
+where $\bm{B_1}$ and $\bm{B_2}$ are the magnetic fields in medium one and two respectively.
+Again, to obtain interface conditions for the normal components of the fields we apply the same procedure. We start with Gauss's law for magnetism $(\bm{\nabla}\cdot \bm{B} = 0)$. If we integrate over a volume enclosing the interface, and then shrink this volume we get a condition for the normal component of the magnetic field at the boundary:
 \begin{equation}
-    \hat{\epsilon_i}(\alpha_i) = R_x(\alpha_i) \hat{\epsilon_i}' R_x(-\alpha_i),
+    \label{eq:n_boundary_cond_b}
+    \bm{n}\cdot(\bm{B_1}-\bm{B_2}) = 0.
 \end{equation}
-where $\hat{\epsilon_i}'$ is the dielectric tensor in its principal coordinate system, $i=1,2$ and $R_x(\alpha_i)$ rotates a vector around the x-axis by an angle $\alpha_i$. $R_x(\alpha_i)$ can be represented as:
+I.e. the normal component of the magnetic field is continuous across the interface. The final general condition, obtained in a similar manner, is the condition that the normal component of the displacement field $\bm{D}$ is continuous across the interface. Which can be expressed as:
+\begin{equation}
+    \label{eq:n_boundary_cond_d}
+    \bm{n}\cdot(\bm{D_1}-\bm{D_2}) = 0,
+\end{equation}
+where $\bm{D_1}$ and $\bm{D_2}$ are the displacement fields at each side of the interface \cite{Griffiths2017IntroductionElectrodynamics}. Specifically, in the context of this work we are interested in the reflection and transmission coefficients of the interface between two periodically stratified media 1 and 2. In the previous section $\ref{sec:form_birefringence}$ about form birefringence we derived approximations for the dielectric tensors of such periodic media given the individual layer material and thickness. Additionally, in the case we consider the two anisotropic media on each side of the interface are rotated at some angles $\alpha_1$ and $\alpha_2$ around a common x-axis. This means that in a third system the dielectric tensors of both media given by equation \ref{eq:rytov_tensor} will not be diagonal. We could use the principal coordinate system of one media but since there in general are multiple interfaces we instead use a lab system as the reference system. This system is the one shown in figure \ref{fig:interface_derivation}. The plane of incidence is therefore the xy-plane and the interface lies in the yz-plane, parallel to the layering. In the lab system $\hat{\epsilon}$ is given by:
+\begin{equation}
+    \label{eq:lab_epsilon}
+    \hat{\epsilon_i}(\alpha_i) = \hat{R}_x(\alpha_i) \hat{\epsilon_i}' \hat{R}_x(-\alpha_i),
+\end{equation}
+where $\hat{\epsilon_i}'$ is the dielectric tensor in its principal coordinate system, $i=1,2$ and $\hat{R}_x(\alpha_i)$ rotates a vector around the x-axis by an angle $\alpha_i$. $\hat{R}_x(\alpha_i)$ can be represented as:
 \begin{equation}
     \label{eq:x_rotation_matrix}
-    R_x(\alpha_i) = 
+    \hat{R}_x(\alpha_i) = 
     \begin{pmatrix}
         1 & 0 & 0 \\
         0 & \cos (\alpha_i) & -\sin (\alpha_i) \\
         0 & \sin (\alpha_i) & \cos (\alpha_i) \\
     \end{pmatrix}.
 \end{equation}
-With this we can proceed with the derivation of the reflection and transmission coefficients. Respectively, we can represent the incident, transmitted and reflected wave as follows:
+With this description of the setup we can proceed with the derivation of the reflection and transmission coefficients. Respectively, we can represent the incident, reflected and transmitted electric field as follows:
 \begin{align}
 \begin{split}
-    \bm{E_i} = \bm{E_{0,i}}e^{i(\bm{k_i}\bm{r}-\omega_i t)},
+    \bm{E_i} = \bm{E}_{0,i}e^{i(\bm{k}_i\bm{r}-\omega_i t)},
     \quad
-    \bm{E_t} = \bm{E_{0,t}}e^{i(\bm{k_t}\bm{r}-\omega_t t)},
+    \bm{E_r} = \bm{E}_{0,r}e^{i(\bm{k}_r\bm{r}-\omega_r t)},
     \quad
-    \bm{E_r} = \bm{E_{0,r}}e^{i(\bm{k_r}\bm{r}-\omega_r t)}.
+    \bm{E_t} = \bm{E}_{0,t}e^{i(\bm{k}_t\bm{r}-\omega_t t)}.
 \end{split}
 \end{align}
-Following???, from the boundary conditions it follows that: 
+We get similar expressions for the magnetic field, simply by replacing $E$ with $B$. 
+The boundary conditions on the interface that the tangential components of the electric and magnetic field are continuous, e.i. equations \ref{eq:t_boundary_cond_e} and \ref{eq:t_boundary_cond_b}, requires that
+\begin{align}
+\begin{split}
+    \label{eq:field_conditions}
+    \bm{k}_i \cdot \bm{r} = \bm{k}_r \cdot& \bm{r} = \bm{k}_t \cdot \bm{r}, \\
+    \omega_i = \omega_r& = \omega_t,
+\end{split}
+\end{align}
+\begin{align}
+\begin{split}
+    \label{eq:interface_amplitudes}
+    \bm{E}_{0,i} + \bm{E}_{0,r} = \bm{E}_{0,t}, \\
+    \bm{B}_{0,i} + \bm{B}_{0,r} = \bm{B}_{0,t}, \\
+\end{split}
+\end{align}
+because all exponents must be equal for any $\bm{r}$ and $t$. The number of expressions in equation \ref{eq:field_conditions} show that conditions \ref{eq:t_boundary_cond_e} and \ref{eq:t_boundary_cond_b} are quite strong. Furthermore, since the wavevectors are given as:
+\begin{equation}
+    \bm{k}_i = k_{x,i} \bm{n}, \qquad \bm{k}_r = -k_{x,i} \bm{n} \qquad \bm{k}_t = k_{x,t} \bm{n},
+\end{equation}
+it follows that $k_{x,i} = k_{x,r} = k_{x,t} = k = \sqrt{\hat{\epsilon}_{11}}\frac{\omega}{c} = \sqrt{\epsilon_p}\frac{\omega}{c}$. The last two equalities arise from the fact that the rotation is around the x-axis. Equation \ref{eq:lab_epsilon} also shows this. With Faraday's law we can obtain a system of equations relating the electric and magnetic fields of the incident, reflected and transmitted wave:
+\begin{equation}
+    \label{eq:some_equation}
+    \bm{n} \times \bm{B}_i = -\frac{\omega}{k} \hat{\epsilon}_1 \bm{E}_i, \qquad
+    \bm{n} \times \bm{B}_r = \frac{\omega}{k} \hat{\epsilon}_1 \bm{E}_r, \qquad
+    \bm{n} \times \bm{B}_t = -\frac{\omega}{k} \hat{\epsilon}_2 \bm{E}_t.
+\end{equation}
+If we add the first two expressions in equation \ref{eq:some_equation} and use equation \ref{eq:interface_amplitudes} we get:
+\begin{equation}
+    \bm{n} \times \bm{B}_t = -\frac{\omega}{k}\hat{\epsilon}_1(\bm{E}_{0,i}-\bm{E}_{0,r})
+\end{equation}
+
 
 \section{Waveplates}
 \label{sec:waveplates}
