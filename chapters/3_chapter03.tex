@@ -303,7 +303,7 @@ In this section we discussed a physical model based on a classical mechanical de
 
 \subsection{Form birefringence}
 \label{sec:form_birefringence}
-Form birefringence has the interesting property that the birefringence can be controlled or tuned to some extend directly via the geometry of the medium. It will become clear later in the chapter why this is useful for the purposes and applications of this work. As mentioned in the previous subsection \ref{sec:birefringence} in this subsection we will consider the propagation of an em-wave in a medium consisting of alternating layers. The material of each layer is homogeneous and isotropic with no other restrictions on the optical properties, e.i. the permittivity and permeability are scalars instead of tensors. According to Rytov's work, for sufficiently long wavelengths compared to the structural periodicity of the medium, the periodic layering will then appear anisotropic. So that it in the end is birefringent as well as dichroic if we take absorption into consideration. For each layer we set the refractive index of the layer material as $n_i^2 = \epsilon_i \mu_i, \: i=1,2$. As mentioned earlier the materials used for the applications in this work are actually non-magnetic, but for reasons we will explain later we allow the permeabilities of each layer to be different from $\mu_0$. Additionally, we let the width of the layer with $\epsilon_1$ be $a$ and $b$ for the other layer. The derivation is fairly tedious but it is interesting since it shows which approximations and assumptions are made as well as how the wave actually propagates in the structure. The idea of the derivation is to calculate the average value of the fields over the width $a+b\equiv d$. Therefore the calculation only makes sense if the change of the field is small over a period $d$. This condition can be written as:
+Form birefringence has the interesting property that the birefringence can be controlled or tuned to some extend directly via the geometry of the medium. It will become clear later in the chapter why this is useful for the purposes and applications of this work. As mentioned in the previous subsection \ref{sec:birefringence} in this subsection we will consider the propagation of an em-wave in a medium consisting of alternating layers. The material of each layer is homogeneous and isotropic with no other restrictions on the optical properties, i.e. the permittivity and permeability are scalars instead of tensors. According to Rytov's work, for sufficiently long wavelengths compared to the structural periodicity of the medium, the periodic layering will then appear anisotropic. So that it in the end is birefringent as well as dichroic if we take absorption into consideration. For each layer we set the refractive index of the layer material as $n_i^2 = \epsilon_i \mu_i, \: i=1,2$. As mentioned earlier the materials used for the applications in this work are actually non-magnetic, but for reasons we will explain later we allow the permeabilities of each layer to be different from $\mu_0$. Additionally, we let the width of the layer with $\epsilon_1$ be $a$ and $b$ for the other layer. The derivation is fairly tedious but it is interesting since it shows which approximations and assumptions are made as well as how the wave actually propagates in the structure. The idea of the derivation is to calculate the average value of the fields over the width $a+b\equiv d$. Therefore the calculation only makes sense if the change of the field is small over a period $d$. This condition can be written as:
 \begin{equation}
     \label{eq:rytov_cond1}
     kd|n|\ll 1,
@@ -581,9 +581,10 @@ where $\hat{\epsilon_i}'$ is the dielectric tensor in its principal coordinate s
         1 & 0 & 0 \\
         0 & \cos (\alpha_i) & -\sin (\alpha_i) \\
         0 & \sin (\alpha_i) & \cos (\alpha_i) \\
-    \end{pmatrix}.
+    \end{pmatrix}
 \end{equation}
-With this description of the setup we can proceed with the derivation of the reflection and transmission coefficients. Respectively, we can represent the incident, reflected and transmitted electric field as follows:
+\cite{J.Muthsam2006LineareAnwendungen}.
+For clarification, the dielectric tensors of media 1 and 2 are different not only because of the different angles $\alpha_i$ but also because of different diagonal entries, e.g $\epsilon_{p,1} \neq \epsilon_{p,2}$. With this description of the setup we can proceed with the derivation of the reflection and transmission amplitudes. Respectively, we can represent the incident, reflected and transmitted electric field as follows:
 \begin{align}
 \begin{split}
     \bm{E_i} = \bm{E}_{0,i}e^{i(\bm{k}_i\bm{r}-\omega_i t)},
@@ -594,7 +595,7 @@ With this description of the setup we can proceed with the derivation of the ref
 \end{split}
 \end{align}
 We get similar expressions for the magnetic field, simply by replacing $E$ with $B$. 
-The boundary conditions on the interface that the tangential components of the electric and magnetic field are continuous, e.i. equations \ref{eq:t_boundary_cond_e} and \ref{eq:t_boundary_cond_b}, requires that
+The boundary conditions on the interface that the tangential components of the electric and magnetic field are continuous, i.e. equations \ref{eq:t_boundary_cond_e} and \ref{eq:t_boundary_cond_b}, requires that
 \begin{align}
 \begin{split}
     \label{eq:field_conditions}
@@ -605,25 +606,64 @@ The boundary conditions on the interface that the tangential components of the e
 \begin{align}
 \begin{split}
     \label{eq:interface_amplitudes}
-    \bm{E}_{0,i} + \bm{E}_{0,r} = \bm{E}_{0,t}, \\
-    \bm{B}_{0,i} + \bm{B}_{0,r} = \bm{B}_{0,t}, \\
+    \bm{n} \times (\bm{E}_{i} + \bm{E}_{r}) = \bm{n} \times \bm{E}_{t}, \\
+    \bm{n} \times (\bm{B}_{i} + \bm{B}_{r}) = \bm{n} \times \bm{B}_{t}, \\
 \end{split}
 \end{align}
 because all exponents must be equal for any $\bm{r}$ and $t$. The number of expressions in equation \ref{eq:field_conditions} show that conditions \ref{eq:t_boundary_cond_e} and \ref{eq:t_boundary_cond_b} are quite strong. Furthermore, since the wavevectors are given as:
 \begin{equation}
     \bm{k}_i = k_{x,i} \bm{n}, \qquad \bm{k}_r = -k_{x,i} \bm{n} \qquad \bm{k}_t = k_{x,t} \bm{n},
 \end{equation}
-it follows that $k_{x,i} = k_{x,r} = k_{x,t} = k = \sqrt{\hat{\epsilon}_{11}}\frac{\omega}{c} = \sqrt{\epsilon_p}\frac{\omega}{c}$. The last two equalities arise from the fact that the rotation is around the x-axis. Equation \ref{eq:lab_epsilon} also shows this. With Faraday's law we can obtain a system of equations relating the electric and magnetic fields of the incident, reflected and transmitted wave:
+it follows that:
+\begin{align}
+\begin{split}
+    &k_{x,i} = k_{x,r} = k = \sqrt{\hat{\epsilon}_{p,1}}\frac{\omega}{c}, \\
+    &k_{x,t} = k_t = \sqrt{\hat{\epsilon}_{p,2}}\frac{\omega}{c}.
+\end{split}
+\end{align}
+The last equation arises from the fact that the rotation is around the x-axis. Equation \ref{eq:lab_epsilon} also shows this; there is a mismatch between the permittivities of the two media along the x-axis. With Faraday's law we can obtain a system of equations relating the electric and magnetic fields of the incident, reflected and transmitted wave:
 \begin{equation}
     \label{eq:some_equation}
     \bm{n} \times \bm{B}_i = -\frac{\omega}{k} \hat{\epsilon}_1 \bm{E}_i, \qquad
     \bm{n} \times \bm{B}_r = \frac{\omega}{k} \hat{\epsilon}_1 \bm{E}_r, \qquad
-    \bm{n} \times \bm{B}_t = -\frac{\omega}{k} \hat{\epsilon}_2 \bm{E}_t.
+    \bm{n} \times \bm{B}_t = -\frac{\omega}{k_t} \hat{\epsilon}_2 \bm{E}_t.
 \end{equation}
-If we add the first two expressions in equation \ref{eq:some_equation} and use equation \ref{eq:interface_amplitudes} we get:
+If we add the first two expressions of equation \ref{eq:some_equation} and use the fact that the tangential component of the magnetic field is continuous across the interface (equation \ref{eq:interface_amplitudes}) we get:
 \begin{equation}
-    \bm{n} \times \bm{B}_t = -\frac{\omega}{k}\hat{\epsilon}_1(\bm{E}_{0,i}-\bm{E}_{0,r})
+    \bm{n} \times \bm{B}_t = -\frac{\omega}{k}\hat{\epsilon}_1(\bm{E}_{i}-\bm{E}_{r}).
 \end{equation}
+With the last expression of equation \ref{eq:some_equation} we can eliminate the magnetic field in the previous expression:
+\begin{equation}
+    \label{eq:electric_field_eq}
+    \frac{\omega}{k_t}\hat{\epsilon}_2 \bm{E}_t = \frac{\omega}{k}\hat{\epsilon}_1(\bm{E}_{i}-\bm{E}_{r}).
+\end{equation}
+Or if we set $n_{p,i} = \sqrt{\epsilon_{p,i}}$ then we can rewrite equation \ref{eq:electric_field_eq} as:
+\begin{equation}
+    \label{eq:electric_field_eq_rew}
+    \frac{n_{p,1}}{n_{p,2}}\hat{\epsilon}_2 \bm{E}_t = \hat{\epsilon}_1(\bm{E}_{i}-\bm{E}_{r}).
+\end{equation}
+
+Finally, if we pair the interface condition for the tangential component of the electric field with equation \ref{eq:electric_field_eq} we obtain a homogeneous linear system of equations in the electric field components. These equations can be reduced to expressions which relate the incident electric field amplitudes to the reflected and transmitted amplitudes. Furthermore, we know from the previous section \ref{sec:form_birefringence} that the field components along the direction of propagation are extinguished, i.e. a TEM wave. This means that we can omit the x-components in the expressions. With this we can write the relation between the incident and reflected field as:
+\begin{equation}
+    \bm{E_r} =
+    \frac{1}{d}
+    \begin{pmatrix}
+        a_-c_+ - b_+b_- & b_-c_+ - b_+c_- \\
+        a_+b_- - b_+a_- & a_+c_- - b_+b_- \\
+    \end{pmatrix}
+    \bm{E_i},
+\end{equation}
+we get a similar relation between the incident and transmitted field:
+\begin{equation}
+    \bm{E_t} =
+    \frac{2}{d}
+    \begin{pmatrix}
+        a_2c_+ - b_2b_+ & b_2c_+ - c_2b_+ \\
+        b_2a_+ - a_2b_+ & c_2a_+ - b_2b_+ \\
+    \end{pmatrix}
+    \bm{E_i},
+\end{equation}
+where $a_i=\cos^2(\alpha_i)\epsilon_{p,i}+\sin^2(\alpha_i)\epsilon_{s,i}$, $b_i=\frac{1}{2}\sin(2\alpha_i)(\epsilon_{p,i}-\epsilon_{s,i})$, $c_i(\alpha_i) = a_i(\alpha_i + \nicefrac{\pi}{2})$ for $i=1,2$, $x_{\pm}=\frac{n_{p,1}}{n_{p,2}}x_1\pm x_2$ with $x=a,b,c$ and finally $d=a_+c_+-b_+b_+$. We can consider special cases to check the plausibility of the expressions. We will first consider the case in which medium 1 is air and medium 2 is isotropic. That means we set $\hat{\epsilon_1}$ and $\hat{\epsilon_2}$ equal to the identity matrix times $\epsilon_0$ and $\epsilon$ respectively. 
 
 
 \section{Waveplates}
