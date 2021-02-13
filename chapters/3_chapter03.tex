@@ -645,26 +645,63 @@ Or if we set $n_{p,i} = \sqrt{\epsilon_{p,i}}$ then we can rewrite equation \ref
 
 Finally, if we pair the interface condition for the tangential component of the electric field with equation \ref{eq:electric_field_eq} we obtain a homogeneous linear system of equations in the electric field components. These equations can be reduced to expressions which relate the incident electric field amplitudes to the reflected and transmitted amplitudes. Furthermore, we know from the previous section \ref{sec:form_birefringence} that the field components along the direction of propagation are extinguished, i.e. a TEM wave. This means that we can omit the x-components in the expressions. With this we can write the relation between the incident and reflected field as:
 \begin{equation}
+    \label{eq:reflection_general}
     \bm{E_r} =
-    \frac{1}{d}
+    \frac{-1}{d}
     \begin{pmatrix}
-        a_-c_+ - b_+b_- & b_-c_+ - b_+c_- \\
-        a_+b_- - b_+a_- & a_+c_- - b_+b_- \\
+        b_-b_+ - c_+a_- & c_-b_+ - c_+b_- \\
+        b_+a_- - a_+b_- & b_+b_- - a_+c_- \\
     \end{pmatrix}
     \bm{E_i},
 \end{equation}
 we get a similar relation between the incident and transmitted field:
 \begin{equation}
+    \label{eq:transmission_general}
     \bm{E_t} =
     \frac{2}{d}
     \begin{pmatrix}
-        a_2c_+ - b_2b_+ & b_2c_+ - c_2b_+ \\
-        b_2a_+ - a_2b_+ & c_2a_+ - b_2b_+ \\
+        a_1c_+ - b_1b_+ & b_1c_+ - c_1b_+ \\
+        b_1a_+ - a_1b_+ & c_1a_+ - b_1b_+ \\
     \end{pmatrix}
     \bm{E_i},
 \end{equation}
-where $a_i=\cos^2(\alpha_i)\epsilon_{p,i}+\sin^2(\alpha_i)\epsilon_{s,i}$, $b_i=\frac{1}{2}\sin(2\alpha_i)(\epsilon_{p,i}-\epsilon_{s,i})$, $c_i(\alpha_i) = a_i(\alpha_i + \nicefrac{\pi}{2})$ for $i=1,2$, $x_{\pm}=\frac{n_{p,1}}{n_{p,2}}x_1\pm x_2$ with $x=a,b,c$ and finally $d=a_+c_+-b_+b_+$. We can consider special cases to check the plausibility of the expressions. We will first consider the case in which medium 1 is air and medium 2 is isotropic. That means we set $\hat{\epsilon_1}$ and $\hat{\epsilon_2}$ equal to the identity matrix times $\epsilon_0$ and $\epsilon$ respectively. 
-
+where $a_i=\cos^2(\alpha_i)\epsilon_{p,i}+\sin^2(\alpha_i)\epsilon_{s,i}$, $b_i=\frac{1}{2}\sin(2\alpha_i)(\epsilon_{p,i}-\epsilon_{s,i})$, $c_i = a_i(\alpha_i + \nicefrac{\pi}{2})$ with $i=1,2$ for medium 1 and 2 respectively, $x_{\pm}=x_1\pm \frac{n_{p,1}}{n_{p,2}} x_2, x=a,b,c$ and finally $d=a_+c_+-b_+b_+$. We can consider special cases to check the plausibility of the two expressions \ref{eq:transmission_general} and \ref{eq:reflection_general}. To that extend we first consider the case in which both media are isotropic dielectrics. We therefore set $\hat{\epsilon}_1$ and $\hat{\epsilon}_2$ equal to the identity matrix times $\epsilon_1$ and $\epsilon_2$ respectively. Furthermore, since in this case both media are isotropic we can set $\alpha_1 = \alpha_2 = 0$. This reduces equations \ref{eq:reflection_general} and \ref{eq:transmission_general} to the following:
+\begin{equation}
+    \bm{E_r} = \frac{\epsilon_1-\frac{n_1}{n_2}\epsilon_2}{\epsilon_1+\frac{n_1}{n_2}\epsilon_2}\bm{E_i}, \qquad \bm{E_t} = \frac{2\epsilon_1}{\epsilon_1+\frac{n_1}{n_2}\epsilon_2}\bm{E_i},
+\end{equation}
+which with $\epsilon_i=n_i^2, i=1,2$ are the Fresnel equations for normal incidence. The next case we will consider is the interface between an isotropic medium, e.g. air, and a stratified medium. This means that the dielectric tensor of the first medium is $\epsilon_0$ times the identity matrix and for the second medium it is given by equation \ref{eq:lab_epsilon}. Again we can set the angles to zero. This is possible because the first medium is isotropic so that we can set the lab frame to align with the principle axes of medium 2. With this we can simplify equations \ref{eq:reflection_general} and \ref{eq:transmission_general} resulting in:
+\begin{equation}
+    \bm{E_r} =
+    \begin{pmatrix}
+        \frac{1-n_p}{1+n_p} & 0 \\
+        0 & \frac{n_p-n_s^2}{n_p+n_s^2} \\
+    \end{pmatrix}
+    \bm{E_i}, \qquad
+    \bm{E_t} =
+    \begin{pmatrix}
+        \frac{2}{1+n_p} & 0 \\
+        0 & \frac{2n_p}{n_p+n_s^2} \\
+    \end{pmatrix}
+    \bm{E_i},
+\end{equation}
+which agrees with the solution to a similar problem given in \cite{Lim1993ProblemsElectromagnetism}. Furthermore, in contrast to the Fresnel equations we see that even at normal incidence we need to distinguish between the two polarizations states. The final case we will consider is where both media are stratified so that their dielectric tensors are described by equation \ref{eq:lab_epsilon}. To be able to reduce equations \ref{eq:reflection_general} and \ref{eq:transmission_general} we limit ourselves to the case in which the principle axes of the two media in some way align with the axes of the lab system. In other words the angles $\alpha_1$ and $\alpha_2$ are a multiple of $\nicefrac{\pi}{2}$. In this case we get the following for equations \ref{eq:reflection_general} and \ref{eq:transmission_general}:
+\begin{equation}
+    \bm{E_r} =
+    \begin{pmatrix}
+        \frac{n_{p,2}n_{s,1}^2-n_{p,1}n_{s,2}^2}{n_{p,2}n_{s,1}^2+n_{p,1}n_{s,2}^2} & 0 \\
+        0 & \frac{n_{p,1}-n_{p,2}}{n_{p,1}+n_{p,2}} \\
+    \end{pmatrix}
+    \bm{E_i},
+\end{equation}
+\begin{equation}
+    \bm{E_t} =
+    \begin{pmatrix}
+        \frac{2n_{p,2}n_{s,1}^2}{n_{s,1}^2n_{p,2}+n_{p,1}n_{s,2}^2} & 0 \\
+        0 & \frac{2n_{p,1}}{n_{p,1}+n_{p,2}} \\
+    \end{pmatrix}
+    \bm{E_i},
+\end{equation}
+these two equations would further reduce to the Fresnel equations in the case of two isotropic media since then $\epsilon_{p,i}=\epsilon_{s,i}$. Furthermore, only if the axes misalign do we get off-diagonal entries different from zero and then the two field components $E_y, E_z$ no longer separate.
 
 \section{Waveplates}
 \label{sec:waveplates}
