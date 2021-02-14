@@ -188,7 +188,7 @@ The physics definition is used for example in the textbooks by John D. Jackson \
 There are not only convention differences between engineers and physicists but also even between different branches of physics. The definition of CP handedness relies on the point of view; that is either looking from the source in the direction of propagation or from the receiver against the direction of propagation. Here we use the version which is defined from the point of view of the receiver. This is also the convention commonly used in optics \cite{Bass2016HandbookOptics, M.LandiDeglInnocenti2004PolarizationLines} as well as by SPIE \cite{Collett2009FieldPolarization}.
 The other convention is used by radio astronomers \cite{1973CommissionAstronomie}, quantum physicists, because it is consistent with the convention of handedness for a particle's spin and it is also used by electrical engineers \cite{Orfanidis2004ElectromagneticAntennas}.
 
-\section{EM-propagation in anisotropic media}
+\section{Wave propagation in anisotropic media}
 In the previous section we saw that the electrical field consists of two perpendicular components which trace out an ellipse as time propagates for any fixed position. Additionally, the shape and orientation of the ellipse depends on the relative phase of the two components as well as their amplitudes. Naturally this dependency is symmetrical in the two amplitudes and the relative phase, as can be seen directly from equations \ref{eq:ellipse_orientation} and \ref{eq:ellipse_ellipticity}. Therefore in order to change the polarization state, the change in each of the individual phases must be different and or that of the two amplitudes. Otherwise simply the scale of the ellipse would change and not its shape or orientation. Consequently, for this to happen the medium the wave is propagating in must be anisotropic. Now, if the absorption of the material is direction dependent, then the amplitude will vary differently for the two components. Materials with this property are said to be dichroic. Likewise, some materials cause different phase changes between the two components. This material property is called birefringence. In the following section we will explain these two properties phenomenologically as well as their underlying physical principle.
 
 \subsection{Dichroism}
@@ -669,7 +669,7 @@ where $a_i=\cos^2(\alpha_i)\epsilon_{p,i}+\sin^2(\alpha_i)\epsilon_{s,i}$, $b_i=
 \begin{equation}
     \bm{E_r} = \frac{\epsilon_1-\frac{n_1}{n_2}\epsilon_2}{\epsilon_1+\frac{n_1}{n_2}\epsilon_2}\bm{E_i}, \qquad \bm{E_t} = \frac{2\epsilon_1}{\epsilon_1+\frac{n_1}{n_2}\epsilon_2}\bm{E_i},
 \end{equation}
-which with $\epsilon_i=n_i^2, i=1,2$ are the Fresnel equations for normal incidence. The next case we will consider is the interface between an isotropic medium, e.g. air, and a stratified medium. This means that the dielectric tensor of the first medium is $\epsilon_0$ times the identity matrix and for the second medium it is given by equation \ref{eq:lab_epsilon}. Again we can set the angles to zero. This is possible because the first medium is isotropic so that we can set the lab frame to align with the principle axes of medium 2. With this we can simplify equations \ref{eq:reflection_general} and \ref{eq:transmission_general} resulting in:
+which with $\epsilon_i=n_i^2, i=1,2$ are the Fresnel equations for normal incidence. The next case we will consider is the interface between an isotropic medium, e.g. air, and a stratified medium. This means that the dielectric tensor of the first medium is $\epsilon_0$ times the identity matrix and for the second medium it is given by equation \ref{eq:lab_epsilon}. Again we can set the angles to zero. This is possible because the first medium is isotropic so that we can set the lab frame to align with the principle axes of medium 2. With this we can simplify equations \ref{eq:reflection_general} and \ref{eq:transmission_general}, resulting in:
 \begin{equation}
     \bm{E_r} =
     \begin{pmatrix}
@@ -684,7 +684,7 @@ which with $\epsilon_i=n_i^2, i=1,2$ are the Fresnel equations for normal incide
     \end{pmatrix}
     \bm{E_i},
 \end{equation}
-which agrees with the solution to a similar problem given in \cite{Lim1993ProblemsElectromagnetism}. Furthermore, in contrast to the Fresnel equations we see that even at normal incidence we need to distinguish between the two polarizations states. The final case we will consider is where both media are stratified so that their dielectric tensors are described by equation \ref{eq:lab_epsilon}. To be able to reduce equations \ref{eq:reflection_general} and \ref{eq:transmission_general} we limit ourselves to the case in which the principle axes of the two media in some way align with the axes of the lab system. In other words the angles $\alpha_1$ and $\alpha_2$ are a multiple of $\nicefrac{\pi}{2}$. In this case we get the following for equations \ref{eq:reflection_general} and \ref{eq:transmission_general}:
+which agrees with the solution to a similar problem given in \cite{Lim1993ProblemsElectromagnetism}. Furthermore, in contrast to the previous case, we see that in this case need to distinguish between the two polarizations states. The final case we will consider is where both media are stratified so that their dielectric tensors are described by equation \ref{eq:lab_epsilon}. To be able to reduce equations \ref{eq:reflection_general} and \ref{eq:transmission_general} we limit ourselves to the case in which the principle axes of the two media in some way align with the axes of the lab system. In other words the angles $\alpha_1$ and $\alpha_2$ are a multiple of $\nicefrac{\pi}{2}$. In this case we get the following for equations \ref{eq:reflection_general} and \ref{eq:transmission_general}:
 \begin{equation}
     \bm{E_r} =
     \begin{pmatrix}
@@ -701,18 +701,30 @@ which agrees with the solution to a similar problem given in \cite{Lim1993Proble
     \end{pmatrix}
     \bm{E_i},
 \end{equation}
-these two equations would further reduce to the Fresnel equations in the case of two isotropic media since then $\epsilon_{p,i}=\epsilon_{s,i}$. Furthermore, only if the axes misalign do we get off-diagonal entries different from zero and then the two field components $E_y, E_z$ no longer separate.
+these two equations would further reduce to the Fresnel equations in the case of two isotropic media since then $\epsilon_{p,i}=\epsilon_{s,i}$. Furthermore, only if the axes misalign do we get off-diagonal entries different from zero and then the two field components $E_y, E_z$ no longer separate. Additionally, the last two cases have shown that only in the case of isotropic media are the reflection and transmissions coefficients independent of the polarization state. In other words, they are equal for both the y- and z-component only when the media are isotropic. To summarize this section, we have seen that the propagating modes in periodically stratified media are transverse electromagnetic modes, since the electric and magnetic component in the direction of propagation is exponentially attenuated. Moreover, these structures show a special type of birefringence called form birefringence. Therefore, if we take into account the absorption of the constituent materials, then such a structure is dichroic as well. In addition to dichroism, we have also seen that an effect with similar consequences appears at the interface of such a stratified structure and any other medium. Specifically, in this case the transmitted and reflected fields depend on the polarization of the incident field. This means that in total we consider three effects; transmission and dichroism which change the amplitude of each field component by a different amount and birefringence which causes the phase of one field component to evolve faster than the other resulting in a relative phase change. All three effects change the polarization state as we have seen in section \ref{sec:polellipse}. In the next section we will describe an optical element called a waveplate or retarder which uses birefringence to cause a targeted polarization change of an incident wave. Therefore, in order to obtain the correct final polarization state using a stratified structure as retarder, these previously described effects must be taken into account. 
 
 \section{Waveplates}
 \label{sec:waveplates}
 
-\section{Mathematical description}
+The idea of a waveplate or retarder is quite simple. One of the two polarization states of the wave is caused to have its phase evolve faster compared to the other state. Therefore, depending on the distance the wave travels in the waveplate, the amount one component is lagging behind the other can be controlled. With this it is possible to convert any initial polarization state into any other state. 
+\begin{itemize}
+    \item Shifts figure
+    \item 'derive' waveplate formula
+    \item halfwaveplates and quarter waveplates
+    \item order of waveplate
+    \item Circular Polarizers
+    \item Polarization of Polychromatic Light ??
+\end{itemize}
+
+\section{Mathematical description of polarization}
 \label{sec:mathdescription}
 
-\subsection{Jones calculus}
+\subsection{Stokes parameters}
 
 \subsection{Mueller calculus}
 \label{sec:muellercalc}
+
+\subsection{Jones calculus}
 
 \section{Design description}
 \label{sec:design}
