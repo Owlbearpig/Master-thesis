@@ -6,7 +6,7 @@
 \begin{document}
     \pgfarrowsdeclarecombine{dimarrow}{dimarrow}{latex}{latex}{}{}
     \def\Dimline[#1][#2][#3][#4]{
-        \path #1 -- node (#4) {\emph{$#4$}} #3;
+        \path #1 -- node (#4) {\emph{$d_{\lambda/2}$}} #3;
         \draw[-|,
         decoration={markings, 
                 mark=at position 1 with {\arrow[scale=1.5]{dimarrow}};,
@@ -48,6 +48,13 @@
         \draw[] (0,0.75,0.75) -- (3,0.75,0.75);
         \draw[] (0,-0.75,0.75) -- (3,-0.75,0.75);
         
+        % polarization plane back
+        \draw[gray] (-2.5,-0.75,-0.75) -- (-2.5,-0.75,0.75) -- (-2.5,0.75,0.75) -- (-2.5,0.75,-0.75) -- (-2.5,-0.75,-0.75);
+        \draw[gray] (-2.5, 0, -0.75) -- (-2.5, 0, 0.75);
+        \draw[gray] (-2.5, -0.75, 0) -- (-2.5, 0.75, 0);
+        \draw[<->, >=stealth, thin] (-2.5,-0.5,0.5) -- (-2.5,0.5,-0.5);
+        \node at (-2.5, 0.2, -0.5) {$\theta$};
+        
         % Waves    
         % region 1 (some parts hidden)
         \draw[red,thick] plot[domain=-2:-0.64,samples=200] (\x,{0.5*cos(deg(2*pi*\x-pi/2))},0);
@@ -69,17 +76,11 @@
         \foreach \n in {0,1,2,...,7}{
             \node at ({0.428*\n},0,0) [red, opacity = 0.7, circle,fill,inner sep=0.5]{};
         }
-                \foreach \n in {0,1,2,...,6}{
+        \foreach \n in {0,1,2,...,6}{
             \node at ({0.5*\n},0,0) [blue, opacity = 0.7, circle,fill,inner sep=0.5]{};
         }
         
-        % polarization planes
-        \draw[gray] (-2.5,-0.75,-0.75) -- (-2.5,-0.75,0.75) -- (-2.5,0.75,0.75) -- (-2.5,0.75,-0.75) -- (-2.5,-0.75,-0.75);
-        \draw[gray] (-2.5, 0, -0.75) -- (-2.5, 0, 0.75);
-        \draw[gray] (-2.5, -0.75, 0) -- (-2.5, 0.75, 0);
-        \draw[<->, >=stealth, thin] (-2.5,-0.5,0.5) -- (-2.5,0.5,-0.5);
-        \node at (-2.5, 0.2, -0.5) {$\theta$};
-        
+        % polarization plane front
         \draw[gray] (4.5,-0.75,-0.75) -- (4.5,-0.75,0.75) -- (4.5,0.75,0.75) -- (4.5,0.75,-0.75) -- (4.5,-0.75,-0.75);
         \draw[gray] (4.5, 0, -0.75) -- (4.5, 0, 0.75);
         \draw[gray] (4.5, -0.75, 0) -- (4.5, 0.75, 0);
@@ -98,7 +99,7 @@
           %\draw[-,help lines] (\x,0,0) -- (\x,0,-{cos(deg(pi*\x))});
         %}
         
-        \Dimline[(0,1,-0.75)][(2,1,-0.75)][(3,1,-0.75)][d];
+        \Dimline[(0,1,-0.75)][(2,1,-0.75)][(3,1,-0.75)][_];
         
     \end{tikzpicture}
 \end{document}
