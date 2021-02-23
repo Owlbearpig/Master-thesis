@@ -125,6 +125,7 @@ We can also realize this mathematically by eliminating the time and position dep
 
 \begin{equation}
     \centering
+    \label{eq:pol_ellipse}
     \frac{1}{\sin^2 \delta} \left[ \left(\frac{E_x}{E_{0x}}\right)^2+\left(\frac{E_y}{E_{0y}}\right)^2-2\frac{E_x E_y}{E_{0x} E_{0y}}\cos \delta \right]=1,
 \end{equation}
 
@@ -765,15 +766,49 @@ It is clear that it would quickly become complicated to predict the final polari
 The two most widely used representations of polarized light are Jones vectors and Stokes parameters. Stokes parameters were already introduced in 1852 by G. G. Stokes and are essentially four real numbers derived from measurable quantities. These four numbers are often combined into a vector known as the Stokes vector. The Jones vector representation was invented almost 100 years later in 1941 by R. Clark Jones. It is only applicable to polarized light since the components of the Jones vector are given directly by the electric field components. The advantage of using Stokes vectors to describe the polarization state of light is therefore that they can be used in the case of natural, totally polarized and partially polarized light. Nevertheless, both representations can replace conventional algebraic and trigonometric calculation methods, where the latter is required when the optic axes are aligned at different angles in a series of elements. Together with the matrices describing the individual optical elements the Stokes and Jones vectors form the Mueller and Jones calculus \cite{Shurcliff1962PolarizedLight}. 
 
 \subsection{Stokes parameters and the Poincaré sphere}
-As mentioned in the previous section; one of the advantages of the Stokes vectors are that they can describe any type of light. Since in the context of this work the light is always fully polarized we do not actually need this property. Nevertheless, the Stokes vectors will be helpful later on where they simplify the description of the Poincaré sphere, which is a useful tool for visualizing the effects of polarization altering elements. At first we will show how the Stokes parameters can be obtained directly from observables, then their relation to the electric field. The Stokes parameters are a set of four numbers, which describe the intensity and polarization state of light. The parameters have the unit of intensity, this intensity is not time dependent but instead averaged over the period of a measurement. A direct consequence of this is that we lose the phase information, and thereby limiting the use of the Stokes parameters for interference effect calculations. Each parameter has a filter or polarizer associated with it which transmits and blocks half of the light equally. The following configuration of the filters is just one way of defining the parameters and is not unique, that is other equivalent configurations exist as well. In any case the filters associated with the four parameters $s_0$ to $s_3$ are a neutral, two linear and a circular polarizer respectively. A neutral filter lets any polarization pass, in other words for any polarization state the initial intensity is equal to the final intensity after passing a neutral filter. 
+As mentioned in the previous section; one of the advantages of the Stokes vectors are that they can describe any type of light. Since in the context of this work the light is always fully polarized we do not actually need this property and the Jones calculus will mainly be used. Nevertheless, the Stokes vectors will be helpful later on where they simplify the description of the Poincaré sphere, which is a useful tool for visualizing the effects of polarization altering elements. At first we will show how the Stokes parameters can be obtained directly from observables, then how they relate to the electric field. The Stokes parameters are a set of four numbers, which describe the intensity and polarization state of light. The parameters have the unit of intensity, this intensity is not time dependent but instead averaged over the period $T$ of a measurement. A direct consequence of this is that we lose the phase information, and thereby limiting the use of the Stokes parameters for interference effect calculations. Each parameter has a filter $F_0$ to $F_3$ or polarizer associated with it which transmits and blocks half of the light equally. The following configuration of the filters is just one way of defining the parameters and is not unique, that is other equivalent configurations exist as well. In any case the filters associated with the four parameters $s_0$ to $s_3$ are a neutral, two linear and a circular polarizer respectively. Where a neutral filter lets any polarization pass, in other words for any polarization state the initial intensity is equal to the final intensity after passing a neutral filter. Linear polarizers essentially function in the same way as a wiregrid polarizer, rather a wiregrid polarizer is a linear polarizer. A circular polarizer consists of a linear polarizer and a quarter waveplate where the linear polarizer is oriented at an angle of \SI{45}{\degree} to the principle axes of the waveplate. The light will therefore always emerge circular polarized. The transmission axes of $F_1$ and $F_2$ are oriented horizontally and at \SI{45}{\degree} respectively while $F_3$ is opaque to LCP light. The filters are then placed one after the other in the beam path and the transmitted intensities $I_0$ to $I_3$ are measured. The Stokes parameters are then calculated using the following combinations:
 
 \begin{equation}
-    s_0 = 2 I_0, \quad s_1 = 2 I_1 - 2 I_0, \quad s_2 = 2 I_2 - 2 I_0, \quad s_3 = 2 I_3 - 2 I_0.
+    \label{eq:stokes_param_int}
+    s_0 = 2 I_0, \quad 
+    s_1 = 2 I_1 - 2 I_0, \quad 
+    s_2 = 2 I_2 - 2 I_0, \quad 
+    s_3 = 2 I_3 - 2 I_0.
 \end{equation}
 
-\cite{HechtOpticsEdition, Shurcliff1962PolarizedLight}
+We see that $s_0$ is the total intensity of the light while $s_1$, $s_2$ and $s_3$ actually describe the polarization state of the light. The sign of $s_1$ therefore shows if the horizontal or the vertical linear polarization component is dominant. If $s_1$ is zero and we assume the light is not unpolarized then the light is either \SI{\pm 45}{\degree} elliptical or circular polarized. Likewise, if respectively $s_2>0$ or $s_2<0$ then the \SI{45}{\degree} or the \SI{-45}{\degree} linear polarization component is dominant. Like for $s_1$ and $s_2$, the sign of $s_3$ indicates which of the two circular polarization states is dominant, $s_3>0$ for RCP and $s_3<0$ for LCP. Again, if the respective parameter is zero then there is no preference for that polarization type. As mentioned earlier the Stokes parameters can also be related to the electric field. For that we use the expression for quasimonochromatic light:
+\begin{align}
+\begin{split}
+    &\bm{E}_x(t) = \bm{e_x}E_{0x}(t)\cos [(\Bar{k}z-\Bar{\omega} t) + \delta_x(t)], \\
+    &\bm{E}_y(t) = \bm{e_x}E_{0y}(t)\cos [(\Bar{k}z-\Bar{\omega} t) + \delta_y(t)],
+\end{split}
+\end{align}
+where the bar indicates averaging, $\bm{e_x}$ and $\bm{e_y}$ are the unit vectors in the x- and y-directions respectively. On a side note, the quasi prefix is added because waves in reality do not have an infinite extend and so the Fourier transform is not quite a sharp delta peak. The total wave packet can be regarded as a traveling wave of frequency $\Bar{\omega}$, known as the carrier. $\Bar{k}$ and $\Bar{\omega}$ are therefore known as the spatial and temporal carrier frequencies. 
+With $\bm{E}(t)=\bm{E}_x(t)+\bm{E}_y(t)$ we can rewrite the Stokes parameters as:
+\begin{align}
+\begin{split}
+    \label{eq:stokes_param_e}
+    &s_0 = \langle E_{0x}^2 \rangle_T + \langle E_{0y}^2 \rangle_T, \\
+    &s_1 = \langle E_{0x}^2 \rangle_T - \langle E_{0y}^2 \rangle_T, \\
+    &s_2 = \langle 2E_{0x}E_{0y}\cos \delta \rangle_T, \\
+    &s_3 = \langle 2E_{0x}E_{0y}\sin \delta \rangle_T,
+\end{split}
+\end{align}
+where the angled brackets denote averaging and $\delta=\delta_y-\delta_x$ as in section \ref{sec:polellipse} about the polarization ellipse. In fact these relations can also be obtained by time averaging equation \ref{eq:pol_ellipse} which describes the polarization ellipse. Additionally, the constant $\epsilon_0 c / 2$ has been left out so that the parameters are not equal but instead proportional to the intensities. In theory, for monochromatic light we could leave out the averaging since then the amplitudes and the phases are time independent. If the light is unpolarized then $\langle E_{0x}^2 \rangle_T = \langle E_{0y}^2 \rangle_T$ and $s_1$ is zero. $s_2$ and $s_3$ are zero as well since $\cos \delta$ and $\cos \delta$ averages to zero in this case. The Stokes parameters are often normalized by dividing through by $s_0$ so that the light has an intensity of one. Natural light then has the Stokes vector $(1,0,0,0)$. Horizontal and vertical polarized light has the Stokes vectors $(1,1,0,0)$ and $(1,-1,0,0)$ respectively, since the either the horizontal or the vertical component is zero. Furthermore, we can square the last three expressions in equation \ref{eq:stokes_param_e} to get that:
+\begin{equation}
+    s_0^2 = s_1^2 + s_2^2 + s_3^2,
+\end{equation}
+which is an equality only in the case of completely polarized light. For partially polarized light the so called degree of polarization is given by:
+\begin{equation}
+    V = \frac{\sqrt{s_1^2 + s_2^2 + s_3^2}}{s_0},
+\end{equation}
+which in the context of this work should always be equal to one. In the same sense we can define the degree of linear polarization $V_l$ and the degree of circular polarization $V_c$ as:
+\begin{equation}
+    V_l = \frac{\sqrt{s_1^2+s_2^2}}{s_0} = V \cos 2\chi \qquad V_c = \frac{s_3^2}{s_0} = V \sin 2\chi,
+\end{equation}
+where the angle $\chi$ is the orientation angle in the polarization ellipse representation. $V_l$ and $V_c$ are measures of how much of the intensity can be allocated to the linear and circular polarization components respectively. Since $\chi$ is in the range of $\pm \frac{\pi}{4}$, $V_l$ is strictly positive. Meanwhile, in this range $V_c$ can be negative where for positive values the light is RCP and for negative values of $V_c$ the light is LCP.
 
-
+\cite{HechtOpticsEdition, Shurcliff1962PolarizedLight, GilPerez2017PolarizedApproach}
 
 
 \subsection{Mueller calculus}
