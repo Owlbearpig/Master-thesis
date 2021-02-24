@@ -763,9 +763,11 @@ The number $m$ is known as the order of the waveplate. An order of $0$ means tha
 It is clear that it would quickly become complicated to predict the final polarization state of a polarized wave, after it has passed a series of waveplates and polarizers. Especially the way we have done it so far by considering polarization in terms of the individual field components. In the following section we will therefore introduce more suited alternative methods of describing polarization. We will see that any polarization state can be described by a vector and each optical element by a matrix. This method reduces most calculations to matrix multiplications, which is especially useful for solving problems consisting of a series of optical elements.
 
 \section{Mathematical description of polarization}
+\label{sec:math_desc}
 The two most widely used representations of polarized light are Jones vectors and Stokes parameters. Stokes parameters were already introduced in 1852 by G. G. Stokes and are essentially four real numbers derived from measurable quantities. These four numbers are often combined into a vector known as the Stokes vector. The Jones vector representation was invented almost 100 years later in 1941 by R. Clark Jones. It is only applicable to polarized light since the components of the Jones vector are given directly by the electric field components. The advantage of using Stokes vectors to describe the polarization state of light is therefore that they can be used in the case of natural, totally polarized and partially polarized light. Nevertheless, both representations can replace conventional algebraic and trigonometric calculation methods, where the latter is required when the optic axes are aligned at different angles in a series of elements. Together with the matrices describing the individual optical elements the Stokes and Jones vectors form the Mueller and Jones calculus \cite{Shurcliff1962PolarizedLight}. 
 
-\subsection{Stokes parameters and the Poincaré sphere}
+\subsection{Stokes parameters}
+\label{sec:stokes_parameters}
 As mentioned in the previous section; one of the advantages of the Stokes vectors are that they can describe any type of light. Since in the context of this work the light is always fully polarized we do not actually need this property and the Jones calculus will mainly be used. Nevertheless, the Stokes vectors will be helpful later on where they simplify the description of the Poincaré sphere, which is a useful tool for visualizing the effects of polarization altering elements. At first we will show how the Stokes parameters can be obtained directly from observables, then how they relate to the electric field. The Stokes parameters are a set of four numbers, which describe the intensity and polarization state of light. The parameters have the unit of intensity, this intensity is not time dependent but instead averaged over the period $T$ of a measurement. A direct consequence of this is that we lose the phase information, and thereby limiting the use of the Stokes parameters for interference effect calculations. Each parameter has a filter $F_0$ to $F_3$ or polarizer associated with it which transmits and blocks half of the light equally. The following configuration of the filters is just one way of defining the parameters and is not unique, that is other equivalent configurations exist as well. In any case the filters associated with the four parameters $s_0$ to $s_3$ are a neutral, two linear and a circular polarizer respectively. Where a neutral filter lets any polarization pass, in other words for any polarization state the initial intensity is equal to the final intensity after passing a neutral filter. Linear polarizers essentially function in the same way as a wiregrid polarizer, rather a wiregrid polarizer is a linear polarizer. A circular polarizer consists of a linear polarizer and a quarter waveplate where the linear polarizer is oriented at an angle of \SI{45}{\degree} to the principle axes of the waveplate. The light will therefore always emerge circular polarized. The transmission axes of $F_1$ and $F_2$ are oriented horizontally and at \SI{45}{\degree} respectively while $F_3$ is opaque to LCP light. The filters are then placed one after the other in the beam path and the transmitted intensities $I_0$ to $I_3$ are measured. The Stokes parameters are then calculated using the following combinations:
 
 \begin{equation}
@@ -790,11 +792,11 @@ With $\bm{E}(t)=\bm{E}_x(t)+\bm{E}_y(t)$ we can rewrite the Stokes parameters as
     \label{eq:stokes_param_e}
     &s_0 = \langle E_{0x}^2 \rangle_T + \langle E_{0y}^2 \rangle_T, \\
     &s_1 = \langle E_{0x}^2 \rangle_T - \langle E_{0y}^2 \rangle_T, \\
-    &s_2 = \langle 2E_{0x}E_{0y}\cos \delta \rangle_T, \\
-    &s_3 = \langle 2E_{0x}E_{0y}\sin \delta \rangle_T,
+    &s_2 = 2\langle E_{0x}E_{0y}\cos \delta \rangle_T, \\
+    &s_3 = 2\langle E_{0x}E_{0y}\sin \delta \rangle_T,
 \end{split}
 \end{align}
-where the angled brackets denote averaging and $\delta=\delta_y-\delta_x$ as in section \ref{sec:polellipse} about the polarization ellipse. In fact these relations can also be obtained by time averaging equation \ref{eq:pol_ellipse} which describes the polarization ellipse. Additionally, the constant $\epsilon_0 c / 2$ has been left out so that the parameters are not equal but instead proportional to the intensities. In theory, for monochromatic light we could leave out the averaging since then the amplitudes and the phases are time independent. If the light is unpolarized then $\langle E_{0x}^2 \rangle_T = \langle E_{0y}^2 \rangle_T$ and $s_1$ is zero. $s_2$ and $s_3$ are zero as well since $\cos \delta$ and $\cos \delta$ averages to zero in this case. The Stokes parameters are often normalized by dividing through by $s_0$ so that the light has an intensity of one. Natural light then has the Stokes vector $(1,0,0,0)$. Horizontal and vertical polarized light has the Stokes vectors $(1,1,0,0)$ and $(1,-1,0,0)$ respectively, since the either the horizontal or the vertical component is zero. Furthermore, we can square the last three expressions in equation \ref{eq:stokes_param_e} to get that:
+where the angled brackets denote averaging and $\delta=\delta_y-\delta_x$ as in section \ref{sec:polellipse} about the polarization ellipse. In fact these relations can also be obtained by time averaging equation \ref{eq:pol_ellipse} which describes the polarization ellipse. Additionally, the constant $\epsilon_0 c / 2$ has been left out so that the parameters are not equal but instead proportional to the intensities. In theory, for monochromatic light we could leave out the averaging since then the amplitudes and the phases are time independent. If the light is unpolarized then $\langle E_{0x}^2 \rangle_T = \langle E_{0y}^2 \rangle_T$ and $s_1$ is zero. $s_2$ and $s_3$ are zero as well since $\cos \delta$ and $\cos \delta$ averages to zero in this case. The Stokes parameters are often normalized by dividing through by $s_0$ so that the light has an intensity of one. Natural light then has the Stokes parameters $(1,0,0,0)$. Horizontal and vertical polarized light has the Stokes parameters $(1,1,0,0)$ and $(1,-1,0,0)$ respectively, since the either the horizontal or the vertical component is zero. Furthermore, we can square the last three expressions in equation \ref{eq:stokes_param_e} to get that:
 \begin{equation}
     s_0^2 = s_1^2 + s_2^2 + s_3^2,
 \end{equation}
@@ -802,19 +804,66 @@ which is an equality only in the case of completely polarized light. For partial
 \begin{equation}
     V = \frac{\sqrt{s_1^2 + s_2^2 + s_3^2}}{s_0},
 \end{equation}
-which in the context of this work should always be equal to one. In the same sense we can define the degree of linear polarization $V_l$ and the degree of circular polarization $V_c$ as:
+which in the context of this work should be equal to one. In the same sense we can define the degree of linear polarization $V_l$ and the degree of circular polarization $V_c$ as:
 \begin{equation}
     V_l = \frac{\sqrt{s_1^2+s_2^2}}{s_0} = V \cos 2\chi \qquad V_c = \frac{s_3^2}{s_0} = V \sin 2\chi,
 \end{equation}
-where the angle $\chi$ is the orientation angle in the polarization ellipse representation. $V_l$ and $V_c$ are measures of how much of the intensity can be allocated to the linear and circular polarization components respectively. Since $\chi$ is in the range of $\pm \frac{\pi}{4}$, $V_l$ is strictly positive. Meanwhile, in this range $V_c$ can be negative where for positive values the light is RCP and for negative values of $V_c$ the light is LCP.
+where the angle $\chi$ is the ellipticity angle in the polarization ellipse representation. $V_l$ and $V_c$ are measures of how much of the intensity can be allocated to the linear and circular polarization components respectively. Since $\chi$ is in the range of $\pm \frac{\pi}{4}$, $V_l$ is strictly positive. Meanwhile, in this range $V_c$ can be negative where for positive values the light is RCP and for negative values of $V_c$ the light is LCP. The values $V_c$ and $V_l$ are useful quantifiers of the polarization state. Before we continue on a similar note with the description of the Jones vectors, it is worth mentioning the vector representation of the Stokes parameters since it is widely used. Specifically, the Stokes parameters are usually arranged as a 4x1 Stokes vector $\bm{s}$:
 
-\cite{HechtOpticsEdition, Shurcliff1962PolarizedLight, GilPerez2017PolarizedApproach}
+\begin{equation}
+    \bm{s}=
+    \begin{pmatrix}
+    s_0 \\
+    s_1 \\
+    s_2 \\
+    s_3
+    \end{pmatrix},
+\end{equation}
+or horizontally as $\bm{s}=(s_0, s_1, s_2, s_3)^T$. Strictly speaking the set of Stokes vectors with addition and scalar multiplication do not form a vector space, since negative intensities do not have physical meaning \cite{HechtOpticsEdition, Shurcliff1962PolarizedLight, GilPerez2017PolarizedApproach}. 
+% TODO Add reference to table with some examples of jones and stokes vectors 
 
+\subsection{Jones vectors}
+\label{sec:jones_vectors}
+The Jones vector is another commonly used representation of polarized light, which again like the Stokes representation has its own advantages and disadvantages. For example the phase information is conserved in the Jones representation but it can only describe fully polarized light. Unlike the Stokes parameters, the Jones vector is also able to describe coherent light. Another minor advantage of the Jones vector for calculations is that it is straight forward to obtain its components. Specifically, the Jones vector is given directly by the field components as:
+\begin{equation}
+    \bm{E} = 
+    \begin{pmatrix}
+    E_x(t) \\
+    E_y(t)
+    \end{pmatrix},
+\end{equation}
+where $E_x(t)$ and $E_y(t)$ are the scalar field components of the electric field. The Jones vector is, unlike the Stokes vector, an actual vector. Additionally, it is defined up to a non-measurable global phase factor $e^{i\phi}$. If we leave aside this global phase factor we can express the Jones vector in the polarization ellipse representation using the intensity $I$, the orientation angle $\psi$ and the ellipticity angle $\chi$ as follows:
+
+\begin{align}
+\begin{split}
+    \bm{E} &=
+    \sqrt{I}
+    \begin{pmatrix}
+    \cos \chi \cos \phi - i\sin \chi \sin \phi \\
+    \cos \chi \sin \phi + i\sin \chi \cos \phi
+    \end{pmatrix}
+    \\
+    &=
+    \sqrt{I}
+    \begin{pmatrix}
+    \cos \phi & -\sin \phi \\
+    \sin \phi & \cos \phi
+    \end{pmatrix}
+    \begin{pmatrix}
+    \cos \chi \\
+    i\sin \chi
+    \end{pmatrix}.
+\end{split}
+\end{align}
 
 \subsection{Mueller calculus}
 \label{sec:muellercalc}
 
 \subsection{Jones calculus}
+\label{sec:jonescalc}
+
+\subsection{The Poincaré sphere}
+\label{sec:the_poincare_sphere}
 
 \section{Design description}
 \label{sec:design}
