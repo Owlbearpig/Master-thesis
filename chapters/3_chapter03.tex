@@ -43,7 +43,7 @@ Applying $\bm{\nabla}\times$ to equation \ref{eq:maxwell3reduced} and with equat
 \begin{equation}
     \bm{\nabla}\times \bm{\nabla}\times \bm{E} = -\mu_0 \hat{\epsilon} \frac{\partial^2\bm{E}}{\partial t^2}
 \end{equation}
-Then using the vector calculus identity: $\bm{\nabla}\times \bm{\nabla}\times \bm{F} = \bm{\nabla} \left( \bm{\nabla} \cdot \bm{F} \right) - \bm{\nabla}^2 \bm{F}$, for any function $\bm{F}$, together with equation \ref{eq:maxwell1reduced} we get the EM-wave equation: \footnote{We neglect the magnetic field, since we are only concerned with non magnetic materials in this work. But the derivation of the wave equation for the magnetic field would be exactly the same}
+Then using the vector calculus identity: $\bm{\nabla}\times \bm{\nabla}\times \bm{F} = \bm{\nabla} \left( \bm{\nabla} \cdot \bm{F} \right) - \bm{\nabla}^2 \bm{F}$, for any function $\bm{F}$, together with equation \ref{eq:maxwell1reduced} we get the EM-wave equation: \footnote{We neglect the magnetic field, since we are only concerned with non magnetic materials in this work. Nevertheless, the derivation of the wave equation for the magnetic field would be almost exactly the same}
 \begin{equation}
     \label{eq:waveeq}
     \bm{\nabla}^2 \bm{E} = \mu_0 \hat{\epsilon} \frac{\partial^2\bm{E}}{\partial t^2}
@@ -781,6 +781,7 @@ As mentioned in the previous section; one of the advantages of the Stokes vector
 We see that $s_0$ is the total intensity of the light while $s_1$, $s_2$ and $s_3$ actually describe the polarization state of the light. The sign of $s_1$ therefore shows if the horizontal or the vertical linear polarization component is dominant. If $s_1$ is zero and we assume the light is not unpolarized then the light is either \SI{\pm 45}{\degree} elliptical or circular polarized. Likewise, if respectively $s_2>0$ or $s_2<0$ then the \SI{45}{\degree} or the \SI{-45}{\degree} linear polarization component is dominant. Like for $s_1$ and $s_2$, the sign of $s_3$ indicates which of the two circular polarization states is dominant, $s_3>0$ for RCP and $s_3<0$ for LCP. Again, if the respective parameter is zero then there is no preference for that polarization type. As mentioned earlier the Stokes parameters can also be related to the electric field. For that we use the expression for quasimonochromatic light:
 \begin{align}
 \begin{split}
+    \label{eq:quasi_mono_efields}
     &\bm{E}_x(t) = \bm{e_x}E_{0x}(t)\cos [(\Bar{k}z-\Bar{\omega} t) + \delta_x(t)], \\
     &\bm{E}_y(t) = \bm{e_x}E_{0y}(t)\cos [(\Bar{k}z-\Bar{\omega} t) + \delta_y(t)],
 \end{split}
@@ -806,9 +807,13 @@ which is an equality only in the case of completely polarized light. For partial
 \end{equation}
 which in the context of this work should be equal to one. In the same sense we can define the degree of linear polarization $V_l$ and the degree of circular polarization $V_c$ as:
 \begin{equation}
-    V_l = \frac{\sqrt{s_1^2+s_2^2}}{s_0} = V \cos 2\chi \qquad V_c = \frac{s_3^2}{s_0} = V \sin 2\chi,
+    V_l = \frac{\sqrt{s_1^2+s_2^2}}{s_0} = V \cos 2\chi \qquad V_c = \frac{s_3}{s_0} = V \sin 2\chi,
 \end{equation}
-where the angle $\chi$ is the ellipticity angle in the polarization ellipse representation. $V_l$ and $V_c$ are measures of how much of the intensity can be allocated to the linear and circular polarization components respectively. Since $\chi$ is in the range of $\pm \frac{\pi}{4}$, $V_l$ is strictly positive. Meanwhile, in this range $V_c$ can be negative where for positive values the light is RCP and for negative values of $V_c$ the light is LCP. The values $V_c$ and $V_l$ are useful quantifiers of the polarization state. Before we continue on a similar note with the description of the Jones vectors, it is worth mentioning the vector representation of the Stokes parameters since it is widely used. Specifically, the Stokes parameters are usually arranged as a 4x1 Stokes vector $\bm{s}$:
+where the angle $\chi$ is the ellipticity angle in the polarization ellipse representation. $V_l$ and $V_c$ are measures of how much of the intensity can be allocated to the linear and circular polarization components respectively. Since $\chi$ is in the interval $\left[-\frac{\pi}{4}, +\frac{\pi}{4}\right]$, $\cos 2\chi$ is strictly positive. Meanwhile, in this range the values of $V_c$ lie in the interval $\left[-1, +1\right]$, where negative values indicate that the light is LCP and RCP if $V_c$ is positive. Furthermore, we see that $V_l$, $V_c$ and $V$ are related in the following way:
+\begin{equation}
+    V = \sqrt{V_l^2 + V_c^2},
+\end{equation}
+which should always be equal to one. Before we continue on a similar note with the description of the Jones vectors, it is worth mentioning the vector representation of the Stokes parameters since it is widely used. Specifically, the Stokes parameters are often arranged as a 4x1 Stokes vector $\bm{s}$:
 
 \begin{equation}
     \bm{s}=
@@ -826,13 +831,39 @@ or horizontally as $\bm{s}=(s_0, s_1, s_2, s_3)^T$. Strictly speaking the set of
 \label{sec:jones_vectors}
 The Jones vector is another commonly used representation of polarized light, which again like the Stokes representation has its own advantages and disadvantages. For example the phase information is conserved in the Jones representation but it can only describe fully polarized light. Unlike the Stokes parameters, the Jones vector is also able to describe coherent light. Another minor advantage of the Jones vector for calculations is that it is straight forward to obtain its components. Specifically, the Jones vector is given directly by the field components as:
 \begin{equation}
+    \label{eq:jones_vector1}
     \bm{E} = 
     \begin{pmatrix}
     E_x(t) \\
     E_y(t)
     \end{pmatrix},
 \end{equation}
-where $E_x(t)$ and $E_y(t)$ are the scalar field components of the electric field. The Jones vector is, unlike the Stokes vector, an actual vector. Additionally, it is defined up to a non-measurable global phase factor $e^{i\phi}$. If we leave aside this global phase factor we can express the Jones vector in the polarization ellipse representation using the intensity $I$, the orientation angle $\psi$ and the ellipticity angle $\chi$ as follows:
+where $E_x(t)$ and $E_y(t)$ are the scalar field components of the electric field. The Jones vector is an actual vector unlike the Stokes vector. In this notation it is possible to preserve the phase information of the wave, since it is not averaged out as for the Stokes parameters. If we assume a quasimonochromatic wave like it is given in equation \ref{eq:quasi_mono_efields} and define $u(t)=\Bar{k}z-\Bar{\omega}t$, then we can rewrite the Jones vector in complex form and factor out the phases:
+\begin{equation}
+    \label{eq:jones_vector2}
+    \bm{E} = e^{iu(t)}
+    \begin{pmatrix}
+    E_{0x(t)}e^{i\delta_x(t)} \\
+    E_{0y(t)}e^{i\delta_y(t)}
+    \end{pmatrix}.
+\end{equation}
+ Furthermore, if we consider the special case where the amplitudes and phases do not vary with time we get the final time independent representation of the Jones vector:
+ \begin{equation}
+    \label{eq:jones_vector3}
+    \begin{pmatrix}
+    E_{0x}e^{i\delta_x} \\
+    E_{0y}e^{i\delta_y}
+    \end{pmatrix},
+\end{equation}
+where we have left out the global phase factor $e^{iu(t)}$, since it does not change the polarization state as we saw in for example section \ref{sec:polellipse}. The Jones vector is often normalized so that the sum of the squares of the components is equal to one. For example in the case of a field with $E_{0x}=E_{0y}$ and $\delta_x=\delta_y$ we get the normalized Jones vector:
+\begin{equation}
+    \bm{E_{\SI{45}{\degree}}} = \frac{1}{\sqrt{2}}
+    \begin{pmatrix}
+    1 \\
+    1
+    \end{pmatrix},
+\end{equation}
+which is a \SI{45}{\degree} linear polarized state. Furthermore, we can express any Jones vector in the polarization ellipse representation using the intensity $I$, the orientation angle $\psi$ and the ellipticity angle $\chi$ as follows:
 
 \begin{align}
 \begin{split}
@@ -852,15 +883,25 @@ where $E_x(t)$ and $E_y(t)$ are the scalar field components of the electric fiel
     \begin{pmatrix}
     \cos \chi \\
     i\sin \chi
-    \end{pmatrix}.
+    \end{pmatrix},
 \end{split}
 \end{align}
+where we see that the rightmost factor is a Jones vector representing elliptical polarized light. The matrix in the middle is simply a rotation matrix that rotates the Jones vector by the angle $\phi$ and the factor to the left is the overall amplitude. This shows that the Jones vector fully describes the polarization state. 
+Before we move on to the next section it is worth mentioning the So far the Jones vectors have been defined with respect to a pair of axes XY lying in the reference plane tangential to the wavefronts. 
 
-\subsection{Mueller calculus}
-\label{sec:muellercalc}
+So far we have seen two mutually complementary descriptions of the polarization states whats left at this point is to describe the representation of waveplates in the Jones and Stokes calculus we will 
+
+\cite{HechtOpticsEdition, GilPerez2017PolarizedApproach}
+
+% TODO Add reference to table with some examples of jones and stokes vectors 
 
 \subsection{Jones calculus}
 \label{sec:jonescalc}
+
+see sec 4.2 in \cite{GilPerez2017PolarizedApproach} and ofc hecht. Also linear maps/transformations maybe.
+
+\subsection{Mueller calculus}
+\label{sec:muellercalc}
 
 \subsection{The Poincaré sphere}
 \label{sec:the_poincare_sphere}
