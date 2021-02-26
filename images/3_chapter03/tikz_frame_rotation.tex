@@ -1,0 +1,19 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{bm}
+
+\begin{document}
+    \begin{tikzpicture}[]
+        % Axes
+        \draw[<->, >=stealth, gray] (-1.414,-1.414) -- (1.414,1.414) node[above] {$X'$};
+        \draw[<->, >=stealth, gray] (1.414,-1.414) -- (-1.414,1.414) node[above] {$Y'$};
+        
+        \draw[<->, >=stealth] (-2,0) -- (2,0) node[above] {$X$};
+        \draw[<->, >=stealth] (0,-2) -- (0,2) node[above] {$Y$};
+        
+        \draw[blue] (1,0) arc (0:45:1);
+        
+        \node[blue] at (1.1,0.7) {$\theta$};
+        
+    \end{tikzpicture}
+\end{document}
