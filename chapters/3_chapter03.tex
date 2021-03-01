@@ -896,8 +896,7 @@ where the superscript $\dagger$ denotes conjugate transpose. Moreover, the squar
     \end{pmatrix},
 \end{split}
 \end{align}
-where we see that the rightmost factor is a Jones vector representing elliptical polarized light. The matrix in the middle is simply a rotation matrix that rotates the Jones vector by the angle $\phi$ and the factor to the left is the overall amplitude. This shows that the Jones vector fully describes the polarization state. 
-Before we move on to the next section it is worth mentioning how the components of the Jones vector transform into other reference frames, since this will be useful in the description of rotated elements. So far the Jones vectors have been defined with respect to a pair of axes XY lying in the reference plane tangential to the wavefronts. Evidently the Jones vector in this frame can be written as:
+where we see that the rightmost factor is a Jones vector representing elliptical polarized light. The matrix in the middle is simply a rotation matrix that rotates the Jones vector by the angle $\phi$ and the factor to the left is the overall amplitude. This shows that the Jones vector fully describes the polarization state. Before we move on to the next section it is worth mentioning how the components of the Jones vector transform into other reference frames, since this will be useful in the description of rotated elements. So far the Jones vectors have been defined with respect to a pair of axes XY lying in the reference plane tangential to the wavefronts. Evidently the Jones vector in this frame can be written as:
 \begin{equation}
     \tilde{\bm{E}} = E_x \bm{e}_x + E_y \bm{e}_y, \qquad 
     \bm{e}_x = 
@@ -910,8 +909,8 @@ Before we move on to the next section it is worth mentioning how the components 
     \begin{pmatrix}
     0 \\
     1
-    \end{pmatrix}
-\end{equation},
+    \end{pmatrix},
+\end{equation}
 where the basis vectors $\bm{e}_x$ and $\bm{e}_y$ represents light linear polarized along the X and Y axes respectively. In fact any complex 2x1 vector can be regarded as a Jones vector. It is therefore clear that the Jones vectors form a vector space and with that other bases can be defined as well. Consequently, the reference frame change from XY to X'Y' can be represented by an orthogonal transformation which can be defined as:
 \begin{equation}
     \tilde{\bm{E}}' = \hat{Q}(\theta) \tilde{\bm{E}}, \qquad
@@ -930,9 +929,15 @@ where $\hat{Q}(\theta)$ corresponds to a counterclockwise rotation about the Z a
     \label{fig:frame_rotation}
 \end{figure}
 
-So far we have seen two mutually complementary descriptions of the polarization states whats left at this point is to describe the representation of waveplates in the Jones and Stokes calculus we will 
-
+So far we have seen two mutually complementary descriptions of the polarization states. Both have advantages and disadvantages but since in the context of this work the light is fully polarized and coherent the Jones vectors are best suited for . Following we will describe the representation of waveplates in the Jones and Stokes formalisms.
 \cite{HechtOpticsEdition, GilPerez2017PolarizedApproach}
+
+\begin{table}[h]
+    \centering
+    \includestandalone{3_chapter03/pol_statevectors_table}
+    \caption{Summary of the Jones and Stokes vectors for the degenerate polarization states. All vectors are normalized. }
+    \label{tab:pol_statevectors}
+\end{table}
 
 % TODO Add reference to table with some examples of jones and stokes vectors 
 

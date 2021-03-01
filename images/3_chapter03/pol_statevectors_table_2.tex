@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{makecell}
+\usepackage{siunitx}
+\usepackage{nicefrac}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usetikzlibrary{decorations.markings, arrows.meta, bending}
+
+\begin{document}
+    \begin{tabular}{c | c c c c c c}
+        \toprule
+        State & Linear horizontal & Linear vertical & Linear \SI{+45}{\degree} & Linear \SI{-45}{\degree} & RCP & LCP \\
+        \midrule\\
+        %\addlinespace[2ex]
+        Jones vector &  
+        $\begin{pmatrix} 1 \\ 0 \end{pmatrix}$ &
+        $\begin{pmatrix} 1 \\ 0 \end{pmatrix}$ &
+        $\begin{pmatrix} 1 \\ 0 \end{pmatrix}$ &
+        $\begin{pmatrix} 1 \\ 0 \end{pmatrix}$ &
+        $\begin{pmatrix} 1 \\ 0 \end{pmatrix}$ &
+        $\begin{pmatrix} 1 \\ 0 \end{pmatrix}$ \\ 
+        %\addlinespace[2ex]
+        Stokes vector & 
+        $\begin{pmatrix} 1 \\ 1 \\ 0 \\ 0 \end{pmatrix}$ & 
+        $\begin{pmatrix} 1 \\ 1 \\ 0 \\ 0 \end{pmatrix}$ & 
+        $\begin{pmatrix} 1 \\ 1 \\ 0 \\ 0 \end{pmatrix}$ & 
+        $\begin{pmatrix} 1 \\ 1 \\ 0 \\ 0 \end{pmatrix}$ & 
+        $\begin{pmatrix} 1 \\ 1 \\ 0 \\ 0 \end{pmatrix}$ & 
+        $\begin{pmatrix} 1 \\ 1 \\ 0 \\ 0 \end{pmatrix}$ 
+    \end{tabular}
+\end{document}
