@@ -519,7 +519,7 @@ where $|\cdot|$ denotes the magnitude. The birefringence is therefore given by:
 \begin{equation}
     \Delta n = \operatorname{Re}(n_e) - \operatorname{Re}(n_o) = \sqrt{\frac{|\epsilon_s|+\operatorname{Re}(\epsilon_s)}{2}} - \sqrt{\frac{|\epsilon_p|+\operatorname{Re}(\epsilon_p)}{2}}.
 \end{equation}
-Similarly we can define the dichroism $\Delta \kappa$ as the difference of the imaginary parts:
+Similarly we can define the dichroism or diattenuation $\Delta \kappa$ as the difference of the imaginary parts:
 \begin{equation}
     \Delta \kappa = \operatorname{Im}(n_e) - \operatorname{Im}(n_o) = \sqrt{\frac{|\epsilon_s|-\operatorname{Re}(\epsilon_s)}{2}} - \sqrt{\frac{|\epsilon_p|-\operatorname{Re}(\epsilon_p)}{2}}.
 \end{equation}
@@ -778,7 +778,7 @@ As mentioned in the previous section; one of the advantages of the Stokes vector
     s_3 = 2 I_3 - 2 I_0.
 \end{equation}
 
-We see that $s_0$ is the total intensity of the light while $s_1$, $s_2$ and $s_3$ actually describe the polarization state of the light. The sign of $s_1$ therefore shows if the horizontal or the vertical linear polarization component is dominant. If $s_1$ is zero and we assume the light is not unpolarized then the light is either \SI{\pm 45}{\degree} elliptical or circular polarized. Likewise, if respectively $s_2>0$ or $s_2<0$ then the \SI{45}{\degree} or the \SI{-45}{\degree} linear polarization component is dominant. Like for $s_1$ and $s_2$, the sign of $s_3$ indicates which of the two circular polarization states is dominant, $s_3>0$ for RCP and $s_3<0$ for LCP. Again, if the respective parameter is zero then there is no preference for that polarization type. As mentioned earlier the Stokes parameters can also be related to the electric field. For that we use the expression for quasimonochromatic light:
+We see that $s_0$ is the total intensity $I$ of the light while $s_1$, $s_2$ and $s_3$ actually describe the polarization state of the light. The sign of $s_1$ therefore shows if the horizontal or the vertical linear polarization component is dominant. If $s_1$ is zero and we assume the light is not unpolarized then the light is either \SI{\pm 45}{\degree} elliptical or circular polarized. Likewise, if respectively $s_2>0$ or $s_2<0$ then the \SI{45}{\degree} or the \SI{-45}{\degree} linear polarization component is dominant. Like for $s_1$ and $s_2$, the sign of $s_3$ indicates which of the two circular polarization states is dominant, $s_3>0$ for RCP and $s_3<0$ for LCP. Again, if the respective parameter is zero then there is no preference for that polarization type. As mentioned earlier the Stokes parameters can also be related to the electric field. For that we use the expression for quasimonochromatic light:
 \begin{align}
 \begin{split}
     \label{eq:quasi_mono_efields}
@@ -786,7 +786,7 @@ We see that $s_0$ is the total intensity of the light while $s_1$, $s_2$ and $s_
     &\bm{E}_y(t) = \bm{e_x}E_{0y}(t)\cos [(\Bar{k}z-\Bar{\omega} t) + \delta_y(t)],
 \end{split}
 \end{align}
-where the bar indicates averaging, $\bm{e_x}$ and $\bm{e_y}$ are the unit vectors in the x- and y-directions respectively. On a side note, the quasi prefix is added because waves in reality do not have an infinite extend and so the Fourier transform is not quite a sharp delta peak. The total wave packet can be regarded as a traveling wave of frequency $\Bar{\omega}$, known as the carrier. $\Bar{k}$ and $\Bar{\omega}$ are therefore known as the spatial and temporal carrier frequencies. 
+where the bar superscript indicates averaging, $\bm{e_x}$ and $\bm{e_y}$ are the unit vectors in the x- and y-directions respectively. On a side note, the quasi prefix is added because waves in reality do not have an infinite extend and so the Fourier transform is not quite a sharp delta peak. The total wave packet can be regarded as a traveling wave of frequency $\Bar{\omega}$, known as the carrier. $\Bar{k}$ and $\Bar{\omega}$ are therefore known as the spatial and temporal carrier frequencies. 
 With $\bm{E}(t)=\bm{E}_x(t)+\bm{E}_y(t)$ we can rewrite the Stokes parameters as:
 \begin{align}
 \begin{split}
@@ -797,7 +797,7 @@ With $\bm{E}(t)=\bm{E}_x(t)+\bm{E}_y(t)$ we can rewrite the Stokes parameters as
     &s_3 = 2\langle E_{0x}E_{0y}\sin \delta \rangle_T,
 \end{split}
 \end{align}
-where the angled brackets denote averaging and $\delta=\delta_y-\delta_x$ as in section \ref{sec:polellipse} about the polarization ellipse. In fact these relations can also be obtained by time averaging equation \ref{eq:pol_ellipse} which describes the polarization ellipse. Additionally, the constant $\epsilon_0 c / 2$ has been left out so that the parameters are not equal but instead proportional to the intensities. In theory, for monochromatic light we could leave out the averaging since then the amplitudes and the phases are time independent. If the light is unpolarized then $\langle E_{0x}^2 \rangle_T = \langle E_{0y}^2 \rangle_T$ and $s_1$ is zero. $s_2$ and $s_3$ are zero as well since $\cos \delta$ and $\cos \delta$ averages to zero in this case. The Stokes parameters are often normalized by dividing through by $s_0$ so that the light has an intensity of one. Natural light then has the Stokes parameters $(1,0,0,0)$. Horizontal and vertical polarized light has the Stokes parameters $(1,1,0,0)$ and $(1,-1,0,0)$ respectively, since the either the horizontal or the vertical component is zero. Furthermore, we can square the last three expressions in equation \ref{eq:stokes_param_e} to get that:
+where the angled brackets denote averaging and $\delta=\delta_y-\delta_x$ as in section \ref{sec:polellipse} about the polarization ellipse. In fact these relations can also be obtained by time averaging equation \ref{eq:pol_ellipse} which describes the polarization ellipse. Additionally, the constant $\epsilon_0 c / 2$ has been left out so that the parameters are not equal but instead proportional to the intensities. In theory, for monochromatic light we could leave out the averaging since then the amplitudes and the phases are time independent. If the light is unpolarized then $\langle E_{0x}^2 \rangle_T = \langle E_{0y}^2 \rangle_T$ and $s_1$ is zero. $s_2$ and $s_3$ are zero as well since $\cos \delta$ and $\sin \delta$ averages to zero in this case. The Stokes parameters are often normalized by dividing through by $s_0$ so that the light has an intensity of one. Natural light then has the Stokes parameters $(1,0,0,0)$. Horizontal and vertical polarized light has the Stokes parameters $(1,1,0,0)$ and $(1,-1,0,0)$ respectively, since the either the horizontal or the vertical component is zero. Furthermore, we can square the last three expressions in equation \ref{eq:stokes_param_e} to get the following expression:
 \begin{equation}
     s_0^2 = s_1^2 + s_2^2 + s_3^2,
 \end{equation}
@@ -809,11 +809,19 @@ which in the context of this work should be equal to one. In the same sense we c
 \begin{equation}
     V_l = \frac{\sqrt{s_1^2+s_2^2}}{s_0} = V \cos 2\chi \qquad V_c = \frac{s_3}{s_0} = V \sin 2\chi,
 \end{equation}
-where the angle $\chi$ is the ellipticity angle in the polarization ellipse representation. $V_l$ and $V_c$ are measures of how much of the intensity can be allocated to the linear and circular polarization components respectively. Since $\chi$ is in the interval $\left[-\frac{\pi}{4}, +\frac{\pi}{4}\right]$, $\cos 2\chi$ is strictly positive. Meanwhile, in this range the values of $V_c$ lie in the interval $\left[-1, +1\right]$, where negative values indicate that the light is LCP and RCP if $V_c$ is positive. Furthermore, we see that $V_l$, $V_c$ and $V$ are related in the following way:
+where the angle $\chi$ is the ellipticity angle in the polarization ellipse representation. $V_l$ and $V_c$ are measures of how close the state is to the linear and circular polarization states respectively. Since $\chi$ is in the interval $\left[-\frac{\pi}{4}, +\frac{\pi}{4}\right]$, $\cos 2\chi$ is strictly positive. Meanwhile, in this range the values of $V_c$ lie in the interval $\left[-1, +1\right]$, where negative values indicate that the light is LCP and RCP if $V_c$ is positive. Furthermore, we see that $V_l$, $V_c$ and $V$ are related in the following way:
 \begin{equation}
     V = \sqrt{V_l^2 + V_c^2},
 \end{equation}
-which should always be equal to one. Before we continue on a similar note with the description of the Jones vectors, it is worth mentioning the vector representation of the Stokes parameters since it is widely used. Specifically, the Stokes parameters are often arranged as a 4x1 Stokes vector $\bm{s}$:
+which should always be equal to one. Additionally, the semiaxes of the corresponding polarization ellipse are given by:
+\begin{equation}
+    a=\frac{s_0}{2}(V+V_l), \qquad b=\frac{s_0}{2}(V-V_l)
+\end{equation}
+with an area given by:
+\begin{equation}
+    A=\frac{\pi}{4}I^2V^2\sin^2 2\chi.
+\end{equation}
+Before we continue on a similar note with the description of the Jones vectors, it is worth mentioning the vector representation of the Stokes parameters since it is widely used. Specifically, the Stokes parameters are often arranged as a 4x1 Stokes vector $\bm{s}$:
 
 \begin{equation}
     \bm{s}=
@@ -824,8 +832,47 @@ which should always be equal to one. Before we continue on a similar note with t
     s_3
     \end{pmatrix},
 \end{equation}
-or horizontally as $\bm{s}=(s_0, s_1, s_2, s_3)^T$. Strictly speaking the set of Stokes vectors with addition and scalar multiplication do not form a vector space, since negative intensities do not have physical meaning \cite{HechtOpticsEdition, Shurcliff1962PolarizedLight, GilPerez2017PolarizedApproach}. 
-% TODO Add reference to table with some examples of jones and stokes vectors 
+or horizontally as $\bm{s}=(s_0, s_1, s_2, s_3)^T$. Strictly speaking the set of Stokes vectors with addition and scalar multiplication do not form a vector space, since negative intensities do not exist. Nonetheless, for most purposes it still behaves as a vector. The normalized Stokes vectors of the degenerate polarization states are shown in table \ref{tab:pol_statevectors} \cite{HechtOpticsEdition, Shurcliff1962PolarizedLight, GilPerez2017PolarizedApproach}.
+
+\subsection{The Poincaré sphere}
+\label{sec:the_poincare_sphere}
+The Poincaré sphere which was invented 1892 by Henri Poincaré is a useful tool for representing polarized light geometrically and predicting how an optical element will change the polarization state. It is worth noting that an almost equivalent representation known as the Bloch sphere is used in quantum mechanics to visualize a two-level system or qubit. The Poincaré sphere can be constructed directly with the help of the Stokes vector. For this purpose we define the unit Poincaré vector $\bm{u}$ of $\bm{s}$ as:
+
+\begin{equation}
+    \bm{u}=
+    \begin{pmatrix}
+    u_1 \\
+    u_2 \\
+    u_3
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    \cos 2\psi \cos 2\chi \\
+    \sin 2\psi \cos 2\chi \\
+    \sin 2\chi
+    \end{pmatrix},
+\end{equation}
+which is further composed with the Stokes vector so that $\bm{s}$ can be written in the partioned form:
+\begin{equation}
+    \bm{s}=I
+    \begin{pmatrix}
+    1 \\
+    V \bm{u}
+    \end{pmatrix}
+    =I
+    \begin{pmatrix}
+    1 \\
+    \bm{p}
+    \end{pmatrix},
+\end{equation}
+where the vector $\bm{p}=V\bm{u}$ is called the polarization vector or Bloch vector in a quantum mechanical context. 
+
+\begin{figure}[h]
+    \centering
+    \includestandalone[scale=1]{3_chapter03/tikz_poincare_sphere_intro}
+    \caption{}
+    \label{fig:poincare_sphere_intro}
+\end{figure}
 
 \subsection{Jones vectors}
 \label{sec:jones_vectors}
@@ -864,7 +911,7 @@ where we have left out the global phase factor $e^{iu(t)}$, since it does not ch
     1
     \end{pmatrix},
 \end{equation}
-which is a \SI{45}{\degree} linear polarized state. The scalar product of two Jones vectors $\bm{\tilde{u}}$ and $\bm{\tilde{v}}$ is defined by:
+which is a \SI{45}{\degree} linear polarized state. Additional examples of Jones vectors representing the degenerate polarization states are summarized in table \ref{tab:pol_statevectors}. A useful operation is the scalar or inner product of two Jones vectors $\bm{\tilde{u}}$ and $\bm{\tilde{v}}$ which is defined as:
 \begin{equation}
     \bm{\tilde{u}}^{\dagger}\bm{\tilde{v}} = \left(u_1^{*}, u_2^{*} \right)
     \begin{pmatrix}
@@ -873,7 +920,7 @@ which is a \SI{45}{\degree} linear polarized state. The scalar product of two Jo
     \end{pmatrix}
     = u_1^{*}v_1 + u_2^{*}v_2,
 \end{equation}
-where the superscript $\dagger$ denotes conjugate transpose. Moreover, the squared absolute value $|\bm{\tilde{E}}|^2=\bm{\tilde{E}}^{\dagger}\bm{\tilde{E}}=I$ is the intensity of the polarization state. With this we can express any Jones vector in the polarization ellipse representation using the intensity $I$, the orientation angle $\psi$ and the ellipticity angle $\chi$ as follows:
+where the superscript $\dagger$ denotes conjugate transpose. In the same sense as for real vectors two Jones vectors are therefore said to be orthogonal if their inner product is zero. Moreover, the squared absolute value $|\bm{\tilde{E}}|^2=\bm{\tilde{E}}^{\dagger}\bm{\tilde{E}}=I$ is the intensity of the polarization state. With this we can express any Jones vector in the polarization ellipse representation using the intensity $I$, the orientation angle $\psi$ and the ellipticity angle $\chi$ as follows:
 
 \begin{align}
 \begin{split}
@@ -924,33 +971,27 @@ where $\hat{Q}(\theta)$ corresponds to a counterclockwise rotation about the Z a
 
 \begin{figure}[h]
     \centering
-    \includestandalone[scale=1]{3_chapter03/tikz_frame_rotation}
+    \includestandalone[scale=1.1]{3_chapter03/tikz_frame_rotation}
     \caption{An example of a coordinate transformation of the Jones vectors from the coordinate system with axes XY into the primed system. Such a transformation can be represented by a counterclockwise rotation by an angle $\theta$ around the Z axis.}
     \label{fig:frame_rotation}
 \end{figure}
 
-So far we have seen two mutually complementary descriptions of the polarization states. Both have advantages and disadvantages but since in the context of this work the light is fully polarized and coherent the Jones vectors are best suited for . Following we will describe the representation of waveplates in the Jones and Stokes formalisms.
-\cite{HechtOpticsEdition, GilPerez2017PolarizedApproach}
+So far in this section we have described two mutually complementary representations of the polarization states. Specifically, certain calculations are better carried out using the Stokes parameters such as in the case of superimposing two incoherent light beams, while the Jones vector representation is better suited for describing fully polarized coherent light as in the context of this work. Nonetheless, the degrees of polarization are readily obtained using the Stokes parameters, which are useful since they measure the distance between a given polarization state and the degenerate polarization states. As mentioned earlier both sets of vectors have a set of matrices associated with them. How these matrices relate to optical elements will be shown in the following section \cite{HechtOpticsEdition, GilPerez2017PolarizedApproach}.
 
 \begin{table}[h]
     \centering
     \includestandalone{3_chapter03/pol_statevectors_table}
-    \caption{Summary of the Jones and Stokes vectors for the degenerate polarization states. All vectors are normalized. }
+    \caption{Summary of all the normalized Jones and Stokes vectors for the degenerate polarization states.}
     \label{tab:pol_statevectors}
 \end{table}
 
-% TODO Add reference to table with some examples of jones and stokes vectors 
-
 \subsection{Jones calculus}
 \label{sec:jonescalc}
-
+The Jones matrices beep boop
 see sec 4.2 in \cite{GilPerez2017PolarizedApproach} and ofc hecht. Also linear maps/transformations maybe.
 
 \subsection{Mueller calculus}
 \label{sec:muellercalc}
-
-\subsection{The Poincaré sphere}
-\label{sec:the_poincare_sphere}
 
 \section{Design description}
 \label{sec:design}
