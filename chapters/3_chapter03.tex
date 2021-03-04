@@ -797,8 +797,9 @@ With $\bm{E}(t)=\bm{E}_x(t)+\bm{E}_y(t)$ we can rewrite the Stokes parameters as
     &s_3 = 2\langle E_{0x}E_{0y}\sin \delta \rangle_T,
 \end{split}
 \end{align}
-where the angled brackets denote averaging and $\delta=\delta_y-\delta_x$ as in section \ref{sec:polellipse} about the polarization ellipse. In fact these relations can also be obtained by time averaging equation \ref{eq:pol_ellipse} which describes the polarization ellipse. Additionally, the constant $\epsilon_0 c / 2$ has been left out so that the parameters are not equal but instead proportional to the intensities. In theory, for monochromatic light we could leave out the averaging since then the amplitudes and the phases are time independent. If the light is unpolarized then $\langle E_{0x}^2 \rangle_T = \langle E_{0y}^2 \rangle_T$ and $s_1$ is zero. $s_2$ and $s_3$ are zero as well since $\cos \delta$ and $\sin \delta$ averages to zero in this case. The Stokes parameters are often normalized by dividing through by $s_0$ so that the light has an intensity of one. Natural light then has the Stokes parameters $(1,0,0,0)$. Horizontal and vertical polarized light has the Stokes parameters $(1,1,0,0)$ and $(1,-1,0,0)$ respectively, since the either the horizontal or the vertical component is zero. Furthermore, we can square the last three expressions in equation \ref{eq:stokes_param_e} to get the following expression:
+where the angled brackets denote averaging and $\delta=\delta_y-\delta_x$ as in section \ref{sec:polellipse} about the polarization ellipse. In fact these relations can also be obtained by time averaging equation \ref{eq:pol_ellipse} which describes the polarization ellipse. Additionally, the constant $\epsilon_0 c / 2$ has been left out so that the parameters are not equal but instead proportional to the intensities. In theory, for monochromatic light we could leave out the averaging since then the amplitudes and the phases are time independent. If the light is unpolarized then $\langle E_{0x}^2 \rangle_T = \langle E_{0y}^2 \rangle_T$ and $s_1$ is zero. $s_2$ and $s_3$ are zero as well since $\cos \delta$ and $\sin \delta$ averages to zero in this case. The Stokes parameters are often normalized by dividing through by $s_0$ so that the light has an intensity of one. Natural light then has the Stokes parameters $(s_0,s_1,s_2,s_3)=(1,0,0,0)$. Horizontal and vertical polarized light has the Stokes parameters $(1,1,0,0)$ and $(1,-1,0,0)$ respectively, since the either the horizontal or the vertical component is zero. Furthermore, we can square the last three expressions in equation \ref{eq:stokes_param_e} to get the following expression:
 \begin{equation}
+    \label{eq:stokes_char_eq}
     s_0^2 = s_1^2 + s_2^2 + s_3^2,
 \end{equation}
 which is an equality only in the case of completely polarized light. For partially polarized light the so called degree of polarization is given by:
@@ -836,7 +837,7 @@ or horizontally as $\bm{s}=(s_0, s_1, s_2, s_3)^T$. Strictly speaking the set of
 
 \subsection{The Poincaré sphere}
 \label{sec:the_poincare_sphere}
-The Poincaré sphere which was invented 1892 by Henri Poincaré is a useful tool for representing polarized light geometrically and predicting how an optical element will change the polarization state. It is worth noting that an almost equivalent representation known as the Bloch sphere is used in quantum mechanics to visualize a two-level system or qubit. The Poincaré sphere can be constructed directly with the help of the Stokes vector. For this purpose we define the unit Poincaré vector $\bm{u}$ of $\bm{s}$ as:
+The Poincaré sphere which was invented 1892 by Henri Poincaré is a useful tool for representing polarized light geometrically and predicting how an optical element will change a given polarization state. It is worth noting that an almost equivalent representation known as the Bloch sphere is used in quantum mechanics to visualize a two-level system or qubit. The Poincaré sphere can be constructed directly with the help of the Stokes vector. For this purpose we define the unit Poincaré vector $\bm{u}$ of $\bm{s}$ as:
 
 \begin{equation}
     \bm{u}=
@@ -852,8 +853,9 @@ The Poincaré sphere which was invented 1892 by Henri Poincaré is a useful tool
     \sin 2\chi
     \end{pmatrix},
 \end{equation}
-which is further composed with the Stokes vector so that $\bm{s}$ can be written in the partioned form:
+which is further composed with the Stokes vector so that $\bm{s}$ can be written in the block form: % TODO looks like spherical unit vector? + mention again that V=1 .. so ... eh
 \begin{equation}
+    \label{eq:poincare_stokes}
     \bm{s}=I
     \begin{pmatrix}
     1 \\
@@ -865,14 +867,16 @@ which is further composed with the Stokes vector so that $\bm{s}$ can be written
     \bm{p}
     \end{pmatrix},
 \end{equation}
-where the vector $\bm{p}=V\bm{u}$ is called the polarization vector or Bloch vector in a quantum mechanical context. 
+where the vector $\bm{p}=V\bm{u}$ is called the polarization vector or Bloch vector in a quantum mechanical context. Again $\bm{s}$ is often normalized by setting $I=1$ in equation \ref{eq:poincare_stokes}. Subsequently, with respect to the coordinate system defined by the axes $s_1s_2s_3$, equation \ref{eq:stokes_char_eq} defines the Poincaré sphere. This is shown in figure \ref{fig:poincare_sphere_intro}. Evidently the Poincaré sphere has a radius of one which means that states lying on its surface are totally polarized. All states we encounter in the context of this work will therefore be contained on its surface.
 
 \begin{figure}[h]
     \centering
-    \includestandalone[scale=1]{3_chapter03/tikz_poincare_sphere_intro}
-    \caption{}
+    \includestandalone[scale=0.9]{3_chapter03/tikz_poincare_sphere_intro}
+    \caption{Example of a normalized polarization state $\bm{u}$ on the surface of the Poincaré sphere and its associated orthogonal state $-\bm{u}$. All normalized fully polarized states exists on the surface of the sphere and the position of a specific normalized state is defined by the last three components of its corresponding Stokes vector.}
     \label{fig:poincare_sphere_intro}
 \end{figure}
+
+Several properties can be observed directly from this geometrical representation. For example all linear polarized states will exist in the plane with $s_3=0$. Similar, the points $s_{2+}(1,0,0)$, $s_{1-}(-1,0,0)$, $s_{2+}(0,1,0)$ and $s_{2-}(0,-1,0)$ are assigned to the linear polarization states whose planes of polarization are along the horizontal, vertical, \SI{+45}{\degree} and \SI{-45}{\degree} axes respectively. States with a positive ellipticity $\psi$ lie on the northern hemisphere and at $s_{3+}(0,0,1)$ the RCP state is located. Likewise, all points on the southern hemisphere correspond to states with a negative ellipticity and the point $s_{3-}(0,0,-1)$ at the south pole corresponds to the LCP state. Furthermore, a pair of points on opposing sides of the sphere correspond to a pair of orthogonal states. An example of this is shown in figure \ref{fig:poincare_sphere_intro} as the pair $\bm{u}$ and $-\bm{u}$. Another useful feature of this representation is that when the light propagates in a medium and the polarization state changes it describes a trajectory on the sphere. This makes it possible to visualize the effect of an optical element or even a series of elements on a given initial polarization state.
 
 \subsection{Jones vectors}
 \label{sec:jones_vectors}
@@ -971,12 +975,14 @@ where $\hat{Q}(\theta)$ corresponds to a counterclockwise rotation about the Z a
 
 \begin{figure}[h]
     \centering
-    \includestandalone[scale=1.1]{3_chapter03/tikz_frame_rotation}
+    \includestandalone[scale=1]{3_chapter03/tikz_frame_rotation}
     \caption{An example of a coordinate transformation of the Jones vectors from the coordinate system with axes XY into the primed system. Such a transformation can be represented by a counterclockwise rotation by an angle $\theta$ around the Z axis.}
     \label{fig:frame_rotation}
 \end{figure}
 
 So far in this section we have described two mutually complementary representations of the polarization states. Specifically, certain calculations are better carried out using the Stokes parameters such as in the case of superimposing two incoherent light beams, while the Jones vector representation is better suited for describing fully polarized coherent light as in the context of this work. Nonetheless, the degrees of polarization are readily obtained using the Stokes parameters, which are useful since they measure the distance between a given polarization state and the degenerate polarization states. As mentioned earlier both sets of vectors have a set of matrices associated with them. How these matrices relate to optical elements will be shown in the following section \cite{HechtOpticsEdition, GilPerez2017PolarizedApproach}.
+
+\newpage
 
 \begin{table}[h]
     \centering
@@ -985,8 +991,11 @@ So far in this section we have described two mutually complementary representati
     \label{tab:pol_statevectors}
 \end{table}
 
+\newpage
+
 \subsection{Jones calculus}
 \label{sec:jonescalc}
+The Jones calculus can be used to describe the interaction of polarized light with matter. Specifically, a wide range of non-depolarizing light-matter interactions can be represented by Jones matrices. Evidently, the description is only valid for linear interactions since it is based on a system of linear equations. However, in this section we will limit the description to polarization changes caused by optical elements.
 The Jones matrices beep boop
 see sec 4.2 in \cite{GilPerez2017PolarizedApproach} and ofc hecht. Also linear maps/transformations maybe.
 
