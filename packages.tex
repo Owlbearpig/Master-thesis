@@ -13,6 +13,7 @@
 %\usepackage{latexsym}
 \usepackage{amscd}% for commutative diagrams
 \usepackage{mathrsfs} %this package is for the script font \mathscr
+\usepackage{mathtools}
 \usepackage{relsize}
 %\usepackage{pstricks}
 \usepackage{theorem}
@@ -35,22 +36,27 @@
 \usepackage{bm}
 \usesmartdiagramlibrary{additions}
 
-%Logic + calc
+% Math commands
+\DeclarePairedDelimiter{\diagfences}{(}{)}
+\newcommand{\diag}{\operatorname{diag}\diagfences}
+\DeclareMathOperator{\tr}{tr}
+
+% Logic + calc
 \usepackage{ifthen}
 \usepackage{fp}
 
-%For tables
+% For tables
 \usepackage{makecell}
 \usepackage{delarray}
 \usepackage{array}
 \usepackage{tabu}
 
-%Set Abstract Page
+% Set Abstract Page
 \usepackage{abstract}
 \setlength{\absleftindent}{-5mm}
 \setlength{\absrightindent}{-5mm}
 
-%Colour definitions - put before TikZ
+% Colour definitions - put before TikZ
 \usepackage{color}
 \definecolor{igreen}{rgb}{0.0, 0.56, 0.0}
 \usepackage{xcolor, colortbl}
@@ -113,13 +119,13 @@ quotes
 \def\gray#1{{\color{gray}#1}}
 \usepackage{standalone}
 
-%% COUNTERS
+% COUNTERS
 \setcounter{MaxMatrixCols}{20}
 \renewcommand{\thesection}{\arabic{section}}
 \renewcommand{\thesection}{\thechapter.\number\numexpr\value{section}}
 \renewcommand{\thesubsection}{\thesection.\number\numexpr\value{subsection}}
 
-%%For changemargin
+% For changemargin
 \def\quote{\list{}{\rightmargin\leftmargin}\item[]}
 \let\endquote=\endlist 
 \def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
@@ -212,7 +218,7 @@ quotes
 \usepackage{titlesec}
 \usepackage{multirow}
 
-%To reference within text
+% To reference within text
 \usepackage{hyperref}
 \usepackage{lipsum}
 \usepackage{tikz-cd}
@@ -252,13 +258,13 @@ quotes
 % Line Spacing
 \usepackage{setspace}
 
-%Set of command is for the changemargin environment
+% Set of command is for the changemargin environment
 \def\quote{\list{}{\rightmargin\leftmargin}\item[]}
 \let\endquote=\endlist 
 \def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
 \let\endchangemargin=\endlist
 
-%Replace Contents to Table of Contents	
+% Replace Contents to Table of Contents	
 \addto\captionsenglish{
 	\renewcommand{\contentsname}%
 	{Table of Contents}

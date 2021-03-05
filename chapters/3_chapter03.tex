@@ -883,7 +883,7 @@ Several properties can be observed directly from this geometrical representation
 The Jones vector is another commonly used representation of polarized light, which again like the Stokes representation has its own advantages and disadvantages. For example the phase information is conserved in the Jones representation but it can only describe fully polarized light. Unlike the Stokes parameters, the Jones vector is also able to describe coherent light. Another minor advantage of the Jones vector for calculations is that it is straight forward to obtain its components. Specifically, the Jones vector is given directly by the field components as:
 \begin{equation}
     \label{eq:jones_vector1}
-    \bm{E} = 
+    \bm{\mathcal{E}} = 
     \begin{pmatrix}
     E_x(t) \\
     E_y(t)
@@ -892,7 +892,7 @@ The Jones vector is another commonly used representation of polarized light, whi
 where $E_x(t)$ and $E_y(t)$ are the scalar field components of the electric field. The Jones vector is an actual vector unlike the Stokes vector. In this notation it is possible to preserve the phase information of the wave, since it is not averaged out as for the Stokes parameters. If we assume a quasimonochromatic wave like it is given in equation \ref{eq:quasi_mono_efields} and define $u(t)=\Bar{k}z-\Bar{\omega}t$, then we can rewrite the Jones vector in complex form and factor out the phases:
 \begin{equation}
     \label{eq:jones_vector2}
-    \bm{E} = e^{iu(t)}
+    \bm{\mathcal{E}} = e^{iu(t)}
     \begin{pmatrix}
     E_{0x(t)}e^{i\delta_x(t)} \\
     E_{0y(t)}e^{i\delta_y(t)}
@@ -901,7 +901,7 @@ where $E_x(t)$ and $E_y(t)$ are the scalar field components of the electric fiel
  Furthermore, if we consider the special case where the amplitudes and phases do not vary with time we get the final time independent representation of the Jones vector:
  \begin{equation}
     \label{eq:jones_vector3}
-    \bm{\tilde{E}}=
+    \bm{\mathcal{E}}=
     \begin{pmatrix}
     E_{0x}e^{i\delta_x} \\
     E_{0y}e^{i\delta_y}
@@ -909,7 +909,7 @@ where $E_x(t)$ and $E_y(t)$ are the scalar field components of the electric fiel
 \end{equation}
 where we have left out the global phase factor $e^{iu(t)}$, since it does not change the polarization state as we saw in for example section \ref{sec:polellipse}. The Jones vector is often normalized so that the sum of the squares of the components is equal to one. For example in the case of a field with $E_{0x}=E_{0y}$ and $\delta_x=\delta_y$ we get the normalized Jones vector:
 \begin{equation}
-    \bm{\tilde{E}}_{\SI{45}{\degree}}= \frac{1}{\sqrt{2}}
+    \bm{\mathcal{E}}_{\SI{45}{\degree}}= \frac{1}{\sqrt{2}}
     \begin{pmatrix}
     1 \\
     1
@@ -924,11 +924,16 @@ which is a \SI{45}{\degree} linear polarized state. Additional examples of Jones
     \end{pmatrix}
     = u_1^{*}v_1 + u_2^{*}v_2,
 \end{equation}
-where the superscript $\dagger$ denotes conjugate transpose. In the same sense as for real vectors two Jones vectors are therefore said to be orthogonal if their inner product is zero. Moreover, the squared absolute value $|\bm{\tilde{E}}|^2=\bm{\tilde{E}}^{\dagger}\bm{\tilde{E}}=I$ is the intensity of the polarization state. With this we can express any Jones vector in the polarization ellipse representation using the intensity $I$, the orientation angle $\psi$ and the ellipticity angle $\chi$ as follows:
+where the superscript $\dagger$ denotes conjugate transpose. In the same sense as for real vectors two Jones vectors are therefore said to be orthogonal if their inner product is zero. Moreover, the inner product can be used to calculate the intensity of a polarization state as:
+\begin{equation}
+    I=|\bm{\mathcal{E}}|^2=\bm{\mathcal{E}}^{\dagger}\bm{\mathcal{E}}
+\end{equation}
+
+With this we can express any Jones vector in the polarization ellipse representation using the intensity $I$, the orientation angle $\psi$ and the ellipticity angle $\chi$ as follows:
 
 \begin{align}
 \begin{split}
-    \bm{\tilde{E}} &=
+    \bm{\mathcal{E}} &=
     \sqrt{I}
     \begin{pmatrix}
     \cos \chi \cos \phi - i\sin \chi \sin \phi \\
@@ -949,7 +954,7 @@ where the superscript $\dagger$ denotes conjugate transpose. In the same sense a
 \end{align}
 where we see that the rightmost factor is a Jones vector representing elliptical polarized light. The matrix in the middle is simply a rotation matrix that rotates the Jones vector by the angle $\phi$ and the factor to the left is the overall amplitude. This shows that the Jones vector fully describes the polarization state. Before we move on to the next section it is worth mentioning how the components of the Jones vector transform into other reference frames, since this will be useful in the description of rotated elements. So far the Jones vectors have been defined with respect to a pair of axes XY lying in the reference plane tangential to the wavefronts. Evidently the Jones vector in this frame can be written as:
 \begin{equation}
-    \tilde{\bm{E}} = E_x \bm{e}_x + E_y \bm{e}_y, \qquad 
+    \bm{\mathcal{E}} = E_x \bm{e}_x + E_y \bm{e}_y, \qquad 
     \bm{e}_x = 
     \begin{pmatrix}
     1 \\
@@ -964,7 +969,7 @@ where we see that the rightmost factor is a Jones vector representing elliptical
 \end{equation}
 where the basis vectors $\bm{e}_x$ and $\bm{e}_y$ represents light linear polarized along the X and Y axes respectively. In fact any complex 2x1 vector can be regarded as a Jones vector. It is therefore clear that the Jones vectors form a vector space and with that other bases can be defined as well. Consequently, the reference frame change from XY to X'Y' can be represented by an orthogonal transformation which can be defined as:
 \begin{equation}
-    \tilde{\bm{E}}' = \hat{Q}(\theta) \tilde{\bm{E}}, \qquad
+    \bm{\mathcal{E}}' = \hat{Q}(\theta) \bm{\mathcal{E}}, \qquad
     \hat{Q}(\theta) =
     \begin{pmatrix}
     \cos \theta & \sin \theta \\
@@ -984,20 +989,46 @@ So far in this section we have described two mutually complementary representati
 
 \newpage
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \includestandalone{3_chapter03/pol_statevectors_table}
     \caption{Summary of all the normalized Jones and Stokes vectors for the degenerate polarization states.}
     \label{tab:pol_statevectors}
 \end{table}
-
-\newpage
+% TODO add remark that we first consider some general useful properties or features of jones matrices and then look at the individual implementations representing different optical elements
 
 \subsection{Jones calculus}
 \label{sec:jonescalc}
-The Jones calculus can be used to describe the interaction of polarized light with matter. Specifically, a wide range of non-depolarizing light-matter interactions can be represented by Jones matrices. Evidently, the description is only valid for linear interactions since it is based on a system of linear equations. However, in this section we will limit the description to polarization changes caused by optical elements.
-The Jones matrices beep boop
-see sec 4.2 in \cite{GilPerez2017PolarizedApproach} and ofc hecht. Also linear maps/transformations maybe.
+The Jones calculus can be used to describe the interaction of polarized light with matter. Specifically, a wide range of non-depolarizing light-matter interactions can be represented by Jones matrices.  However, in this section we will limit the description to polarization changes caused by optical elements. Evidently, the following description is only valid for changes with a linear relationship between the input and output amplitudes since it is based on a system of linear equations. Under these assumptions can then express any transformation of an initial or input polarization state $\bm{\mathcal{E}}$ into another output state $\bm{\mathcal{E}}'$ as:
+
+\begin{equation}
+    \bm{\mathcal{E}}' = \hat{T} \bm{\mathcal{E}},
+\end{equation}
+
+where $\hat{T}$ is the 2x2 complex Jones matrix specifying the interaction. Since the Jones matrices are complex we can factorize them using the singular value decomposition from linear algebra. This gives us the following form:
+\begin{equation}
+    \hat{T} = \hat{T}_{R2}\diag{p_1, p_2}\hat{T}_{R1},
+\end{equation}
+where $\hat{T}_{R1}$ and $\hat{T}_{R2}$ are unitary\footnote{A complex square matrix $\hat{U}$ is unitary if $\hat{U} \hat{U}^\dagger=\hat{I}$ where $\hat{I}$ is the identity matrix} matrices and $\diag{p_1, p_2}$ is a diagonal matrix whose entries are the singular values of $\hat{T}$. The squares of $p_1$ and $p_2$ can be calculated directly using the following expressions:
+\begin{equation}
+    p_{1,2}^2 = \frac{1}{2}\left(\tr(\hat{T}\hat{T}^{\dagger}) \pm 
+    \sqrt{\tr(\hat{T}\hat{T}^{\dagger})^2-4\det(\hat{T}\hat{T}^{\dagger})}\right),
+\end{equation}
+where for $p_1$ the sign is positive and negative for $p_2$. The physical interpretation of these two values becomes evident if we consider the effect of the matrix $\diag{p_1, p_2}$ on an input state. Specifically, it simply scales the amplitudes of the state and with that also the intensity. If we assume that $p_1^2 \leq p_2^2$ then it is clear that since the materials do not amplify the light we get that $p_1^2 \leq 1$. 
+%TODO add tmin tmax maybe ? could give a reason for p1 p2 i think : )
+
+\begin{itemize}
+    \item 3.2.4 106 changes of reference frame and rotated Jones matrices
+    \item 3.5 NORMALITY needed for retardance calc??
+    \item 4.1 INTRODUCTION ??
+    \item 4.2 or is 4.2.1 enough Go through types of retarders or summary short
+    \item 4.3 DIATTENUATORS
+    \item 4.3.1.9 DIATTENUATING RETARDER
+    \item 4.5 POLAR DECOMPOSITION OF A NONDEPOLARIZING SYSTEM has equation for retardance... seems a bit lengthy
+    \item 4.11 SUMMARY Read it : )
+    \item Chapter 5 But real short(Mueller matrix)
+    \item transition to mueller or to final section composite retarders. not sure if we need mueller stuff ... masson??
+\end{itemize}
 
 \subsection{Mueller calculus}
 \label{sec:muellercalc}
