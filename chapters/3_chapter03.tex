@@ -969,6 +969,7 @@ where we see that the rightmost factor is a Jones vector representing elliptical
 \end{equation}
 where the basis vectors $\bm{e}_x$ and $\bm{e}_y$ represents light linear polarized along the X and Y axes respectively. In fact any complex 2x1 vector can be regarded as a Jones vector. It is therefore clear that the Jones vectors form a vector space and with that other bases can be defined as well. Consequently, the reference frame change from XY to X'Y' can be represented by an orthogonal transformation which can be defined as:
 \begin{equation}
+    \label{eq:jones_vector_transformation}
     \bm{\mathcal{E}}' = \hat{Q}(\theta) \bm{\mathcal{E}}, \qquad
     \hat{Q}(\theta) =
     \begin{pmatrix}
@@ -995,18 +996,20 @@ So far in this section we have described two mutually complementary representati
     \caption{Summary of all the normalized Jones and Stokes vectors for the degenerate polarization states.}
     \label{tab:pol_statevectors}
 \end{table}
-% TODO add remark that we first consider some general useful properties or features of jones matrices and then look at the individual implementations representing different optical elements
 
-\subsection{Jones calculus}
+% TODO1 add remark that we first consider some general useful properties or features of jones matrices and then look at the individual implementations representing different optical elements
+
+% TODO2 section title :) (or Mathematical description of nondepolarizing media or mathematical formalism or something)
+\subsection{Jones formalism}
 \label{sec:jonescalc}
-The Jones calculus can be used to describe the interaction of polarized light with matter. Specifically, a wide range of non-depolarizing light-matter interactions can be represented by Jones matrices.  However, in this section we will limit the description to polarization changes caused by optical elements. Evidently, the following description is only valid for changes with a linear relationship between the input and output amplitudes since it is based on a system of linear equations. Under these assumptions can then express any transformation of an initial or input polarization state $\bm{\mathcal{E}}$ into another output state $\bm{\mathcal{E}}'$ as:
+The Jones calculus or specifically the Jones matrices can be used to describe the non-depolarizing polarimetric interaction of fully polarized light with matter. However, in this section we will limit the description to polarization changes caused by optical elements. Since the light in the context of this work is fully polarized and the materials are nondepolarizing we will mostly limit the description to the Jones calculus and only briefly mention the Mueller calculus. For that we first introduce a few general properties of the Jones matrices. At the end of the section we will then apply these properties to describe and categorize the different types of waveplates. Evidently, the following description of optical elements is only valid for changes with a linear relationship between the input and output amplitudes since it is based on a system of linear equations. Under these assumptions we can then express any transformation of an initial or input polarization state $\bm{\mathcal{E}}$ into another output state $\bm{\mathcal{E}}'$ as:
 
 \begin{equation}
     \bm{\mathcal{E}}' = \hat{T} \bm{\mathcal{E}},
 \end{equation}
-
-where $\hat{T}$ is the 2x2 complex Jones matrix specifying the interaction. Since the Jones matrices are complex we can factorize them using the singular value decomposition from linear algebra. This gives us the following form:
+where $\hat{T}$ is the 2x2 complex Jones matrix specifying the interaction. Because of this fact we know from linear algebra that we can factorize them using the singular value decomposition. This gives us the following form:
 \begin{equation}
+    \label{eq:jones_singular_value_decomposition}
     \hat{T} = \hat{T}_{R2}\diag{p_1, p_2}\hat{T}_{R1},
 \end{equation}
 where $\hat{T}_{R1}$ and $\hat{T}_{R2}$ are unitary\footnote{A complex square matrix $\hat{U}$ is unitary if $\hat{U} \hat{U}^\dagger=\hat{I}$ where $\hat{I}$ is the identity matrix} matrices and $\diag{p_1, p_2}$ is a diagonal matrix whose entries are the singular values of $\hat{T}$. The squares of $p_1$ and $p_2$ can be calculated directly using the following expressions:
@@ -1014,8 +1017,17 @@ where $\hat{T}_{R1}$ and $\hat{T}_{R2}$ are unitary\footnote{A complex square ma
     p_{1,2}^2 = \frac{1}{2}\left(\tr(\hat{T}\hat{T}^{\dagger}) \pm 
     \sqrt{\tr(\hat{T}\hat{T}^{\dagger})^2-4\det(\hat{T}\hat{T}^{\dagger})}\right),
 \end{equation}
-where for $p_1$ the sign is positive and negative for $p_2$. The physical interpretation of these two values becomes evident if we consider the effect of the matrix $\diag{p_1, p_2}$ on an input state. Specifically, it simply scales the amplitudes of the state and with that also the intensity. If we assume that $p_1^2 \leq p_2^2$ then it is clear that since the materials do not amplify the light we get that $p_1^2 \leq 1$. 
-%TODO add tmin tmax maybe ? could give a reason for p1 p2 i think : )
+where for $p_1$ the sign is positive and negative for $p_2$. The physical interpretation of these two values becomes evident if we consider the effect of the matrix $\diag{p_1, p_2}$ on an input state. Specifically, it simply scales the amplitudes of the state and with that also the intensity. Therefore, if the light is not amplified by the element in question then we get the following condition:
+\begin{equation}
+    \label{eq:passitivity_condition}
+    p_1^2 \leq 1,
+\end{equation}
+which is also a defining property of Jones matrices. In other words a complex 2x2 matrix is a Jones matrix if equation \ref{eq:passitivity_condition} is satisfied. Similar to Jones vectors the Jones matrices are defined up to an arbitrary phase factor $e^{i\phi}$, which means that two matrices $\hat{T}$ and $e^{i\phi}\hat{T}$ are equivalent in the sense that their respective final output states have equal intensities. Additionally, the representation of a Jones matrix in another coordinate system follows directly from the coordinate transformation for Jones vectors given by equation \ref{eq:jones_vector_transformation}. Specifically, the transformation of a Jones matrix $\hat{T}$ in system XY to another representation $\hat{T}'$ in system X'Y' is given by:
+\begin{equation}
+    \label{eq:jones_matrix_transformation}
+    \hat{T}' = \hat{Q}(\theta)\hat{T}\hat{Q}(-\theta).
+\end{equation}
+It is important to distinguish between frame rotations and rotations of the actual element. In the first case we rotate the axes and the second case can be understood as a rotation of the vector. Therefore, in the case of a rotation of the element around the Z-axis the signs of the rotation matrices in equation \ref{eq:jones_matrix_transformation} are inverted. It is worth noting that we only have to consider rotations since they are the only geometrical transformations that actually preserve the physically invariant quantities. Another interesting concept in the context of the Jones formalism are singular states of polarization. Again the singular value decomposition proves useful, since it shows that it is always possible to determine two pairwise orthogonal states $\nu_1$ and $\nu_2$ 
 
 \begin{itemize}
     \item 3.2.4 106 changes of reference frame and rotated Jones matrices
@@ -1029,6 +1041,12 @@ where for $p_1$ the sign is positive and negative for $p_2$. The physical interp
     \item Chapter 5 But real short(Mueller matrix)
     \item transition to mueller or to final section composite retarders. not sure if we need mueller stuff ... masson??
 \end{itemize}
+
+Another interesting property of $p_1^2$ and $p_2^2$ is that they are exactly the minimum and maximum transmittance of a given element described by $\hat{T}$, where in this context the transmittance is defined as the ratio between the incident and transmitted intensity. 
+
+% TODO Note: Rotations are in fact also physically realizable Jones matrices (circular retarders)
+
+\cite{Lu1994HomogeneousMatrices}
 
 \subsection{Mueller calculus}
 \label{sec:muellercalc}
