@@ -1017,7 +1017,7 @@ where $\hat{T}_{R1}$ and $\hat{T}_{R2}$ are unitary\footnote{A complex square ma
     p_{1,2}^2 = \frac{1}{2}\left(\tr(\hat{T}\hat{T}^{\dagger}) \pm 
     \sqrt{\tr(\hat{T}\hat{T}^{\dagger})^2-4\det(\hat{T}\hat{T}^{\dagger})}\right),
 \end{equation}
-where for $p_1$ the sign is positive and negative for $p_2$. The physical interpretation of these two values becomes evident if we consider the effect of the matrix $\diag{p_1, p_2}$ on an input state. Specifically, it simply scales the amplitudes of the state and with that also the intensity. Therefore, if the light is not amplified by the element in question then we get the following condition:
+where $\tr$ is the matrix trace and the sign is respectively positive and negative for $p_1$ and $p_2$. The physical interpretation of these two values becomes evident if we consider the effect of the matrix $\diag{p_1, p_2}$ on an input state. Specifically, it simply scales the amplitudes of the state and with that also the intensity. Therefore, if the light is not amplified by the element in question then we get the following condition:
 \begin{equation}
     \label{eq:passitivity_condition}
     p_1^2 \leq 1,
@@ -1027,7 +1027,33 @@ which is also a defining property of Jones matrices. In other words a complex 2x
     \label{eq:jones_matrix_transformation}
     \hat{T}' = \hat{Q}(\theta)\hat{T}\hat{Q}(-\theta).
 \end{equation}
-It is important to distinguish between frame rotations and rotations of the actual element. In the first case we rotate the axes and the second case can be understood as a rotation of the vector. Therefore, in the case of a rotation of the element around the Z-axis the signs of the rotation matrices in equation \ref{eq:jones_matrix_transformation} are inverted. It is worth noting that we only have to consider rotations since they are the only geometrical transformations that actually preserve the physically invariant quantities. Another interesting concept in the context of the Jones formalism are singular states of polarization. Again the singular value decomposition proves useful, since it shows that it is always possible to determine two pairwise orthogonal states $\nu_1$ and $\nu_2$ 
+It is important to distinguish between frame rotations and rotations of the actual element. In the first case we rotate the axes and the second case can be understood as a rotation of the vector. Therefore, in the case of a rotation of the element around the Z-axis the signs of the rotation matrices in equation \ref{eq:jones_matrix_transformation} are inverted. It is worth noting that we only have to consider rotations since they are the only geometrical transformations that actually preserve the physically invariant quantities. Another interesting concept in the context of the Jones formalism are singular states of polarization. Specifically, the singular value decomposition readily shows that for any Jones matrix there exists two pairwise orthonormal states $\tilde{\bm{\eta}}_1$ and $\tilde{\bm{\eta}}_2$ for which the orthogonality is preserved, in other words their respective output states $\bm{\eta}_1'$ and $\bm{\eta}_2'$ are mutually orthogonal. Furthermore, from the definition of the singular values the states $\tilde{\bm{\eta}}_1$ and $\tilde{\bm{\eta}}_2$ are orthonormal eigenvectors of the matrix $\sqrt{\hat{T}\hat{T}^{\dagger}}=\hat{T}_{R1}^{\dagger}\diag{p_1, p_2}\hat{T}_{R1}$ and are given explicitly by the columns of $\hat{T}^{\dagger}$. We can therefore express the singular states as:
+\begin{equation}
+    \bm{\eta}_1 = \hat{T}^{\dagger}_{R1}\begin{pmatrix} 1 \\ 0 \end{pmatrix}, \qquad
+    \bm{\eta}_2 = \hat{T}^{\dagger}_{R1}\begin{pmatrix} 0 \\ 1 \end{pmatrix},
+\end{equation}
+and readily calculate the output states:
+\begin{align}
+\begin{split}
+    \bm{\eta}'_1 &= \hat{T}\tilde{\bm{\eta}}_1 = 
+    p_1\hat{T}_{R2}\hat{T}_{R1}\tilde{\bm{\eta}}_1 =
+    p_1\hat{T}_{R2}\begin{pmatrix} 1 \\ 0 \end{pmatrix}, \\
+    \bm{\eta}'_2 &= \hat{T}\tilde{\bm{\eta}}_2 = 
+    p_2\hat{T}_{R2}\hat{T}_{R1}\tilde{\bm{\eta}}_2 =
+    p_2\hat{T}_{R2}\begin{pmatrix} 0 \\ 1 \end{pmatrix}.
+\end{split}
+\end{align}
+These expressions for the final states can then be used to calculate their respective intensities as:
+\begin{equation}
+    \bm{\eta}'^{\dagger}_1\bm{\eta}'_1=p_1^2, \qquad 
+    \bm{\eta}'^{\dagger}_2\bm{\eta}'_2=p_2^2, \qquad 
+    \bm{\eta}'^{\dagger}_1\bm{\eta}'_2=0.
+\end{equation}
+If we further define the transmittance as the ratio between the transmitted intensity and the incident intensity, then we see that the states $\bm{\eta}_1$ and $\bm{\eta}_2$ are exactly the states with the highest and lowest transmittance respectively. In other words, with respect to any other normalized output state, the states $\bm{\eta}'_1$ and $\bm{\eta}'_2$ are the output states with the highest and lowest intensities respectively. 
+
+\newpage
+
+The last property we will introduce before applying these to define the waveplates mathematically in the Jones formalism is the normality of Jones matrices. This property is important for the calculation of the phase shift given a Jones matrix. Jones matrices can be separated into two groups depending on if their eigenstates are mutually orthogonal or not. Where the eigenstates are the states for which the Jones matrix only scales the state by the respective eigenvalue. Specifically, if the eigenstates are mutually orthogonal then the Jones matrix is said to be normal or homogeneous and nonnormal or inhomogeneous if they are nonorthogonal. 
 
 \begin{itemize}
     \item 3.2.4 106 changes of reference frame and rotated Jones matrices
@@ -1042,7 +1068,18 @@ It is important to distinguish between frame rotations and rotations of the actu
     \item transition to mueller or to final section composite retarders. not sure if we need mueller stuff ... masson??
 \end{itemize}
 
-Another interesting property of $p_1^2$ and $p_2^2$ is that they are exactly the minimum and maximum transmittance of a given element described by $\hat{T}$, where in this context the transmittance is defined as the ratio between the incident and transmitted intensity. 
+4.2 how are RETARDERS defined in the jones context
+
+4.2.1 Retarder types
+
+(4.2.1.9 JONES MATRIX OF A SERIAL COMBINATION OF RETARDERS) We cant do this because not unitary like in masson ...
+
+4.3 how are DIATTENUATORS defined in the jones context
+
+4.3.1 Jones matrices of diattenuators -> diattenuator types
+
+4.5 POLAR DECOMPOSITION OF A NONDEPOLARIZING SYSTEM -> this results in retardance equation. 
+(comes with Homogeneous / nothomogen -> called normal jones matrices) LU and chapman ...
 
 % TODO Note: Rotations are in fact also physically realizable Jones matrices (circular retarders)
 
