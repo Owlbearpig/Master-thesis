@@ -133,13 +133,16 @@ which describes an ellipse in its nonstandard form. Because of this the equation
 
 \begin{equation}
     \label{eq:ellipse_orientation}
-    \tan 2\psi = \frac{2E_{0x}E_{0y}}{E_{0x}^2 - E_{0y}^2}\cos \delta,\: 0\leqslant\psi\leqslant\pi,
+    \tan 2\psi = \frac{2E_{0x}E_{0y}}{E_{0x}^2 - E_{0y}^2}\cos \delta = 
+    \tan 2\alpha \cos \delta
+    ,\: 0\leqslant\psi\leqslant\pi,
 \end{equation}
 \begin{equation}
     \label{eq:ellipse_ellipticity}
-    \sin 2\chi = \frac{2E_{0x}E_{0y}}{E_{0x}^2 + E_{0y}^2}\sin \delta,\: \nicefrac{-\pi}{4}\leqslant\chi\leqslant\nicefrac{\pi}{4}.
+    \sin 2\chi = \frac{2E_{0x}E_{0y}}{E_{0x}^2 + E_{0y}^2}\sin \delta = 
+    \sin 2\alpha \sin \delta,\: \nicefrac{-\pi}{4}\leqslant\chi\leqslant\nicefrac{\pi}{4},
 \end{equation}
-Figure \ref{fig:pol_ellipse} shows an example of a polarization ellipse together with the orientation and ellipticity angles. We see from the figure that for $\psi \rightarrow 0/\pi$ or $\psi \rightarrow \nicefrac{pi}{2}$ the major and minor axes $(a$ and $b)$ coincide with the coordinate axes. Likewise for $\chi \rightarrow 0$ the ellipse degenerates to a line and for $\chi \rightarrow \pm\nicefrac{\pi}{4}$ we get a circle \cite{Collett2009FieldPolarization}. Actually, in most cases a light beam is a mixture of different polarization states, this is referred to as unpolarized light. It consists of a high number of short wave trains which are emitted from the individual atoms. In most cases these wave trains are radiated from dipoles and are therefore linearly polarized, but since every atom oscillates in a different direction the polarization will also vary for each wave train. Hence, the beam will be a mixture of different states \cite{Roth2019Optik}. 
+where we have defined $\tan \alpha = \frac{E_{0y}}{E_{0x}}$. Figure \ref{fig:pol_ellipse} shows an example of a polarization ellipse together with the orientation and ellipticity angles. We see from the figure that for $\psi \rightarrow 0/\pi$ or $\psi \rightarrow \frac{\pi}{2}$ the major and minor axes $(a$ and $b)$ coincide with the coordinate axes. Likewise for $\chi \rightarrow 0$ the ellipse degenerates to a line and for $\chi \rightarrow \pm\frac{\pi}{4}$ we get a circle \cite{Collett2009FieldPolarization}. Actually, in most cases a light beam is a mixture of different polarization states, this is referred to as unpolarized light. It consists of a high number of short wave trains which are emitted from the individual atoms. In most cases these wave trains are radiated from dipoles and are therefore linearly polarized, but since every atom oscillates in a different direction the polarization will also vary for each wave train. Hence, the beam will be a mixture of different states \cite{Roth2019Optik}. 
 
 \begin{figure}[h]
     \centering
@@ -929,22 +932,22 @@ where the superscript $\dagger$ denotes conjugate transpose. In the same sense a
     I=|\bm{\mathcal{E}}|^2=\bm{\mathcal{E}}^{\dagger}\bm{\mathcal{E}}
 \end{equation}
 
-With this we can express any Jones vector in the polarization ellipse representation using the intensity $I$, the orientation angle $\psi$ and the ellipticity angle $\chi$ as follows:
+With this we can express any Jones vector in the polarization ellipse representation through the intensity $I$, the orientation angle $\psi$ and the ellipticity angle $\chi$ as follows:
 
 \begin{align}
 \begin{split}
     \bm{\mathcal{E}} &=
     \sqrt{I}
     \begin{pmatrix}
-    \cos \chi \cos \phi - i\sin \chi \sin \phi \\
-    \cos \chi \sin \phi + i\sin \chi \cos \phi
+    \cos \chi \cos \psi - i\sin \chi \sin \psi \\
+    \cos \chi \sin \psi + i\sin \chi \cos \psi
     \end{pmatrix}
     \\
     &=
     \sqrt{I}
     \begin{pmatrix}
-    \cos \phi & -\sin \phi \\
-    \sin \phi & \cos \phi
+    \cos \psi & -\sin \psi \\
+    \sin \psi & \cos \psi
     \end{pmatrix}
     \begin{pmatrix}
     \cos \chi \\
@@ -952,7 +955,7 @@ With this we can express any Jones vector in the polarization ellipse representa
     \end{pmatrix},
 \end{split}
 \end{align}
-where we see that the rightmost factor is a Jones vector representing elliptical polarized light. The matrix in the middle is simply a rotation matrix that rotates the Jones vector by the angle $\phi$ and the factor to the left is the overall amplitude. This shows that the Jones vector fully describes the polarization state. Before we move on to the next section it is worth mentioning how the components of the Jones vector transform into other reference frames, since this will be useful in the description of rotated elements. So far the Jones vectors have been defined with respect to a pair of axes XY lying in the reference plane tangential to the wavefronts. Evidently the Jones vector in this frame can be written as:
+where we see that the rightmost factor is a Jones vector representing elliptical polarized light. The matrix in the middle is simply a rotation matrix that rotates the Jones vector by the angle $\phi$ and the factor to the left is the overall amplitude. This direct correspondence between the polarization ellipse parameters and the Jones vectors shows us that they are able to fully describes the polarization state. Before we move on to the next section it is worth mentioning how the components of the Jones vector transform into other reference frames, since this will be useful in the description of rotated elements. So far the Jones vectors have been defined with respect to a pair of axes XY lying in the reference plane tangential to the wavefronts. Evidently the Jones vector in this frame can be written as:
 \begin{equation}
     \bm{\mathcal{E}} = E_x \bm{e}_x + E_y \bm{e}_y, \qquad 
     \bm{e}_x = 
@@ -1052,18 +1055,84 @@ These expressions for the final states can then be used to calculate their respe
     \bm{\eta}'^{\dagger}_2\bm{\eta}'_2=p_2^2, \qquad 
     \bm{\eta}'^{\dagger}_1\bm{\eta}'_2=0.
 \end{equation}
-If we further define the transmittance as the ratio between the transmitted intensity and the incident intensity, then we see that the states $\bm{\eta}_1$ and $\bm{\eta}_2$ are exactly the states with the highest and lowest transmittance respectively. In other words, with respect to any other normalized output state, the states $\bm{\eta}'_1$ and $\bm{\eta}'_2$ are the output states with the highest and lowest intensities respectively. The last property we will introduce before applying these to define the waveplates mathematically in the Jones calculus is the normality of Jones matrices. This property is important for the calculation of the phase shift given a Jones matrix. Jones matrices can be separated into two groups depending on if their eigenstates $\bm{\epsilon}_q$ and $\bm{\epsilon}_r$ are mutually orthogonal or not. Where the eigenstates are the states for which the Jones matrix only scales the state by the respective eigenvalue. Specifically, if the eigenstates are mutually orthogonal then the Jones matrix is said to be normal or homogeneous and nonnormal or inhomogeneous if they are nonorthogonal. We can therefore define the nonnormality or inhomogenity parameter $\eta$ as follows:
+If we further define the transmittance as the ratio between the transmitted intensity and the incident intensity, then we see that the states $\bm{\eta}_1$ and $\bm{\eta}_2$ are exactly the states with the highest and lowest transmittance respectively. In other words, with respect to any other normalized output state, the states $\bm{\eta}'_1$ and $\bm{\eta}'_2$ are the output states with the highest and lowest intensities respectively. The last property we will introduce before applying these to define the waveplates mathematically in the Jones calculus is the normality of Jones matrices. This property is important for the calculation of the phase shift given a Jones matrix. Jones matrices can be separated into two groups depending on if their eigenstates $\bm{\mathcal{E}}_q$ and $\bm{\mathcal{E}}_r$ are mutually orthogonal or not. Where the eigenstates are the states for which the Jones matrix only scales the state by the respective eigenvalue. Specifically, if the eigenstates are mutually orthogonal then the Jones matrix is said to be normal or homogeneous and nonnormal or inhomogeneous if they are nonorthogonal. We can therefore define the nonnormality or inhomogeneity parameter $\eta$ as follows:
 \begin{equation}
-    \eta=|\bm{\epsilon}^{\dagger}_q \bm{\epsilon}_r|.
+    \eta=|\bm{\mathcal{E}}^{\dagger}_q \bm{\mathcal{E}}_r|.
 \end{equation}
-The inhomogenity is therefore zero if $\hat{T}$ is normal and one if the eigenvectors are parallel, where the latter is also known as the degenerate case. To calculate the inhomogenity and verify that a given Jones matrix $\hat{T}$ is normal we use another derived expression for $\eta^2$ which is given by:
+The inhomogenity is therefore zero if $\hat{T}$ is normal and one if the eigenvectors are parallel, where the latter is also known as the degenerate case. To calculate the inhomogeneity and verify that a given Jones matrix $\hat{T}$ is normal we use another derived expression for $\eta^2$ which is given by:
 \begin{equation}
     \eta^2 = \frac{2||\hat{T}||_2^2-|\tr\hat{T}|^2-|(\tr\hat{T})^2-4\det\hat{T}|}{2||\hat{T}||_2^2-|\tr\hat{T}|^2+|(\tr\hat{T})^2-4\det\hat{T}|},
 \end{equation}
 where $||\hat{T}||_2=\sqrt{\tr \hat{T}^{\dagger} \hat{T}}$ denotes the Frobenius norm of $\hat{T}$. With this we can define and categorize waveplates in the context of the Jones calculus which is shown in the following section. 
 
 \subsection{Waveplates in the Jones calculus}
-In section \ref{sec:waveplates} we presented a phenomenological description of waveplates for which we assumed fully transparent waveplates, i.e. the intensity of the incident light was assumed to be equal to the intensity of the transmitted light. In the Jones calculus such ideal elements which only exhibit birefringence are described by unitary Jones matrices. For the definition of waveplates in the Jones calculus we will again at first assume nonabsorbing media. Later in this section we will describe and add diatennuators to the Jones framework, which enable us to describe anisotropic absorption effects such as dichroism, reflection losses and transmission losses. 
+In section \ref{sec:waveplates} we presented a phenomenological description of waveplates for which we assumed them to be fully transparent, i.e. the intensity of the incident light was equal to the intensity of the transmitted light. Under this assumption such ideal elements only exhibit birefringence and we will therefore refer to them as retarders or ideal waveplates. Furthermore, in the Jones calculus these ideal waveplates are represented by unitary matrices. Later in this section we will describe and add diatennuators to the framework. The diatennuator will allow us to quantify absorption by the waveplates and it especially simplifies the description of anisotropic absorption effects such as dichroism, reflection losses and transmission losses. In theory together the retarder and diatennuator then constitute a complete model of the waveplate. In the following we classify retarders according to the polarization type of their eigenstates, consequently there are three different types of retarders; elliptic, circular and linear. As for the different polarization types the most general type of retarder is the elliptic retarder which is characterized by the following eigenstates:
+\begin{align}
+\begin{split}
+    \label{eq:ellip_pol_eigenstates}
+    \bm{\mathcal{E}}_1(\alpha, \delta) &= 
+    \begin{pmatrix} c_{\alpha} e^{-i\delta /2} \\ s_{\alpha} e^{i\delta /2} \end{pmatrix}
+    = 
+    \begin{pmatrix} c_{\chi} c_{\psi} - i s_{\chi} s_{\psi} \\ 
+    c_{\chi} s_{\psi} + i s_{\chi} c_{\psi} \end{pmatrix},
+    \\
+    \bm{\mathcal{E}}_2 \left( \frac{\pi}{2} - \alpha, \delta+\pi \right) &= 
+    \begin{pmatrix} -i s_{\alpha} e^{-i\delta /2} \\ i c_{\alpha} e^{-i\delta /2} \end{pmatrix}
+    = 
+    \begin{pmatrix} -c_{\chi} s_{\psi} + i s_{\chi} c_{\psi} \\ 
+    c_{\chi} c_{\psi} + i s_{\chi} s_{\psi} \end{pmatrix},
+\end{split}
+\end{align}
+where we have set $\sin(x) = s_x$ and $\cos(x) = c_x$. We see that $\bm{\mathcal{E}}_1$ and $\bm{\mathcal{E}}_2$ are both general elliptical polarization states, where the specific shape is determined by the parameters $\alpha$ and $\delta$. The corresponding Jones matrix $T_R(\alpha, \delta, \Delta)$ representing the elliptical retarder is given by:
+\begin{equation}
+    \hat{T}_R(\alpha, \delta, \Delta) = 
+    \begin{pmatrix} 
+    c^2_{\alpha}  e^{i\Delta /2} + s^2_{\alpha} e^{-i\Delta /2} & i s_{2\alpha} s_{\Delta/2} e^{-\delta} \\ 
+    i s_{2\alpha} s_{\Delta/2} e^{-\delta} & s^2_{\alpha} e^{i\Delta/2} + c^2_{\alpha} e^{-i\Delta /2}
+    \end{pmatrix}, 
+\end{equation}
+which introduces the phase shift $\Delta$ between its eigenstates $\bm{\mathcal{E}}_1$ and $\bm{\mathcal{E}}_2$. It is worth emphasizing that this phase shift is in general different from the phase shift $\delta$ between the field components. Furthermore, we see that this is in fact the most general representation of a retarder, since any 2x2 unitary matrix can be decomposed in this manner. If we change the frame in which we represent $\hat{T}_R(\alpha, \delta, \Delta)$ so that it aligns with the mayor and minor axes of the polarization ellipse of $\bm{\mathcal{E}}_1$, then $\psi=0$ for an orientation of \SI{0}{\degree} and therefore $\delta=\frac{\pi}{2}$, $\alpha=\chi$. With this the Jones matrix reduces to the following:
+\begin{equation}
+    \hat{T}_R\left(\chi, \frac{\pi}{2}, \Delta\right) = 
+    \begin{pmatrix} 
+    c^2_{\chi} e^{i\Delta /2} + s^2_{\chi} e^{-i\Delta /2} & s_{2\chi} s_{\Delta/2} \\
+    -s_{2\chi} s_{\Delta/2} & s^2_{\chi} e^{i\Delta /2} + c^2_{\chi} e^{-i\Delta /2}
+    \end{pmatrix}. 
+\end{equation}
+
+In the case of circular polarized eigenstates $\bm{\mathcal{E}}_1$ and $\bm{\mathcal{E}}_2$ the polarization ellipse reduces to a circle and $\chi=\frac{\pi}{4}$ so that $\delta=\frac{\pi}{2}$ and $\alpha=\frac{\pi}{4}$. A retarder with circular eigenstates is known as a circular retarder or rotator since in this present case the Jones matrix takes on the following simple form:
+\begin{equation}
+    \hat{T}_{RC}(\Delta)=\hat{T}_R\left(\frac{\pi}{4}, \frac{\pi}{2}, \Delta\right) = 
+    \begin{pmatrix} 
+    c_{\Delta/2} & s_{\Delta/2} \\
+    -s_{\Delta/2} & c_{\Delta/2}
+    \end{pmatrix},
+\end{equation}
+which is also the representation of a rotation matrix $\hat{Q}(\theta)$. In other words the effect of $\hat{T}_{RC}(\Delta)$ is to rotate an incident state by $\theta=\Delta/2$. The final type is the linear retarder which is characterized by having linear eigenstates. For this type $\chi=0$, therefore $\delta=0$ and $\alpha=\psi$. With this the Jones matrix of the linear retarder is given by:
+\begin{equation}
+    \hat{T}_{RL}\left(\psi, \Delta\right) = 
+    \begin{pmatrix} 
+    c^2_{\psi} e^{i\Delta /2} + s^2_{\psi} e^{-i\Delta /2} & s_{2\psi} s_{\Delta/2} \\
+    -s_{2\psi} s_{\Delta/2} & s^2_{\psi} e^{i\Delta /2} + c^2_{\psi} e^{-i\Delta /2}
+    \end{pmatrix},
+\end{equation}
+and if we again align the coordinate frame with the mayor and minor axes of its eigenstates then $\psi=0$ and $\hat{T}_{RL}$ adopts the particularly simple form:
+\begin{equation}
+    \hat{T}_{RL}\left(\Delta\right) = 
+    \begin{pmatrix} 
+    e^{i\Delta /2} & 0 \\
+    0 & e^{-i\Delta /2}
+    \end{pmatrix},
+\end{equation}
+which can be referred to as a horizontal linear retarder. In this frame we directly recognize the total phase shift $\Delta$ of the eigenstates. If we set $\Delta=\pi$ in the expression for the linear retarder we get the Jones matrix for the half wave retarder or transparent half waveplate as follows:
+\begin{equation}
+    \hat{T}_{RL}(\psi, \pi)=\hat{T}_{R}(\psi, 0, \pi)= 
+    \begin{pmatrix} 
+    c_{2\psi} & s_{2\psi} \\
+    s_{2\psi} & -c_{2\psi}
+    \end{pmatrix}.
+\end{equation}
+We see that $\hat{T}_{RL}(\psi, \pi)$ is equivalent to a rotation by $-2\psi$ and an inversion of the y-component which can be represented by $\hat{T}_{RL}(0, \pi)$. Therefore, essentially $\hat{T}_{RL}$ inverts the handedness and then rotates the state by $-2\psi$. A circular polarized state therefore stays circular but has its handedness reversed by the action of $\hat{T}_{RL}(\psi, \pi)$. 
 
 \begin{itemize}
     \item calculation framework ??
