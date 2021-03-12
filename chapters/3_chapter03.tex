@@ -522,7 +522,7 @@ where $|\cdot|$ denotes the magnitude. The birefringence is therefore given by:
 \begin{equation}
     \Delta n = \operatorname{Re}(n_e) - \operatorname{Re}(n_o) = \sqrt{\frac{|\epsilon_s|+\operatorname{Re}(\epsilon_s)}{2}} - \sqrt{\frac{|\epsilon_p|+\operatorname{Re}(\epsilon_p)}{2}}.
 \end{equation}
-Similarly we can define the dichroism or diattenuation $\Delta \kappa$ as the difference of the imaginary parts:
+Similarly we can define the dichroism $\Delta \kappa$ as the difference of the imaginary parts:
 \begin{equation}
     \Delta \kappa = \operatorname{Im}(n_e) - \operatorname{Im}(n_o) = \sqrt{\frac{|\epsilon_s|-\operatorname{Re}(\epsilon_s)}{2}} - \sqrt{\frac{|\epsilon_p|-\operatorname{Re}(\epsilon_p)}{2}}.
 \end{equation}
@@ -1066,7 +1066,7 @@ The inhomogenity is therefore zero if $\hat{T}$ is normal and one if the eigenve
 where $||\hat{T}||_2=\sqrt{\tr \hat{T}^{\dagger} \hat{T}}$ denotes the Frobenius norm of $\hat{T}$. With this we can define and categorize waveplates in the context of the Jones calculus which is shown in the following section. 
 
 \subsection{Waveplates in the Jones calculus}
-In section \ref{sec:waveplates} we presented a phenomenological description of waveplates for which we assumed them to be fully transparent, i.e. the intensity of the incident light was equal to the intensity of the transmitted light. Under this assumption such ideal elements only exhibit birefringence and we will therefore refer to them as retarders or ideal waveplates. Furthermore, in the Jones calculus these ideal waveplates are represented by unitary matrices. Later in this section we will describe and add diatennuators to the framework. The diatennuator will allow us to quantify absorption by the waveplates and it especially simplifies the description of anisotropic absorption effects such as dichroism, reflection losses and transmission losses. In theory together the retarder and diatennuator then constitute a complete model of the waveplate. In the following we classify retarders according to the polarization type of their eigenstates, consequently there are three different types of retarders; elliptic, circular and linear. As for the different polarization types the most general type of retarder is the elliptic retarder which is characterized by the following eigenstates:
+In section \ref{sec:waveplates} we presented a phenomenological description of waveplates for which we assumed them to be fully transparent, i.e. the intensity of the incident light was equal to the intensity of the transmitted light. Under this assumption such ideal elements only exhibit birefringence and we will therefore refer to them as retarders or ideal waveplates. Furthermore, in the Jones calculus these ideal waveplates are represented by unitary matrices. Later in this section we will describe and add diattenuators to the framework. The diattenuator will allow us to quantify absorption by the waveplates and it especially simplifies the description of anisotropic absorption effects such as dichroism, reflection losses and transmission losses. In theory together the retarder and diattenuator then constitute a complete model of the waveplate. In the following we classify retarders according to the polarization type of their eigenstates, consequently there are three different types of retarders; elliptic, circular and linear. As for the different polarization types the most general type of retarder is the elliptic retarder which is characterized by the following eigenstates:
 \begin{align}
 \begin{split}
     \label{eq:ellip_pol_eigenstates}
@@ -1077,7 +1077,7 @@ In section \ref{sec:waveplates} we presented a phenomenological description of w
     c_{\chi} s_{\psi} + i s_{\chi} c_{\psi} \end{pmatrix},
     \\
     \bm{\mathcal{E}}_2 \left( \frac{\pi}{2} - \alpha, \delta+\pi \right) &= 
-    \begin{pmatrix} -i s_{\alpha} e^{-i\delta /2} \\ i c_{\alpha} e^{-i\delta /2} \end{pmatrix}
+    \begin{pmatrix} -i s_{\alpha} e^{-i\delta /2} \\ i c_{\alpha} e^{i\delta /2} \end{pmatrix}
     = 
     \begin{pmatrix} -c_{\chi} s_{\psi} + i s_{\chi} c_{\psi} \\ 
     c_{\chi} c_{\psi} + i s_{\chi} s_{\psi} \end{pmatrix},
@@ -1100,7 +1100,7 @@ which introduces the phase shift $\Delta$ between its eigenstates $\bm{\mathcal{
     \end{pmatrix}. 
 \end{equation}
 
-In the case of circular polarized eigenstates $\bm{\mathcal{E}}_1$ and $\bm{\mathcal{E}}_2$ the polarization ellipse reduces to a circle and $\chi=\frac{\pi}{4}$ so that $\delta=\frac{\pi}{2}$ and $\alpha=\frac{\pi}{4}$. A retarder with circular eigenstates is known as a circular retarder or rotator since in this present case the Jones matrix takes on the following simple form:
+In the case of circular polarized eigenstates $\bm{\mathcal{E}}_1$ and $\bm{\mathcal{E}}_2$ the polarization ellipse reduces to a circle and $\chi=\frac{\pi}{4}$ so that $\delta=\frac{\pi}{2}$ and $\alpha=\frac{\pi}{4}$. A retarder with circular eigenstates is known as a circular retarder or rotator since in this present case the Jones matrix takes on the following form:
 \begin{equation}
     \hat{T}_{RC}(\Delta)=\hat{T}_R\left(\frac{\pi}{4}, \frac{\pi}{2}, \Delta\right) = 
     \begin{pmatrix} 
@@ -1108,31 +1108,68 @@ In the case of circular polarized eigenstates $\bm{\mathcal{E}}_1$ and $\bm{\mat
     -s_{\Delta/2} & c_{\Delta/2}
     \end{pmatrix},
 \end{equation}
-which is also the representation of a rotation matrix $\hat{Q}(\theta)$. In other words the effect of $\hat{T}_{RC}(\Delta)$ is to rotate an incident state by $\theta=\Delta/2$. The final type is the linear retarder which is characterized by having linear eigenstates. For this type $\chi=0$, therefore $\delta=0$ and $\alpha=\psi$. With this the Jones matrix of the linear retarder is given by:
+which is also the representation of a rotation matrix $\hat{Q}(\theta)$ with $\theta=\Delta/2$. In other words the effect of $\hat{T}_{RC}(\Delta)$ is to rotate an incident state by $\theta=\Delta/2$. The final type is the linear retarder which is characterized by having linear eigenstates. For this type $\chi=0$, therefore $\delta=0$ and $\alpha=\psi$. With this the Jones matrix of the linear retarder is given by:
 \begin{equation}
     \hat{T}_{RL}\left(\psi, \Delta\right) = 
     \begin{pmatrix} 
-    c^2_{\psi} e^{i\Delta /2} + s^2_{\psi} e^{-i\Delta /2} & s_{2\psi} s_{\Delta/2} \\
-    -s_{2\psi} s_{\Delta/2} & s^2_{\psi} e^{i\Delta /2} + c^2_{\psi} e^{-i\Delta /2}
+    c^2_{\psi} e^{i\Delta /2} + s^2_{\psi} e^{-i\Delta /2} & is_{2\psi} s_{\Delta/2} \\
+    is_{2\psi} s_{\Delta/2} & s^2_{\psi} e^{i\Delta /2} + c^2_{\psi} e^{-i\Delta /2}
     \end{pmatrix},
 \end{equation}
 and if we again align the coordinate frame with the mayor and minor axes of its eigenstates then $\psi=0$ and $\hat{T}_{RL}$ adopts the particularly simple form:
 \begin{equation}
-    \hat{T}_{RL}\left(\Delta\right) = 
+    \hat{T}_{RL}\left(\Delta\right) = \hat{T}_{RL0}\left(\Delta\right) = 
     \begin{pmatrix} 
     e^{i\Delta /2} & 0 \\
     0 & e^{-i\Delta /2}
     \end{pmatrix},
 \end{equation}
-which can be referred to as a horizontal linear retarder. In this frame we directly recognize the total phase shift $\Delta$ of the eigenstates. If we set $\Delta=\pi$ in the expression for the linear retarder we get the Jones matrix for the half wave retarder or transparent half waveplate as follows:
+which can be referred to as a horizontal linear retarder. In this frame we directly recognize the total phase shift $\Delta$ of the eigenstates. Furthermore, we see that the mayor and minor axis of the polarization ellipse of the eigenstates align with the fast and slow axis of the retarder. If we set $\Delta=\pi$ in the expression for the linear retarder we get the Jones matrix for the half wave retarder or transparent half waveplate as follows:
 \begin{equation}
-    \hat{T}_{RL}(\psi, \pi)=\hat{T}_{R}(\psi, 0, \pi)= 
+    \hat{T}_{RL}(\psi, \pi)= 
     \begin{pmatrix} 
     c_{2\psi} & s_{2\psi} \\
     s_{2\psi} & -c_{2\psi}
     \end{pmatrix}.
 \end{equation}
-We see that $\hat{T}_{RL}(\psi, \pi)$ is equivalent to a rotation by $-2\psi$ and an inversion of the y-component which can be represented by $\hat{T}_{RL}(0, \pi)$. Therefore, essentially $\hat{T}_{RL}$ inverts the handedness and then rotates the state by $-2\psi$. A circular polarized state therefore stays circular but has its handedness reversed by the action of $\hat{T}_{RL}(\psi, \pi)$. 
+We see that $\hat{T}_{RL}(\psi, \pi)$ is equivalent to a rotation by $-2\psi$ and an inversion of the y-component where the latter can be represented by $\hat{T}_{RL}(0, \pi)$. Therefore, essentially $\hat{T}_{RL}(\psi, \pi)$ inverts the handedness and then rotates the state by $-2\psi$, which is also known as an improper rotation. A circular polarized state therefore remains circular but has its handedness reversed by the action of $\hat{T}_{RL}(\psi, \pi)$. Finally, we can therefore write $\hat{T}_{RL}(\psi, \pi)$ as:
+\begin{equation}
+    \hat{T}_{1/2}(\psi)=
+    \hat{Q}(-2\psi)\hat{T}_{RL}(0, \pi)=\hat{Q}(-2\psi)\diag{1,-1}.
+\end{equation}
+If the input light is for example \SI{+45}{\degree} linear polarized and $\psi=0$ then the inversion of the y-component produces an output state which is \SI{-45}{\degree} linear polarized.
+Similar, if we set $\Delta=\pi/2$ then the expression for the linear retarder reduces to the following:
+\begin{align}
+\begin{split}
+    \hat{T}_{1/4}(\psi)=\hat{T}_{RL}(\psi, \pi/2)
+    &=\frac{1}{\sqrt{2}}\left(\hat{I}+i\hat{Q}(2\psi)\hat{T}_{RL}(\pi, \pi)\right)
+    \\
+    &=\frac{1}{\sqrt{2}}\left(\hat{I}+i\hat{Q}(2\psi)\diag{-1,1}\right),
+\end{split}
+\end{align}
+which is called usually called a quarter wave retarder. This expression shows that $\hat{T}_{RL}(\psi, \pi/2)$ is equivalent to a rotation by $+2\psi$ and an inversion of the handedness but different from $\hat{T}_{1/2}(\psi)$ the phase of the transformed state is additionally advanced by $\pi/2$ and superimposed on the input state. Therefore for a initially \SI{+45}{\degree} linear polarized state and $\phi=0$ the inversion of the x-component produces a \SI{-45}{\degree} linear polarized state. The inverted state is then further phase shifted by $\SI{90}{\degree}$ so that after superimposing it with the initial state the output state will be LCP. It is in fact possible to represent any linear retarder using a combination of rotation matrices $\hat{Q}$ and horizontal linear retarders $\hat{T}_{RL0}$ as follows:
+\begin{equation}
+    \hat{T}_{RL}(\psi, \Delta)=\hat{T}_{RC}(-2\psi)\hat{T}_{RL0}(\Delta)\hat{T}_{RC}(2\psi)=
+    \hat{Q}(-\psi)\hat{T}_{RL0}(\Delta)\hat{Q}(\psi).
+\end{equation}
+In other words a linear retarder is equivalent to a horizontal linear retarder $\hat{T}_{RL0}(\Delta)$ placed between a left- and right-handed circular retarder $\hat{T}_{RC}(-2\psi)$ and $\hat{T}_{RC}(2\psi)$ respectively. In general an elliptic retarder $\hat{T}_R(\alpha, \delta, \Delta)$ can be realized by the following combination of elements:
+\begin{equation}
+    \hat{T}_R(\alpha, \delta, \Delta)=
+    \hat{T}_{RL0}(-\delta)\hat{Q}(-\alpha)\hat{T}_{RL0}(\Delta)\hat{Q}(\alpha)\hat{T}_{RL0}(\delta).
+\end{equation}
+
+In the following we will introduce the diattenuator in a similar fashion as we did with the retarder. It is used to describe the polarization dependent transmittance of the waveplate. Any element for which the singular values $p_1$ and $p_2$ of its Jones matrix are mutually different can be considered to be a diattenuator. If we further consider homogeneous diattenuators then we can again use a singular value decomposition as in equation \ref{eq:jones_singular_value_decomposition} to factorize the diattenuator Jones matrix as follows:
+\begin{equation}
+    \hat{T}_D = \hat{T}_D^{\dagger} = \hat{T}_R\hat{T}_{DL0}\hat{T}_R^{\dagger}, 
+    \qquad 
+    \hat{T}_{DL0}=\diag{p_1, p_2}.
+\end{equation}
+We know from the previous section that $p_1^2$ and $p_2^2$ are respectively the maximum and minimum transmittance. We can therefore use $p_1$ and $p_2$ to define the diattenuation in the Jones calculus as follows: 
+\begin{equation}
+    D = \frac{p_1^2-p_2^2}{p_1^2+p_2^2}
+\end{equation}
+Furthermore, as with the retarders the diattenuators are also grouped or categorized based on the polarization type of their associated eigenstates. This means that the most general type of homogeneous diattenuators is the elliptic diattenuator with eigenstates given in equation \ref{eq:ellip_pol_eigenstates}. 
+
 
 \begin{itemize}
     \item calculation framework ??
