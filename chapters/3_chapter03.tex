@@ -1091,7 +1091,7 @@ where we have set $\sin(x) = s_x$ and $\cos(x) = c_x$. We see that $\bm{\mathcal
     i s_{2\alpha} s_{\Delta/2} e^{-\delta} & s^2_{\alpha} e^{i\Delta/2} + c^2_{\alpha} e^{-i\Delta /2}
     \end{pmatrix}, 
 \end{equation}
-which introduces the phase shift $\Delta$ between its eigenstates $\bm{\mathcal{E}}_1$ and $\bm{\mathcal{E}}_2$. It is worth emphasizing that this phase shift is in general different from the phase shift $\delta$ between the field components. Furthermore, we see that this is in fact the most general representation of a retarder, since any 2x2 unitary matrix can be decomposed in this manner. If we change the frame in which we represent $\hat{T}_R(\alpha, \delta, \Delta)$ so that it aligns with the mayor and minor axes of the polarization ellipse of $\bm{\mathcal{E}}_1$, then $\psi=0$ for an orientation of \SI{0}{\degree} and therefore $\delta=\frac{\pi}{2}$, $\alpha=\chi$. With this the Jones matrix reduces to the following:
+which introduces the phase shift $\Delta$ between its eigenstates $\bm{\mathcal{E}}_1$ and $\bm{\mathcal{E}}_2$. It is worth emphasizing that this phase shift is in general different from the phase shift $\delta$ between the field components. Furthermore, we see that this is in fact the most general representation of a retarder, since the coefficients of any 2x2 unitary matrix can be factorized in this manner. If we change the frame in which we represent $\hat{T}_R(\alpha, \delta, \Delta)$ so that it aligns with the mayor and minor axes of the polarization ellipse of $\bm{\mathcal{E}}_1$, then $\psi=0$ for an orientation of \SI{0}{\degree} and therefore $\delta=\frac{\pi}{2}$, $\alpha=\chi$. With this the Jones matrix reduces to the following:
 \begin{equation}
     \hat{T}_R\left(\chi, \frac{\pi}{2}, \Delta\right) = 
     \begin{pmatrix} 
@@ -1160,6 +1160,7 @@ In other words a linear retarder is equivalent to a horizontal linear retarder $
 
 In the following we will introduce the diattenuator in a similar fashion as we did with the retarder. It is used to describe the polarization dependent transmittance of the waveplate. Any element for which the singular values $p_1$ and $p_2$ of its Jones matrix are mutually different can be considered to be a diattenuator. If we further consider homogeneous diattenuators then we can again use a singular value decomposition as in equation \ref{eq:jones_singular_value_decomposition} to factorize the diattenuator Jones matrix as follows:
 \begin{equation}
+    \label{eq:diattenuator_singular_value_decomposition}
     \hat{T}_D = \hat{T}_D^{\dagger} = \hat{T}_R\hat{T}_{DL0}\hat{T}_R^{\dagger}, 
     \qquad 
     \hat{T}_{DL0}=\diag{p_1, p_2}.
@@ -1168,8 +1169,32 @@ We know from the previous section that $p_1^2$ and $p_2^2$ are respectively the 
 \begin{equation}
     D = \frac{p_1^2-p_2^2}{p_1^2+p_2^2}
 \end{equation}
-Furthermore, as with the retarders the diattenuators are also grouped or categorized based on the polarization type of their associated eigenstates. This means that the most general type of homogeneous diattenuators is the elliptic diattenuator with eigenstates given in equation \ref{eq:ellip_pol_eigenstates}. 
+Furthermore, as with the retarders the diattenuators are also grouped or categorized based on the polarization type of their associated eigenstates. This means that the most general type of homogeneous diattenuators is the elliptic diattenuator with eigenstates given in equation \ref{eq:ellip_pol_eigenstates}. Additionally, equation \ref{eq:diattenuator_singular_value_decomposition} shows that the diattenuator is represented by a Hermitian matrix. This means that the Jones matrix of the most common diattenuator can be written as:
+\begin{equation}
+    \hat{T}_D(\alpha, \delta, p_1, p_2) = 
+    \begin{pmatrix} 
+    p_1 c_{\alpha}^2 + p_2 s_{\alpha}^2 & s_{\alpha}c_{\alpha}(p_1-p_2)e^{-i\delta} \\
+    s_{\alpha}c_{\alpha}(p_1-p_2)e^{i\delta} & p_1 s_{\alpha}^2 + p_2 c_{\alpha}^2
+    \end{pmatrix},
+\end{equation}
+for which we assume that $0\leq p_2\leq p_1$. If $p_2=0$ then $\hat{T}_D(\alpha, \delta, p_1, 0)$ represents a total elliptic polarizer which completely absorbs the $\bm{\mathcal{E}}_2$ eigenstate. If we align the axes of the frame in which $\hat{T}_D(\alpha, \delta, p_1, p_2)$ is represented to the axes of the polarization ellipse of $\bm{\mathcal{E}}_1$ as in the case of the horizontal retarders, then we get the so called horizontal elliptic diattenuator. Again $\psi=0$ so that $\delta=\frac{\pi}{2}$, $\alpha=\chi$ which in $\hat{T}_D(\alpha=\chi, \delta=\frac{\pi}{2}, p_1, p_2)$ yields the respective Jones matrix representing the horizontal elliptic diattenuator. Figure \ref{fig:horizontal_diattenuator} shows a horizontal diattenuator and the effect of the diattenuation on its elliptical eigenstates. We see that in general the diattenuator changes the shape of the polarization ellipse depending on $p_1$ and $p_2$, while in contrast the retarders only rotate or change the handedness of the ellipse. 
 
+\begin{figure}[h]
+    \centering
+    \includestandalone[scale=1]{3_chapter03/tikz_horizontal_diattenuator}
+    \caption{Elliptical diattenuator at an angle of \SI{0}{\degree} to its intrinsic frame also known as a horizontal diattenuator. In this case the axes of the diattenuator align with the mayor and minor axis of its eigenstates so that the two eigenstates $\bm{\mathcal{E}}_1$, $\bm{\mathcal{E}}_2$ directly experience an intensity attenuation of respectively $p_1^2$ and $p_2^2$.}
+    \label{fig:horizontal_diattenuator}
+\end{figure}
+
+A diattenuator which is characterized by circular eigenstates, so that $\chi=\frac{\pi}{4}$ and therefore  $\delta=\frac{\pi}{2}$, $\alpha=\frac{\pi}{4}$, is represented by the following Jones matrix:
+\begin{equation}
+    \hat{T}_{DC}(p_1, p_2) = \hat{T}_D(\frac{\pi}{4}, \frac{\pi}{2}, p_1, p_2) =
+    \frac{1}{2}
+    \begin{pmatrix} 
+    p_1 + p_2 & -i(p_1 - p_2) \\
+    i(p_1 - p_2) & p_1 + p_2
+    \end{pmatrix}.
+\end{equation}
 
 \begin{itemize}
     \item calculation framework ??
