@@ -1028,7 +1028,7 @@ where $\tr$ is the matrix trace and the sign is respectively positive and negati
     \label{eq:passitivity_condition}
     p_1^2 \leq 1,
 \end{equation}
-which is also a defining property of Jones matrices. In other words a complex 2x2 matrix is a Jones matrix if equation \ref{eq:passitivity_condition} is satisfied. Similar to Jones vectors the Jones matrices are defined up to an arbitrary phase factor $e^{i\phi}$, which means that two matrices $\hat{T}$ and $e^{i\phi}\hat{T}$ are equivalent in the sense that their respective final output states have equal intensities. Additionally, the representation of a Jones matrix in another coordinate system follows directly from the coordinate transformation for Jones vectors given by equation \ref{eq:jones_vector_transformation}. Specifically, the transformation of a Jones matrix $\hat{T}$ in system XY to another representation $\hat{T}'$ in system X'Y' is given by:
+which is also a defining property of Jones matrices. In other words a complex 2x2 matrix is a Jones matrix if equation \ref{eq:passitivity_condition} is satisfied. Similar to Jones vectors the Jones matrices are defined up to an arbitrary phase factor $e^{i\phi}$, which means that two matrices $\hat{T}$ and $e^{i\phi}\hat{T}$ are equivalent in the sense that their respective final output states have equal intensities. A standard convention is therefore to assume that $\det \hat{T}$ is positive. Furthermore, the representation of a Jones matrix in another coordinate system follows directly from the coordinate transformation for Jones vectors given by equation \ref{eq:jones_vector_transformation}. Specifically, the transformation of a Jones matrix $\hat{T}$ in system XY to another representation $\hat{T}'$ in system X'Y' is given by:
 \begin{equation}
     \label{eq:jones_matrix_transformation}
     \hat{T}' = \hat{Q}(\theta)\hat{T}\hat{Q}(-\theta).
@@ -1147,7 +1147,7 @@ Similar, if we set $\Delta=\pi/2$ then the expression for the linear retarder re
     &=\frac{1}{\sqrt{2}}\left(\hat{I}+i\hat{Q}(2\psi)\diag{-1,1}\right),
 \end{split}
 \end{align}
-which is called usually called a quarter wave retarder. This expression shows that $\hat{T}_{RL}(\psi, \pi/2)$ is equivalent to a rotation by $+2\psi$ and an inversion of the handedness but different from $\hat{T}_{1/2}(\psi)$ the phase of the transformed state is additionally advanced by $\pi/2$ and superimposed on the input state. Therefore for a initially \SI{+45}{\degree} linear polarized state and $\phi=0$ the inversion of the x-component produces a \SI{-45}{\degree} linear polarized state. The inverted state is then further phase shifted by $\SI{90}{\degree}$ so that after superimposing it with the initial state the output state will be LCP. It is in fact possible to represent any linear retarder using a combination of rotation matrices $\hat{Q}$ and horizontal linear retarders $\hat{T}_{RL0}$ as follows:
+which is called usually called a quarter wave retarder. This expression shows that $\hat{T}_{RL}(\psi, \pi/2)$ is equivalent to a rotation by $+2\psi$ and an inversion of the handedness but different from $\hat{T}_{1/2}(\psi)$ the phase of the transformed state is additionally advanced by $\pi/2$ and superimposed on the input state. Therefore for a initially \SI{+45}{\degree} linear polarized state and $\phi=0$ the inversion of the x-component produces a \SI{-45}{\degree} linear polarized state. The inverted state is then further phase shifted by $\SI{+90}{\degree}$ causing it to be delayed in time so that after superimposing it with the initial state the output state will be LCP. It is in fact possible to represent any linear retarder using a combination of rotation matrices $\hat{Q}$ and horizontal linear retarders $\hat{T}_{RL0}$ as follows:
 \begin{equation}
     \hat{T}_{RL}(\psi, \Delta)=\hat{T}_{RC}(-2\psi)\hat{T}_{RL0}(\Delta)\hat{T}_{RC}(2\psi)=
     \hat{Q}(-\psi)\hat{T}_{RL0}(\Delta)\hat{Q}(\psi).
@@ -1177,24 +1177,63 @@ Furthermore, as with the retarders the diattenuators are also grouped or categor
     s_{\alpha}c_{\alpha}(p_1-p_2)e^{i\delta} & p_1 s_{\alpha}^2 + p_2 c_{\alpha}^2
     \end{pmatrix},
 \end{equation}
-for which we assume that $0\leq p_2\leq p_1$. If $p_2=0$ then $\hat{T}_D(\alpha, \delta, p_1, 0)$ represents a total elliptic polarizer which completely absorbs the $\bm{\mathcal{E}}_2$ eigenstate. If we align the axes of the frame in which $\hat{T}_D(\alpha, \delta, p_1, p_2)$ is represented to the axes of the polarization ellipse of $\bm{\mathcal{E}}_1$ as in the case of the horizontal retarders, then we get the so called horizontal elliptic diattenuator. Again $\psi=0$ so that $\delta=\frac{\pi}{2}$, $\alpha=\chi$ which in $\hat{T}_D(\alpha=\chi, \delta=\frac{\pi}{2}, p_1, p_2)$ yields the respective Jones matrix representing the horizontal elliptic diattenuator. Figure \ref{fig:horizontal_diattenuator} shows a horizontal diattenuator and the effect of the diattenuation on its elliptical eigenstates. We see that in general the diattenuator changes the shape of the polarization ellipse depending on $p_1$ and $p_2$, while in contrast the retarders only rotate or change the handedness of the ellipse. 
+for which we assume that $0\leq p_2\leq p_1$. If $p_2=0$ then $\hat{T}_D(\alpha, \delta, p_1, 0)$ represents a total elliptic polarizer which completely absorbs the $\bm{\mathcal{E}}_2$ eigenstate. If we align the axes of the frame in which $\hat{T}_D(\alpha, \delta, p_1, p_2)$ is represented to the axes of the polarization ellipse of $\bm{\mathcal{E}}_1$ as in the case of the horizontal retarders, then we get the so called horizontal elliptic diattenuator. Again $\psi=0$ so that $\delta=\frac{\pi}{2}$, $\alpha=\chi$ which in $\hat{T}_D(\alpha=\chi, \delta=\frac{\pi}{2}, p_1, p_2)$ yields the respective Jones matrix representing the horizontal elliptic diattenuator. Figure \ref{fig:horizontal_diattenuator} shows a horizontal diattenuator and the effect of the diattenuation on its elliptical eigenstates. We see that in general the diattenuator changes the shape of the polarization ellipse depending on $p_1$ and $p_2$, while in contrast the retarders only rotate or change the handedness of the ellipse. This is also underlined by the fact that $\det(\hat{T}_D) = p_1p_2 \leq 1$ while $\det(\hat{T}_{R}) = 1$.
 
 \begin{figure}[h]
     \centering
-    \includestandalone[scale=1]{3_chapter03/tikz_horizontal_diattenuator}
+    \includestandalone[scale=0.65]{3_chapter03/tikz_horizontal_diattenuator}
     \caption{Elliptical diattenuator at an angle of \SI{0}{\degree} to its intrinsic frame also known as a horizontal diattenuator. In this case the axes of the diattenuator align with the mayor and minor axis of its eigenstates so that the two eigenstates $\bm{\mathcal{E}}_1$, $\bm{\mathcal{E}}_2$ directly experience an intensity attenuation of respectively $p_1^2$ and $p_2^2$.}
     \label{fig:horizontal_diattenuator}
 \end{figure}
 
-A diattenuator which is characterized by circular eigenstates, so that $\chi=\frac{\pi}{4}$ and therefore  $\delta=\frac{\pi}{2}$, $\alpha=\frac{\pi}{4}$, is represented by the following Jones matrix:
+A diattenuator which is characterized by circular eigenstates, so that $\chi=\frac{\pi}{4}$ and therefore $\delta=\frac{\pi}{2}$, $\alpha=\frac{\pi}{4}$, is represented by the following Jones matrix:
 \begin{equation}
-    \hat{T}_{DC}(p_1, p_2) = \hat{T}_D(\frac{\pi}{4}, \frac{\pi}{2}, p_1, p_2) =
+    \hat{T}_{DC}(p_1, p_2) = \hat{T}_D\left(\frac{\pi}{4}, \frac{\pi}{2}, p_1, p_2\right) =
     \frac{1}{2}
     \begin{pmatrix} 
     p_1 + p_2 & -i(p_1 - p_2) \\
     i(p_1 - p_2) & p_1 + p_2
     \end{pmatrix}.
 \end{equation}
+It is worth noting that for $p_2=0$ $\hat{T}_{DC}(p_1, p_2=0)$ represents a circular polarizer which completely extinguishes the circular eigenstate $\bm{\mathcal{E}}_2$. The final of the three types is the linear diattenuator. In this particular case the eigenstates are linearly polarized so that $\chi=0$ and therefore $\delta=0$, $\alpha=\psi$. The linear diattenuator can accordingly be represented by the following Jones matrix:
+\begin{equation}
+    \hat{T}_{DL}(\psi, p_1, p_2) = 
+    \begin{pmatrix} 
+    p_1c_{\psi}^2 + p_2s_{\psi}^2 & c_{\psi}s_{\psi}(p_1 - p_2) \\
+    c_{\psi}s_{\psi}(p_1 - p_2) & p_1s_{\psi}^2 + p_2c_{\psi}^2
+    \end{pmatrix},
+\end{equation}
+which for $p_2=0$ represents the well known linear polarizer realized by for example a wiregrid polarizer. The Jones matrix then takes on the form:
+\begin{equation}
+    \hat{T}_{DL}(\psi, p_1, 0) = \hat{T}_{D}(\psi, 0, p_1, 0) =
+    p_1
+    \begin{pmatrix} 
+    c_{\psi}^2 & c_{\psi}s_{\psi} \\
+    c_{\psi}s_{\psi} & s_{\psi}^2
+    \end{pmatrix}.
+\end{equation}
+Oriented at \SI{0}{\degree} the horizontal diattenuator takes on the diagonal form $\hat{T}_{DL0}(p_1, p_2) = \hat{T}_{DL}(0, p_1, p_2)=\hat{T}_{D}(0,0,p_1,p_2)=\diag{p_1, p_2}$ and $\diag{p_1, 0}$ for a linear polarizer at $\psi = \SI{0}{\degree}$. Similar to the general form of the retarder, the elliptic diattenuator can also be written as a product of rotation matrices, horizontal retarders and diattenuators as follows:
+\begin{align}
+\begin{split}
+    \hat{T}_{D}(\alpha, \delta, p_1, p_2) 
+    &= \hat{T}_{RL0}(-\delta)\hat{T}_{DL}(\alpha, p_1, p_2)\hat{T}_{RL0}(\delta) \\
+    &= \hat{T}_{RL0}(-\delta)\hat{Q}(-\alpha)\hat{T}_{DL0}(p_1, p_2)\hat{Q}(\alpha)\hat{T}_{RL0}(\delta).
+\end{split}
+\end{align}
+This means that any diattenuator is equivalent to a linear diattenuator placed between two crossed linear retarders. With the introduction of the diattenuator we can finally describe real linear retarders or specifically waveplates for which we can now include dichroic effects. For this purpose we can assume that the optic axes of the retarder and diattenuator coincide which can be shown to be equivalent to the normality condition \cite{Bass1995HandbookOptics}. A linear nonideal retarder or diattenuating retarder can be represented by the Jones matrix $\hat{T}_{RDL}$. $\hat{T}_{RDL}$ depends on three parameters; the orientation angle $\psi$ between the fast axis of the retarder $X_0$ and the axis $X$ of the reference frame, the principal intensities $p_1^1$ and $p_2^2$ and finally on the effective phase shift $\Delta$ between the eigenstates of $\hat{T}_{RDL}$. This means that $\hat{T}_{RDL}$ can be represented by the following product of matrices:
+\begin{equation}
+    \hat{T}_{RDL}(\psi, \Delta, p_1, p_2) = \hat{Q}(-\psi)\hat{T}_{RL0}(\Delta)\hat{T}_{DL0}(p_1, p_2)\hat{Q}(\psi),
+\end{equation}
+we can carry out the multiplication to obtain the following representation of $\hat{T}_{RDL}$:
+\begin{equation}
+    \hat{T}_{RDL}(\psi, \Delta, p_1, p_2) = 
+    \begin{pmatrix} 
+    p_1e^{i\Delta/2}c_{\psi}^2+p_2e^{-i\Delta/2}s_{\psi}^2 & c_{\psi}s_{\psi}\left(p_1e^{i\Delta/2}-p_2e^{-i\Delta/2}\right) \\
+    c_{\psi}s_{\psi}\left(p_1e^{i\Delta/2}-p_2e^{-i\Delta/2}\right) & 
+    p_1e^{i\Delta/2}s_{\psi}^2+p_2e^{-i\Delta/2}c_{\psi}^2
+    \end{pmatrix}.
+\end{equation}
+
 
 \begin{itemize}
     \item calculation framework ??
@@ -1224,10 +1263,10 @@ A diattenuator which is characterized by circular eigenstates, so that $\chi=\fr
 (comes with Homogeneous / nothomogen -> called normal jones matrices) LU and chapman ...
 
 % TODO Note: Rotations are in fact also physically realizable Jones matrices (circular retarders)
-
+% TODO add where its from: works of Gil and Ossikovski collected in book
 \cite{Lu1994HomogeneousMatrices}
 
-\section{Design description}
+\section{Achromatic waveplates}
 \label{sec:design}
 
 \subsection{Optimization?}
