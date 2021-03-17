@@ -189,7 +189,7 @@ and using the physics definition:
 \end{equation}
 
 The physics definition is used for example in the textbooks by John D. Jackson \cite{Jackson1998ClassicalEdition} and David J. Griffiths \cite{Griffiths2017IntroductionElectrodynamics} and also in \cite{Collett2009FieldPolarization}, which is the reference used for most of this section.
-There are not only convention differences between engineers and physicists but also even between different branches of physics. The definition of CP handedness relies on the point of view; that is either looking from the source in the direction of propagation or from the receiver against the direction of propagation. Here we use the version which is defined from the point of view of the receiver. This is also the convention commonly used in optics \cite{Bass2016HandbookOptics, M.LandiDeglInnocenti2004PolarizationLines} as well as by SPIE \cite{Collett2009FieldPolarization}.
+There are not only convention differences between engineers and physicists but also even between different branches of physics. The definition of CP handedness relies on the point of view; that is either looking from the source in the direction of propagation or from the receiver against the direction of propagation. Here we use the version which is defined from the point of view of the receiver. This is also the convention commonly used in optics \cite{Bass1995HandbookOptics, M.LandiDeglInnocenti2004PolarizationLines} as well as by SPIE \cite{Collett2009FieldPolarization}.
 The other convention is used by radio astronomers \cite{1973CommissionAstronomie}, quantum physicists, because it is consistent with the convention of handedness for a particle's spin and it is also used by electrical engineers \cite{Orfanidis2004ElectromagneticAntennas}.
 
 \section{Wave propagation in anisotropic media}
@@ -1011,6 +1011,7 @@ The Jones calculus or specifically the Jones matrices can be used to describe th
 \end{equation}
 where $\hat{T}$ is the 2x2 complex Jones matrix specifying the interaction. With this many of the common operations defined in linear algebra can be reused and given a physical interpretation in the Jones calculus. For example the matrix product of two Jones matrices $\hat{T}_1$ and $\hat{T}_2$ represents a so called series or train of optical elements, where each matrix describes the polarimetric change caused by the respective element. This can be extended to multiple elements so that the final state in a train of $n$ consecutive elements is given by:
 \begin{equation}
+    \label{eq:jones_series_product}
     \bm{\mathcal{E}}' = \prod_{i=1}^{n} \hat{T}_i \bm{\mathcal{E}}.
 \end{equation}
 It is clear that since the product of two matrices does in general not commute the order of the factors is important. This resembles the fact that the action of the matrix changes the state \cite{Jones1941ACalculus}. Since all Jones matrices are 2x2 complex matrices they can be factored into a product of three matrices using the singular value decomposition. This means we can express any Jones matrix $\hat{T}$ in the following form:
@@ -1063,7 +1064,7 @@ The inhomogenity is therefore zero if $\hat{T}$ is normal and one if the eigenve
 \begin{equation}
     \eta^2 = \frac{2||\hat{T}||_2^2-|\tr\hat{T}|^2-|(\tr\hat{T})^2-4\det\hat{T}|}{2||\hat{T}||_2^2-|\tr\hat{T}|^2+|(\tr\hat{T})^2-4\det\hat{T}|},
 \end{equation}
-where $||\hat{T}||_2=\sqrt{\tr \hat{T}^{\dagger} \hat{T}}$ denotes the Frobenius norm of $\hat{T}$. With this we can define and categorize waveplates in the context of the Jones calculus which is shown in the following section. 
+where $||\hat{T}||_2=\sqrt{\tr \hat{T}^{\dagger} \hat{T}}$ denotes the Frobenius norm of $\hat{T}$ \cite{Lu1994HomogeneousMatrices}. With this we can define and categorize waveplates in the context of the Jones calculus which is shown in the following section. 
 
 \subsection{Waveplates in the Jones calculus}
 In section \ref{sec:waveplates} we presented a phenomenological description of waveplates for which we assumed them to be fully transparent, i.e. the intensity of the incident light was equal to the intensity of the transmitted light. Under this assumption such ideal elements only exhibit birefringence and we will therefore refer to them as retarders or ideal waveplates. Furthermore, in the Jones calculus these ideal waveplates are represented by unitary matrices. Later in this section we will describe and add diattenuators to the framework. The diattenuator will allow us to quantify absorption by the waveplates and it especially simplifies the description of anisotropic absorption effects such as dichroism, reflection losses and transmission losses. In theory together the retarder and diattenuator then constitute a complete model of the waveplate. In the following we classify retarders according to the polarization type of their eigenstates, consequently there are three different types of retarders; elliptic, circular and linear. As for the different polarization types the most general type of retarder is the elliptic retarder which is characterized by the following eigenstates:
@@ -1169,7 +1170,7 @@ We know from the previous section that $p_1^2$ and $p_2^2$ are respectively the 
 \begin{equation}
     D = \frac{p_1^2-p_2^2}{p_1^2+p_2^2}
 \end{equation}
-Furthermore, as with the retarders the diattenuators are also grouped or categorized based on the polarization type of their associated eigenstates. This means that the most general type of homogeneous diattenuators is the elliptic diattenuator with eigenstates given in equation \ref{eq:ellip_pol_eigenstates}. Additionally, equation \ref{eq:diattenuator_singular_value_decomposition} shows that the diattenuator is represented by a Hermitian matrix. This means that the Jones matrix of the most common diattenuator can be written as:
+Furthermore, as with the retarders the diattenuators are also grouped or categorized based on the polarization type of their associated eigenstates. This means that the most general type of homogeneous diattenuators is the elliptic diattenuator with eigenstates given in equation \ref{eq:ellip_pol_eigenstates}. Additionally, equation \ref{eq:diattenuator_singular_value_decomposition} shows that the diattenuator is represented by a Hermitian\footnote{A complex square matrix $\hat{H}$ is Hermitian iff $\hat{H}=\hat{H}^{\dagger}$.} matrix. This means that the Jones matrix of the most common diattenuator can be written as:
 \begin{equation}
     \hat{T}_D(\alpha, \delta, p_1, p_2) = 
     \begin{pmatrix} 
@@ -1220,7 +1221,7 @@ Oriented at \SI{0}{\degree} the horizontal diattenuator takes on the diagonal fo
     &= \hat{T}_{RL0}(-\delta)\hat{Q}(-\alpha)\hat{T}_{DL0}(p_1, p_2)\hat{Q}(\alpha)\hat{T}_{RL0}(\delta).
 \end{split}
 \end{align}
-This means that any diattenuator is equivalent to a linear diattenuator placed between two crossed linear retarders. With the introduction of the diattenuator we can finally describe real linear retarders or specifically waveplates for which we can now include dichroic effects. For this purpose we can assume that the optic axes of the retarder and diattenuator coincide which can be shown to be equivalent to the normality condition \cite{Bass1995HandbookOptics}. A linear nonideal retarder or diattenuating retarder can be represented by the Jones matrix $\hat{T}_{RDL}$. $\hat{T}_{RDL}$ depends on three parameters; the orientation angle $\psi$ between the fast axis of the retarder $X_0$ and the axis $X$ of the reference frame, the principal intensities $p_1^1$ and $p_2^2$ and finally on the effective phase shift $\Delta$ between the eigenstates of $\hat{T}_{RDL}$. This means that $\hat{T}_{RDL}$ can be represented by the following product of matrices:
+This means that any diattenuator is equivalent to a linear diattenuator placed between two crossed linear retarders. With the introduction of the diattenuator we can finally describe real linear retarders or specifically waveplates for which we can include dichroic effects. For this purpose we can assume that the optic axes of the retarder and diattenuator coincide, this assumption can be shown to be equivalent to the normality condition \cite{Bass1995HandbookOptics}. Furthermore, we know from the previous section that states polarized along the fast or slow axis of the birefringent material of the waveplate will not undergo a polarization change as it passes through the waveplate. The eigenstates of a birefringent material are therefore linear and the planes of polarization coincide with the slow and fast axes of the material. Consequently, we can describe the waveplate using a linear retarder and diattenuator. A linear nonideal retarder or diattenuating retarder can be represented by the Jones matrix $\hat{T}_{RDL}$, which depends on three parameters; the orientation angle $\psi$ between the fast axis of the retarder $X_0$ and the axis $X$ of the reference frame, the principal intensities $p_1^2$ and $p_2^2$ and finally on the effective phase shift $\Delta$ between the eigenstates of $\hat{T}_{RDL}$. This means that $\hat{T}_{RDL}$ can be represented by the following product of matrices:
 \begin{equation}
     \hat{T}_{RDL}(\psi, \Delta, p_1, p_2) = \hat{Q}(-\psi)\hat{T}_{RL0}(\Delta)\hat{T}_{DL0}(p_1, p_2)\hat{Q}(\psi),
 \end{equation}
@@ -1233,7 +1234,19 @@ we can carry out the multiplication to obtain the following representation of $\
     p_1e^{i\Delta/2}s_{\psi}^2+p_2e^{-i\Delta/2}c_{\psi}^2
     \end{pmatrix}.
 \end{equation}
-
+With this we can describe a single waveplate. According to equation \ref{eq:jones_series_product} a train of waveplates is then simply the product of the individual $\hat{T}_{RDL}$ matrices. Obtaining the equivalent retardance or phase shift and diattenuation of the final product can be achieved with a so called polar decomposition, which states that for any complex 2x2 matrix $\hat{T}$ there exist positive-definite\footnote{A Hermitian matrix $\hat{H}$ is positive-definite if $\bm{\mathcal{E}}^{\dagger}\hat{H}\bm{\mathcal{E}}$ is positive for any $\bm{\mathcal{E}}$} Hermitian matrices $\hat{H}$ and $\hat{H}'$ and a unitary matrix $\hat{U}$ such that $\hat{T}=\hat{U}\hat{H}=\hat{H}'\hat{U}$. This means that we can write any Jones matrix as a product of a retarder and diattenuator as follows:
+\begin{equation}
+    \hat{T} = \hat{T}_R\hat{T}_D = \hat{T}_D'\hat{T}_R.
+\end{equation}
+Furthermore, the equivalent retardance $\Delta$ of $\hat{T}_R$ can be calculated using the following expression:
+\begin{equation}
+    \Delta = 2 \cos^{-1} \frac{\left|\tr\hat{T}+\frac{\det \hat{T}}{\left|\det \hat{T}\right|} \right|\tr \hat{T}^{\dagger}}{2\sqrt{\tr \hat{T}\hat{T}^{\dagger}+2\left|\det \hat{T}\right|}},
+\end{equation}
+where we assume that the transmittance $p_2$ is not zero since then $\hat{T}$ represents a polarizer and therefore would have a determinant of zero. Furthermore, this equation is only valid for homogeneous Jones matrices. In the inhomogeneous case the following expression has to be used instead:
+\begin{equation}
+    \Delta = 2\cos^{-1}
+\end{equation}
+\cite{Lu1994HomogeneousMatrices}
 
 \begin{itemize}
     \item calculation framework ??
