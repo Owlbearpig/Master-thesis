@@ -1056,11 +1056,16 @@ These expressions for the final states can then be used to calculate their respe
     \bm{\eta}'^{\dagger}_2\bm{\eta}'_2=p_2^2, \qquad 
     \bm{\eta}'^{\dagger}_1\bm{\eta}'_2=0.
 \end{equation}
-If we further define the transmittance as the ratio between the transmitted intensity and the incident intensity, then we see that the states $\bm{\eta}_1$ and $\bm{\eta}_2$ are exactly the states with the highest and lowest transmittance respectively. In other words, with respect to any other normalized output state, the states $\bm{\eta}'_1$ and $\bm{\eta}'_2$ are the output states with the highest and lowest intensities respectively. The last property we will introduce before applying these to define the waveplates mathematically in the Jones calculus is the normality of Jones matrices. This property is important for the calculation of the phase shift given a Jones matrix. Jones matrices can be separated into two groups depending on if their eigenstates $\bm{\mathcal{E}}_q$ and $\bm{\mathcal{E}}_r$ are mutually orthogonal or not. Where the eigenstates are the states for which the Jones matrix only scales the state by the respective eigenvalue. Specifically, if the eigenstates are mutually orthogonal then the Jones matrix is said to be normal or homogeneous and nonnormal or inhomogeneous if they are nonorthogonal. We can therefore define the nonnormality or inhomogeneity parameter $\eta$ as follows:
+If we further define the transmittance as the ratio between the transmitted intensity and the incident intensity, then we see that the states $\bm{\eta}_1$ and $\bm{\eta}_2$ are exactly the states with the highest and lowest transmittance respectively. In other words, with respect to any other normalized output state, the states $\bm{\eta}'_1$ and $\bm{\eta}'_2$ are the output states with the highest and lowest intensities respectively. The last property we will introduce before applying these to describe waveplates in the Jones calculus is the normality of Jones matrices. As we shall see later this property is important for the calculation of the equivalent phase shift given a Jones matrix. Additionally, Jones matrices can be separated into two categories depending on the mutual orthogonality of their eigenvectors $\bm{\mathcal{E}}_q$ and $\bm{\mathcal{E}}_r$. The eigenvectors which are also known as the eigenstates or eigenpolarizations of $\hat{T}$ can be interpreted by considering the defining equations:
+\begin{equation}
+    \hat{T}\bm{\mathcal{E}}_q = \lambda_q\bm{\mathcal{E}}_q, \qquad 
+    \hat{T}\bm{\mathcal{E}}_r = \lambda_r\bm{\mathcal{E}}_r,
+\end{equation}
+where $\lambda_q = |\lambda_q|e^{i\delta_q}$ and $\lambda_r = |\lambda_r|e^{i\delta_r}$ are the associated complex eigenvalues. In other words, the application of $\hat{T}$ to the eigenstates only scales them by a complex number but leaves the polarization type unchanged. Hence if $\bm{\mathcal{E}}_q$ and $\bm{\mathcal{E}}_r$ are mutually orthogonal then the Jones matrix is said to be normal or homogeneous and nonnormal or inhomogeneous if they are nonorthogonal. We can therefore define the nonnormality or inhomogeneity parameter $\eta$ as follows:
 \begin{equation}
     \eta=|\bm{\mathcal{E}}^{\dagger}_q \bm{\mathcal{E}}_r|.
 \end{equation}
-The inhomogenity is therefore zero if $\hat{T}$ is normal and one if the eigenvectors are parallel, where the latter is also known as the degenerate case. To calculate the inhomogeneity and verify that a given Jones matrix $\hat{T}$ is normal we use another derived expression for $\eta^2$ which is given by:
+This means that the inhomogenity is zero if $\hat{T}$ is normal and one if the eigenvectors are parallel, where the latter is also known as the degenerate case. To calculate the inhomogeneity and verify that a given Jones matrix $\hat{T}$ is normal we use another derived expression for $\eta^2$ which is given by:
 \begin{equation}
     \eta^2 = \frac{2||\hat{T}||_2^2-|\tr\hat{T}|^2-|(\tr\hat{T})^2-4\det\hat{T}|}{2||\hat{T}||_2^2-|\tr\hat{T}|^2+|(\tr\hat{T})^2-4\det\hat{T}|},
 \end{equation}
@@ -1168,6 +1173,7 @@ In the following we will introduce the diattenuator in a similar fashion as we d
 \end{equation}
 We know from the previous section that $p_1^2$ and $p_2^2$ are respectively the maximum and minimum transmittance. We can therefore use $p_1$ and $p_2$ to define the diattenuation in the Jones calculus as follows: 
 \begin{equation}
+    \label{eq:diattenuation_1}
     D = \frac{p_1^2-p_2^2}{p_1^2+p_2^2}
 \end{equation}
 Furthermore, as with the retarders the diattenuators are also grouped or categorized based on the polarization type of their associated eigenstates. This means that the most general type of homogeneous diattenuators is the elliptic diattenuator with eigenstates given in equation \ref{eq:ellip_pol_eigenstates}. Additionally, equation \ref{eq:diattenuator_singular_value_decomposition} shows that the diattenuator is represented by a Hermitian\footnote{A complex square matrix $\hat{H}$ is Hermitian iff $\hat{H}=\hat{H}^{\dagger}$.} matrix. This means that the Jones matrix of the most common diattenuator can be written as:
@@ -1182,7 +1188,7 @@ for which we assume that $0\leq p_2\leq p_1$. If $p_2=0$ then $\hat{T}_D(\alpha,
 
 \begin{figure}[h]
     \centering
-    \includestandalone[scale=0.65]{3_chapter03/tikz_horizontal_diattenuator}
+    \includestandalone[scale=1]{3_chapter03/tikz_horizontal_diattenuator}
     \caption{Elliptical diattenuator at an angle of \SI{0}{\degree} to its intrinsic frame also known as a horizontal diattenuator. In this case the axes of the diattenuator align with the mayor and minor axis of its eigenstates so that the two eigenstates $\bm{\mathcal{E}}_1$, $\bm{\mathcal{E}}_2$ directly experience an intensity attenuation of respectively $p_1^2$ and $p_2^2$.}
     \label{fig:horizontal_diattenuator}
 \end{figure}
@@ -1242,45 +1248,30 @@ Furthermore, the equivalent retardance $\Delta$ of $\hat{T}_R$ can be calculated
 \begin{equation}
     \Delta = 2 \cos^{-1} \frac{\left|\tr\hat{T}+\frac{\det \hat{T}}{\left|\det \hat{T}\right|} \right|\tr \hat{T}^{\dagger}}{2\sqrt{\tr \hat{T}\hat{T}^{\dagger}+2\left|\det \hat{T}\right|}},
 \end{equation}
-where we assume that the transmittance $p_2$ is not zero since then $\hat{T}$ represents a polarizer and therefore would have a determinant of zero. Furthermore, this equation is only valid for homogeneous Jones matrices. In the inhomogeneous case the following expression has to be used instead:
+where we assume that the transmittance $p_2$ is not zero since then $\hat{T}$ represents a polarizer for which the determinant of the corresponding Jones matrix is zero. Furthermore, this equation is only valid for homogeneous Jones matrices. In the inhomogeneous case the following expression has to be used instead:
 \begin{equation}
-    \Delta = 2\cos^{-1}
+    \label{eq:retardation_inhomogeneous}
+    \Delta = 2\cos^{-1}\left\{\left[\frac{(1-\eta^2)(|\lambda_q|+|\lambda_r|)^2}
+    {(|\lambda_q|+|\lambda_r|)^2-\eta^2(2|\lambda_q||\lambda_r|+\lambda_q^*\lambda_r+\lambda_q\lambda_r^*)}\right]^{1/2}\left|\cos \frac{\delta_q-\delta_r}{2}\right|\right\}.
 \end{equation}
-\cite{Lu1994HomogeneousMatrices}
+Similarly, the equivalent diattenuation $D$ can be calculated from the Jones matrix as follows:
+\begin{equation}
+    \label{eq:diattenuation_2}
+    D=\sqrt{1-\frac{4|\det \hat{T}|^2}{(\tr \hat{T}\hat{T}^{\dagger})^2}},
+\end{equation}
+which has the advantage that it does not depend directly on $p_1$ and $p_2$. Again, in the case of an inhomogeneous Jones matrix equation \ref{eq:diattenuation_2} is invalid and the following equation should be used:
+\begin{equation}
+    \label{eq:diattenuation_inhomogeneous}
+    D=\sqrt{1- \frac{4(1-\eta^2)^2|\lambda_q|^2|\lambda_r|^2}
+    {\left(|\lambda_q|^2+|\lambda_r|^2-\eta^2(\lambda_q\lambda_r^*+\lambda_r\lambda_q^*)\right)^2}}.
+\end{equation}
+Expressions \ref{eq:retardation_inhomogeneous} and \ref{eq:diattenuation_inhomogeneous} are valid for $\eta \neq 0$ but evidently less efficient. 
 
-\begin{itemize}
-    \item calculation framework ??
-    \item 3.2.4 106 changes of reference frame and rotated Jones matrices
-    \item 3.5 NORMALITY needed for retardance calc??
-    \item 4.1 INTRODUCTION ??
-    \item 4.2 or is 4.2.1 enough Go through types of retarders or summary short
-    \item 4.3 DIATTENUATORS
-    \item 4.3.1.9 DIATTENUATING RETARDER
-    \item 4.5 POLAR DECOMPOSITION OF A NONDEPOLARIZING SYSTEM has equation for retardance... seems a bit lengthy
-    \item 4.11 SUMMARY Read it : )
-    \item Chapter 5 But real short(Mueller matrix)
-    \item transition to mueller or to final section composite retarders. not sure if we need mueller stuff ... masson??
-\end{itemize}
 
-4.2 how are RETARDERS defined in the jones context
 
-4.2.1 Retarder types
-
-(4.2.1.9 JONES MATRIX OF A SERIAL COMBINATION OF RETARDERS) We cant do this because not unitary like in masson ...
-
-4.3 how are DIATTENUATORS defined in the jones context
-
-4.3.1 Jones matrices of diattenuators -> diattenuator types
-
-4.5 POLAR DECOMPOSITION OF A NONDEPOLARIZING SYSTEM -> this results in retardance equation. 
-(comes with Homogeneous / nothomogen -> called normal jones matrices) LU and chapman ...
-
+% TODO page 99 add remark of how reflections and transmittance can be classified as diattenuator in jones calc.
 % TODO Note: Rotations are in fact also physically realizable Jones matrices (circular retarders)
-% TODO add where its from: works of Gil and Ossikovski collected in book
-\cite{Lu1994HomogeneousMatrices}
+% TODO add where its from: works of Gil and Ossikovski collected in book \cite{Lu1994HomogeneousMatrices}
 
 \section{Achromatic waveplates}
 \label{sec:design}
-
-\subsection{Optimization?}
-- describe algorithm
