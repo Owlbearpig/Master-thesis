@@ -529,6 +529,7 @@ Similarly we can define the dichroism $\Delta \kappa$ as the difference of the i
 In summary, we considered the propagation of an em-wave in an evenly layered medium. To that extend we went through the derivation of an equation for the mean field effective refractive index. Since we considered the spatial average of the field for this derivation, the result is only valid in the case of long waves relative to the structural period. I.e. the field variation has to be small compared to the period in order to justify using the mean field. The resulting equation does not in general permit an expression of the effective refractive index in terms of the widths and optical parameters of the layers. Following, a Taylor expansion is carried out and approximate expressions are obtained for the effective permittivities of the mean field components. With these expressions the birefringence of the structure can be approximated, where the error of the approximation increases for increasing wavelength. Furthermore, we saw that the stratified structures with which we are concerned appear uniaxial. In total, we considered propagation within the stratified medium only, following the next section will be about what happens at the boundary between two media with different dielectric tensors.
 
 \subsection{Interface conditions}
+\label{sec:interface_conditions}
 The previous section answered the question about how each field component propagates inside the stratified medium in the case of long waves. The question that still remains is what happens with the wave as it enters the medium. There are three cases: Either one medium is isotropic and one is anisotropic or in the second case both media are anisotropic. The third case is less interesting since it is already described by the Fresnel equations. Furthermore, we will only consider the case of normal incidence, since that is given by the geometry of the measurements in this work. We do not have to consider double refraction since we know that the o-wave travels at the same speed in every direction as if the medium was isotropic. The o-wave therefore obeys Snell's Law and will not be refracted at normal incidence. Similarly, since the e-wave is everywhere parallel to the optic axis it will also effectively experience an isotropic medium and the refraction can therefore be described by Snell's Law. In contrast to the calcite crystal example described in section \ref{sec:birefringence} we will therefore not get two spatially separated waves. However, we will still get a reflected wave. In the case of an interface between two isotropic materials we could use the Fresnel equations but since the material in this case appears anisotropic we have to take this into account in the derivation of the transmission and reflection coefficients. The geometry is shown in figure \ref{fig:interface_derivation} where the wave ($\bm{k_i}$) is normally incident on the interface between two anisotropic media. According to the wave equation we will in general get a reflected ($\bm{k_r}$) and a transmitted wave ($\bm{k_t}$). 
 
 \begin{figure}[h]
@@ -650,7 +651,7 @@ Or if we set $n_{p,i} = \sqrt{\epsilon_{p,i}}$ then we can rewrite equation \ref
 Finally, if we pair the interface condition for the tangential component of the electric field with equation \ref{eq:electric_field_eq} we obtain a homogeneous linear system of equations in the electric field components. These equations can be reduced to expressions which relate the incident electric field amplitudes to the reflected and transmitted amplitudes. Furthermore, we know from the previous section \ref{sec:form_birefringence} that the field components along the direction of propagation are extinguished, i.e. a TEM wave. This means that we can omit the x-components in the expressions. With this we can write the relation between the incident and reflected field as:
 \begin{equation}
     \label{eq:reflection_general}
-    \bm{E_r} =
+    \bm{E_r} = \hat{T}_r \bm{E_i} =
     \frac{-1}{d}
     \begin{pmatrix}
         b_-b_+ - c_+a_- & c_-b_+ - c_+b_- \\
@@ -661,7 +662,7 @@ Finally, if we pair the interface condition for the tangential component of the 
 we get a similar relation between the incident and transmitted field:
 \begin{equation}
     \label{eq:transmission_general}
-    \bm{E_t} =
+    \bm{E_t} = \hat{T}_t \bm{E_i} =
     \frac{2}{d}
     \begin{pmatrix}
         a_1c_+ - b_1b_+ & b_1c_+ - c_1b_+ \\
@@ -1014,7 +1015,7 @@ where $\hat{T}$ is the 2x2 complex Jones matrix specifying the interaction. With
     \label{eq:jones_series_product}
     \bm{\mathcal{E}}' = \prod_{i=1}^{n} \hat{T}_i \bm{\mathcal{E}}.
 \end{equation}
-It is clear that since the product of two matrices does in general not commute the order of the factors is important. This resembles the fact that the action of the matrix changes the state \cite{Jones1941ACalculus}. Since all Jones matrices are 2x2 complex matrices they can be factored into a product of three matrices using the singular value decomposition. This means we can express any Jones matrix $\hat{T}$ in the following form:
+It is clear that since the product of two matrices does in general not commute the order of the factors is important. This resembles the fact that the action of the matrix changes the input state for a subsequent matrix in the train \cite{Jones1941ACalculus}. It is worth noting that in general the action of materials on the input state depends on properties of the wave as well as how the interaction takes place. For example reflection off of a surface depends on the incident angle as well as the frequency of the wave. The Jones matrices can therefore depend on a number of parameters reflecting the properties of the interaction, material and input state. Furthermore, since all Jones matrices are 2x2 complex matrices they can be factored into a product of three matrices using the singular value decomposition. This means we can express any Jones matrix $\hat{T}$ in the following form:
 \begin{equation}
     \label{eq:jones_singular_value_decomposition}
     \hat{T} = \hat{T}_{R2}\diag{p_1, p_2}\hat{T}_{R1},
@@ -1029,12 +1030,12 @@ where $\tr$ is the matrix trace and the sign is respectively positive and negati
     \label{eq:passitivity_condition}
     p_1^2 \leq 1,
 \end{equation}
-which is also a defining property of Jones matrices. In other words a complex 2x2 matrix is a Jones matrix if equation \ref{eq:passitivity_condition} is satisfied. Similar to Jones vectors the Jones matrices are defined up to an arbitrary phase factor $e^{i\phi}$, which means that two matrices $\hat{T}$ and $e^{i\phi}\hat{T}$ are equivalent in the sense that their respective final output states have equal intensities. A standard convention is therefore to assume that $\det \hat{T}$ is positive. Furthermore, the representation of a Jones matrix in another coordinate system follows directly from the coordinate transformation for Jones vectors given by equation \ref{eq:jones_vector_transformation}. Specifically, the transformation of a Jones matrix $\hat{T}$ in system XY to another representation $\hat{T}'$ in system X'Y' is given by:
+which is also a defining property of Jones matrices. In other words a complex 2x2 matrix is a Jones matrix if equation \ref{eq:passitivity_condition} is satisfied \cite{Barakat1987ConditionsSystems}. Similar to Jones vectors the Jones matrices are defined up to an arbitrary phase factor $e^{i\phi}$, which means that two matrices $\hat{T}$ and $e^{i\phi}\hat{T}$ are equivalent in the sense that their respective final output states have equal intensities. A standard convention is therefore to assume that $\det \hat{T}$ is positive. Furthermore, the representation of a Jones matrix in another coordinate system follows directly from the coordinate transformation for Jones vectors given by equation \ref{eq:jones_vector_transformation}. Specifically, the transformation of a Jones matrix $\hat{T}$ in system XY to another representation $\hat{T}'$ in system X'Y' is given by:
 \begin{equation}
     \label{eq:jones_matrix_transformation}
     \hat{T}' = \hat{Q}(\theta)\hat{T}\hat{Q}(-\theta).
 \end{equation}
-It is important to distinguish between frame rotations and rotations of the actual element. In the first case we rotate the axes and the second case can be understood as a rotation of the vector. Therefore, in the case of a rotation of the element around the Z-axis the signs of the rotation matrices in equation \ref{eq:jones_matrix_transformation} are inverted. It is worth noting that we only have to consider rotations since they are the only geometrical transformations that actually preserve the physically invariant quantities. Another interesting concept are singular states of polarization. Specifically, the singular value decomposition readily shows that for any Jones matrix there exists two pairwise orthonormal states $\tilde{\bm{\eta}}_1$ and $\tilde{\bm{\eta}}_2$ for which the orthogonality is preserved, in other words their respective output states $\bm{\eta}_1'$ and $\bm{\eta}_2'$ are mutually orthogonal. Furthermore, from the definition of the singular values the states $\tilde{\bm{\eta}}_1$ and $\tilde{\bm{\eta}}_2$ are orthonormal eigenvectors of the matrix $\sqrt{\hat{T}\hat{T}^{\dagger}}=\hat{T}_{R1}^{\dagger}\diag{p_1, p_2}\hat{T}_{R1}$ and are given explicitly by the columns of $\hat{T}^{\dagger}$. We can therefore express the singular states as:
+It is important to distinguish between frame rotations and rotations of the actual element. In the first case we rotate the axes and the second case can be understood as a rotation of the vector. Therefore, in the case of a rotation of the element around the Z-axis the signs of the rotation matrices in equation \ref{eq:jones_matrix_transformation} are inverted. It is worth noting that we only have to consider rotations since they are the only geometrical transformations that actually preserve the physically invariant quantities \cite{GilPerez2017PolarizedApproach}. Another interesting concept are singular states of polarization. Specifically, the singular value decomposition readily shows that for any Jones matrix there exists two pairwise orthonormal states $\tilde{\bm{\eta}}_1$ and $\tilde{\bm{\eta}}_2$ for which the orthogonality is preserved, in other words their respective output states $\bm{\eta}_1'$ and $\bm{\eta}_2'$ are mutually orthogonal. Furthermore, from the definition of the singular values the states $\tilde{\bm{\eta}}_1$ and $\tilde{\bm{\eta}}_2$ are orthonormal eigenvectors of the matrix $\sqrt{\hat{T}\hat{T}^{\dagger}}=\hat{T}_{R1}^{\dagger}\diag{p_1, p_2}\hat{T}_{R1}$ and are given explicitly by the columns of $\hat{T}^{\dagger}$. We can therefore express the singular states as:
 \begin{equation}
     \bm{\eta}_1 = \hat{T}^{\dagger}_{R1}\begin{pmatrix} 1 \\ 0 \end{pmatrix}, \qquad
     \bm{\eta}_2 = \hat{T}^{\dagger}_{R1}\begin{pmatrix} 0 \\ 1 \end{pmatrix},
@@ -1158,13 +1159,12 @@ which is called usually called a quarter wave retarder. This expression shows th
     \hat{T}_{RL}(\psi, \Delta)=\hat{T}_{RC}(-2\psi)\hat{T}_{RL0}(\Delta)\hat{T}_{RC}(2\psi)=
     \hat{Q}(-\psi)\hat{T}_{RL0}(\Delta)\hat{Q}(\psi).
 \end{equation}
-In other words a linear retarder is equivalent to a horizontal linear retarder $\hat{T}_{RL0}(\Delta)$ placed between a left- and right-handed circular retarder $\hat{T}_{RC}(-2\psi)$ and $\hat{T}_{RC}(2\psi)$ respectively. In general an elliptic retarder $\hat{T}_R(\alpha, \delta, \Delta)$ can be realized by the following combination of elements:
+In other words a linear retarder is equivalent to a horizontal linear retarder $\hat{T}_{RL0}(\Delta)$ placed between a left- and right-handed circular retarder $\hat{T}_{RC}(-2\psi)$ and $\hat{T}_{RC}(2\psi)$ respectively. In general an elliptic retarder $\hat{T}_R(\alpha, \delta, \Delta)$ can be realized by the following combination of elements \cite{GilPerez2017PolarizedApproach}:
 \begin{equation}
     \hat{T}_R(\alpha, \delta, \Delta)=
     \hat{T}_{RL0}(-\delta)\hat{Q}(-\alpha)\hat{T}_{RL0}(\Delta)\hat{Q}(\alpha)\hat{T}_{RL0}(\delta).
 \end{equation}
-
-In the following we will introduce the diattenuator in a similar fashion as we did with the retarder. It is used to describe the polarization dependent transmittance of the waveplate. Any element for which the singular values $p_1$ and $p_2$ of its Jones matrix are mutually different can be considered to be a diattenuator. If we further consider homogeneous diattenuators then we can again use a singular value decomposition as in equation \ref{eq:jones_singular_value_decomposition} to factorize the diattenuator Jones matrix as follows:
+In the following we will introduce the diattenuator in a similar fashion as we did with the retarder. It is used to describe the polarization dependent transmittance of the waveplate. Any element for which the singular values $p_1$ and $p_2$ of its Jones matrix are mutually different can be considered a diattenuator \cite{Savenkov2005ConditionsBirefringent}. This means that the matrices $\hat{T}_r$ and $\hat{T}_t$ describing the transmission and reflection at an interface from section \ref{sec:interface_conditions} are examples of Jones matrices representing diattenuators. If we further consider homogeneous diattenuators then we can again use a singular value decomposition as in equation \ref{eq:jones_singular_value_decomposition} to factorize the diattenuator Jones matrix as follows:
 \begin{equation}
     \label{eq:diattenuator_singular_value_decomposition}
     \hat{T}_D = \hat{T}_D^{\dagger} = \hat{T}_R\hat{T}_{DL0}\hat{T}_R^{\dagger}, 
@@ -1227,7 +1227,7 @@ Oriented at \SI{0}{\degree} the horizontal diattenuator takes on the diagonal fo
     &= \hat{T}_{RL0}(-\delta)\hat{Q}(-\alpha)\hat{T}_{DL0}(p_1, p_2)\hat{Q}(\alpha)\hat{T}_{RL0}(\delta).
 \end{split}
 \end{align}
-This means that any diattenuator is equivalent to a linear diattenuator placed between two crossed linear retarders. With the introduction of the diattenuator we can finally describe real linear retarders or specifically waveplates for which we can include dichroic effects. For this purpose we can assume that the optic axes of the retarder and diattenuator coincide, this assumption can be shown to be equivalent to the normality condition \cite{Bass1995HandbookOptics}. Furthermore, we know from the previous section that states polarized along the fast or slow axis of the birefringent material of the waveplate will not undergo a polarization change as it passes through the waveplate. The eigenstates of a birefringent material are therefore linear and the planes of polarization coincide with the slow and fast axes of the material. Consequently, we can describe the waveplate using a linear retarder and diattenuator. A linear nonideal retarder or diattenuating retarder can be represented by the Jones matrix $\hat{T}_{RDL}$, which depends on three parameters; the orientation angle $\psi$ between the fast axis of the retarder $X_0$ and the axis $X$ of the reference frame, the principal intensities $p_1^2$ and $p_2^2$ and finally on the effective phase shift $\Delta$ between the eigenstates of $\hat{T}_{RDL}$. This means that $\hat{T}_{RDL}$ can be represented by the following product of matrices:
+This means that any diattenuator is equivalent to a linear diattenuator placed between two crossed linear retarders. With the introduction of the diattenuator we can finally describe real linear retarders or specifically waveplates which in general show some amount of diattenuating effects \cite{D.CLARKE1971PolarizedMeasurement}. For this purpose we can assume that the optic axes of the retarder and diattenuator coincide, this assumption can be shown to be equivalent to the normality condition \cite{Bass1995HandbookOptics}. Furthermore, we know from the previous section that states polarized along the fast or slow axis of the birefringent material of the waveplate will not undergo a polarization change as it passes through the waveplate. The eigenstates of a birefringent material are therefore linear and the planes of polarization coincide with the slow and fast axes of the material. Consequently, we can describe the waveplate using a linear retarder and diattenuator. A linear nonideal retarder or diattenuating retarder can be represented by the Jones matrix $\hat{T}_{RDL}$, which depends on three parameters; the orientation angle $\psi$ between the fast axis of the retarder $X_0$ and the axis $X$ of the reference frame, the principal intensities $p_1^2$ and $p_2^2$ and finally on the effective phase shift $\Delta$ between the eigenstates of $\hat{T}_{RDL}$. This means that $\hat{T}_{RDL}$ can be represented by the following product of matrices:
 \begin{equation}
     \hat{T}_{RDL}(\psi, \Delta, p_1, p_2) = \hat{Q}(-\psi)\hat{T}_{RL0}(\Delta)\hat{T}_{DL0}(p_1, p_2)\hat{Q}(\psi),
 \end{equation}
@@ -1240,13 +1240,13 @@ we can carry out the multiplication to obtain the following representation of $\
     p_1e^{i\Delta/2}s_{\psi}^2+p_2e^{-i\Delta/2}c_{\psi}^2
     \end{pmatrix}.
 \end{equation}
-With this we can describe a single waveplate. According to equation \ref{eq:jones_series_product} a train of waveplates is then simply the product of the individual $\hat{T}_{RDL}$ matrices. Obtaining the equivalent retardance or phase shift and diattenuation of the final product can be achieved with a so called polar decomposition, which states that for any complex 2x2 matrix $\hat{T}$ there exist positive-definite\footnote{A Hermitian matrix $\hat{H}$ is positive-definite if $\bm{\mathcal{E}}^{\dagger}\hat{H}\bm{\mathcal{E}}$ is positive for any $\bm{\mathcal{E}}$} Hermitian matrices $\hat{H}$ and $\hat{H}'$ and a unitary matrix $\hat{U}$ such that $\hat{T}=\hat{U}\hat{H}=\hat{H}'\hat{U}$. This means that we can write any Jones matrix as a product of a retarder and diattenuator as follows:
+With this we can describe a single waveplate. According to equation \ref{eq:jones_series_product} a train of waveplates is then simply the product of the individual $\hat{T}_{RDL}$ matrices. Obtaining the equivalent retardance or phase shift and diattenuation of the final product can be achieved with a so called polar decomposition, which states that for any complex 2x2 matrix $\hat{T}$ there exist positive-definite\footnote{A Hermitian matrix $\hat{H}$ is positive-definite if $\bm{\mathcal{E}}^{\dagger}\hat{H}\bm{\mathcal{E}}$ is positive for any $\bm{\mathcal{E}}$} Hermitian matrices $\hat{H}$ and $\hat{H}'$ and a unitary matrix $\hat{U}$ such that $\hat{T}=\hat{U}\hat{H}=\hat{H}'\hat{U}$. This means that we can write any Jones matrix as a product of a retarder and diattenuator as follows \cite{GilPerez2017PolarizedApproach}:
 \begin{equation}
     \hat{T} = \hat{T}_R\hat{T}_D = \hat{T}_D'\hat{T}_R.
 \end{equation}
 Furthermore, the equivalent retardance $\Delta$ of $\hat{T}_R$ can be calculated using the following expression:
 \begin{equation}
-    \Delta = 2 \cos^{-1} \frac{\left|\tr\hat{T}+\frac{\det \hat{T}}{\left|\det \hat{T}\right|} \right|\tr \hat{T}^{\dagger}}{2\sqrt{\tr \hat{T}\hat{T}^{\dagger}+2\left|\det \hat{T}\right|}},
+    \Delta = 2 \cos^{-1} \frac{\left|\tr\hat{T}+\frac{\det \hat{T}}{\left|\det \hat{T}\right|} \tr \hat{T}^{\dagger}\right|}{2\sqrt{\tr \hat{T}\hat{T}^{\dagger}+2\left|\det \hat{T}\right|}},
 \end{equation}
 where we assume that the transmittance $p_2$ is not zero since then $\hat{T}$ represents a polarizer for which the determinant of the corresponding Jones matrix is zero. Furthermore, this equation is only valid for homogeneous Jones matrices. In the inhomogeneous case the following expression has to be used instead:
 \begin{equation}
@@ -1265,13 +1265,25 @@ which has the advantage that it does not depend directly on $p_1$ and $p_2$. Aga
     D=\sqrt{1- \frac{4(1-\eta^2)^2|\lambda_q|^2|\lambda_r|^2}
     {\left(|\lambda_q|^2+|\lambda_r|^2-\eta^2(\lambda_q\lambda_r^*+\lambda_r\lambda_q^*)\right)^2}}.
 \end{equation}
-Expressions \ref{eq:retardation_inhomogeneous} and \ref{eq:diattenuation_inhomogeneous} are valid for $\eta \neq 0$ but evidently less efficient. 
-
-
-
-% TODO page 99 add remark of how reflections and transmittance can be classified as diattenuator in jones calc.
-% TODO Note: Rotations are in fact also physically realizable Jones matrices (circular retarders)
-% TODO add where its from: works of Gil and Ossikovski collected in book \cite{Lu1994HomogeneousMatrices}
+Expressions \ref{eq:retardation_inhomogeneous} and \ref{eq:diattenuation_inhomogeneous} are valid for $\eta \neq 0$ but evidently less efficient \cite{Lu1994HomogeneousMatrices}. With this we can 
+Need transition. Check again if something is missing.?
 
 \section{Achromatic waveplates}
-\label{sec:design}
+\label{sec:achromatic_waveplates}
+masson intro..
+\begin{itemize}
+    \item problem, why we need awp (masson). wl dependency retarders highly wavelength sensitive due to
+        \begin{itemize}
+            \item -wavelength itself (1/lambda)
+            \item -wavelength dependence of the birefringence
+        \end{itemize}
+    \item diff other types. Masson
+    \item type we pick here and why? Seems to work in masson/wu2020
+    \item describe full stack, jones matrices
+    \item goal -> optimization problem. Cant simply optimize $\Delta$
+    \item solve numerically with algorithm, non convex... hard  -> results
+\end{itemize}
+
+what's next??
+
+
