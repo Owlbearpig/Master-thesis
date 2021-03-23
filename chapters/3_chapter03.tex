@@ -1004,7 +1004,7 @@ So far in this section we have described two mutually complementary representati
 % TODO1 add remark that we first consider some general useful properties or features of jones matrices and then look at the individual implementations representing different optical elements
 
 % TODO2 section title :) (or Mathematical description of nondepolarizing media or mathematical calculus or something)
-\subsection{Jones calculus}
+\section{Jones calculus}
 \label{sec:jonescalc}
 The Jones calculus or specifically the Jones matrices can be used to describe the non-depolarizing polarimetric interaction of fully polarized light with matter. For that we first introduce a few general properties of the Jones matrices. In the following section we will then apply these properties to describe and categorize the different types of waveplates. Evidently, the following description of optical elements is only valid for changes with a linear relationship between the input and output amplitudes since it is based on a system of linear equations. Under these assumptions we can then express any transformation of an initial or input polarization state $\bm{\mathcal{E}}$ into another output state $\bm{\mathcal{E}}'$ as:
 \begin{equation}
@@ -1219,7 +1219,13 @@ which for $p_2=0$ represents the well known linear polarizer realized by for exa
     c_{\psi}s_{\psi} & s_{\psi}^2
     \end{pmatrix}.
 \end{equation}
-Oriented at \SI{0}{\degree} the horizontal diattenuator takes on the diagonal form $\hat{T}_{DL0}(p_1, p_2) = \hat{T}_{DL}(0, p_1, p_2)=\hat{T}_{D}(0,0,p_1,p_2)=\diag{p_1, p_2}$ and $\diag{p_1, 0}$ for a linear polarizer at $\psi = \SI{0}{\degree}$. Similar to the general form of the retarder, the elliptic diattenuator can also be written as a product of rotation matrices, horizontal retarders and diattenuators as follows:
+It is worth noting that Malus' law can easily be derived with this, if we consider horizontally polarized light with an initial intensity $I_0=E_x^2$ as follows:
+\begin{equation}
+    \bm{\mathcal{E}}_{\SI{0}{\degree}}^{\dagger}
+    \hat{T}_{DL}(\psi, p_1=1, 0)\bm{\mathcal{E}}_{\SI{0}{\degree}} = E_x^2p_1^2c_{\psi}^2 = I_0 c_{\psi}^2.
+\end{equation}
+
+Furthermore, oriented at \SI{0}{\degree} the horizontal diattenuator takes on the diagonal form $\hat{T}_{DL0}(p_1, p_2) = \hat{T}_{DL}(0, p_1, p_2)=\hat{T}_{D}(0,0,p_1,p_2)=\diag{p_1, p_2}$ and $\diag{p_1, 0}$ for a linear polarizer at $\psi = \SI{0}{\degree}$. Similar to the general form of the retarder, the elliptic diattenuator can also be written as a product of rotation matrices, horizontal retarders and diattenuators as follows:
 \begin{align}
 \begin{split}
     \hat{T}_{D}(\alpha, \delta, p_1, p_2) 
@@ -1265,14 +1271,16 @@ which has the advantage that it does not depend directly on $p_1$ and $p_2$. Aga
     D=\sqrt{1- \frac{4(1-\eta^2)^2|\lambda_q|^2|\lambda_r|^2}
     {\left(|\lambda_q|^2+|\lambda_r|^2-\eta^2(\lambda_q\lambda_r^*+\lambda_r\lambda_q^*)\right)^2}}.
 \end{equation}
-Expressions \ref{eq:retardation_inhomogeneous} and \ref{eq:diattenuation_inhomogeneous} are valid for $\eta \neq 0$ but evidently less efficient \cite{Lu1994HomogeneousMatrices}. With this we can 
-Need transition. Check again if something is missing.?
+Expressions \ref{eq:retardation_inhomogeneous} and \ref{eq:diattenuation_inhomogeneous} are valid for $\eta \neq 0$ but evidently less efficient \cite{Lu1994HomogeneousMatrices}. With this we can describe a train of waveplates and subsequently characterize the final Jones matrix through the equivalent retardance and diattenuation. In the following section we will consider the wavelength dependency of waveplates and introduce the achromatic waveplate, which ideally has the special property of being wavelength independent. 
 
-\section{Achromatic waveplates}
+\subsection{Achromatic waveplates}
 \label{sec:achromatic_waveplates}
-masson intro..
+
+
+As we have seen already waveplates are highly wavelength sensitive due to the inverse wavelength dependency of the phase shift but also due to dispersion of the refractive index and consequently dispersion of the birefringence. In other words the three parameters $\Delta$, $p_1$ and $p_2$ of the four parameters which characterize a waveplate are wavelength dependent. There are several types of achromatic waveplates based on different techniques which can in theory compensate for this wavelength dependency. One possibility is to use the phase shift induced by total internal reflection which can be realized through a Fresnel Rhomb. Using this method it is possible to create an almost perfect achromatic retarder. The Fresnel Rhomb works over a large frequency range since the variation of retardance is purely due to variation of the refractive index with wavelength \cite{HechtOpticsEdition}. They often cause strong spatial shifts of the light, take up a lot of space and are hard to align since the retardation strongly depends on the angle \cite{Masson2006TerahertzJean-Baptiste}. Another method is to combine waveplates of different materials 
+
 \begin{itemize}
-    \item problem, why we need awp (masson). wl dependency retarders highly wavelength sensitive due to
+    \item problem, why we need awp (masson) (should be in the intro chapter though). wl dependency retarders highly wavelength sensitive due to
         \begin{itemize}
             \item -wavelength itself (1/lambda)
             \item -wavelength dependence of the birefringence
@@ -1281,9 +1289,9 @@ masson intro..
     \item type we pick here and why? Seems to work in masson/wu2020
     \item describe full stack, jones matrices
     \item goal -> optimization problem. Cant simply optimize $\Delta$
-    \item solve numerically with algorithm, non convex... hard  -> results
+    \item solve numerically with algorithm, non convex... hard :( -> results
 \end{itemize}
 
-what's next??
+what's next, more???
 
 
