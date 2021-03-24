@@ -1271,13 +1271,43 @@ which has the advantage that it does not depend directly on $p_1$ and $p_2$. Aga
     D=\sqrt{1- \frac{4(1-\eta^2)^2|\lambda_q|^2|\lambda_r|^2}
     {\left(|\lambda_q|^2+|\lambda_r|^2-\eta^2(\lambda_q\lambda_r^*+\lambda_r\lambda_q^*)\right)^2}}.
 \end{equation}
-Expressions \ref{eq:retardation_inhomogeneous} and \ref{eq:diattenuation_inhomogeneous} are valid for $\eta \neq 0$ but evidently less efficient \cite{Lu1994HomogeneousMatrices}. With this we can describe a train of waveplates and subsequently characterize the final Jones matrix through the equivalent retardance and diattenuation. In the following section we will consider the wavelength dependency of waveplates and introduce the achromatic waveplate, which ideally has the special property of being wavelength independent. 
+Expressions \ref{eq:retardation_inhomogeneous} and \ref{eq:diattenuation_inhomogeneous} are valid for $\eta \neq 0$ but evidently less efficient \cite{Lu1994HomogeneousMatrices}. With this we can describe a train of waveplates and subsequently characterize the final Jones matrix through the equivalent retardance and diattenuation. In the following section we will consider the wavelength dependency of waveplates and introduce the achromatic waveplate (AWP), which ideally has the special property of being wavelength independent. 
 
 \subsection{Achromatic waveplates}
 \label{sec:achromatic_waveplates}
 
 
-As we have seen already waveplates are highly wavelength sensitive due to the inverse wavelength dependency of the phase shift but also due to dispersion of the refractive index and consequently dispersion of the birefringence. In other words the three parameters $\Delta$, $p_1$ and $p_2$ of the four parameters which characterize a waveplate are wavelength dependent. There are several types of achromatic waveplates based on different techniques which can in theory compensate for this wavelength dependency. One possibility is to use the phase shift induced by total internal reflection which can be realized through a Fresnel Rhomb. Using this method it is possible to create an almost perfect achromatic retarder. The Fresnel Rhomb works over a large frequency range since the variation of retardance is purely due to variation of the refractive index with wavelength \cite{HechtOpticsEdition}. They often cause strong spatial shifts of the light, take up a lot of space and are hard to align since the retardation strongly depends on the angle \cite{Masson2006TerahertzJean-Baptiste}. Another method is to combine waveplates of different materials 
+As we have seen already waveplates are highly wavelength sensitive due to the inverse wavelength dependency of the phase shift but also due to dispersion of the refractive index and consequently dispersion of the birefringence. In other words the three parameters $\Delta$, $p_1$ and $p_2$ of the four parameters which characterize a waveplate are wavelength dependent. There are several types of AWPs based on different techniques which can in theory compensate for this wavelength dependency. One possibility is to use the phase shift induced by total internal reflection which can be realized through a Fresnel Rhomb. Using this method it is possible to create an almost perfect AWP. The Fresnel Rhomb works over a large frequency range since the variation of retardance is purely due to variation of the refractive index with wavelength \cite{HechtOpticsEdition}. They often cause strong spatial shifts of the light, take up more space and are hard to align since the retardation strongly depends on the angle. Another method is to combine waveplates of different materials. The problem with this method is that only the dispersion of the materials is compensated for and so the resulting range is relatively low \cite{Masson2006TerahertzJean-Baptiste}. The AWPs presented in this work are based on the THz achromatic quartz (TAQ) quarter waveplates developed by Masson and Gallot in \cite{Masson2006TerahertzJean-Baptiste}. The TAQ is ultimately based on the work by Destriau and Prouteau in 1949 \cite{Destriau1949RealisationNature} where they showed that the serial combination of a half waveplate and a quarter waveplate for which $\psi=\SI{60}{\degree}$ results in a new achromatic quarter waveplate. This new AWP showed a $\frac{\pi}{2}$ phase shift over the whole visible range. Masson and Gallot extended this idea to the THz range by combining six quartz plates with variable thicknesses. This higher number of plates was necessary due to the increased bandwidth of short THz pulses. The operational principle of this type of AWP is based on the partial cancellation each plate is causing with respect to the frequency. Each quartz waveplate was assumed to have a negligible dichroism. This type of AWP can therefore be described by the following product:
+\begin{equation}
+    \hat{T}_{M} = \prod_{i=1}^{n=6} \hat{T}_{RL}(\psi_i, \Delta_i) = 
+    \begin{pmatrix} 
+    A & B \\
+    -B^* & A^*
+    \end{pmatrix},
+\end{equation}
+where according to equation \ref{eq:wp_eq} the $\Delta_i$ are proportional to the frequency and the thickness $d_i$ of the i-th waveplate. From the previous section we know that $\hat{T}_M$ can written as the product of a diattenuator and a retarder. Comparing $\hat{T}_{M}$ to $\hat{T}_{RL}(\psi, \Delta)$ we therefore get the following expression for $\Delta$:
+\begin{equation}
+    \tan^2 \frac{\Delta}{2} = \frac{\operatorname{Im}A^2+\operatorname{Im}B^2}
+    {\operatorname{Re}A^2+\operatorname{Re}B^2}.
+\end{equation}
+The problem of determining the parameters $\psi_i$ and $d_i$ of the waveplates can be formulated as minimizing the following error function:
+\begin{equation}
+    L(\psi_i, d_i)=\sum_{\nu}\left(\Delta(\nu)-\frac{\pi}{2}\right)^2.
+\end{equation}
+The result of the optimization is shown in table 
+
+\begin{table}[h]
+    \centering
+    \includestandalone{3_chapter03/masson_result_table}
+    \caption{}
+    \label{tab:masson_result}
+\end{table}
+
+
+- Are Pancharatnam plates the predecessor to these?
+- Design here based on masson which is based on the design of the TAQ wave plate is based on the idea from Destriau and Prouteau.
+- These older types are for visible range
+- The key feature
 
 \begin{itemize}
     \item problem, why we need awp (masson) (should be in the intro chapter though). wl dependency retarders highly wavelength sensitive due to
