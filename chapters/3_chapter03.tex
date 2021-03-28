@@ -717,20 +717,20 @@ To explain how a waveplate works we assume that the materials are non-absorbing 
 \begin{figure}[h]
     \centering
     \includestandalone[scale=1.3]{3_chapter03/tikz_waveplate_conversions}
-    \caption{The different polarization states when the y-component leads or lags behind the z-component by the indicated phase shifts $\pm \Delta \delta$. Each step in the counterclockwise or clockwise direction subtracts or adds a phase shift of $\frac{\pi}{4}$ respectively.}
+    \caption{The different polarization states when the y-component leads or lags behind the z-component by the indicated phase shifts $\pm \Delta$. Each step in the counterclockwise or clockwise direction subtracts or adds a phase shift of $\frac{\pi}{4}$ respectively.}
     \label{fig:waveplate_conversions}
 \end{figure}
 
-If we assume that the incident wave has components parallel and perpendicular to the optic axis of the waveplate, then two separate waves will emerge as we have seen in section \ref{sec:birefringence}, that is the e- and o-wave. The phase speed of the e-wave is higher than that of the o-wave. Furthermore, since we in this case have no double refraction the resulting wave will be a superposition of the e- and o-wave, which after passing through the waveplate will have a phase difference of $\Delta \delta$. For a waveplate of thickness $d$ the optical path difference is then given by:
+If we assume that the incident wave has components parallel and perpendicular to the optic axis of the waveplate, then two separate waves will emerge as we have seen in section \ref{sec:birefringence}, that is the e- and o-wave. The phase speed of the e-wave is higher than that of the o-wave. Furthermore, since we in this case have no double refraction the resulting wave will be a superposition of the e- and o-wave, which after passing through the waveplate will have a phase difference of $\Delta$ known as the retardance of the waveplate. For a waveplate of thickness $d$ the optical path difference is then given by:
 \begin{equation}
     \Lambda = d|n_o - n_e|
 \end{equation}
-with $\Delta \delta = k_0 \Lambda$ we therefore get for the phase difference:
+with $\Delta = k_0 \Lambda$ we therefore get for the phase difference:
 \begin{equation}
     \label{eq:wp_eq}
-    \Delta \delta = \frac{2\pi}{\lambda_0}d|n_o - n_e|,
+    \Delta = \frac{2\pi}{\lambda_0}d|n_o - n_e|,
 \end{equation}
-where $\lambda_0$ is the wavelength of the wave in free space. There are three special types of waveplates: full, half and quarter waveplates. The full-wave plate causes a phase shift of $2\pi$. That means the retardation is one wavelength or a full cycle in figure \ref{fig:waveplate_conversions}. The initial polarization state is therefore not altered. It is important to note that this is only the case for monochromatic light. Since the materials in general are dispersive and because $\Delta \delta$ directly varies as $\nicefrac{1}{\lambda_0}$. The condition that $\Delta \delta = 2\pi$ or any other value can therefore only be fulfilled for monochromatic waves. This means in general that waveplates are chromatic. Full waveplates can therefore be used as narrow-wavelength filters if they are placed in between two crossed polarizers. Only the frequency component for which $\Delta \delta$ is $2\pi$ will not have a component parallel to the final polarizer. A half waveplate causes a phase shift of $\pi$ between the e- and o-wave. Furthermore, we assume in the following that the initial polarization is linear and the plane of polarization is at some angle $\theta$ relative to the fast axis of the waveplate. As the name suggests, this phase shift causes one component to be delayed by half a wavelength relative to the other component. In the case of a positive material this means that the e-wave is delayed by half a wave and the plane of polarization will be rotated by $2\theta$. An example of a half waveplate is shown in figure \ref{fig:half_waveplate}. In this example the material of the waveplate is positive. Since then $n_o<n_e$ so that the e-wave has a shorter wavelength and is delayed relative to the o-wave. For a given wavelength and material it follows from equation \ref{eq:wp_eq} that $d$ must be equal to $\frac{1}{2}\frac{\lambda_0}{|n_o - n_e|}$. As we saw earlier, a phase shift of $2\pi$ leaves the polarization state of the light unaffected. 
+where $\lambda_0$ is the wavelength of the wave in free space. There are three special types of waveplates: full, half and quarter waveplates. The full-wave plate causes a phase shift of $2\pi$. That means the retardation is one wavelength or a full cycle in figure \ref{fig:waveplate_conversions}. The initial polarization state is therefore not altered. It is important to note that this is only the case for monochromatic light. Since the materials in general are dispersive and because $\Delta$ directly varies as $\nicefrac{1}{\lambda_0}$. The condition that $\Delta = 2\pi$ or any other value can therefore only be fulfilled for monochromatic waves. This means in general that waveplates are chromatic. Full waveplates can therefore be used as narrow-wavelength filters if they are placed in between two crossed polarizers. Only the frequency component for which $\Delta$ is $2\pi$ will not have a component parallel to the final polarizer. A half waveplate causes a phase shift of $\pi$ between the e- and o-wave. Furthermore, we assume in the following that the initial polarization is linear and the plane of polarization is at some angle $\theta$ relative to the fast axis of the waveplate. As the name suggests, this phase shift causes one component to be delayed by half a wavelength relative to the other component. In the case of a positive material this means that the e-wave is delayed by half a wave and the plane of polarization will be rotated by $2\theta$. An example of a half waveplate is shown in figure \ref{fig:half_waveplate}. In this example the material of the waveplate is positive. Since then $n_o<n_e$ so that the e-wave has a shorter wavelength and is delayed relative to the o-wave. For a given wavelength and material it follows from equation \ref{eq:wp_eq} that $d$ must be equal to $\frac{1}{2}\frac{\lambda_0}{|n_o - n_e|}$. As we saw earlier, a phase shift of $2\pi$ leaves the polarization state of the light unaffected. 
 
 \begin{figure}[h]
     \centering
@@ -1090,7 +1090,7 @@ In section \ref{sec:waveplates} we presented a phenomenological description of w
     c_{\chi} c_{\psi} + i s_{\chi} s_{\psi} \end{pmatrix},
 \end{split}
 \end{align}
-where we have set $\sin(x) = s_x$ and $\cos(x) = c_x$. We see that $\bm{\mathcal{E}}_1$ and $\bm{\mathcal{E}}_2$ are both general elliptical polarization states, where the specific shape is determined by the parameters $\alpha$ and $\delta$. The corresponding Jones matrix $T_R(\alpha, \delta, \Delta)$ representing the elliptical retarder is given by:
+where we have set $\sin(x) = s_x$ and $\cos(x) = c_x$. We see that $\bm{\mathcal{E}}_1$ and $\bm{\mathcal{E}}_2$ are both general elliptical polarization states, where the specific shape of their respective polarization ellipses is determined by the parameters $\alpha$ and $\delta$. It is worth emphasizing that $\delta$ is not the phase difference of the input state but a characterizing parameter of the retarder also known as the circularity. The corresponding Jones matrix $T_R(\alpha, \delta, \Delta)$ representing the elliptical retarder is given by:
 \begin{equation}
     \hat{T}_R(\alpha, \delta, \Delta) = 
     \begin{pmatrix} 
@@ -1098,7 +1098,12 @@ where we have set $\sin(x) = s_x$ and $\cos(x) = c_x$. We see that $\bm{\mathcal
     i s_{2\alpha} s_{\Delta/2} e^{-\delta} & s^2_{\alpha} e^{i\Delta/2} + c^2_{\alpha} e^{-i\Delta /2}
     \end{pmatrix}, 
 \end{equation}
-which introduces the phase shift $\Delta$ between its eigenstates $\bm{\mathcal{E}}_1$ and $\bm{\mathcal{E}}_2$. It is worth emphasizing that this phase shift is in general different from the phase shift $\delta$ between the field components. Furthermore, we see that this is in fact the most general representation of a retarder, since the coefficients of any 2x2 unitary matrix can be factorized in this manner. If we change the frame in which we represent $\hat{T}_R(\alpha, \delta, \Delta)$ so that it aligns with the mayor and minor axes of the polarization ellipse of $\bm{\mathcal{E}}_1$, then $\psi=0$ for an orientation of \SI{0}{\degree} and therefore $\delta=\frac{\pi}{2}$, $\alpha=\chi$. With this the Jones matrix reduces to the following:
+which introduces a phase difference of $\Delta$ between its eigenstates $\bm{\mathcal{E}}_1$ and $\bm{\mathcal{E}}_2$. In other words we can define the retardance $\Delta$ in terms of the arguments or phases of the eigenvalues as follows:
+\begin{equation}
+    \label{eq:jones_ret_def}
+    \Delta = |\delta_r-\delta_q|.
+\end{equation}
+This is a reasonable definition if we consider the definition of the eigenstates and the polar form of the eigenvalues. That is the global phase change, which is also the only change, of each eigenstate is the phase of the eigenvalue. Especially, in the case of birefringent waveplates for which the linear eigenstates align with the fast and slow axis of the birefringent material we get exactly an additional phase shift of $\Delta$ between field components along said axes. Furthermore, we see that this is in fact the most general representation of a retarder, since the coefficients of any 2x2 unitary matrix can be factorized in this manner. If we change the frame in which we represent $\hat{T}_R(\alpha, \delta, \Delta)$ so that it aligns with the mayor and minor axes of the polarization ellipse of $\bm{\mathcal{E}}_1$, then $\psi=0$ for an orientation of \SI{0}{\degree} and therefore $\delta=\frac{\pi}{2}$, $\alpha=\chi$. With this the Jones matrix reduces to the following:
 \begin{equation}
     \hat{T}_R\left(\chi, \frac{\pi}{2}, \Delta\right) = 
     \begin{pmatrix} 
@@ -1125,7 +1130,7 @@ which is also the representation of a rotation matrix $\hat{Q}(\theta)$ with $\t
 \end{equation}
 and if we again align the coordinate frame with the mayor and minor axes of its eigenstates then $\psi=0$ and $\hat{T}_{RL}$ adopts the particularly simple form:
 \begin{equation}
-    \hat{T}_{RL}\left(\Delta\right) = \hat{T}_{RL0}\left(\Delta\right) = 
+    \hat{T}_{RL}\left(\psi=0, \Delta\right) = \hat{T}_{RL0}\left(\Delta\right) = 
     \begin{pmatrix} 
     e^{i\Delta /2} & 0 \\
     0 & e^{-i\Delta /2}
@@ -1233,7 +1238,7 @@ Furthermore, oriented at \SI{0}{\degree} the horizontal diattenuator takes on th
     &= \hat{T}_{RL0}(-\delta)\hat{Q}(-\alpha)\hat{T}_{DL0}(p_1, p_2)\hat{Q}(\alpha)\hat{T}_{RL0}(\delta).
 \end{split}
 \end{align}
-This means that any diattenuator is equivalent to a linear diattenuator placed between two crossed linear retarders. With the introduction of the diattenuator we can finally describe real linear retarders or specifically waveplates which in general show some amount of diattenuating effects \cite{D.CLARKE1971PolarizedMeasurement}. For this purpose we can assume that the optic axes of the retarder and diattenuator coincide, this assumption can be shown to be equivalent to the normality condition \cite{Bass1995HandbookOptics}. Furthermore, we know from the previous section that states polarized along the fast or slow axis of the birefringent material of the waveplate will not undergo a polarization change as it passes through the waveplate. The eigenstates of a birefringent material are therefore linear and the planes of polarization coincide with the slow and fast axes of the material. Consequently, we can describe the waveplate using a linear retarder and diattenuator. A linear nonideal retarder or diattenuating retarder can be represented by the Jones matrix $\hat{T}_{RDL}$, which depends on three parameters; the orientation angle $\psi$ between the fast axis of the retarder $X_0$ and the axis $X$ of the reference frame, the principal intensities $p_1^2$ and $p_2^2$ and finally on the effective phase shift $\Delta$ between the eigenstates of $\hat{T}_{RDL}$. This means that $\hat{T}_{RDL}$ can be represented by the following product of matrices:
+This means that any diattenuator is equivalent to a linear diattenuator placed between two crossed linear retarders. With the introduction of the diattenuator we can finally describe real linear retarders or specifically waveplates which in general show some amount of diattenuating effects \cite{D.CLARKE1971PolarizedMeasurement}. For this purpose we can assume that the optic axes of the retarder and diattenuator coincide, this assumption can be shown to be equivalent to the normality condition \cite{Bass1995HandbookOptics}. Furthermore, we know from the previous section that states polarized along the fast or slow axis of the birefringent material of the waveplate will not undergo a polarization change as it passes through the waveplate. The eigenstates of a birefringent material are therefore linear and the planes of polarization coincide with the slow and fast axes of the material. Consequently, we can describe the waveplate using a linear retarder and diattenuator. A linear nonideal retarder or diattenuating retarder can be represented by the Jones matrix $\hat{T}_{RDL}$, which depends on three parameters; the orientation angle $\psi$ between the fast axis of the retarder $X_0$ and the axis $X$ of the reference frame, the principal intensities $p_1^2$ and $p_2^2$ and finally on the retardance $\Delta$. This means that $\hat{T}_{RDL}$ can be represented by the following product of matrices:
 \begin{equation}
     \hat{T}_{RDL}(\psi, \Delta, p_1, p_2) = \hat{Q}(-\psi)\hat{T}_{RL0}(\Delta)\hat{T}_{DL0}(p_1, p_2)\hat{Q}(\psi),
 \end{equation}
@@ -1246,21 +1251,22 @@ we can carry out the multiplication to obtain the following representation of $\
     p_1e^{i\Delta/2}s_{\psi}^2+p_2e^{-i\Delta/2}c_{\psi}^2
     \end{pmatrix}.
 \end{equation}
-With this we can describe a single waveplate. According to equation \ref{eq:jones_series_product} a train of waveplates is then simply the product of the individual $\hat{T}_{RDL}$ matrices. Obtaining the equivalent retardance or phase shift and diattenuation of the final product can be achieved with a so called polar decomposition, which states that for any complex 2x2 matrix $\hat{T}$ there exist positive-definite\footnote{A Hermitian matrix $\hat{H}$ is positive-definite if $\bm{\mathcal{E}}^{\dagger}\hat{H}\bm{\mathcal{E}}$ is positive for any $\bm{\mathcal{E}}$} Hermitian matrices $\hat{H}$ and $\hat{H}'$ and a unitary matrix $\hat{U}$ such that $\hat{T}=\hat{U}\hat{H}=\hat{H}'\hat{U}$. This means that we can write any Jones matrix as a product of a retarder and diattenuator as follows \cite{GilPerez2017PolarizedApproach}:
+With this we can describe a single waveplate. According to equation \ref{eq:jones_series_product} a train of waveplates is then simply the product of the individual $\hat{T}_{RDL}$ matrices. Obtaining the retardance and diattenuation of the final product can be achieved with a polar decomposition, which states that for any complex 2x2 matrix $\hat{T}$ there exist positive-definite\footnote{A Hermitian matrix $\hat{H}$ is positive-definite if $\bm{\mathcal{E}}^{\dagger}\hat{H}\bm{\mathcal{E}}$ is positive for any $\bm{\mathcal{E}}$} Hermitian matrices $\hat{H}$ and $\hat{H}'$ and a unitary matrix $\hat{U}$ such that $\hat{T}=\hat{U}\hat{H}=\hat{H}'\hat{U}$. This means that we can write any Jones matrix as a product of a retarder and diattenuator as follows \cite{GilPerez2017PolarizedApproach}:
 \begin{equation}
     \hat{T} = \hat{T}_R\hat{T}_D = \hat{T}_D'\hat{T}_R.
 \end{equation}
-Furthermore, the equivalent retardance $\Delta$ of $\hat{T}_R$ can be calculated using the following expression:
+Furthermore, the retardance $\Delta$ defined through the eigenvalues of $\hat{T}_R$ can be calculated using the following expression:
 \begin{equation}
     \Delta = 2 \cos^{-1} \frac{\left|\tr\hat{T}+\frac{\det \hat{T}}{\left|\det \hat{T}\right|} \tr \hat{T}^{\dagger}\right|}{2\sqrt{\tr \hat{T}\hat{T}^{\dagger}+2\left|\det \hat{T}\right|}},
 \end{equation}
-where we assume that the transmittance $p_2$ is not zero since then $\hat{T}$ represents a polarizer for which the determinant of the corresponding Jones matrix is zero. Furthermore, this equation is only valid for homogeneous Jones matrices. In the inhomogeneous case the following expression has to be used instead:
+which follows from the definition of the eigenvalue. We assume that the transmittance $p_2$ is not zero since then $\hat{T}$ represents a polarizer for which the determinant of the corresponding Jones matrix is zero. Additionally, this equation is only valid for homogeneous Jones matrices. In the inhomogeneous case the following expression has to be used instead:
 \begin{equation}
     \label{eq:retardation_inhomogeneous}
     \Delta = 2\cos^{-1}\left\{\left[\frac{(1-\eta^2)(|\lambda_q|+|\lambda_r|)^2}
-    {(|\lambda_q|+|\lambda_r|)^2-\eta^2(2|\lambda_q||\lambda_r|+\lambda_q^*\lambda_r+\lambda_q\lambda_r^*)}\right]^{1/2}\left|\cos \frac{\delta_q-\delta_r}{2}\right|\right\}.
+    {(|\lambda_q|+|\lambda_r|)^2-\eta^2(2|\lambda_q||\lambda_r|+\lambda_q^*\lambda_r+\lambda_q\lambda_r^*)}\right]^{1/2}\left|\cos \frac{\delta_q-\delta_r}{2}\right|\right\},
 \end{equation}
-Similarly, the equivalent diattenuation $D$ can be calculated from the Jones matrix as follows:
+where t$\lambda_{r,q}=|\lambda_{q,r}|e^{i\delta_{q,r}}$ are the eigenvalues of $\hat{T}$.
+Similarly, the diattenuation $D$ can be calculated from the Jones matrix as follows:
 \begin{equation}
     \label{eq:diattenuation_2}
     D=\sqrt{1-\frac{4|\det \hat{T}|^2}{(\tr \hat{T}\hat{T}^{\dagger})^2}},
@@ -1277,7 +1283,7 @@ Expressions \ref{eq:retardation_inhomogeneous} and \ref{eq:diattenuation_inhomog
 \label{sec:achromatic_waveplates}
 
 
-As we have seen already waveplates are highly wavelength sensitive due to the inverse wavelength dependency of the phase shift but also due to dispersion of the refractive index and consequently dispersion of the birefringence. In other words the three parameters $\Delta$, $p_1$ and $p_2$ of the four parameters which characterize a waveplate are wavelength dependent. There are several types of AWPs based on different techniques which can in theory compensate for this wavelength dependency. One possibility is to use the phase shift induced by total internal reflection which can be realized through a Fresnel Rhomb. Using this method it is possible to create an almost perfect AWP. The Fresnel Rhomb works over a large frequency range since the variation of retardance is purely due to variation of the refractive index with wavelength \cite{HechtOpticsEdition}. They often cause strong spatial shifts of the light, take up more space and are hard to align since the retardation strongly depends on the angle. Another method is to combine waveplates of different materials. The problem with this method is that only the dispersion of the materials is compensated for and so the resulting range is relatively low \cite{Masson2006TerahertzJean-Baptiste}. The AWPs presented in this work are based on the THz achromatic quartz (TAQ) quarter waveplates developed by Masson and Gallot in \cite{Masson2006TerahertzJean-Baptiste}. The TAQ is ultimately based on the work by Destriau and Prouteau in 1949 \cite{Destriau1949RealisationNature} where they showed that the serial combination of a half waveplate and a quarter waveplate for which $\psi=\SI{60}{\degree}$ results in a new achromatic quarter waveplate. This new AWP showed a $\frac{\pi}{2}$ phase shift over the whole visible range. Masson and Gallot extended this idea to the THz range by combining six quartz plates with variable thicknesses. This higher number of plates was necessary due to the increased bandwidth of short THz pulses. The operational principle of this type of AWP is based on the partial cancellation each plate is causing with respect to the frequency. Each quartz waveplate was assumed to have a negligible dichroism. This type of AWP can therefore be described by the following product:
+As we have seen already waveplates are highly wavelength sensitive due to the inverse wavelength dependency of the phase shift but also due to dispersion of the refractive index and consequently dispersion of the birefringence. In other words the three parameters $\Delta$, $p_1$ and $p_2$ of the four parameters which characterize a linear diattenuating retarder or waveplate are wavelength dependent. There are several types of AWPs based on different techniques which can in theory compensate for this wavelength dependency. One possibility is to use the phase shift induced by total internal reflection which can be realized through a Fresnel Rhomb. Using this method it is possible to create an almost perfect AWP. The Fresnel Rhomb works over a large frequency range since the variation of retardance is purely due to variation of the refractive index with wavelength \cite{HechtOpticsEdition}. They often cause strong spatial shifts of the light, take up more space and are hard to align since the retardation strongly depends on the angle. Another method is to combine waveplates of different materials. The problem with this method is that only the dispersion of the materials is compensated for and so the resulting range is relatively low \cite{Masson2006TerahertzJean-Baptiste}. The AWPs presented in this work are based on a similar design principle as the THz achromatic quartz (TAQ) quarter waveplates developed by Masson and Gallot in \cite{Masson2006TerahertzJean-Baptiste}. The TAQ is ultimately based on the work by Destriau and Prouteau in 1949 \cite{Destriau1949RealisationNature} where they showed that the serial combination of a half waveplate and a quarter waveplate for which $\psi=\SI{60}{\degree}$ results in a new achromatic quarter waveplate. This new AWP showed a $\frac{\pi}{2}$ phase shift over the whole visible range. Masson and Gallot extended this idea to the THz range by combining six quartz plates with variable thicknesses. This higher number of plates was necessary due to the increased bandwidth of short THz pulses. The operational principle of this type of AWP is based on the partial cancellation each plate is causing with respect to the frequency. Each quartz waveplate was assumed to have a negligible dichroism. This type of AWP can therefore be described by the following product:
 \begin{equation}
     \hat{T}_{M} = \prod_{i=1}^{n=6} \hat{T}_{RL}(\psi_i, \Delta_i) = 
     \begin{pmatrix} 
@@ -1285,29 +1291,29 @@ As we have seen already waveplates are highly wavelength sensitive due to the in
     -B^* & A^*
     \end{pmatrix},
 \end{equation}
-where according to equation \ref{eq:wp_eq} the $\Delta_i$ are proportional to the frequency and the thickness $d_i$ of the i-th waveplate. From the previous section we know that $\hat{T}_M$ can written as the product of a diattenuator and a retarder. Comparing $\hat{T}_{M}$ to $\hat{T}_{RL}(\psi, \Delta)$ we therefore get the following expression for $\Delta$:
+where according to equation \ref{eq:wp_eq} the $\Delta_i$ are proportional to the frequency and the thickness $d_i$ of the i-th waveplate. From the previous section we know that $\hat{T}_M$ can be written as the product of a diattenuator and a retarder. Therefore, setting $p_1=p_2=1$ and comparing the coefficients of $\hat{T}_{M}$ to a retarder represented by $\hat{T}_{RL}(\psi, \Delta_M)$ they get an expression for the so called resulting retardation dephasing $\Delta_M$:
 \begin{equation}
-    \tan^2 \frac{\Delta}{2} = \frac{\operatorname{Im}A^2+\operatorname{Im}B^2}
+    \tan^2 \frac{\Delta_M}{2} = \frac{\operatorname{Im}A^2+\operatorname{Im}B^2}
     {\operatorname{Re}A^2+\operatorname{Re}B^2}.
 \end{equation}
-The problem of determining the parameters $\psi_i$ and $d_i$ of the waveplates can be formulated as minimizing the following error function:
+It is worth noting that the value $\Delta_M$ is not the same as the retardance defined in equation $\ref{eq:jones_ret_def}$. Nevertheless, it can be understood as the phase shift induced by a linear retarder $\hat{T}_{RL}(\SI{45}{\degree}, \Delta_M)$ on a horizontal state. The problem of determining the parameters $\psi_i$ and $d_i$ to get the appropriate phase shift at each frequency can be formulated as an optimization problem where the objective is to minimize the following error function:
 \begin{equation}
-    L(\psi_i, d_i)=\sum_{\nu}\left(\Delta(\nu)-\frac{\pi}{2}\right)^2.
+    L(\psi_i, d_i)=\sum_{\nu}\left(\Delta_M(\nu)-\frac{\pi}{2}\right)^2.
 \end{equation}
-The result of the optimization is shown in table 
+They minimize $L(\psi_i, d_i)$ using a simulated annealing algorithm over the frequency range \SIrange{0.2}{2}{\tera \hertz} and their obtained result is shown in table \ref{tab:masson_result}. For this set of parameters it is reported that the deviation of $\Delta_M$ from $\frac{\pi}{2}$ is less than \SI{3}{\percent} over the frequency range \SIrange{0.25}{1.75}{\tera \hertz} and that the total thickness of the TAQ waveplate is \SI{31.4}{\milli \meter}. 
 
 \begin{table}[h]
     \centering
     \includestandalone{3_chapter03/masson_result_table}
-    \caption{}
+    \caption{Optimization result obtained by Masson and Gallot in \cite{Masson2006TerahertzJean-Baptiste}. This particular TAQ consists of six waveplates of varying thicknesses and orientation angles.}
     \label{tab:masson_result}
 \end{table}
 
+% TODO add remark that retardation is delay between eigenstates or equivalently the difference of the two eigenvalue phases
 
-- Are Pancharatnam plates the predecessor to these?
-- Design here based on masson which is based on the design of the TAQ wave plate is based on the idea from Destriau and Prouteau.
-- These older types are for visible range
-- The key feature
+Their result can serve as a method of comparison by using the reported birefringence and parameters to approximate the individual Jones matrices. Another similar method is used to 
+
+
 
 \begin{itemize}
     \item problem, why we need awp (masson) (should be in the intro chapter though). wl dependency retarders highly wavelength sensitive due to
