@@ -1128,7 +1128,7 @@ which is also the representation of a rotation matrix $\hat{Q}(\theta)$ with $\t
     is_{2\psi} s_{\Delta/2} & s^2_{\psi} e^{i\Delta /2} + c^2_{\psi} e^{-i\Delta /2}
     \end{pmatrix},
 \end{equation}
-and if we again align the coordinate frame with the mayor and minor axes of its eigenstates then $\psi=0$ and $\hat{T}_{RL}$ adopts the particularly simple form:
+and if we again align the coordinate frame with the mayor and minor axes of its eigenstates then $\psi=0$ and $\hat{T}_{RL}$ adopts the following diagonal form:
 \begin{equation}
     \hat{T}_{RL}\left(\psi=0, \Delta\right) = \hat{T}_{RL0}\left(\Delta\right) = 
     \begin{pmatrix} 
@@ -1136,7 +1136,7 @@ and if we again align the coordinate frame with the mayor and minor axes of its 
     0 & e^{-i\Delta /2}
     \end{pmatrix},
 \end{equation}
-which can be referred to as a horizontal linear retarder. In this frame we directly recognize the total phase shift $\Delta$ of the eigenstates. Furthermore, we see that the mayor and minor axis of the polarization ellipse of the eigenstates align with the fast and slow axis of the retarder. If we set $\Delta=\pi$ in the expression for the linear retarder we get the Jones matrix for the half wave retarder or transparent half waveplate as follows:
+which is known as a horizontal linear retarder. In this frame we directly recognize the total phase shift $\Delta$ of the eigenstates. Furthermore, we see that the mayor and minor axis of the polarization ellipse of the eigenstates align with the fast and slow axis of the retarder. If we set $\Delta=\pi$ in the expression for the linear retarder we get the Jones matrix for the half wave retarder or transparent half waveplate as follows:
 \begin{equation}
     \hat{T}_{RL}(\psi, \pi)= 
     \begin{pmatrix} 
@@ -1146,6 +1146,7 @@ which can be referred to as a horizontal linear retarder. In this frame we direc
 \end{equation}
 We see that $\hat{T}_{RL}(\psi, \pi)$ is equivalent to a rotation by $-2\psi$ and an inversion of the y-component where the latter can be represented by $\hat{T}_{RL}(0, \pi)$. Therefore, essentially $\hat{T}_{RL}(\psi, \pi)$ inverts the handedness and then rotates the state by $-2\psi$, which is also known as an improper rotation. A circular polarized state therefore remains circular but has its handedness reversed by the action of $\hat{T}_{RL}(\psi, \pi)$. Finally, we can therefore write $\hat{T}_{RL}(\psi, \pi)$ as:
 \begin{equation}
+    \label{eq:l2_wp_effect}
     \hat{T}_{1/2}(\psi)=
     \hat{Q}(-2\psi)\hat{T}_{RL}(0, \pi)=\hat{Q}(-2\psi)\diag{1,-1}.
 \end{equation}
@@ -1156,10 +1157,10 @@ Similar, if we set $\Delta=\pi/2$ then the expression for the linear retarder re
     \hat{T}_{1/4}(\psi)=\hat{T}_{RL}(\psi, \pi/2)
     &=\frac{1}{\sqrt{2}}\left(\hat{I}+i\hat{Q}(2\psi)\hat{T}_{RL}(\pi, \pi)\right)
     \\
-    &=\frac{1}{\sqrt{2}}\left(\hat{I}+i\hat{Q}(2\psi)\diag{-1,1}\right),
+    &=\frac{1}{\sqrt{2}}\left(\hat{I}+i\hat{Q}(2\psi)\diag{1,-1}\right),
 \end{split}
 \end{align}
-which is called usually called a quarter wave retarder. This expression shows that $\hat{T}_{RL}(\psi, \pi/2)$ is equivalent to a rotation by $+2\psi$ and an inversion of the handedness but different from $\hat{T}_{1/2}(\psi)$ the phase of the transformed state is additionally advanced by $\pi/2$ and superimposed on the input state. Therefore for a initially \SI{+45}{\degree} linear polarized state and $\phi=0$ the inversion of the x-component produces a \SI{-45}{\degree} linear polarized state. The inverted state is then further phase shifted by $\SI{+90}{\degree}$ causing it to be delayed in time so that after superimposing it with the initial state the output state will be LCP. It is in fact possible to represent any linear retarder using a combination of rotation matrices $\hat{Q}$ and horizontal linear retarders $\hat{T}_{RL0}$ as follows:
+which is called usually called a quarter wave retarder. This expression shows that $\hat{T}_{RL}(\psi, \pi/2)$ is equivalent to a rotation by $+2\psi$ and an inversion of the handedness but different from $\hat{T}_{1/2}(\psi)$ the phase of the transformed state is additionally advanced by $\pi/2$ and superimposed on the input state. Therefore for a initially \SI{+45}{\degree} linear polarized state and $\phi=0$ the inversion of the y-component produces a \SI{-45}{\degree} linear polarized state. The inverted state is then further phase shifted by $\SI{+90}{\degree}$ causing it to be delayed in time so that after superimposing it with the initial state the output state will be LCP. It is in fact possible to represent any linear retarder using a combination of rotation matrices $\hat{Q}$ and horizontal linear retarders $\hat{T}_{RL0}$ as follows:
 \begin{equation}
     \hat{T}_{RL}(\psi, \Delta)=\hat{T}_{RC}(-2\psi)\hat{T}_{RL0}(\Delta)\hat{T}_{RC}(2\psi)=
     \hat{Q}(-\psi)\hat{T}_{RL0}(\Delta)\hat{Q}(\psi).
@@ -1283,7 +1284,7 @@ Expressions \ref{eq:retardation_inhomogeneous} and \ref{eq:diattenuation_inhomog
 \label{sec:achromatic_waveplates}
 
 
-As we have seen already waveplates are highly wavelength sensitive due to the inverse wavelength dependency of the phase shift but also due to dispersion of the refractive index and consequently dispersion of the birefringence. In other words the three parameters $\Delta$, $p_1$ and $p_2$ of the four parameters which characterize a linear diattenuating retarder or waveplate are wavelength dependent. There are several types of AWPs based on different techniques which can in theory compensate for this wavelength dependency. One possibility is to use the phase shift induced by total internal reflection which can be realized through a Fresnel Rhomb. Using this method it is possible to create an almost perfect AWP. The Fresnel Rhomb works over a large frequency range since the variation of retardance is purely due to variation of the refractive index with wavelength \cite{HechtOpticsEdition}. They often cause strong spatial shifts of the light, take up more space and are hard to align since the retardation strongly depends on the angle. Another method is to combine waveplates of different materials. The problem with this method is that only the dispersion of the materials is compensated for and so the resulting range is relatively low \cite{Masson2006TerahertzJean-Baptiste}. The AWPs presented in this work are based on a similar design principle as the THz achromatic quartz (TAQ) quarter waveplates developed by Masson and Gallot in \cite{Masson2006TerahertzJean-Baptiste}. The TAQ is ultimately based on the work by Destriau and Prouteau in 1949 \cite{Destriau1949RealisationNature} where they showed that the serial combination of a half waveplate and a quarter waveplate for which $\psi=\SI{60}{\degree}$ results in a new achromatic quarter waveplate. This new AWP showed a $\frac{\pi}{2}$ phase shift over the whole visible range. Masson and Gallot extended this idea to the THz range by combining six quartz plates with variable thicknesses. This higher number of plates was necessary due to the increased bandwidth of short THz pulses. The operational principle of this type of AWP is based on the partial cancellation each plate is causing with respect to the frequency. Each quartz waveplate was assumed to have a negligible dichroism. This type of AWP can therefore be described by the following product:
+As we have seen already waveplates are highly wavelength sensitive due to the inverse wavelength dependency of the phase shift but also due to dispersion of the refractive index and consequently dispersion of the birefringence. In other words the three parameters $\Delta$, $p_1$ and $p_2$ of the four parameters which characterize a linear diattenuating retarder or waveplate are wavelength dependent. There are several types of AWPs based on different techniques which can in theory compensate for this wavelength dependency. One possibility is to use the phase shift induced by total internal reflection which can be realized through a Fresnel Rhomb. Using this method it is possible to create an almost perfect AWP. The Fresnel Rhomb works over a large frequency range since the variation of retardance is purely due to variation of the refractive index with wavelength \cite{HechtOpticsEdition}. They often cause strong spatial shifts of the light, take up more space and are hard to align since the retardation strongly depends on the angle. Another method is to combine waveplates of different materials. The problem with this method is that only the dispersion of the materials is compensated for and so the resulting range is relatively low \cite{Masson2006TerahertzJean-Baptiste}. The AWPs presented in this work are based on a similar design principle as the THz achromatic quartz (TAQ) quarter waveplates developed by Masson and Gallot in \cite{Masson2006TerahertzJean-Baptiste}. The TAQ is ultimately based on the work by Destriau and Prouteau in 1949 \cite{Destriau1949RealisationNature} where they showed that the serial combination of a half waveplate and a quarter waveplate for which $\psi=\SI{60}{\degree}$ results in a new achromatic quarter waveplate. This new AWP showed a $\frac{\pi}{2}$ phase shift over the whole visible range. Masson and Gallot extended this idea to the THz range by combining six quartz plates with variable thicknesses. This higher number of plates was necessary due to the increased bandwidth of short THz pulses. The operational principle of this type of AWP is based on the partial cancellation each plate is causing with respect to the frequency. Each quartz waveplate was assumed to have a negligible dichroism. At \SI{1}{\tera \hertz} the quartz plates showed an ordinary and extraordinary refractive index of $n_o=2.108$ and $n_o=2.156$ respectively. Due to this low birefringence the total thickness of the TAQ is relatively large. Assuming isotropic absorption of the plates, the AWP can be described by the following product:
 \begin{equation}
     \hat{T}_{M} = \prod_{i=1}^{n=6} \hat{T}_{RL}(\psi_i, \Delta_i) = 
     \begin{pmatrix} 
@@ -1298,9 +1299,10 @@ where according to equation \ref{eq:wp_eq} the $\Delta_i$ are proportional to th
 \end{equation}
 It is worth noting that the value $\Delta_M$ is not the same as the retardance defined in equation $\ref{eq:jones_ret_def}$. Nevertheless, it can be understood as the phase shift induced by a linear retarder $\hat{T}_{RL}(\SI{45}{\degree}, \Delta_M)$ on a horizontal state. The problem of determining the parameters $\psi_i$ and $d_i$ to get the appropriate phase shift at each frequency can be formulated as an optimization problem where the objective is to minimize the following error function:
 \begin{equation}
-    L(\psi_i, d_i)=\sum_{\nu}\left(\Delta_M(\nu)-\frac{\pi}{2}\right)^2.
+    \label{eq:mass_loss}
+    L(\psi_i, d_i)_M=\sum_{\nu}\left(\Delta_M(\nu)-\frac{\pi}{2}\right)^2.
 \end{equation}
-They minimize $L(\psi_i, d_i)$ using a simulated annealing algorithm over the frequency range \SIrange{0.2}{2}{\tera \hertz} and their obtained result is shown in table \ref{tab:masson_result}. For this set of parameters it is reported that the deviation of $\Delta_M$ from $\frac{\pi}{2}$ is less than \SI{3}{\percent} over the frequency range \SIrange{0.25}{1.75}{\tera \hertz} and that the total thickness of the TAQ waveplate is \SI{31.4}{\milli \meter}. 
+They minimize $L(\psi_i, d_i)$ using a simulated annealing algorithm over the frequency range \SIrange{0.2}{2}{\tera \hertz} and their result is shown in table \ref{tab:masson_result}. For this set of parameters it is reported that the deviation of $\Delta_M$ from $\frac{\pi}{2}$ is less than \SI{3}{\percent} over the frequency range \SIrange{0.25}{1.75}{\tera \hertz} and that the total thickness of the TAQ waveplate is \SI{31.4}{\milli \meter}. 
 
 \begin{table}[h]
     \centering
@@ -1309,10 +1311,66 @@ They minimize $L(\psi_i, d_i)$ using a simulated annealing algorithm over the fr
     \label{tab:masson_result}
 \end{table}
 
+A similar AWP is presented in another work by Wu, et al. Here they use sapphire instead of quartz which reduces the overall thickness of the AWP to \SI{2.453}{\milli \meter} since compared to quarts sapphire has a higher birefringence. They report a value of 3.39 and 3.07 for the ordinary and extraordinary refractive index respectively. Similarly, they optimize the loss function given in equation \ref{eq:mass_loss} and by stacking up to 20 individual plates they obtain a deviation less than \SI{0.5}{\percent} from the $\pi/2$ target over the frequency range \SIrange{0.2}{2.0}{\tera \hertz}. Table \ref{tab:wu_result} shows their obtained values for the result with an overall thickness of \SI{2.453}{\milli \meter} consisting of six plates. This design was produced and characterized but showed more than a threefold increase in phase deviation compared to the optimization result. The deviation was attributed to angle misalignment and a mismatch between the
+used values from the actual values in the index of refraction of sapphire \cite{Wu2020APlate}. 
+
+\begin{table}[h]
+    \centering
+    \includestandalone{3_chapter03/wu_result_table}
+    \caption{}
+    \label{tab:wu_result}
+\end{table}
+
+A possible reduction of the angle misalignment can in theory be achieved using selective laser-induced etching (SLE) to produce form birefringent waveplates. Simply put SLE is a two step process; first transparent fused silica glass is selectively modified using a laser and subsequently the volume connected to the surface of the structure is removed by wet chemical etching. This means that SLE allows the fabrication of 3D structures with a precision of around \SI{1}{\micro \meter} \cite{Hermans2014SelectiveKOH}. This technique has the potential of removing the alignment step in the assembly of the AWP by fabricating the structure from a single glass piece and thereby reducing angle alignment errors. Ornik et al. showed in \cite{Ornik2018HighPlatesb} that it is possible to fabricate high quality form birefringent $\lambda/2$ THz waveplates using this technique. The waveplates have the same periodically stratified structure as the media discussed in section \ref{sec:form_birefringence} about form birefringence. In total four waveplates were characterized with different air and glass layer thicknesses as well as different plate thicknesses. One of the four plates is shown in figure \ref{fig:SLE_waveplate_JO_} next to a one euro coin.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.45]{images/3_chapter03/SLE_waveplate_JO_.png}
+    \caption{}
+    \label{fig:SLE_waveplate_JO_}
+\end{figure}
+
+Among other characterizing measurements the transmitted intensity was measured after passing a linear polarizer for different azimuths $\psi$. We know from equation \ref{eq:l2_wp_effect} that the effect of a $\lambda/2$ retarder is to rotate the mayor axes of the polarization ellipse by $-2\psi$. Therefore, if the input state is $\bm{\mathcal{E}}_{\SI{45}{\degree}}$ we expect a minimum in the transmitted intensity since then the output state is perpendicular to the transmission axis of the polarizer. This is of course only true for the frequencies where the retardance of the plate is $\pi$. In fact, if we assume the polar decomposition of the waveplate is a linear diattenuating retarder then we can show the following equation for the azimuth of the minimum transmittance: \footnote{Derivation in section \ref{sec:transmission_min} of the appendix} 
+\begin{equation}
+    \psi=\arctan\left(\sqrt{\frac{p_2}{p_1}}\right)
+\end{equation}
+Therefore, only if $p_1=p_2$ do we get the minimum at an azimuth of \SI{45}{\degree}. Although measurements of the intensity at different azimuths showed that the minimum transmission is not obtained for $\psi=\SI{45}{\degree}$ but rather at \SI{46}{\degree}, \SI{46}{\degree}, \SI{47}{\degree}, \SI{49}{\degree} for increasing thickness of the four waveplates. This means that in the case of form birefringent fused silica glass waveplates and waveplates consisting of anisotropic materials dichroism should be taken into consideration. In turn, this furthermore means that we cannot simply rely on optimizing the retardance to obtain designs which produce pure output polarizations. Building onto the method of Masson and Wu we therefore need to implement new loss or objective functions for the $\lambda/4$ and $\lambda/2$ waveplate types. At the same time this form birefringent plate type allows us to directly optimize the birefringence of each individual plate, but it also comes with the cost of adding more dimensions to the optimization problem. 
+In the following we will propose two objective functions which we optimized to obtain the results presented in the next chapter. In case of the objective function associated with the $\lambda/4$ waveplate we optimize the components of the output state, while for the $\lambda/2$ waveplate we directly optimize the coefficients of the Jones matrix describing the train of waveplates. If the input state is $\bm{\mathcal{E}}_{\SI{0}{\degree}}$ then the $\lambda/4$ waveplate produces an output state $\bm{\mathcal{E}}_o$ which is circular polarized, we use this property to define the loss function. We therefore get the following equation:
+\begin{equation}
+    \bm{\mathcal{E}}_o = \hat{J}\begin{pmatrix} 1 \\ 0 \end{pmatrix} =
+     \begin{pmatrix} J_{0,0} \\ J_{1,0} \end{pmatrix},
+\end{equation}
+and define $r$ as the ratio between the x- and y-component of the output state. Since the output state should be circularly polarized we minimize the real part of $r$ and maximize the imaginary part. We therefore get the following loss function associated with the $\lambda/4$ waveplate:
+\begin{equation}
+    L(\psi_i, d_i)_{\lambda/4}=\sum_{\nu}\left(\operatorname{Re}(r)^2+(1-\operatorname{Im}(r))^2\right).
+\end{equation}
+
+\begin{itemize}
+    \item - form birefringence allows avoiding stacking and almost arbitrary number of plates
+    limited by cpu power (goes as n squared)
+    \item - Paper of Jan shows in the case of quartz that dichroism does play a role
+    \item -> we can't simply optimize phase since then elliptical.
+    \item -> l2: matrix goal, l4: optimize output state
+    \item (put algorithm stuff in appendix, how it works, parameters etc.)
+\end{itemize}
+\begin{enumerate}
+    \item use this same design
+    \item add dichroism, why?
+    \item describe algorithm
+    \item describe our plates
+    \item Jan plates abs deviation
+\end{enumerate}
+
+% Describe a little more how we get J... and parameters a,b,d,psi,mu
+
 % TODO add remark that retardation is delay between eigenstates or equivalently the difference of the two eigenvalue phases
 
-Their result can serve as a method of comparison by using the reported birefringence and parameters to approximate the individual Jones matrices. Another similar method is used to 
+% TODO check T_1/4
 
+% TODO Masson polar decomp and compare to elliptical with A,B.. matrix. Check what I wrote.
+
+% TODO for results. Give explanation why two l4 dont give l2. Problem is l4 is also rotator (is it?) -> different azimuths -> different outputs since l4 is rotator depending on azimuth ... 
+% only for 100% pure circ is azimuth undef. (never happens)
 
 
 \begin{itemize}
