@@ -1,11 +1,64 @@
 \section{Polarization ellipse derivation}
 \label{sec:deriv_pol_ellipse}
-Starting from ....
-\section{Lorentz oscillator model sign}
-\label{sec:lorentz_model_sign}
+Setting $kz-\omega t=\tau$ in the plane wave equations:
+\begin{equation}
+\begin{aligned}
+    E_x(z, t) = E_{0x}\cos(\tau + \delta_x) \\
+    E_y(z, t) = E_{0y}\cos(\tau + \delta_y).
+\end{aligned}
+\end{equation}
+In order to eliminate $\tau$ we write the previous equations as:
+\begin{equation}
+\begin{aligned}
+    \frac{E_x}{E_{0x}} = \cos(\tau)\cos(\delta_x) - \sin(\tau)\sin(\delta_x)\\
+    \frac{E_y}{E_{0y}} = \cos(\tau)\cos(\delta_y) - \sin(\tau)\sin(\delta_y).
+\end{aligned}
+\end{equation}
+Multiplying by $\cos(\delta_{x,y})$, $\sin(\delta_{x,y})$ subtracting and using trig. angle difference formulas we get:
+\begin{equation}
+\begin{aligned}
+    \frac{E_x}{E_{0x}}\sin(\delta_y) - \frac{E_y}{E_{0y}}\sin(\delta_x) = \cos(\tau)\sin(\delta_y-\delta_x)\\
+    \frac{E_x}{E_{0x}}\cos(\delta_y) - \frac{E_y}{E_{0y}}\cos(\delta_x) = \sin(\tau)\sin(\delta_y-\delta_x).
+\end{aligned}
+\end{equation}
+Squaring and adding these two equations gives:
+\begin{equation}
+    \left[ \left(\frac{E_x}{E_{0x}}\right)^2+\left(\frac{E_y}{E_{0y}}\right)^2-2\frac{E_x E_y}{E_{0x} E_{0y}}\cos \delta \right]=\sin^2 \delta,
+\end{equation}
+with $\delta=\delta_y-\delta_x$
+
 \section{Proof of index ellipsoid procedure}
 \label{sec:index_ellipse_proof}
+
 \section{Effective permittivity inequality proof}
 \label{sec:bf_proof}
+
 \section{Transmission minimum of diattenuating linear retarder} % Jan measurement setup
 \label{sec:transmission_min}
+The setup consists of a linear horizontal polarizer $\hat{T}_{DL}(\psi=0, p_1=1, 0)$, linear diattenuating retarder (waveplate) $\hat{T}_{RDL}(\psi, \Delta, p_1, p_2)$ and another linear horizontal polarizer $\hat{T}_{DL}(\psi=0, p_1=1, 0)$ in the given order. Wlog we assume a normalized horizontal linear input $\bm{\mathcal{E}}_{\SI{0}{\degree}}$. The intensity of the output is then simply $I_o=T_{0,0}T_{0,0}^*$, requiring $0\overset{!}{=}I_o$ we get the following:
+\begin{equation}
+    0=(p_1c_\psi^2e^{i\Delta/2}+p_2s_\psi^2e^{-i\Delta/2})(p_1c_\psi^2e^{-i\Delta/2}+p_2s_\psi^2e^{i\Delta/2}).
+\end{equation}
+Simplifying:
+\begin{equation}
+    \label{eq:trans_min_app}
+    -2p_1p_2c_\Delta = p_1^2\left(\frac{c_\psi}{s_\psi}\right)^2 + p_2^2\left(\frac{s_\psi}{c_\psi}\right)^2
+\end{equation}
+The image of LHS is the interval $\left[-2p_1p_2, 2p_1p_2\right]$ while the image of the RHS is $\left[-2p_1p_2, \infty\right)$. This means that \ref{eq:trans_min_app} only has a solution when
+\begin{equation}
+    c_\Delta=-1
+\end{equation}
+and
+\begin{equation}
+    p_1^2\left(\frac{c_\psi}{s_\psi}\right)^2 + p_2^2\left(\frac{s_\psi}{c_\psi}\right)^2 = 2p_1p_2.
+\end{equation}
+From the first equation it follows that $\Delta=\pi$ $(\Delta \in [0,\pi])$ and the second equation is solved by:
+\begin{equation}
+    \label{eq:psi_min}
+    \psi = \arctan \sqrt{\frac{p_2}{p_1}},
+\end{equation}
+that is, the intensity is zero for this $\psi$ given by equation \ref{eq:psi_min}, which is what we wanted to show.
+
+\section{Basin-hopping algorithm}
+\label{sec:basin_hopping_algo}
+
