@@ -25,7 +25,7 @@ Squaring and adding these two equations gives:
 \begin{equation}
     \left[ \left(\frac{E_x}{E_{0x}}\right)^2+\left(\frac{E_y}{E_{0y}}\right)^2-2\frac{E_x E_y}{E_{0x} E_{0y}}\cos \delta \right]=\sin^2 \delta,
 \end{equation}
-with $\delta=\delta_y-\delta_x$
+with $\delta=\delta_y-\delta_x$, which is the polarization ellipse equation.
 
 \section{Proof of index ellipsoid procedure}
 \label{sec:index_ellipse_proof}
@@ -62,3 +62,40 @@ that is, the intensity is zero for this $\psi$ given by equation \ref{eq:psi_min
 \section{Basin-hopping algorithm}
 \label{sec:basin_hopping_algo}
 
+Basin-hopping is a stochastic algorithm which is used in global optimization problems and was first developed to solve problems in chemical physics \cite{Wales1997GlobalAtoms}. It is well suited for the optimization problems presented in this work, since it is an effective algorithm in the case of high dimensional smooth nonlinear loss functions $L(x)$ with multiple optima separated by large barriers \cite{Olson2012BasinMacromolecules, Wu2020APlate}. The algorithm mainly consists of cycling through three steps until some stop criterion is fulfilled. First a perturbation of a candidate solution is performed, then a local search is applied to the perturbed solution and then finally the coordinates are accepted or rejected based on the minimized function value. The associated pseudocode is shown in algorithm \ref{algo_bh}. 
+
+\begin{algorithm}[H]
+    \SetAlgoLined
+    \SetKwFunction{LOCALSEARCH}{LOCALSEARCH}\SetKwFunction{STOP}{STOP}\SetKwFunction{PERTURB}{PERTURB}
+    \SetKwFunction{METROPOLIS}{METROPOLIS}
+    \SetKw{KwOr}{or}
+    \SetKwData{NS}{not satisfied} \SetKwData{RP}{random initial point in variable space}
+    
+    $i \leftarrow 0$\;
+    $x_i \leftarrow $ \RP\;
+    $y_i \leftarrow $ \LOCALSEARCH{$x_i$}\;
+    \While{\STOP \NS}{
+        $x_{i+1} \leftarrow $ \PERTURB{$y_i$}\;
+        $y_{i+1} \leftarrow $ \LOCALSEARCH{$x_i$}\;
+        \If{$L(y_{i+1})<L(y_i)$ \KwOr{} \METROPOLIS{$y_{i+1}, y_i$}}{
+            $i \leftarrow i+1$\;
+        }
+    }
+
+
+\caption{Basin-hopping pseudocode}\label{algo_bh}
+\end{algorithm}
+
+Since we can not determine if the global minimum has actually been found for stochastic global optimization problems the \texttt{STOP} criterion is simply a number of iterations. The result is then the lowest minimum found. The additional acceptance criterion \texttt{METROPOLIS} is true with a probability $P(y_{i+1}, y_i)$ given by the following:
+\begin{equation}
+    P(y_{i+1}, y_i) = \exp\left(\frac{L(y_{i})-L(y_{i+1})}{T} \right),
+\end{equation}
+where $T$ is known as the temperature and is a user defined parameter which should be set similar to the average function value difference between local minima \cite{Scipy.optimize.basinhoppingGuide}. The \texttt{LOCALSEARCH} step is in our case perfomed by the L-BFGS-B local optimization algorithm which is a quasi-Newton method and allows the specification of bounds \cite{Byrd1995AOptimization}. \texttt{PERTURB} is responsible for taking a step in variable space with a stepsize $\tau$ which is another user defined parameter. $\tau$ is an important parameter in Basin-hopping and depends on the optimization problem. The step is chosen uniformly in the region from $x-\tau$ to $x+\tau$, in each dimension. The Python implementation of the algorithm as we use it automatically adjusts the stepsize. Nevertheless, to achieve faster convergence the initial value should be similar to the average separation between local minima in variable space \cite{Scipy.optimize.basinhoppingGuide}. 
+
+% TODO rewrite caption below
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{images/7_appendix/bh.png}
+    \caption{The BH framework essentially converts the function into astepwise one. The perturbation and local optimization componentsare illustrated here with differently colored arrows. A minimum is shown here which fails the Metropolis criterion and is thus not accepted,prompting a new perturbation move. Source: \cite{Olson2012BasinMacromolecules}.}
+    \label{fig:Basin-hopping}
+\end{figure}

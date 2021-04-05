@@ -34,6 +34,7 @@
 \usepackage{caption}
 \usepackage{smartdiagram}
 \usepackage{bm}
+\usepackage[ruled,vlined]{algorithm2e}
 \usesmartdiagramlibrary{additions}
 
 % Math commands
@@ -281,7 +282,18 @@ quotes
     sorting=none,
     url = false
 ]{biblatex}
+
+\DeclareSourcemap{ % Mendeley sucks balls. https://tex.stackexchange.com/questions/428959/get-biblatex-to-show-url-for-webpage-references
+  \maps[datatype=bibtex, overwrite=true]{
+    \map{
+      \step[fieldsource=url, final]
+      \step[typesource=misc, typetarget=online]
+    }
+  }
+}
+
 \addbibresource{references.bib}
 
 % Roman numbering for equations
-%\renewcommand{\theequation}{\roman{equation}}
+%\renewcommand{\theequation}{\roman{equation}}    url = false
+
