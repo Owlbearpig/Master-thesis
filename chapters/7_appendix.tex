@@ -23,15 +23,15 @@ Multiplying by $\cos(\delta_{x,y})$, $\sin(\delta_{x,y})$ subtracting and using 
 \end{equation}
 Squaring and adding these two equations gives:
 \begin{equation}
-    \left[ \left(\frac{E_x}{E_{0x}}\right)^2+\left(\frac{E_y}{E_{0y}}\right)^2-2\frac{E_x E_y}{E_{0x} E_{0y}}\cos \delta \right]=\sin^2 \delta,
+    \left(\frac{E_x}{E_{0x}}\right)^2+\left(\frac{E_y}{E_{0y}}\right)^2-2\frac{E_x E_y}{E_{0x} E_{0y}}\cos \delta =\sin^2 \delta,
 \end{equation}
 with $\delta=\delta_y-\delta_x$, which is the polarization ellipse equation.
 
-\section{Proof of index ellipsoid procedure}
+\section{Index ellipsoid procedure}
 \label{sec:index_ellipse_proof}
 % laser book
 
-\section{Effective permittivity inequality proof}
+\section{Effective permittivity inequality}
 \label{sec:bf_proof}
 % my papers maybe shorten it a bit or only give outline ...
 
@@ -98,7 +98,7 @@ where $T$ is known as the temperature and is a user defined parameter which shou
 % TODO rewrite caption below (done)
 \begin{figure}
     \centering
-    \includegraphics[scale=0.35]{images/7_appendix/bh.png}
+    \includegraphics[scale=0.3]{images/7_appendix/bh.png}
     \caption{The Basin-hopping algorithm can be visualized as a transformation of the loss function (black line) into single steps(dotted line). 
     The local optimization routine is illustrated by purple arrows while the random perturbation is represented by yellow arrows. At $C_3$ the perturbation move fails the Metropolis acceptance criterion since the barrier is too high, a new perturbation move to a more favorable position is therefore made. Source: \cite{Olson2012}.}
     \label{fig:Basin-hopping}
