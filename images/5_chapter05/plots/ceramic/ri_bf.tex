@@ -1,0 +1,220 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\usepackage{siunitx}
+\pgfplotsset{compat=1.5}
+
+\begin{document}
+%\begin{minipage}{0.5\columnwidth}
+\begin{tikzpicture}
+	\begin{axis}[
+	    name=ax1,
+	    %scale only axis,
+        ymin=3.02, ymax=3.17,
+        xmin=0.25, xmax=2.7,
+        axis y line*=left,
+        no markers,
+        every axis plot/.append style={ultra thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\tera \hertz}),
+        ylabel=Refractive index,
+        anchor=origin,
+        legend entries={{Sample1, slow axis}, {Sample1, fast axis},
+                        {Sample2, slow axis}, {Sample2, fast axis},
+                        {Sample1, $\Delta n$}, {Sample2, $\Delta n$},
+                        },
+        legend style={legend columns=2, at={(0.04,0.95)}, anchor=north west,
+                      nodes={scale=0.7, transform shape}}
+        ]
+        
+    	\addplot[dotted, red] table [
+    	x expr=\thisrowno{0}*10^-12,
+    	y expr=\thisrowno{1},
+    	col sep=comma] 
+    	{plot_data/5_chapter05/ceramic/Sample1_000deg_1825ps_0m-2Grad_D=3000.csv};
+    	
+    	\addplot[dotted, blue] table [
+    	x expr=\thisrowno{0}*10^-12,
+    	y expr=\thisrowno{1},
+    	col sep=comma] 
+    	{plot_data/5_chapter05/ceramic/Sample1_090deg_1825ps_0m88Grad_D=3000.csv};
+    	
+    	\addplot[red] table [
+    	x expr=\thisrowno{0}*10^-12,
+    	y expr=\thisrowno{1},
+    	col sep=comma] 
+    	{plot_data/5_chapter05/ceramic/Sample2_000deg_1825ps_0m_263.5grad_D=2990.csv};
+    	
+    	\addplot[blue] table [
+    	x expr=\thisrowno{0}*10^-12,
+    	y expr=\thisrowno{1},
+    	col sep=comma] 
+    	{plot_data/5_chapter05/ceramic/Sample2_090deg_1825ps_173.5grad_0m_D=2990.csv};
+	    
+	    % fake plot to trigger legend entry thingy
+    	\addplot[green, dotted] coordinates {(0,0)};
+	    
+	    % fake plot to trigger legend entry thingy
+	    \addplot[green] coordinates {(0,0)};
+	    
+	\end{axis}
+	\begin{axis}[
+	    %scale only axis, 
+    	xmin=0.25, xmax=2.7,
+    	ymin=0.041, ymax=0.061,
+    	axis y line*=right, 
+    	axis x line=none,
+    	no markers,
+        every axis plot/.append style={ultra thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+    	ylabel=Birefringence (green)]
+    	
+        \addplot[green, dotted] table [
+        x expr=\thisrowno{0}*10^-12,
+    	y expr=\thisrowno{3},
+    	col sep=comma]
+        {plot_data/5_chapter05/ceramic/Sample1_bf.csv};
+        
+        \addplot[green] table [
+        x expr=\thisrowno{0}*10^-12,
+    	y expr=\thisrowno{3},
+    	col sep=comma]
+        {plot_data/5_chapter05/ceramic/Sample2_bf.csv};
+        
+        \addplot [name path=upper, draw=none] table [
+	    x expr=\thisrowno{0}*10^-12,
+	    y expr=\thisrowno{3}+\thisrowno{6},
+	    col sep=comma] 
+	    {plot_data/5_chapter05/ceramic/Sample1_bf.csv};
+        \addplot [name path=lower, draw=none] table[
+        x expr=\thisrowno{0}*10^-12,
+        y expr=\thisrowno{3}-\thisrowno{6},
+        col sep=comma]
+        {plot_data/5_chapter05/ceramic/Sample1_bf.csv};
+        \addplot [fill=green!30] fill between[of=upper and lower];
+        
+        \addplot [name path=upper, draw=none] table [
+	    x expr=\thisrowno{0}*10^-12,
+	    y expr=\thisrowno{3}+\thisrowno{6},
+	    col sep=comma] 
+	    {plot_data/5_chapter05/ceramic/Sample2_bf.csv};
+        \addplot [name path=lower, draw=none] table[
+        x expr=\thisrowno{0}*10^-12,
+        y expr=\thisrowno{3}-\thisrowno{6},
+        col sep=comma]
+        {plot_data/5_chapter05/ceramic/Sample2_bf.csv};
+        \addplot [fill=green!30] fill between[of=upper and lower];
+        
+    \end{axis}
+\end{tikzpicture}
+%\end{minipage}%
+%\begin{minipage}{0.5\columnwidth}
+\begin{tikzpicture}
+        \begin{axis}[
+        axis line style = very thick,
+        yticklabels={,,},
+        xticklabels={,,},
+        ytick style={draw=none},
+        xtick style={draw=none},
+        ]
+    \end{axis}
+
+    \begin{axis}[
+        %at={(ax1.outer north east)}, anchor=outer north west,
+        %ymin=3.02, ymax=3.17,
+        %xmin=0.25, xmax=3.0,
+        axis y line*=right,
+        no markers,
+        every axis plot/.append style={ultra thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\tera \hertz}),
+        ylabel=Absorption coefficient (\si{\per\centi\meter}),
+        %anchor=origin,
+        legend entries={{Sample1, slow axis}, {Sample1, fast axis},
+                        {Sample2, slow axis}, {Sample2, fast axis}},
+        legend style={legend columns=1, at={(0.07,0.95)}, anchor=north west,
+                      nodes={scale=0.75, transform shape}}
+        ]
+	    
+        \addplot[dotted, red] table [
+    	x expr=\thisrowno{0}*10^-12,
+    	y expr=\thisrowno{3},
+    	col sep=comma] 
+    	{plot_data/5_chapter05/ceramic/Sample1_000deg_1825ps_0m-2Grad_D=3000.csv};
+
+    	\addplot[dotted, blue] table [
+    	x expr=\thisrowno{0}*10^-12,
+    	y expr=\thisrowno{3},
+    	col sep=comma] 
+    	{plot_data/5_chapter05/ceramic/Sample1_090deg_1825ps_0m88Grad_D=3000.csv};
+    	
+    	\addplot[red] table [
+    	x expr=\thisrowno{0}*10^-12,
+    	y expr=\thisrowno{3},
+    	col sep=comma] 
+    	{plot_data/5_chapter05/ceramic/Sample2_000deg_1825ps_0m_263.5grad_D=2990.csv};
+    	
+    	\addplot[blue] table [
+    	x expr=\thisrowno{0}*10^-12,
+    	y expr=\thisrowno{3},
+    	col sep=comma] 
+    	{plot_data/5_chapter05/ceramic/Sample2_090deg_1825ps_173.5grad_0m_D=2990.csv};
+    	
+	    \addplot [name path=upper, draw=none] table [
+	    x expr=\thisrowno{0}*10^-12,
+	    y expr=\thisrowno{3}+\thisrowno{13},
+	    col sep=comma] 
+	    {plot_data/5_chapter05/ceramic/Sample1_000deg_1825ps_0m-2Grad_D=3000.csv};
+        \addplot [name path=lower, draw=none] table[
+        x expr=\thisrowno{0}*10^-12,
+        y expr=\thisrowno{3}-\thisrowno{13},
+        col sep=comma]
+        {plot_data/5_chapter05/ceramic/Sample1_000deg_1825ps_0m-2Grad_D=3000.csv};
+        \addplot [fill=red!30] fill between[of=upper and lower];
+    	
+        \addplot [name path=upper, draw=none] table [
+	    x expr=\thisrowno{0}*10^-12,
+	    y expr=\thisrowno{3}+\thisrowno{13},
+	    col sep=comma] 
+	    {plot_data/5_chapter05/ceramic/Sample1_090deg_1825ps_0m88Grad_D=3000.csv};
+        \addplot [name path=lower, draw=none] table[
+        x expr=\thisrowno{0}*10^-12,
+        y expr=\thisrowno{3}-\thisrowno{13},
+        col sep=comma]
+        {plot_data/5_chapter05/ceramic/Sample1_090deg_1825ps_0m88Grad_D=3000.csv};
+        \addplot [fill=blue!30] fill between[of=upper and lower];
+    	
+    	\addplot [name path=upper, draw=none] table [
+	    x expr=\thisrowno{0}*10^-12,
+	    y expr=\thisrowno{3}+\thisrowno{13},
+	    col sep=comma] 
+	    {plot_data/5_chapter05/ceramic/Sample2_000deg_1825ps_0m_263.5grad_D=2990.csv};
+        \addplot [name path=lower, draw=none] table[
+        x expr=\thisrowno{0}*10^-12,
+        y expr=\thisrowno{3}-\thisrowno{13},
+        col sep=comma]
+        {plot_data/5_chapter05/ceramic/Sample2_000deg_1825ps_0m_263.5grad_D=2990.csv};
+        \addplot [fill=red!30] fill between[of=upper and lower];
+
+	    \addplot [name path=upper, draw=none] table [
+	    x expr=\thisrowno{0}*10^-12,
+	    y expr=\thisrowno{3}+\thisrowno{13},
+	    col sep=comma] 
+	    {plot_data/5_chapter05/ceramic/Sample2_090deg_1825ps_173.5grad_0m_D=2990.csv};
+        \addplot [name path=lower, draw=none] table[
+        x expr=\thisrowno{0}*10^-12,
+        y expr=\thisrowno{3}-\thisrowno{13},
+        col sep=comma]
+        {plot_data/5_chapter05/ceramic/Sample2_090deg_1825ps_173.5grad_0m_D=2990.csv};
+        \addplot [fill=blue!30] fill between[of=upper and lower];
+	    
+	\end{axis}
+	
+\end{tikzpicture}
+%\end{minipage}
+\end{document}

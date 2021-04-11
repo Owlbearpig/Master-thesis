@@ -2,7 +2,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{csquotes}
-\usepackage{siunitx}
 \usepackage{graphicx}
 \usepackage{tipa} % for the \ark{} command
 \usepackage{graphics} % for pdf, bitmapped graphics files
@@ -37,6 +36,10 @@
 \usepackage[ruled,vlined]{algorithm2e}
 \usepackage[version=4]{mhchem}
 \usesmartdiagramlibrary{additions}
+
+% SIunitx
+\usepackage{siunitx}
+\DeclareSIUnit{\volpercent}{Vol\%}
 
 % Math commands
 \DeclarePairedDelimiter{\diagfences}{(}{)}
@@ -85,6 +88,7 @@
 \usepackage{tikz-3dplot}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.5}
+\usepgfplotslibrary{fillbetween}
 \usetikzlibrary{
 angles,
 arrows,
