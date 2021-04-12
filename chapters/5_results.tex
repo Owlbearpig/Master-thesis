@@ -4,7 +4,7 @@ We investigated three versions of the AWP design described in the last section o
 
 \section{Ceramic AWP}
 In a publication by Ornik et al. it was shown that \ce{Al2O3} as a 3D printed ceramic exhibited birefringent properties. A birefringence of approximately $0.05$ was reported. This value is fairly low compared to the birefringence of sapphire which is the crystalline form of \ce{Al2O3} with a birefringence of approximately $0.32$. 
-
+% TODO caption is copy from jan paper
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.4]{images/5_chapter05/ornik1abc-3047514-large.png}
@@ -21,7 +21,7 @@ It was further shown that the direction of the slow axis was parallel to the pri
     \label{fig:ri_abs}
 \end{figure}
 
-Stacking a number of these ceramic discs or plates like the one shown in figure \ref{fig:ornik1abc} we can in theory construct an AWP similar to the TAQ by Masson. This ceramic AWP can then serve as a comparison to the TAQ and therefore also partly as a verification of the loss function at least for the $\lambda/4$ AWP type. In this case the loss functions $L_{\lambda/4}$ and $L_{\lambda/2}$ only depend on the set of angles and thicknesses. In other words the birefringence does not change at each iteration during optimization and is the same for each individual plate. 
+Stacking a number of these ceramic discs or plates like the one shown in figure \ref{fig:ornik1abc} we can in theory construct an AWP similar to the TAQ by Masson. This ceramic AWP can then serve as a comparison to the TAQ and therefore also partly as a verification of the loss function at least for the $\lambda/4$ AWP type. In this case the loss functions $L_{\lambda/4}$ and $L_{\lambda/2}$ only depend on the set of angles and thicknesses. In other words the birefringence does not change at each iteration and is the same for each individual plate. Similar to the material used by Masson the birefringence of the ceramic plates is relatively low. This in turn means that for the waveplates to have an effect in the lower end of the spectrum the individual plates have to be fairly thick. Table \ref{tab:ceramic_result_l4} shows the obtained thicknesses and angles of two different results; Result 1 is obtained through minimization of $L_{\lambda/4}$ in the frequency range of \SIrange{0.5}{1.25}{\tera \hertz} while for Result 2 we increased the frequency range to be \SIrange{0.2}{2.00}{\tera \hertz}. 
 
 \begin{table}[h]
     \centering
@@ -29,6 +29,18 @@ Stacking a number of these ceramic discs or plates like the one shown in figure 
     \caption{}
     \label{tab:ceramic_result_l4}
 \end{table}
+
+\begin{itemize}
+    \item loss function. Frequency dependent loss.
+    \item Circularity. Linearity.
+    \item Ellipses. not sure how to plot this yet?
+    \item Transmission along two directions.
+    \item Retardance, Diattenuation
+    \item See what interface does?
+    \item Eigenstates?
+    \item compare to Result 1 -> we do shorter range because of absorption (thinner plate(s))
+    \item high abs compared to quartz (\cite{DGrischkowsky1990})
+\end{itemize}
 
 \subsection{Simulation}
 \subsection{CST}
