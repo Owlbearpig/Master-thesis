@@ -1,0 +1,42 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\usepackage{siunitx}
+\pgfplotsset{compat=1.5}
+\usepgfplotslibrary{groupplots}
+
+\begin{document}
+\begin{tikzpicture}
+	\begin{axis}[
+	    %ymode=log,
+	    %xmode=log,
+        ymin=-1, ymax=1,
+        xmin=-1, xmax=1,
+        no markers,
+        every axis plot/.append style={very thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=$E_x$ (\si{\volt/\meter}),
+        ylabel=$E_y$ (\si{\volt/\meter}),
+        %anchor=origin,
+        legend entries={{R}},
+        legend style={legend columns=1, at={(0.13,0.95)}, anchor=north west,
+                      nodes={scale=0.90, transform shape}},
+        reverse legend,
+        ]
+	    \pgfplotsinvokeforeach{40,80,...,400} {
+                \pgfmathsetmacro\x{int(#1)}
+                \pgfmathsetmacro\y{int(#1-1)}
+                \addplot[black] table [
+                x index = \x,
+                y index = \y,
+                col sep=comma]
+                {plot_data/5_chapter05/ceramic/x_cl4_02_15_n6_pe.csv};
+    	    }
+
+	\end{axis}
+
+\end{tikzpicture}
+\end{document}

@@ -17,18 +17,28 @@ It was further shown that the direction of the slow axis was parallel to the pri
 \begin{figure}[h]
     \centering
     \includestandalone[scale=0.73]{5_chapter05/plots/ceramic/ri_bf}
-    \caption{}
+    \caption{Left plot shows the refractive index and birefringence as a function of frequency for the two ceramic \ce{Al2O3} samples; Sample1 and Sample2. For both samples the refractive index was measured for the perpendicular slow and fast axes. Considering the error margins both samples have an equal birefringence. The right plot shows the absorption coefficient, again for the slow and fast axis of the samples. Data: \cite{Ornik2021}}
     \label{fig:ri_abs}
 \end{figure}
 
-Stacking a number of these ceramic discs or plates like the one shown in figure \ref{fig:ornik1abc} we can in theory construct an AWP similar to the TAQ by Masson. This ceramic AWP can then serve as a comparison to the TAQ and therefore also partly as a verification of the loss function at least for the $\lambda/4$ AWP type. In this case the loss functions $L_{\lambda/4}$ and $L_{\lambda/2}$ only depend on the set of angles and thicknesses. In other words the birefringence does not change at each iteration and is the same for each individual plate. Similar to the material used by Masson the birefringence of the ceramic plates is relatively low. This in turn means that for the waveplates to have an effect in the lower end of the spectrum the individual plates have to be fairly thick. Table \ref{tab:ceramic_result_l4} shows the obtained thicknesses and angles of two different results; Result 1 is obtained through minimization of $L_{\lambda/4}$ in the frequency range of \SIrange{0.5}{1.25}{\tera \hertz} while for Result 2 we increased the frequency range to be \SIrange{0.2}{2.00}{\tera \hertz}. 
+Stacking a number of these ceramic discs or plates like the one shown in figure \ref{fig:ornik1abc} we can in theory construct an AWP similar to the TAQ by Masson. This ceramic AWP can then serve as a comparison to the TAQ and therefore also partly as a verification of the loss function at least for the $\lambda/4$ AWP type. In this case the loss functions $L_{\lambda/4}$ and $L_{\lambda/2}$ only depend on the set of angles and thicknesses. In other words the birefringence does not change at each iteration and is the same for each individual plate. Using the thicknesses and angles of the TAQ given in table \ref{tab:masson_result} as well as the birefringence of quartz as reported in \cite{DGrischkowsky1990} we can calculate $L_{\lambda/4}(\nu)$ for the TAQ and use it for comparison. To that end we optimized $L_{\lambda/4}$ for $n=6$ in the range from \SIrange{0.25}{1.50}{\tera \hertz}. The design parameters obtained from this optimization are shown in table \ref{tab:res_cl4} (Result 1). Additionally, the terms of $L_{\lambda/4}(\nu)$ of this result as well as those for the TAQ are plotted in figure \ref{fig:loss_function_cl4} as a function of frequency. We see that the magnitude of $L_{\lambda/4}$ for these two results is similar. This indicates that $L_{\lambda/4}$ is also a suitable measure of the quality of the result similar to $L_{M}$. At around \SI{1.5}{\tera \hertz} there is a clear a cut-off for both results. Defining the bandwidth as the ratio between the upper and lower frequency we get a value of  $5=\frac{\SI{1.5}{\tera \hertz}}{\SI{0.3}{\tera \hertz}}$. 
 
 \begin{table}[h]
     \centering
     \includestandalone{5_chapter05/ceramic_result_table}
     \caption{}
-    \label{tab:ceramic_result_l4}
+    \label{tab:res_cl4}
 \end{table}
+
+\begin{figure}[h]
+    \centering
+    \includestandalone[scale=1.00]{5_chapter05/plots/ceramic/loss_function}
+    \caption{}
+    \label{fig:loss_function_cl4}
+\end{figure}
+
+Similar to quartz, the birefringence of the ceramic plates is relatively low. This in turn means that for the waveplates to have an effect in the lower end of the spectrum the individual plates must be fairly thick so that we get a total thickness of around \SI{32}{\milli \meter}. Although, if we shift the frequency range of the optimization to \SIrange[range-phrase=-, range-units=single]{0.5}{2.25}{\tera \hertz} then we obtain a second result (result 2) for which the bandwidth is still around $5\approx\frac{\SI{2.25}{\tera \hertz}}{\SI{0.5}{\tera \hertz}}$. With that the total thickness of the AWP can be reduced to \SI{26}{\milli \meter} compared to the \SI{32}{\milli \meter} of result 1. The design parameters of result 2 are given in the lower half of table \ref{tab:res_cl4} and the dotted line in figure \ref{fig:loss_function_cl4} shows the individual terms of $L_{\lambda/4}$ for each frequency bound by the available material data range. 
+
 
 \begin{itemize}
     \item loss function. Frequency dependent loss.
