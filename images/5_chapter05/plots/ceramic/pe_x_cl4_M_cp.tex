@@ -1,0 +1,83 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\pgfplotsset{compat=1.5}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows.meta}
+\usepackage{pgfplotstable}
+
+\begin{document}
+
+\pgfplotstableread[col sep=comma]{plot_data/5_chapter05/ceramic/x_ml4_cp_pe.csv}\mydata
+
+\def\graphArrow#1#2{
+    \pgfmathsetmacro{\xcolind}{int(#1)}
+    \pgfmathsetmacro{\ycolind}{int(#1+1)}
+    
+    \pgfplotstablegetelem{0}{[index]\xcolind}\of\mydata
+    \pgfmathsetmacro{\xs}{\pgfplotsretval}
+    \pgfplotstablegetelem{0}{[index]\ycolind}\of\mydata
+    \pgfmathsetmacro{\ys}{\pgfplotsretval}
+
+    \pgfplotstablegetelem{4}{[index]\xcolind}\of\mydata
+    \pgfmathsetmacro{\xe}{\pgfplotsretval}
+    \pgfplotstablegetelem{4}{[index]\ycolind}\of\mydata
+    \pgfmathsetmacro{\ye}{\pgfplotsretval}
+    
+    \addplot[-{Latex[length=10, width=5]}, #2] coordinates {(\xs,\ys) (\xe,\ye)};
+}
+
+\begin{tikzpicture}
+	\begin{axis}[
+	    %ymode=log,
+	    %xmode=log,
+        ymin=-1.1, ymax=1.1,
+        xmin=-1.1, xmax=1.1,
+        %no markers,
+        every axis plot/.append style={},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=$E_x$ (\si{\volt/\meter}),
+        ylabel=$E_y$ (\si{\volt/\meter}),
+        %anchor=origin,
+        %legend entries={{\SI{0.30}{\tera \hertz}}, {\SI{0.60}{\tera \hertz}}, {\SI{1.20}{\tera \hertz}}, {\SI{1.50}{\tera \hertz}}, {\SI{1.65}{\tera \hertz}}, {\SI{1.75}{\tera \hertz}}, {\SI{1.85}{\tera \hertz}}},
+        legend style={legend columns=1, at={(1,1)}, anchor=north west,
+                      nodes={scale=0.90, transform shape}},
+        ]
+        \addplot[thick, red] coordinates {(-2,-2) (-2,-2)};
+        \addplot[thick, orange] coordinates {(-2,-2) (-2,-2)};
+        \addplot[thick, yellow] coordinates {(-2,-2) (-2,-2)};
+        \addplot[thick, black] coordinates {(-2,-2) (-2,-2)};
+        \addplot[thick, blue] coordinates {(-2,-2) (-2,-2)};
+        \addplot[thick, cyan] coordinates {(-2,-2) (-2,-2)};
+        \addplot[thick, green] coordinates {(-2,-2) (-2,-2)};
+        
+        \addplot [gray, no markers, ] coordinates {(-1,-1) (1,-1)};
+        \addplot [gray, no markers, ] coordinates {(-1,-1) (-1,1)};
+        \addplot [gray, no markers, ] coordinates {(-1,1) (1,1)};
+        \addplot [gray, no markers, ] coordinates {(1,1) (1,-1)};
+        \addplot [gray, no markers, ] coordinates {(-1,0) (1,0)};
+        \addplot [gray, no markers, ] coordinates {(0,-1) (0,1)};
+        
+        \addplot[thick, red] table [x index = 1, y index = 2, col sep=comma]\mydata;
+        \addplot[thick, orange] table [x index = 61, y index = 62, col sep=comma]\mydata;
+        \addplot[thick, yellow] table [x index = 181, y index = 182, col sep=comma]\mydata;
+        \addplot[thick, black] table [x index = 241, y index = 242, col sep=comma]\mydata;
+        \addplot[thick, blue] table [x index = 271, y index = 272, col sep=comma]\mydata;
+        \addplot[thick, cyan] table [x index = 291, y index = 292, col sep=comma]\mydata;
+        \addplot[thick, green,] table [x index = 311, y index = 312, col sep=comma]\mydata;
+        
+        \graphArrow{1}{red}
+        %\graphArrow{61}{orange}
+        %\graphArrow{181}{yellow}
+        %\graphArrow{241}{black}
+        \graphArrow{271}{blue}
+        \graphArrow{291}{cyan}
+        \graphArrow{311}{green}
+        
+	\end{axis}
+    
+\end{tikzpicture}
+\end{document}
