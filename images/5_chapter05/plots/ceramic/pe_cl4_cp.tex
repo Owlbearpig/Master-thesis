@@ -1,0 +1,142 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\pgfplotsset{compat=1.5}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows.meta}
+\usepackage{pgfplotstable}
+
+\begin{document}
+
+\pgfplotsset{
+    table/search path={plot_data/5_chapter05/ceramic/pe},
+}
+
+\pgfplotstableread[col sep=comma]{x_ml4_cp_pe.csv}\mydataMasson
+\pgfplotstableread[col sep=comma]{x_cl4_02_15_n6_cp_pe.csv}\mydataResOne
+
+\def\graphArrow#1#2#3{
+    \pgfmathsetmacro{\xcolind}{int(#1)}
+    \pgfmathsetmacro{\ycolind}{int(#1+1)}
+    
+    \pgfplotstablegetelem{34}{[index]\xcolind}\of#3
+    \pgfmathsetmacro{\xs}{\pgfplotsretval}
+    \pgfplotstablegetelem{34}{[index]\ycolind}\of#3
+    \pgfmathsetmacro{\ys}{\pgfplotsretval}
+
+    \pgfplotstablegetelem{38}{[index]\xcolind}\of#3
+    \pgfmathsetmacro{\xe}{\pgfplotsretval}
+    \pgfplotstablegetelem{38}{[index]\ycolind}\of#3
+    \pgfmathsetmacro{\ye}{\pgfplotsretval}
+    
+    \addplot[-{Latex[length=10, width=5]}, #2] coordinates {(\xs,\ys) (\xe,\ye)};
+}
+
+\begin{tikzpicture}
+	\begin{axis}[
+	    %ymode=log,
+	    %xmode=log,
+        ymin=-1.1, ymax=1.1,
+        xmin=-1.1, xmax=1.1,
+        %no markers,
+        every axis plot/.append style={},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=$E_x$ (\si{\volt/\meter}),
+        ylabel=$E_y$ (\si{\volt/\meter}),
+        %anchor=origin,
+        %legend entries={{\SI{0.30}{\tera \hertz}}, {\SI{0.60}{\tera \hertz}}, {\SI{1.20}{\tera \hertz}}, {\SI{1.50}{\tera \hertz}}, {\SI{1.65}{\tera \hertz}}, {\SI{1.75}{\tera \hertz}}, {\SI{1.85}{\tera \hertz}}},
+        legend style={legend columns=1, at={(1,1)}, anchor=north west,
+                      nodes={scale=0.90, transform shape}},
+        ]
+        \addplot[thick, red] coordinates {(-2,-2) (-2,-2)};
+        \addplot[thick, orange] coordinates {(-2,-2) (-2,-2)};
+        \addplot[thick, yellow] coordinates {(-2,-2) (-2,-2)};
+        \addplot[thick, black] coordinates {(-2,-2) (-2,-2)};
+        \addplot[thick, blue] coordinates {(-2,-2) (-2,-2)};
+        \addplot[thick, cyan] coordinates {(-2,-2) (-2,-2)};
+        \addplot[thick, green] coordinates {(-2,-2) (-2,-2)};
+        
+        \addplot [gray, no markers, ] coordinates {(-1,-1) (1,-1)};
+        \addplot [gray, no markers, ] coordinates {(-1,-1) (-1,1)};
+        \addplot [gray, no markers, ] coordinates {(-1,1) (1,1)};
+        \addplot [gray, no markers, ] coordinates {(1,1) (1,-1)};
+        \addplot [gray, no markers, ] coordinates {(-1,0) (1,0)};
+        \addplot [gray, no markers, ] coordinates {(0,-1) (0,1)};
+        
+        \addplot[thick, red] table [x index = 1, y index = 2, col sep=comma]\mydataMasson;
+        \addplot[thick, orange] table [x index = 61, y index = 62, col sep=comma]\mydataMasson;
+        \addplot[thick, yellow] table [x index = 181, y index = 182, col sep=comma]\mydataMasson;
+        \addplot[thick, black] table [x index = 241, y index = 242, col sep=comma]\mydataMasson;
+        \addplot[thick, blue] table [x index = 271, y index = 272, col sep=comma]\mydataMasson;
+        \addplot[thick, cyan] table [x index = 291, y index = 292, col sep=comma]\mydataMasson;
+        \addplot[thick, green,] table [x index = 311, y index = 312, col sep=comma]\mydataMasson;
+        
+        \graphArrow{1}{red}{\mydataMasson}
+        %\graphArrow{61}{orange}{\mydataMasson}
+        %\graphArrow{181}{yellow}{\mydataMasson}
+        %\graphArrow{241}{black}{\mydataMasson}
+        \graphArrow{271}{blue}{\mydataMasson}
+        \graphArrow{291}{cyan}{\mydataMasson}
+        \graphArrow{311}{green}{\mydataMasson}
+        
+	\end{axis}
+    
+\end{tikzpicture}
+
+\begin{tikzpicture}
+	\begin{axis}[
+	    %ymode=log,
+	    %xmode=log,
+        ymin=-1.1, ymax=1.1,
+        xmin=-1.1, xmax=1.1,
+        %no markers,
+        every axis plot/.append style={},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=$E_x$ (\si{\volt/\meter}),
+        ylabel=$E_y$ (\si{\volt/\meter}),
+        %anchor=origin,
+        legend entries={{\SI{0.30}{\tera \hertz}}, {\SI{0.60}{\tera \hertz}}, {\SI{1.20}{\tera \hertz}}, {\SI{1.50}{\tera \hertz}}, {\SI{1.65}{\tera \hertz}}, {\SI{1.75}{\tera \hertz}}, {\SI{1.85}{\tera \hertz}}},
+        legend style={legend columns=1, at={(1,1)}, anchor=north west,
+                      nodes={scale=0.90, transform shape}},
+        ]
+        \addplot[thick, red] coordinates {(-2,-2) (-2,-2)};
+        \addplot[thick, orange] coordinates {(-2,-2) (-2,-2)};
+        \addplot[thick, yellow] coordinates {(-2,-2) (-2,-2)};
+        \addplot[thick, black] coordinates {(-2,-2) (-2,-2)};
+        \addplot[thick, blue] coordinates {(-2,-2) (-2,-2)};
+        \addplot[thick, cyan] coordinates {(-2,-2) (-2,-2)};
+        \addplot[thick, green] coordinates {(-2,-2) (-2,-2)};
+        
+        \addplot [gray, no markers, ] coordinates {(-1,-1) (1,-1)};
+        \addplot [gray, no markers, ] coordinates {(-1,-1) (-1,1)};
+        \addplot [gray, no markers, ] coordinates {(-1,1) (1,1)};
+        \addplot [gray, no markers, ] coordinates {(1,1) (1,-1)};
+        \addplot [gray, no markers, ] coordinates {(-1,0) (1,0)};
+        \addplot [gray, no markers, ] coordinates {(0,-1) (0,1)};
+        
+        \addplot[thick, red] table [x index = 1, y index = 2, col sep=comma]\mydataResOne;
+        \addplot[thick, orange] table [x index = 61, y index = 62, col sep=comma]\mydataResOne;
+        \addplot[thick, yellow] table [x index = 181, y index = 182, col sep=comma]\mydataResOne;
+        \addplot[thick, black] table [x index = 241, y index = 242, col sep=comma]\mydataResOne;
+        \addplot[thick, blue] table [x index = 271, y index = 272, col sep=comma]\mydataResOne;
+        \addplot[thick, cyan] table [x index = 291, y index = 292, col sep=comma]\mydataResOne;
+        \addplot[thick, green] table [x index = 311, y index = 312, col sep=comma]\mydataResOne;
+        
+        \graphArrow{1}{red}{\mydataResOne}
+        \graphArrow{61}{orange}{\mydataResOne}
+        \graphArrow{181}{yellow}{\mydataResOne}
+        \graphArrow{241}{black}{\mydataResOne}
+        \graphArrow{271}{blue}{\mydataResOne}
+        \graphArrow{291}{cyan}{\mydataResOne}
+        \graphArrow{311}{green}{\mydataResOne}
+
+	\end{axis}
+    
+\end{tikzpicture}
+
+
+\end{document}

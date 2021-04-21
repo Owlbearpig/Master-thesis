@@ -7,8 +7,12 @@
 \pgfplotsset{compat=1.5}
 
 \begin{document}
-\begin{tikzpicture}
 
+\pgfplotsset{
+    table/search path={plot_data/5_chapter05/ceramic/mes_jan},
+}
+
+\begin{tikzpicture}
 	\begin{axis}[
         %ymin=3.02, ymax=3.17,
         %xmin=0.25, xmax=3.0,
@@ -29,72 +33,72 @@
     	x expr=\thisrowno{0}*10^-12,
     	y expr=\thisrowno{3},
     	col sep=comma] 
-    	{plot_data/5_chapter05/ceramic/Sample1_000deg_1825ps_0m-2Grad_D=3000.csv};
+    	{Sample1_000deg_1825ps_0m-2Grad_D=3000.csv};
 
     	\addplot[dotted, blue] table [
     	x expr=\thisrowno{0}*10^-12,
     	y expr=\thisrowno{3},
     	col sep=comma] 
-    	{plot_data/5_chapter05/ceramic/Sample1_090deg_1825ps_0m88Grad_D=3000.csv};
+    	{Sample1_090deg_1825ps_0m88Grad_D=3000.csv};
     	
     	\addplot[red] table [
     	x expr=\thisrowno{0}*10^-12,
     	y expr=\thisrowno{3},
     	col sep=comma] 
-    	{plot_data/5_chapter05/ceramic/Sample2_000deg_1825ps_0m_263.5grad_D=2990.csv};
+    	{Sample2_000deg_1825ps_0m_263.5grad_D=2990.csv};
     	
     	\addplot[blue] table [
     	x expr=\thisrowno{0}*10^-12,
     	y expr=\thisrowno{3},
     	col sep=comma] 
-    	{plot_data/5_chapter05/ceramic/Sample2_090deg_1825ps_173.5grad_0m_D=2990.csv};
+    	{Sample2_090deg_1825ps_173.5grad_0m_D=2990.csv};
     	
 	    \addplot [name path=upper, draw=none] table [
 	    x expr=\thisrowno{0}*10^-12,
 	    y expr=\thisrowno{3}+\thisrowno{13},
 	    col sep=comma] 
-	    {plot_data/5_chapter05/ceramic/Sample1_000deg_1825ps_0m-2Grad_D=3000.csv};
+	    {Sample1_000deg_1825ps_0m-2Grad_D=3000.csv};
         \addplot [name path=lower, draw=none] table[
         x expr=\thisrowno{0}*10^-12,
         y expr=\thisrowno{3}-\thisrowno{13},
         col sep=comma]
-        {plot_data/5_chapter05/ceramic/Sample1_000deg_1825ps_0m-2Grad_D=3000.csv};
+        {Sample1_000deg_1825ps_0m-2Grad_D=3000.csv};
         \addplot [fill=red!30] fill between[of=upper and lower];
     	
         \addplot [name path=upper, draw=none] table [
 	    x expr=\thisrowno{0}*10^-12,
 	    y expr=\thisrowno{3}+\thisrowno{13},
 	    col sep=comma] 
-	    {plot_data/5_chapter05/ceramic/Sample1_090deg_1825ps_0m88Grad_D=3000.csv};
+	    {Sample1_090deg_1825ps_0m88Grad_D=3000.csv};
         \addplot [name path=lower, draw=none] table[
         x expr=\thisrowno{0}*10^-12,
         y expr=\thisrowno{3}-\thisrowno{13},
         col sep=comma]
-        {plot_data/5_chapter05/ceramic/Sample1_090deg_1825ps_0m88Grad_D=3000.csv};
+        {Sample1_090deg_1825ps_0m88Grad_D=3000.csv};
         \addplot [fill=blue!30] fill between[of=upper and lower];
     	
     	\addplot [name path=upper, draw=none] table [
 	    x expr=\thisrowno{0}*10^-12,
 	    y expr=\thisrowno{3}+\thisrowno{13},
 	    col sep=comma] 
-	    {plot_data/5_chapter05/ceramic/Sample2_000deg_1825ps_0m_263.5grad_D=2990.csv};
+	    {Sample2_000deg_1825ps_0m_263.5grad_D=2990.csv};
         \addplot [name path=lower, draw=none] table[
         x expr=\thisrowno{0}*10^-12,
         y expr=\thisrowno{3}-\thisrowno{13},
         col sep=comma]
-        {plot_data/5_chapter05/ceramic/Sample2_000deg_1825ps_0m_263.5grad_D=2990.csv};
+        {Sample2_000deg_1825ps_0m_263.5grad_D=2990.csv};
         \addplot [fill=red!30] fill between[of=upper and lower];
 
 	    \addplot [name path=upper, draw=none] table [
 	    x expr=\thisrowno{0}*10^-12,
 	    y expr=\thisrowno{3}+\thisrowno{13},
 	    col sep=comma] 
-	    {plot_data/5_chapter05/ceramic/Sample2_090deg_1825ps_173.5grad_0m_D=2990.csv};
+	    {Sample2_090deg_1825ps_173.5grad_0m_D=2990.csv};
         \addplot [name path=lower, draw=none] table[
         x expr=\thisrowno{0}*10^-12,
         y expr=\thisrowno{3}-\thisrowno{13},
         col sep=comma]
-        {plot_data/5_chapter05/ceramic/Sample2_090deg_1825ps_173.5grad_0m_D=2990.csv};
+        {Sample2_090deg_1825ps_173.5grad_0m_D=2990.csv};
         \addplot [fill=blue!30] fill between[of=upper and lower];
 	    
 	\end{axis}

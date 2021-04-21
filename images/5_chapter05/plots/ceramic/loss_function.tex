@@ -7,12 +7,16 @@
 \pgfplotsset{compat=1.5}
 
 \begin{document}
-\begin{tikzpicture}
 
+\pgfplotsset{
+    table/search path={plot_data/5_chapter05/ceramic/loss},
+}
+
+\begin{tikzpicture}
 	\begin{axis}[
 	    ymode=log,
         %ymin=-0.005, ymax=0.07,
-        xmin=0.1, xmax=1.8,
+        xmin=0.1, xmax=2.5,
         no markers,
         every axis plot/.append style={very thick},
         axis line style = very thick,
@@ -21,7 +25,7 @@
         ylabel=$L_{\lambda/4}$,
         %anchor=origin,
         legend entries={{Result 2}, {Result 1}, {Masson}},
-        legend style={legend columns=1, at={(0.13,0.95)}, anchor=north west,
+        legend style={legend columns=1, at={(0.25,0.95)}, anchor=north west,
                       nodes={scale=0.90, transform shape}},
         reverse legend,
         ]
@@ -30,21 +34,61 @@
     	x expr=\thisrowno{1}*10^-12,
     	y expr=\thisrowno{2},
     	col sep=comma] 
-    	{plot_data/5_chapter05/ceramic/x_cl4_05_22_n6.csv};
+    	{x_cl4_05_22_n6.csv};
 	    
         \addplot[red] table [
     	x expr=\thisrowno{1}*10^-12,
     	y expr=\thisrowno{2},
     	col sep=comma] 
-    	{plot_data/5_chapter05/ceramic/x_cl4_02_15_n6.csv};
+    	{x_cl4_02_15_n6_2.csv};
 
         \addplot[blue] table [
     	x expr=\thisrowno{1}*10^-12,
     	y expr=\thisrowno{2},
     	col sep=comma] 
-    	{plot_data/5_chapter05/ceramic/x_ml4_2.csv};
+    	{x_ml4_2.csv};
 
 	\end{axis}
 
 \end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis}[
+	    ymode=log,
+        %ymin=-0.005, ymax=0.07,
+        xmin=0.1, xmax=2.5,
+        no markers,
+        every axis plot/.append style={very thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\tera \hertz}),
+        ylabel=$L_{\lambda/4}$,
+        %anchor=origin,
+        legend entries={{LMasson}},
+        legend style={legend columns=1, at={(0.25,0.95)}, anchor=north west,
+                      nodes={scale=0.90, transform shape}},
+        reverse legend,
+        ]
+	    
+	    \addplot[blue] table [
+    	x expr=\thisrowno{1}*10^-12,
+    	y expr=\thisrowno{2},
+    	col sep=comma] 
+    	{MassLoss.csv};
+	    
+        %\addplot[red] table [
+    	%x expr=\thisrowno{1}*10^-12,
+    	%y expr=\thisrowno{2},
+    	%col sep=comma] 
+    	%{x_cl4_02_15_n6_2.csv};
+
+        \addplot[red] table [
+    	x expr=\thisrowno{1}*10^-12,
+    	y expr=\thisrowno{2},
+    	col sep=comma] 
+    	{x_ml4_2.csv};
+
+	\end{axis}
+
+\end{tikzpicture}
+
 \end{document}

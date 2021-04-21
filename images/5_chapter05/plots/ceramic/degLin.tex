@@ -7,6 +7,18 @@
 \pgfplotsset{compat=1.5}
 
 \begin{document}
+% Style to select only points from #1 to #2 (inclusive)
+\pgfplotsset{select coords between index/.style 2 args={
+    x filter/.code={
+        \ifnum\coordindex<#1\def\pgfmathresult{}\fi
+        \ifnum\coordindex>#2\def\pgfmathresult{}\fi
+    }
+}}
+
+\pgfplotsset{
+    table/search path={plot_data/5_chapter05/ceramic/pol_deg},
+}
+
 \begin{tikzpicture}
 
 	\begin{axis}[
@@ -30,13 +42,13 @@
     	x expr=\thisrowno{1}*10^-12,
     	y expr=\thisrowno{2},
     	col sep=comma] 
-    	{plot_data/5_chapter05/ceramic/x_cl4_02_15_n6_lp_degLin.csv};
+    	{x_cl4_02_15_n6_lp_degLin.csv};
 	    
         \addplot[red] table [
     	x expr=\thisrowno{1}*10^-12,
     	y expr=\thisrowno{2},
     	col sep=comma] 
-    	{plot_data/5_chapter05/ceramic/x_ml4_lp_degLin.csv};
+    	{x_ml4_lp_degLin.csv};
 
 	\end{axis}
 
@@ -46,7 +58,7 @@
 	\begin{axis}[
 	    %ymode=log,
         %ymin=-100.01, ymax=-99.81,
-        %xmin=0.2, xmax=2.5,
+        %xmin=0.2, xmax=1.5,
         no markers,
         every axis plot/.append style={very thick},
         axis line style = very thick,
@@ -61,17 +73,17 @@
         reverse legend,
         ]
 	    
-	    \addplot[blue] table [
+	    \addplot[blue] table [select coords between index={1}{258},
     	x expr=\thisrowno{1}*10^-12,
     	y expr=\thisrowno{2},
     	col sep=comma] 
-    	{plot_data/5_chapter05/ceramic/x_cl4_02_15_n6_lp_degLin_zoom.csv};
+    	{x_cl4_02_15_n6_lp_degLin.csv};
 	    
-        \addplot[red] table [
+        \addplot[red] table [select coords between index={1}{258},
     	x expr=\thisrowno{1}*10^-12,
     	y expr=\thisrowno{2},
     	col sep=comma] 
-    	{plot_data/5_chapter05/ceramic/x_ml4_lp_degLin_zoom.csv};
+    	{x_ml4_lp_degLin.csv};
 
 	\end{axis}
 

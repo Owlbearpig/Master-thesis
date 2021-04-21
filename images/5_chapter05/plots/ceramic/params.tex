@@ -10,8 +10,12 @@
 
 \begin{document}
 
-\pgfplotstableread[col sep=comma]{plot_data/5_chapter05/ceramic/x_ml4_lp_params.csv}\mdat
-\pgfplotstableread[col sep=comma]{plot_data/5_chapter05/ceramic/x_cl4_02_15_n6_lp_params.csv}\cdat
+\pgfplotsset{
+    table/search path={plot_data/5_chapter05/ceramic/params},
+}
+
+\pgfplotstableread[col sep=comma]{x_ml4_lp_params.csv}\mdat
+\pgfplotstableread[col sep=comma]{x_cl4_02_15_n6_lp_params.csv}\cdat
 
 \begin{tikzpicture}
 
