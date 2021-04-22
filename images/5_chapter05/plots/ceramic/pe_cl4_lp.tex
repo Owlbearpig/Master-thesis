@@ -13,8 +13,8 @@
     table/search path={plot_data/5_chapter05/ceramic/pe},
 }
 
-\pgfplotstableread[col sep=comma]{x_ml4_pe.csv}\mydataMasson
-\pgfplotstableread[col sep=comma]{x_cl4_02_15_n6_pe.csv}\mydataResOne
+\pgfplotstableread[col sep=comma]{x_ml4_pe.csv}\mydataMassonLP
+\pgfplotstableread[col sep=comma]{x_cl4_02_15_n6_pe.csv}\mydataResOneLP
 
 \def\graphArrow#1#2#3{
     \pgfmathsetmacro{\xcolind}{int(#1)}
@@ -66,21 +66,21 @@
         \addplot [gray, no markers, ] coordinates {(-1,0) (1,0)};
         \addplot [gray, no markers, ] coordinates {(0,-1) (0,1)};
         
-        \addplot[thick, red] table [x index = 1, y index = 2, col sep=comma]\mydataMasson;
-        \addplot[thick, orange] table [x index = 61, y index = 62, col sep=comma]\mydataMasson;
-        \addplot[thick, yellow] table [x index = 181, y index = 182, col sep=comma]\mydataMasson;
-        \addplot[thick, black] table [x index = 241, y index = 242, col sep=comma]\mydataMasson;
-        \addplot[thick, blue] table [x index = 271, y index = 272, col sep=comma]\mydataMasson;
-        \addplot[thick, cyan] table [x index = 291, y index = 292, col sep=comma]\mydataMasson;
-        \addplot[thick, green,] table [x index = 311, y index = 312, col sep=comma]\mydataMasson;
+        \addplot[thick, red] table [x index = 1, y index = 2, col sep=comma]\mydataMassonLP;
+        \addplot[thick, orange] table [x index = 61, y index = 62, col sep=comma]\mydataMassonLP;
+        \addplot[thick, yellow] table [x index = 181, y index = 182, col sep=comma]\mydataMassonLP;
+        \addplot[thick, black] table [x index = 241, y index = 242, col sep=comma]\mydataMassonLP;
+        \addplot[thick, blue] table [x index = 271, y index = 272, col sep=comma]\mydataMassonLP;
+        \addplot[thick, cyan] table [x index = 291, y index = 292, col sep=comma]\mydataMassonLP;
+        \addplot[thick, green,] table [x index = 311, y index = 312, col sep=comma]\mydataMassonLP;
         
-        \graphArrow{1}{red}{\mydataMasson}
-        \graphArrow{61}{orange}{\mydataMasson}
-        \graphArrow{181}{yellow}{\mydataMasson}
-        \graphArrow{241}{black}{\mydataMasson}
-        \graphArrow{271}{blue}{\mydataMasson}
-        \graphArrow{291}{cyan}{\mydataMasson}
-        \graphArrow{311}{green}{\mydataMasson}
+        \graphArrow{1}{red}{\mydataMassonLP}
+        \graphArrow{61}{orange}{\mydataMassonLP}
+        \graphArrow{181}{yellow}{\mydataMassonLP}
+        \graphArrow{241}{black}{\mydataMassonLP}
+        \graphArrow{271}{blue}{\mydataMassonLP}
+        \graphArrow{291}{cyan}{\mydataMassonLP}
+        \graphArrow{311}{green}{\mydataMassonLP}
         %\addplot[-{Latex[length=10, width=5]}, green] coordinates {(0.256,0.0) (0.10,0.15)};
         %\addplot[-{Latex[length=10, width=5]}, cyan] coordinates {(0.825,0.0) (0.73,0.15)};
         %\addplot[-{Latex[length=10, width=5]}, red] coordinates {(0.96,0) (0.96,0.1)};
@@ -124,21 +124,21 @@
         \addplot [gray, no markers, ] coordinates {(-1,0) (1,0)};
         \addplot [gray, no markers, ] coordinates {(0,-1) (0,1)};
         
-        \addplot[thick, red] table [x index = 1, y index = 2, col sep=comma]\mydataResOne;
-        \addplot[thick, orange] table [x index = 61, y index = 62, col sep=comma]\mydataResOne;
-        \addplot[thick, yellow] table [x index = 181, y index = 182, col sep=comma]\mydataResOne;
-        \addplot[thick, black] table [x index = 241, y index = 242, col sep=comma]\mydataResOne;
-        \addplot[thick, blue] table [x index = 271, y index = 272, col sep=comma]\mydataResOne;
-        \addplot[thick, cyan] table [x index = 291, y index = 292, col sep=comma]\mydataResOne;
-        \addplot[thick, green] table [x index = 311, y index = 312, col sep=comma]\mydataResOne;
+        \addplot[thick, red] table [x index = 1, y index = 2, col sep=comma]\mydataResOneLP;
+        \addplot[thick, orange] table [x index = 61, y index = 62, col sep=comma]\mydataResOneLP;
+        \addplot[thick, yellow] table [x index = 181, y index = 182, col sep=comma]\mydataResOneLP;
+        \addplot[thick, black] table [x index = 241, y index = 242, col sep=comma]\mydataResOneLP;
+        \addplot[thick, blue] table [x index = 271, y index = 272, col sep=comma]\mydataResOneLP;
+        \addplot[thick, cyan] table [x index = 291, y index = 292, col sep=comma]\mydataResOneLP;
+        \addplot[thick, green] table [x index = 311, y index = 312, col sep=comma]\mydataResOneLP;
         
-        \graphArrow{1}{red}{\mydataResOne}
-        \graphArrow{61}{orange}{\mydataResOne}
-        \graphArrow{181}{yellow}{\mydataResOne}
-        \graphArrow{241}{black}{\mydataResOne}
-        \graphArrow{271}{blue}{\mydataResOne}
-        \graphArrow{291}{cyan}{\mydataResOne}
-        \graphArrow{311}{green}{\mydataResOne}
+        \graphArrow{1}{red}{\mydataResOneLP}
+        \graphArrow{61}{orange}{\mydataResOneLP}
+        \graphArrow{181}{yellow}{\mydataResOneLP}
+        \graphArrow{241}{black}{\mydataResOneLP}
+        \graphArrow{271}{blue}{\mydataResOneLP}
+        \graphArrow{291}{cyan}{\mydataResOneLP}
+        \graphArrow{311}{green}{\mydataResOneLP}
         
         %\addplot[-{Latex[length=10, width=5]}, red] coordinates {(0.64,0.735) (0.60,0.77)};
         %\addplot[-{Latex[length=10, width=5]}, orange] coordinates {(0.85,0.53) (0.8,0.6)};
