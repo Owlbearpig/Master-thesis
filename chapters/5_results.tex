@@ -49,23 +49,35 @@ To answer the question whether result 1 actually represents a zero order wavepla
     \label{fig:cl4_convergence}
 \end{figure}
 
-To address the question whether result 1 is the global minimum figure  \ref{fig:cl4_convergence} shows the minimum value of $\sum_{\nu}L_{\lambda/4}(\nu)$ as a function of the current iteration step. We see that the algorithm converges fairly fast and there are only major changes in the first 25 iterations. This indicates that it is unlikely that the found result
+
+Furthermore, if we consider two results where the total thickness of the latter is larger, then the magnitude or intensity of the corresponding output state will in general be lower compared to the output of the first result. However, $L_{\lambda/4}(\nu)$ is insensitive to isotropic changes in the absorption. So if the ellipticity and orientation of the polarization ellipses corresponding to the two results are equal for all frequencies then $L_{\lambda/4}$ will attain the same value in both cases. In other words, $L_{\lambda/4}(\nu)$ is the same for two states $\bm{\mathcal{E}}$ and $p\bm{\mathcal{E}}$, $0<p<1$ for any frequency. The intensity coefficients $p_1^2$ and $p_2^2$ for the equivalent elliptic diattenuator Jones matrix describing the result with a larger total thickness will both be scaled by $p^2$. Since in the definition of $L_{\lambda/4}$ the elements of the Jones matrix enter as a ratio, the factor $p^2$ then subsequently cancels out and both results will attain the same value of $L_{\lambda/4}$. This in turn means that there is no penalty for increasing the thicknesses other than increasing the effect of dichroism. 
+
+To address the question whether result 1 is the global minimum or if there is a better suited one we plotted the minimum value of $\sum_{\nu}L_{\lambda/4}(\nu)$ as function of the current iteration step in figure  \ref{fig:cl4_convergence}. We see that the algorithm converges fairly fast and there are only major changes in the first 25 iterations. This indicates that finding a solution with $n=6$ which performs significantly better in the range of \SIrange{0.25}{1.50}{\tera \hertz} is unlikely using the current algorithm and loss function.
 
 \begin{figure}[ht]
     \centering
     \includestandalone[scale=0.75]{images/5_chapter05/plots/ceramic/pe_cl4_lp}
-    \caption{}
+    \caption{Polarization ellipse representation of the output states for a linear horizontal input at seven different frequencies. Left sub figure shows the output of the TAQ while the right side is for the ceramic AWP with the parameters from result 1.}
     \label{fig:cl4_pe_lp}
 \end{figure}
+
+Figure \ref{fig:cl4_pe_lp} shows the polarization ellipses of the normalized states at seven different frequencies given an initial linear horizontal input. The ellipses for the output of the TAQ is shown in the left sub figure while the right is for result 1. The arrows indicate the handedness of the polarization. We see that as expected we get LCP states in the frequency range in which the optimization took place. Outside of that range the states are significantly more elliptical. We also see a slightly better result for the intermediate frequencies compared to the lowest at \SI{0.3}{\tera \hertz}. 
 
 \begin{figure}[ht]
     \centering
     \includestandalone[scale=0.75]{images/5_chapter05/plots/ceramic/pe_cl4_cp}
-    \caption{}
+    \caption{Polarization ellipse representation of the output states for a LCP input at seven different frequencies. Left sub figure shows the output of the TAQ while the right side is for the ceramic AWP with the parameters from result 1.}
     \label{fig:cl4_pe_cp}
 \end{figure}
 
-Figures \ref{fig:cl4_pe_lp} and \ref{fig:cl4_pe_cp} 
+Figure \ref{fig:cl4_pe_cp} is similar to figure \ref{fig:cl4_pe_lp} except that the input in this case is LCP. We know from the previous sections that a quarter waveplate should produce a linear polarized output for a circular polarized input. We see that this is the case for the TAQ up to at least \SI{1.75}{\tera \hertz}.
+
+\begin{figure}[ht]
+    \centering
+    \includestandalone[scale=1]{images/5_chapter05/plots/ceramic/intensity}
+    \caption{}
+    \label{fig:intensity}
+\end{figure}
 
 \begin{figure}[ht]
     \centering
@@ -88,6 +100,7 @@ Figures \ref{fig:cl4_pe_lp} and \ref{fig:cl4_pe_cp}
     \label{fig:cl4_params}
 \end{figure}
 
+% TODO add no, ne, bf plot of sapphire(?)
 % TODO fix ylabel
 % TODO what about roundness of output state? (alpha=arctan(a/b))
 %\begin{itemize}
@@ -105,7 +118,6 @@ Figures \ref{fig:cl4_pe_lp} and \ref{fig:cl4_pe_cp}
 %    \item poincare sphere (take python ss, cba to do it in latex tbh lol)
 %\end{itemize}
 
-\subsection{Simulation}
 \subsection{CST}
 \subsection{Fabrication error}
 

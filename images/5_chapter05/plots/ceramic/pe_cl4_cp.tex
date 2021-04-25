@@ -14,8 +14,8 @@
     table/search path={plot_data/5_chapter05/ceramic/pe},
 }
 
-\pgfplotstableread[col sep=comma]{x_ml4_cp_pe.csv}\mydataMasson
-\pgfplotstableread[col sep=comma]{x_cl4_02_15_n6_cp_pe.csv}\mydataResOne
+\pgfplotstableread[col sep=comma]{masson_cp_pe.csv}\mydataMasson
+\pgfplotstableread[col sep=comma]{res1_cp_pe.csv}\mydataResOne
 
 \def\graphArrow#1#2#3{
     \pgfmathsetmacro{\xcolind}{int(#1)}
