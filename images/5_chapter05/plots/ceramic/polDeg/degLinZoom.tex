@@ -19,75 +19,41 @@
     table/search path={plot_data/5_chapter05/ceramic/pol_deg},
 }
 
-\begin{tikzpicture}
+\begin{tikzpicture}[]
 
-	\begin{axis}[
-	    %ymode=log,
-        ymin=-1.1, ymax=1.1,
-        xmin=0.2, xmax=2.5,
-        no markers,
-        every axis plot/.append style={very thick},
-        axis line style = very thick,
-        every tick/.style={black, very thick},
-        xlabel=Frequency (\si{\tera \hertz}),
-        ylabel=$L_{\lambda/4}$,
-        %anchor=origin,
-        legend entries={{Result 2}, {Result 1}, {Masson}},
-        legend style={legend columns=1, at={(0.13,0.75)}, anchor=north west,
-                      nodes={scale=0.90, transform shape}},
-        reverse legend,
-        ]
-	    
-	    \addplot[blue] table [
-    	x expr=\thisrowno{1}*10^-12,
-    	y expr=\thisrowno{2},
-    	col sep=comma] 
-    	{x_cl4_02_15_n6_lp_degCirc.csv};
-	    
-        \addplot[red] table [
-    	x expr=\thisrowno{1}*10^-12,
-    	y expr=\thisrowno{2},
-    	col sep=comma] 
-    	{x_ml4_lp_degCirc.csv};
-
-	\end{axis}
-	
-
-\end{tikzpicture}
-\begin{tikzpicture}
 	\begin{axis}[
 	    %ymode=log,
         %ymin=-100.01, ymax=-99.81,
         %xmin=0.2, xmax=1.5,
+        %height=11cm,
         no markers,
         every axis plot/.append style={very thick},
         axis line style = very thick,
         every tick/.style={black, very thick},
-        %yticklabels={1, -1, -0.9995, -0.9990, -0.9985},
+        yticklabels={0, 0, 0.05, 0.10, 0.15, 0.20},
+        yticklabel style={text width=width("$0.05$")},
         xlabel=Frequency (\si{\tera \hertz}),
-        ylabel=$L_{\lambda/4}$,
+        ylabel=$V_l$,
         %anchor=origin,
         legend entries={{Result 2}, {Result 1}, {Masson}},
         legend style={legend columns=1, at={(0.25,0.75)}, anchor=north west,
                       nodes={scale=0.90, transform shape}},
         reverse legend,
-        %/pgf/number format/fixed,
-        /pgf/number format/precision=4
         ]
 	    
 	    \addplot[blue] table [select coords between index={1}{258},
     	x expr=\thisrowno{1}*10^-12,
     	y expr=\thisrowno{2},
     	col sep=comma] 
-    	{x_cl4_02_15_n6_lp_degCirc.csv};
+    	{x_cl4_02_15_n6_lp_degLin.csv};
 	    
         \addplot[red] table [select coords between index={1}{258},
     	x expr=\thisrowno{1}*10^-12,
     	y expr=\thisrowno{2},
     	col sep=comma] 
-    	{x_ml4_lp_degCirc.csv};
+    	{x_ml4_lp_degLin.csv};
 
 	\end{axis}
+%\draw (current bounding box.south east) rectangle (current bounding box.north west);
 \end{tikzpicture}
-
 \end{document}

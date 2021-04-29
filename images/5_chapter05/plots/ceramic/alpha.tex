@@ -1,0 +1,49 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\pgfplotsset{compat=1.5}
+
+\begin{document}
+
+\pgfplotsset{
+    table/search path={plot_data/5_chapter05/ceramic/params},
+}
+
+\begin{tikzpicture}
+	\begin{axis}[
+	    %ymode=log,
+        ymin=43.5, ymax=46.9,
+        xmin=0.1, xmax=1.7,
+        no markers,
+        every axis plot/.append style={very thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\tera \hertz}),
+        ylabel=${\alpha}_M$ (deg),
+        %anchor=origin,
+        legend entries={{TAQ}, {Result 1}},
+        legend style={legend columns=1, at={(0.4,0.90)}, anchor=north west,
+                      nodes={scale=0.90, transform shape}},
+        %reverse legend,
+        ]
+	    
+        \addplot[red] table [
+    	x expr=\thisrowno{1}*10^-12,
+    	y expr=\thisrowno{2},
+    	col sep=comma] 
+    	{x_ml4_lp_params.csv};
+    	
+    	\addplot[blue] table [
+    	x expr=\thisrowno{1}*10^-12,
+    	y expr=\thisrowno{2},
+    	col sep=comma] 
+    	{x_cl4_02_15_n6_lp_params.csv};
+        
+        \addplot[black, dotted] coordinates {(0,45) (2,45)};
+        
+	\end{axis}
+
+\end{tikzpicture}
+\end{document}

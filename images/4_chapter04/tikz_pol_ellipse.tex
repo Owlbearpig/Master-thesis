@@ -199,8 +199,8 @@
 
     %draw the ellipse and arrows showing the sense of rotation
     \draw[object_line,rotate=\orang,->] (0,0) ellipse (\a in and \b in);
-    \draw[object_line,->, >=stealth] (arrow1back) -- (arrow1front);
-    \draw[object_line,->, >=stealth] (arrow2back) -- (arrow2front);
+    \draw[object_line,<-, >=stealth] (arrow1back) -- (arrow1front);
+    \draw[object_line,<-, >=stealth] (arrow2back) -- (arrow2front);
 
     %label major-minor axes
     \FPifgt{\b}{.1}    %threshold for displaying major-minor axis labels
@@ -208,7 +208,7 @@
         \draw (b) node[textlabel]{$b$}; %=\b);  %uncomment and merge if you want to display the minor axis size.  Maybe do a \FPround{\b}{\b}{1} beforehand!
     \else \fi
     
-    \draw[object_line,<->, >=stealth] (arrow2back) -- (arrow2front);
+    %\draw[object_line,<->, >=stealth] (arrow2back) -- (arrow2front);
     %\node at (-\Eoxnorm in,-\Eoynorm in) (nA) {A};
     %\node at (\Eoxnorm in,-\Eoynorm in) (nB) {B};
     %\Dimline[($(nA)+(0,1)$)][($(nB)+(0,1)$)]['test'];

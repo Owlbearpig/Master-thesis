@@ -61,19 +61,13 @@
         axis line style = very thick,
         every tick/.style={black, very thick},
         xlabel=Frequency (\si{\tera \hertz}),
-        ylabel=$L_{\lambda/4}$,
+        ylabel=$L(\nu)$,
         %anchor=origin,
-        legend entries={{LMasson}},
+        legend entries={{$L_{\lambda/4}$}, {$L_M$}},
         legend style={legend columns=1, at={(0.25,0.95)}, anchor=north west,
                       nodes={scale=0.90, transform shape}},
         reverse legend,
         ]
-	    
-	    \addplot[blue] table [
-    	x expr=\thisrowno{1}*10^-12,
-    	y expr=\thisrowno{2},
-    	col sep=comma] 
-    	{MassLoss.csv};
 	    
         %\addplot[red] table [
     	%x expr=\thisrowno{1}*10^-12,
@@ -81,11 +75,17 @@
     	%col sep=comma] 
     	%{x_cl4_02_15_n6_2.csv};
 
-        \addplot[red] table [
+        \addplot[blue] table [
     	x expr=\thisrowno{1}*10^-12,
     	y expr=\thisrowno{2},
     	col sep=comma] 
     	{x_ml4_2.csv};
+    	
+        \addplot[red] table [
+    	x expr=\thisrowno{1}*10^-12,
+    	y expr=\thisrowno{2},
+    	col sep=comma] 
+    	{MassLoss.csv};
 
 	\end{axis}
 

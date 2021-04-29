@@ -96,7 +96,7 @@ Since we can not determine if the global minimum has actually been found for sto
 where $T$ is known as the temperature and is a user defined parameter which should be set similar to the average function value difference between local minima \cite{ScipyBH}. The \texttt{LOCALSEARCH} step is in our case perfomed by the L-BFGS-B local optimization routine which is a quasi-Newton algorithm and allows the specification of bounds \cite{Byrd1995}. \texttt{PERTURB} is responsible for taking a step in variable space with a stepsize $\tau$ which is another user defined parameter. $\tau$ is an important parameter in Basin-hopping and depends on the optimization problem. The step is chosen uniformly in the region from $x-\tau$ to $x+\tau$, in each dimension. The Python implementation of the algorithm as we use it automatically adjusts the stepsize. Nevertheless, to achieve faster convergence the initial value should be similar to the average separation between local minima in variable space \cite{ScipyBH}. 
 
 % TODO rewrite caption below (done)
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[scale=0.3]{images/7_appendix/bh.png}
     \caption{The Basin-hopping algorithm can be visualized as a transformation of the loss function (black line) into single steps(dotted line). 
@@ -105,6 +105,10 @@ where $T$ is known as the temperature and is a user defined parameter which shou
 \end{figure}
 
 \section{Quartz Sellmeier fit}
-\ref{sec:sellmeier}
+\label{sec:sellmeier}
+Crystalline Quartz values and stuff
+
+\section{Alternative quarter wave loss function}
+\label{sec:int_loss_function}
 
 
