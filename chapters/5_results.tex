@@ -22,7 +22,17 @@ It was further shown that the direction of the slow axis was parallel to the pri
     \label{fig:ri_abs}
 \end{figure}
 
-Stacking a number of these ceramic discs or plates like the one shown in figure \ref{fig:ornik1abc} we can in theory construct an AWP similar to the TAQ by Masson. This ceramic AWP can then serve as a comparison to the TAQ and therefore also partly as a verification of the loss function at least for the $\lambda/4$ AWP type. In this case the loss functions $L_{\lambda/4}$ and $L_{\lambda/2}$ only depend on the set of angles and thicknesses. In other words the birefringence does not change at each iteration and is the same for each individual plate. We can obtain the birefringence of quartz using the reported values in \cite{DGrischkowsky1990}. Subsequently, the Sellemeier equation allows us to interpolate the values in the available data range which is from \SIrange{0.2}{2.0}{\tera \hertz}, details can be found in the appendix section \ref{sec:sellmeier}. Using the thicknesses and angles of the TAQ given in table \ref{tab:masson_result} as well as the birefringence of quartz we can then calculate $L_{\lambda/4}(\nu)$ for the TAQ and use it for comparison. To that end we optimized $L_{\lambda/4}$ for $n=6$ in the range from \SIrange{0.25}{1.50}{\tera \hertz}. The design parameters obtained from this optimization are shown in table \ref{tab:res_cl4} (Result 1). Additionally, the terms of $L_{\lambda/4}(\nu)$ of this result as well as those for the TAQ are plotted in figure \ref{fig:loss_function_cl4} as a function of frequency. We see that the magnitude of $L_{\lambda/4}$ for these two results is similar. This indicates that $L_{\lambda/4}$ is also a suitable measure of the quality of the result similar to $L_{M}$. At around \SI{1.5}{\tera \hertz} there is a clear a cut-off for result 1 after which $L_{\lambda/4}$ increases steeply. This steep increase starts at around \SI{1.6}{\tera \hertz} for the TAQ. Defining the bandwidth as the ratio between the upper and lower frequency we get a value of  $\frac{\SI{1.5}{\tera \hertz}}{\SI{0.3}{\tera \hertz}}=5$. 
+Stacking a number of these ceramic discs or plates like the one shown in figure \ref{fig:ornik1abc} we can in theory construct an AWP similar to the TAQ by Masson. This ceramic AWP can then serve as a comparison to the TAQ and therefore also partly as a verification of the loss function at least for the $\lambda/4$ AWP type. In this case the loss functions $L_{\lambda/4}$ and $L_{\lambda/2}$ only depend on the set of angles and thicknesses. In other words the birefringence does not change at each iteration and is the same for each individual plate. An AWP of this type consisting of three ceramic discs is shown in figure \ref{fig:ceramic_stack}. Each disc has two flat sides where one is used for alignment and the other is the printing base. The alignment flat is placed keeping in mind that the slow axis is along the printing direction. In reality the discs are stacked so that ideally no air gaps in between each waveplate exists.
+
+\begin{figure}[ht]
+    \centering
+    \includestandalone[scale=3.00]{images/5_chapter05/tikz_wpstack_ceramic}
+    \caption{Exploded view of a ceramic AWP with $n=3$. In general each waveplate has a thickness $d_i$ and an orientation angle or azimuth $\alpha_i$. The individual plates are printed with two flat sides; one is used to align the discs and the other serves as support during the printing process. The red arrow points to the supportive base which is therefore the printing direction and hence the slow direction.}
+    \label{fig:ceramic_stack}
+\end{figure}
+
+
+We can obtain the birefringence of quartz using the reported values in \cite{DGrischkowsky1990}. Subsequently, the Sellemeier equation allows us to interpolate the values in the available data range which is from \SIrange{0.2}{2.0}{\tera \hertz}, details can be found in the appendix section \ref{sec:sellmeier}. Using the thicknesses and angles of the TAQ given in table \ref{tab:masson_result} as well as the birefringence of quartz we can then calculate $L_{\lambda/4}(\nu)$ for the TAQ and use it for comparison. To that end we optimized $L_{\lambda/4}$ for $n=6$ in the range from \SIrange{0.25}{1.50}{\tera \hertz}. The design parameters obtained from this optimization are shown in table \ref{tab:res_cl4} (Result 1). Additionally, the terms of $L_{\lambda/4}(\nu)$ of this result as well as those for the TAQ are plotted in figure \ref{fig:loss_function_cl4} as a function of frequency. We see that the magnitude of $L_{\lambda/4}$ for these two results is similar. This indicates that $L_{\lambda/4}$ is also a suitable measure of the quality of the result similar to $L_{M}$. At around \SI{1.5}{\tera \hertz} there is a clear a cut-off for result 1 after which $L_{\lambda/4}$ increases steeply. This steep increase starts at around \SI{1.6}{\tera \hertz} for the TAQ. Defining the bandwidth as the ratio between the upper and lower frequency we get a value of  $\frac{\SI{1.5}{\tera \hertz}}{\SI{0.3}{\tera \hertz}}=5$. 
 
 \begin{table}[ht]
     \centering
@@ -79,13 +89,11 @@ Figure \ref{fig:cl4_pe_lp} shows the polarization ellipses of the normalized sta
     \label{fig:cl4_pe_cp}
 \end{figure}
 
-Figure \ref{fig:cl4_pe_cp} is similar to figure \ref{fig:cl4_pe_lp} except that the input in this case is LCP. We know from the previous sections that a quarter waveplate should produce a linear polarized output for a circular polarized input. We see that this is the case for the TAQ up to at least \SI{1.50}{\tera \hertz}, after which the state increasingly deviates from the linear ellipse shape. Interestingly the ellipses of result 1 have a lower ellipticity compared to those of the TAQ, which indicates that the TAQ is better suited for turning a circular polarized input into a linear polarized output. The reason for this could be that we only consider the circularity of the output state in the loss function used to obtain result 1, while for the TAQ the resulting phase shift was directly optimized. This could therefore indicate that it is not sufficient to only consider the circularity of the output state in the loss function and a measure of the linearity should be included as well. Although, on the other hand the relatively large deviation that can be seen at \SI{1.50}{\tera \hertz} can also be recognized in the plot of the loss function in figure \ref{fig:loss_function_cl4}. Which means that the deviation is recognized by the loss function but a minimum was not found that minimizes $L_{\lambda/4}$ at this point.
-This could therefore further indicate that it is harder to minimize $L_{\lambda/4}$ compared to minimizing $L_M$.
+Figure \ref{fig:cl4_pe_cp} is similar to figure \ref{fig:cl4_pe_lp} except that the input in this case is LCP. We know from the previous sections that a quarter waveplate should produce a linear polarized output for a circular polarized input. We see that this is the case for the TAQ up to at least \SI{1.50}{\tera \hertz}, after which the state increasingly deviates from the linear ellipse shape. Interestingly the ellipses of result 1 have a lower ellipticity compared to those of the TAQ, which indicates that the TAQ is better suited for turning a circular polarized input into a linear polarized output. The reason for this could be that we only consider the circularity of the output state in the loss function used to obtain result 1, while for the TAQ the resulting phase shift was directly optimized. This could therefore indicate that it is not sufficient to only consider the circularity of the output state in the loss function and a measure of the linearity should be included as well. Although, on the other hand the relatively large deviation that can be seen at \SI{1.50}{\tera \hertz} can also be recognized in the plot of the loss function in figure \ref{fig:loss_function_cl4}. Which means that the deviation is recognized by the loss function but a minimum was not found that minimizes $L_{\lambda/4}$ at this point. This could therefore further indicate that it is more difficult to minimize $L_{\lambda/4}$ compared to minimizing $L_M$.
 
-A quantification of the shape of the ellipses representing the output states given in figure \ref{fig:cl4_pe_cp} can be seen in figure \ref{fig:cl4_pol_deg}, which shows $V_c$ and $V_l$ as a function of frequency for a linear horizontal input. 
+The circular and linear polarization degrees $V_c$ and $V_l$ for a linear input state is shown in figure \ref{fig:cl4_pol_deg} as a function of frequency for result 1 and the TAQ. Subfigures (a) and (c) show the full frequency range of $V_c$ and $V_l$ respectively, while subfigures (b) and (d) show the first \SI{1.6}{\tera \hertz}. For clarity $V_c$ is offset by one in (b) so that values of $V_c$ closer to zero are in fact closer to negative one. We see that as expected $V_c$ is around $-1$ in the optimization range for both the TAQ and result 1 which indicates that the light is almost purely LCP. Interestingly, outside of the optimization frequency range the light switches to be primarily RCP. Furthermore, subfigure (b) shows that $V_c$ for result 1 varies less for frequencies below \SI{0.6}{\tera \hertz} and more for higher frequencies compared to the TAQ and varies less overall. This could be due to the difference between the refractive indices used for quartz during optimization and the values used for the calculation of $V_c$, since these deviations are fairly small. From subfigure (c) we see that the linear polarization degree increases to one and decreases again while the light switches to RCP. Subfigure (d) shows a similar trend as (b) in the sense that result 1 is closer to zero at lower frequencies compared to the TAQ. We also see that $V_l$ is not zero, the light is therefore not perfectly CP but also partly LP, which is difficult to see in the polarization ellipse representation. 
 
-
-\begin{figure}
+\begin{figure}[H]
 \centering
 \subcaptionbox{\label{fig:cl4_pol_deg_a}}
     {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/5_chapter05/plots/ceramic/polDeg/degCirc}}
@@ -98,13 +106,17 @@ A quantification of the shape of the ellipses representing the output states giv
 \qquad
 \subcaptionbox{\label{fig:cl4_pol_deg_d}}
     {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/5_chapter05/plots/ceramic/polDeg/degLinZoom}}
-\caption{Two}\label{fig:cl4_pol_deg}
+\caption{Subfigures (a) and (c) in the left column show the circular and linear polarization degrees respectively, as a function of the frequency for result 1 and the TAQ. Subfigures (b) and (d) in the right column also show the polarization degrees but for a smaller frequency range. The circular polarization degree in (b) is offset by one.}
+\label{fig:cl4_pol_deg}
 \end{figure}
+
+Using the values for the absorption coefficient of quartz reported in \cite{DGrischkowsky1990} we can calculate the intensity of the light after passing through the \SI{31.45}{\milli \meter} thick TAQ. We can carry out the same calculation for the ceramic AWP designs; result 1 and the slightly thinner result 2 which have a total thickness of \SI{31.94}{\milli \meter} and \SI{26.24}{\milli \meter} respectively. The transmission as a function of frequency for these three designs is shown in figure \ref{fig:cl4_intensity}, where the right subfigure shows the range in which the optimization took place in the case of result 1. We clearly see that even though the three designs have an almost equal total thickness the insertion loss of the ceramic AWPs is several orders of magnitude higher compared to the quartz TAQ, which limits the practicality of ceramic AWPs.
+A possibility to reduce the significance of this could be to decrease the bandwidth of the ceramic AWP and thereby also decrease the required total thickness. Another possibility to partly circumvent this problem could be to simply only use the lower frequency range where the absorption is lower. Additionally, the intensity of the lower frequency components is higher, at least in the case of the THz-TDS systems used in this work. Since apparently the birefringence of 3D printed \ce{Al2O3} depends on the printing process it might be possible to enhance the birefringence by modifying the printing process, which in turn means that the total thickness can be reduced. The latter is still work in progress.
 
 \begin{figure}[ht]
     \centering
-    \includestandalone[scale=1]{images/5_chapter05/plots/ceramic/intensity}
-    \caption{}
+    \includestandalone[scale=0.7]{images/5_chapter05/plots/ceramic/intensity}
+    \caption{Transmission as a function of frequency for result 1 and 2 compared to the quartz TAQ. In the right subfigure the frequency range is reduced to the range in which result 1 was optimized. The insertion losses of result 1 and 2 are significantly higher compared to the TAQ, which is due to the higher absorption of the ceramic plates compared to the quartz plates.}
     \label{fig:cl4_intensity}
 \end{figure}
 
@@ -125,8 +137,9 @@ A quantification of the shape of the ellipses representing the output states giv
     \item results showed that birefringence is almost non existing and disappears in error
 \end{itemize}
 
+% TODO fix colors and change masson in legend to TAQ
 % TODO Jones paper 1941 hurwitz. unitary matrix can be represented as rotator + retarder
-% TODO Add pic like fig 1 in https://doi.org/10.1364/AO.54.009758
+% TODO Add pic like fig 1 in https://doi.org/10.1364/AO.54.009758 (done)
 % TODO add no, ne, bf plot of sapphire(?)
 % TODO fix ylabel
 % TODO what about roundness of output state? (alpha=arctan(a/b))
@@ -142,7 +155,7 @@ A quantification of the shape of the ellipses representing the output states giv
 %    \item compare to Result 1 -> we do shorter range because of absorption (thinner plate(s))
 %    \item high abs compared to quartz (\cite{DGrischkowsky1990})
 %    \item things that need mention but no plot probably: tot. pol. deg., inhomogenity, normality. Check for more.
-%    \item poincare sphere (take python ss, cba to do it in latex tbh lol)
+%    \item poincare sphere (take python ss, cba to do it in latex tbh)
 %\end{itemize}
 
 \subsection{CST}

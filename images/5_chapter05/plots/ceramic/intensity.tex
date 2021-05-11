@@ -15,34 +15,75 @@
 \begin{tikzpicture}
 	\begin{axis}[
 	    %ymode=log,
-        %ymin=-0.005, ymax=0.07,
-        %xmin=0.1, xmax=2.5,
+        %ymin=-55, ymax=5,
+        xmin=0.1, xmax=2.6,
         no markers,
         every axis plot/.append style={very thick},
         axis line style = very thick,
         every tick/.style={black, very thick},
         xlabel=Frequency (\si{\tera \hertz}),
-        ylabel=$L_{\lambda/4}$,
+        ylabel=Transmission (\si{\dB}),
         %anchor=origin,
-        legend entries={{Result 1}, {Masson}},
-        legend style={legend columns=1, at={(0.4,0.90)}, anchor=north west,
-                      nodes={scale=0.90, transform shape}},
-        reverse legend,
+        legend entries={{Result 1}, {Result 2}, {Masson}},
+        legend style={legend columns=1, at={(0.1,0.60)}, anchor=north west,
+                     nodes={scale=0.90, transform shape}},
+        %reverse legend,
         ]
 	    
         \addplot[red] table [
     	x expr=\thisrowno{1}*10^-12,
     	y expr=\thisrowno{2},
     	col sep=comma] 
-    	{res1_intensity.csv};
+    	{res1_intensity_log10.csv};
+    	
+        \addplot[green] table [
+    	x expr=\thisrowno{1}*10^-12,
+    	y expr=\thisrowno{2},
+    	col sep=comma] 
+    	{res2_intensity_log10.csv};
 
         \addplot[blue] table [
     	x expr=\thisrowno{1}*10^-12,
     	y expr=\thisrowno{2},
     	col sep=comma] 
-    	{mass_intensity.csv};
-
+    	{mass_intensity_log10.csv};
 	\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis}[
+	    %ymode=log,
+        ymin=-55, ymax=5,
+        xmin=0.1, xmax=1.55,
+        no markers,
+        every axis plot/.append style={very thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\tera \hertz}),
+        ylabel=Transmission (\si{\dB}),
+        %anchor=origin,
+        legend entries={{Result 1}, {Result 2}, {Masson}},
+        legend style={legend columns=1, at={(0.1,0.60)}, anchor=north west,
+                     nodes={scale=0.90, transform shape}},
+        %reverse legend,
+        ]
+	    
+        \addplot[red] table [
+    	x expr=\thisrowno{1}*10^-12,
+    	y expr=\thisrowno{2},
+    	col sep=comma] 
+    	{res1_intensity_log10.csv};
+    	
+        \addplot[green] table [
+    	x expr=\thisrowno{1}*10^-12,
+    	y expr=\thisrowno{2},
+    	col sep=comma] 
+    	{res2_intensity_log10.csv};
 
+        \addplot[blue] table [
+    	x expr=\thisrowno{1}*10^-12,
+    	y expr=\thisrowno{2},
+    	col sep=comma] 
+    	{mass_intensity_log10.csv};
+	\end{axis}
 \end{tikzpicture}
 \end{document}

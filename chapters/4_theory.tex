@@ -98,18 +98,15 @@ With this in place we can visualize the different polarization states, that is t
 
 Now, if $\delta$ is exactly $\nicefrac{\pi}{2}$ and $E_{0x} = E_{0y}$, then we have the case shown to the right in figure \ref{fig:circ_pol_planewave}. A field with this kind of polarization traces out a circle as time passes for a fixed position in space. On the other hand, if we keep time fixed then the field vector describes a helix along the direction of propagation. This means that the field only changes direction but not its magnitude. This type of polarization is therefore called circular polarization (CP). Additionally, because we can trace out a circle in two different directions (clockwise or counterclockwise) we can therefore distinguish between two different types of circular polarizations. These two types are called left CP (LCP) or right CP (RCP) depending on the direction the circle is traced out, either in a left- or right-handed sense. This is called the handedness of the light, which can be determined using the right hand rule. For that we fix the right hand at a point on the helix and point the thumb away from the receiver, that is against the direction of propagation. Then the light is right-handed if the helix is traced out in the direction of the other fingers as time evolves, otherwise it is left-handed. The light shown to the left of figure \ref{fig:circ_pol_planewave} is therefore left-handed while the example on the right side of figure \ref{fig:circ_pol_planewave} shows right-handed CP light. The reason why we have two types of CP in the first place, is because of the fact that one component can lead the other, as we can see in figure \ref{fig:circ_pol_planewave}. Where for RCP the horizontal component leads the vertical one by a quarter period $\left(\delta = \frac{\pi}{2}\right)$, for LCP it is the other way around and $\delta = -\frac{\pi}{2}$. 
 
-\begin{figure}[h]
+
+\begin{figure}
 \centering
-    \begin{subfigure}
-        \centering
-        \includestandalone[scale=0.8]{images/4_chapter04/tikz_circ_pol_lh}
-    \end{subfigure}
-    \begin{subfigure}
-        \centering
-        \includestandalone[scale=0.8]{images/4_chapter04/tikz_circ_pol_rh}
-    \end{subfigure}
-    \caption{The left figure shows an example of LCP light and the right figure RCP light. Furthermore, handedness originates from one component leading the other. In the case of LCP light the vertical component leads the horizontal component and vice versa for RCP light.}
-    \label{fig:circ_pol_planewave}
+\subcaptionbox{\label{fig:circ_pol_planewave_a}}
+    {\includestandalone[scale=0.8]{images/4_chapter04/tikz_circ_pol_lh}}
+\subcaptionbox{\label{fig:circ_pol_planewave_b}}
+    {\includestandalone[scale=0.8]{images/4_chapter04/tikz_circ_pol_rh}}
+\caption{The left figure shows an example of LCP light and the right figure RCP light. Furthermore, handedness originates from one component leading the other. In the case of LCP light the vertical component leads the horizontal component and vice versa for RCP light.}
+\label{fig:circ_pol_planewave}
 \end{figure}
 
 Finally, the last polarization state we have not mentioned yet, even though it is in fact the most general, is the elliptical polarization state. The polarization states we have dealt with so far have all been limiting cases of this state. For a fixed position this is fairly simple to visualize geometrically; LP light traces out a line while CP light traces out a circle, both of these shapes are degenerate forms of an ellipse. A summary of the different degenerate states and the corresponding amplitude and phase combinations are shown in table \ref{tab:pol_state_summary}, which is divided into three parts with a pair of states in each. The linear horizontal/vertical polarization (LHP/LVP) states are at the top, the linear $\pm\SI{45}{\degree}$ polarization ($L_{\pm45}P$) states are in the middle and the CP states are at the bottom. The last column shows the corresponding degenerate ellipse for each state.
