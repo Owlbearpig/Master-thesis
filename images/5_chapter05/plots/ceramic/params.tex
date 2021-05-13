@@ -21,42 +21,55 @@
 
 	\begin{axis}[
 	    %ymode=log,
-        %ymin=-0.005, ymax=0.07,
-        %xmin=0.1, xmax=1.8,
+        ymin=-2, ymax=8,
+        %xmin=0.1, xmax=2.0,
         no markers,
         every axis plot/.append style={very thick},
         axis line style = very thick,
         every tick/.style={black, very thick},
         xlabel=Frequency (\si{\tera \hertz}),
-        ylabel=$L_{\lambda/4}$,
+        ylabel=Angle (rad),
+        ytick={-6.28318, -4.7123889, -3.14159, -1.5708, 0, 1.5708, 3.14159, 4.7123889, 6.28318},
+        yticklabels={
+        $-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{\pi}{2}$, 0,
+        $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$
+        },
         %anchor=origin,
-        %legend entries={{Result 2}, {Result 1}, {Masson}},
-        legend style={legend columns=1, at={(0.13,0.95)}, anchor=north west,
+        %legend entries={{$\alpha$}, {$\delta$}, {$\psi$}, {$\chi$}},
+        legend style={legend columns=2, at={(0.55,0.95)}, anchor=north west,
                       nodes={scale=0.90, transform shape}},
-        reverse legend,
+        %reverse legend,
         ]
+	    \addlegendentry{\hspace{-0.9cm}\textbf{TAQ}}
+	    \addlegendentry{}
+        \addlegendentry{$\alpha$}
+        \addlegendentry{$\delta$}
+        \addlegendentry{$\psi$}
+        \addlegendentry{$\chi$}
+	    \addlegendimage{empty legend}
+	    \addlegendimage{empty legend}
 	    
 	    \addplot[red] table [
     	x expr=\thisrowno{1}*10^-12,
-    	y expr=\thisrowno{2},
+    	y expr=\thisrowno{2}*3.141593/180,
     	col sep=comma] 
     	{\mdat};
     	
     	\addplot[blue] table [
     	x expr=\thisrowno{1}*10^-12,
-    	y expr=\thisrowno{3},
+    	y expr=\thisrowno{3}*3.141593/180,
     	col sep=comma] 
     	{\mdat};
     	
         \addplot[green] table [
     	x expr=\thisrowno{1}*10^-12,
-    	y expr=\thisrowno{4},
+    	y expr=\thisrowno{4}*3.141593/180,
     	col sep=comma] 
     	{\mdat};
     	
     	\addplot[cyan] table [
     	x expr=\thisrowno{1}*10^-12,
-    	y expr=\thisrowno{5},
+    	y expr=\thisrowno{5}*3.141593/180,
     	col sep=comma] 
     	{\mdat};
 
@@ -67,42 +80,55 @@
 
 	\begin{axis}[
 	    %ymode=log,
-        %ymin=-0.005, ymax=0.07,
+        ymin=-2, ymax=8,
         %xmin=0.1, xmax=1.8,
         no markers,
         every axis plot/.append style={very thick},
         axis line style = very thick,
         every tick/.style={black, very thick},
         xlabel=Frequency (\si{\tera \hertz}),
-        ylabel=$L_{\lambda/4}$,
+        ylabel=Angle (rad),
+        ytick={-6.28318, -4.7123889, -3.14159, -1.5708, 0, 1.5708, 3.14159, 4.7123889, 6.28318},
+        yticklabels={
+        $-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{\pi}{2}$, 0,
+        $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$
+        },
         %anchor=origin,
-        %legend entries={{Result 2}, {Result 1}, {Masson}},
-        legend style={legend columns=1, at={(0.13,0.95)}, anchor=north west,
+        %legend entries={{$\alpha$}, {$\delta$}, {$\psi$}, {$\chi$}},
+        legend style={legend columns=2, at={(0.55,0.95)}, anchor=north west,
                       nodes={scale=0.90, transform shape}},
-        reverse legend,
+        %reverse legend,
         ]
+	    \addlegendentry{\hspace{-0.8cm}\textbf{Result 1}}
+	    \addlegendentry{}
+        \addlegendentry{$\alpha$}
+        \addlegendentry{$\delta$}
+        \addlegendentry{$\psi$}
+        \addlegendentry{$\chi$}
+	    \addlegendimage{empty legend}
+	    \addlegendimage{empty legend}
 	    
 	    \addplot[red] table [
     	x expr=\thisrowno{1}*10^-12,
-    	y expr=\thisrowno{2},
+    	y expr=\thisrowno{2}*3.141593/180,
     	col sep=comma] 
     	{\cdat};
     	
     	\addplot[blue] table [
     	x expr=\thisrowno{1}*10^-12,
-    	y expr=\thisrowno{3},
+    	y expr=\thisrowno{3}*3.141593/180,
     	col sep=comma] 
     	{\cdat};
     	
         \addplot[green] table [
     	x expr=\thisrowno{1}*10^-12,
-    	y expr=\thisrowno{4},
+    	y expr=\thisrowno{4}*3.141593/180,
     	col sep=comma] 
     	{\cdat};
     	
     	\addplot[cyan] table [
     	x expr=\thisrowno{1}*10^-12,
-    	y expr=\thisrowno{5},
+    	y expr=\thisrowno{5}*3.141593/180,
     	col sep=comma] 
     	{\cdat};
 

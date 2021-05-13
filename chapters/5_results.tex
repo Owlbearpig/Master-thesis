@@ -120,12 +120,16 @@ A possibility to reduce the significance of this could be to decrease the bandwi
     \label{fig:cl4_intensity}
 \end{figure}
 
+Figure \ref{fig:cl4_params} shows the two sets of parameterization angles ($\alpha$, $\delta$) and ($\psi$, $\chi$) for result 1 and the TAQ as a function of frequency. We see that the values of $\alpha$ and $\delta$ are around \SI{45}{\degree} and \SI{270}{\degree} respectively for both result 1 and the TAQ indicating LCP. Again, similar to what the polarization degree showed we see a transition to RCP outside of the optimized frequency range, where in the case of result 1 the transition is sharper. For both the TAQ and result 1 the transition happens via a decrease of $\delta$. Since the phase shift is proportional to the birefringence times the path length and increases for increasing frequency it could indicate that the birefringence is negative. Furthermore, since $\delta = \delta_y - \delta_x$ and $\delta$ decreases for frequencies above approximately \SI{1.6}{\tera \hertz}, it shows that the phase of the x-component advances faster which in turn could indicate that the fast axis is partly along the x-axis. The x-axis is defined as the axis along which the incident light is polarized. Additionally, we see a bump in $\alpha$ around \SI{1.75}{\tera \hertz}. This is likely due to the same reason that causes the sharper decrease of $\delta$ for result 1 compared to the TAQ, since $\delta$ and $\alpha$ are related via $\sin(2\chi)=\sin(2\alpha)\sin(\delta)$ and the trend of the ellipticity $\chi$ is similar in both cases. We further see that the azimuth $\psi$ changes rapidly with frequency where the vertical lines are due to the confinement of $\psi$ to the interval $\left[0, \pi\right]$. This means that if we were to use two identical AWPs of this type in series to create a $\lambda/2$ AWP it likely would not have the desired effect, since the output state is highly dependent on the azimuth of the input. As a reminder, the azimuth of the input state in all cases shown so far and for all frequencies is zero.
+
 \begin{figure}[ht]
     \centering
-    \includestandalone[scale=0.7]{images/5_chapter05/plots/ceramic/params}
-    \caption{}
+    \includestandalone[scale=0.84]{images/5_chapter05/plots/ceramic/params}
+    \caption{The two sets of parameterization angles ($\alpha$, $\delta$) and ($\psi$, $\chi$) a function of frequency, where the left and right subfigure shows the angles for the TAQ and result 1 respectively. The values of $\alpha$ and $\delta$ are as expected for LCP as well as after the transition to RCP for both designs. The variation of the azimuth $\psi$ makes it impossible to place two of these designs in series to form a $\lambda/2$ AWP. As expected, for LCP and RCP frequencies $\chi$ attains a value of plus or minus \SI{45}{\degree} respectively.}
     \label{fig:cl4_params}
 \end{figure}
+
+
 
 \begin{itemize}
     \item back in time we used other loss function. (described in appendix)
