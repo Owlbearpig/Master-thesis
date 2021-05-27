@@ -1,0 +1,94 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{fillbetween}
+\usepackage{siunitx}
+\pgfplotsset{compat=1.5}
+
+\begin{document}
+
+\pgfplotsset{
+    table/search path={plot_data/7_appendix/real},
+}
+
+\begin{tikzpicture}
+	\begin{axis}[
+        %ymin=3.02, ymax=3.17,
+        xmin=0.25, xmax=2.7,
+        no markers,
+        every axis plot/.append style={thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\tera \hertz}),
+        ylabel=Refractive index,
+        anchor=origin,
+        %legend entries={{WP1}},
+        legend style={legend columns=1, at={(0.04,0.8)}, anchor=north west,
+                      nodes={scale=0.7, transform shape}}
+        ]
+	    \addlegendentry{\hspace{-0.9cm}\textbf{WP1}}
+	    \addlegendentry{\SI{0}{\degree}}
+        \addlegendentry{\SI{90}{\degree}}
+        \addlegendentry{\SI{180}{\degree}}
+        \addlegendimage{empty legend}
+        
+    	\addplot[red] table [
+    	x expr=\thisrowno{1}*10^-12,
+    	y expr=\thisrowno{2},
+    	col sep=comma] 
+    	{Req1.csv};
+    	
+    	\addplot[blue] table [
+    	x expr=\thisrowno{1}*10^-12,
+    	y expr=\thisrowno{6},
+    	col sep=comma] 
+    	{Req1.csv};
+    	
+    	\addplot[green] table [
+    	x expr=\thisrowno{1}*10^-12,
+    	y expr=\thisrowno{4},
+    	col sep=comma] 
+    	{Req1.csv};
+        
+        \addplot [name path=upper, draw=none] table [
+	    x expr=\thisrowno{1}*10^-12,
+	    y expr=\thisrowno{2}+\thisrowno{3},
+	    col sep=comma] 
+	    {Req1.csv};
+        \addplot [name path=lower, draw=none] table[
+        x expr=\thisrowno{1}*10^-12,
+        y expr=\thisrowno{2}-\thisrowno{3},
+        col sep=comma]
+        {Req1.csv};
+        \addplot [fill=red!30] fill between[of=upper and lower];
+        
+        \addplot [name path=upper, draw=none] table [
+	    x expr=\thisrowno{1}*10^-12,
+	    y expr=\thisrowno{6}+\thisrowno{7},
+	    col sep=comma] 
+	    {Req1.csv};
+        \addplot [name path=lower, draw=none] table[
+        x expr=\thisrowno{1}*10^-12,
+        y expr=\thisrowno{6}-\thisrowno{7},
+        col sep=comma]
+        {Req1.csv};
+        \addplot [fill=blue!30] fill between[of=upper and lower];
+        
+        \addplot [name path=upper, draw=none] table [
+	    x expr=\thisrowno{1}*10^-12,
+	    y expr=\thisrowno{4}+\thisrowno{5},
+	    col sep=comma] 
+	    {Req1.csv};
+        \addplot [name path=lower, draw=none] table[
+        x expr=\thisrowno{1}*10^-12,
+        y expr=\thisrowno{4}-\thisrowno{5},
+        col sep=comma]
+        {Req1.csv};
+        \addplot [fill=green!30] fill between[of=upper and lower];
+	    
+	\end{axis}
+\end{tikzpicture}
+
+\end{document}

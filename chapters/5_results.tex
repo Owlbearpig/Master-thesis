@@ -129,30 +129,38 @@ Figure \ref{fig:cl4_params} shows the two sets of parameterization angles ($\alp
     \label{fig:cl4_params}
 \end{figure}
 
+We also calculated the retardance as well as the diattenuation for both the TAQ and result 1 which is shown in figure \ref{fig:cl4_ret_diat}. The retardance and the diattenuation of an optical element is calculated directly from the Jones matrix describing the element and is therefore independent of the input state. 
+
+\begin{figure}[H]
+    \centering
+    \includestandalone[scale=1]{images/5_chapter05/plots/ceramic/ret_and_diat}
+    \caption{}
+    \label{fig:cl4_ret_diat}
+\end{figure}
 
 
-\begin{itemize}
-    \item back in time we used other loss function. (described in appendix)
-    \item that function gave the following design which we had printed by a third party.
-    same printer as previous samples but with slightly different printing and sintering parameters and in the meantime printer had been moved to new location.
-    \item (picture of the plates)
-    \item we characterized them in focus/transmission setup at 3 angles 0, 90, 180 deg
-    \item (plots of teralyzer eval)
-    \item results showed that birefringence is almost non existing and disappears in error
-\end{itemize}
+
+To verify the design concept a set consisting of five ceramic discs similar to the three sketched in figure \ref{fig:ceramic_stack} as well as five additional test samples were produced by a third party. We characterized the newly printed samples but unfortunately they showed almost no birefringence, which therefore made them useless as waveplates. The description of the samples and the results of the measurement are shown in the appendix section \ref{sec:ceramic_characterization}. 
+
+
+%\begin{itemize}
+%    \item back in time we used other loss function. (described in appendix)
+%    \item that function gave the following design which we had printed by a third party.
+%    same printer as previous samples but with slightly different printing and sintering parameters and in the meantime printer had been moved to new location.
+%\end{itemize}
 
 % TODO fix colors and change masson in legend to TAQ
 % TODO Jones paper 1941 hurwitz. unitary matrix can be represented as rotator + retarder
 % TODO Add pic like fig 1 in https://doi.org/10.1364/AO.54.009758 (done)
 % TODO add no, ne, bf plot of sapphire(?)
-% TODO fix ylabel
-% TODO what about roundness of output state? (alpha=arctan(a/b))
+% TODO fix ylabel (done)
+% TODO what about roundness of output state? (alpha=arctan(a/b)) (done)
 %\begin{itemize}
 %    \item loss function. Frequency dependent loss. (done)
 %    \item Circularity. Linearity. (done, res1 + masson)
 %    \item Ellipses, linear and circular (r/l?) input, shown output. (done,)
 %    \item alpha, azimuth, delay, ellip angle (done)
-    %\item Transmission along two directions (lin -> wp -> x-pol int(out), (lin -> wp -> y-pol int(out))). Probably not? Maybe just intensity(freq) is enough
+    %\item Transmission along two directions (lin -> wp -> x-pol int(out), (lin -> wp -> y-pol int(out))). Probably not? Maybe just intensity(freq) is enough (done)
 %    \item Retardance, Diattenuation
 %    \item See what interface does?
 %    \item Eigenstates?
@@ -162,12 +170,12 @@ Figure \ref{fig:cl4_params} shows the two sets of parameterization angles ($\alp
 %    \item poincare sphere (take python ss, cba to do it in latex tbh)
 %\end{itemize}
 
-\subsection{CST}
-\subsection{Fabrication error}
+%\subsection{CST}
+%\subsection{Fabrication error}
 
 \section{Polymer}
-
-\section{Fused silica glass}
+Hello
+%\section{Fused silica glass}
 
 % Todo ref?
 

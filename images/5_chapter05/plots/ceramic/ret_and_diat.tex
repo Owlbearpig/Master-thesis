@@ -1,0 +1,78 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\usepackage{siunitx}
+\pgfplotsset{compat=1.5}
+
+\begin{document}
+
+\pgfplotsset{
+    table/search path={plot_data/5_chapter05/ceramic/ret_and_diat},
+}
+
+\begin{tikzpicture}
+	\begin{axis}[
+	    %ymode=log,
+        %ymin=-0.005, ymax=0.07,
+        %xmin=0.1, xmax=2.5,
+        no markers,
+        every axis plot/.append style={very thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\tera \hertz}),
+        ylabel=Retardance (rad),
+        %anchor=origin,
+        legend entries={{Masson}, {Result 1}},
+        legend style={legend columns=1, at={(0.25,0.95)}, anchor=north west,
+                      nodes={scale=0.90, transform shape}},
+        %reverse legend,
+        ]
+	    
+	    \addplot[blue] table [
+    	x expr=\thisrowno{1}*10^-12,
+    	y expr=\thisrowno{2},
+    	col sep=comma] 
+    	{masson_ret.csv};
+	    
+        \addplot[red] table [
+    	x expr=\thisrowno{1}*10^-12,
+    	y expr=\thisrowno{2},
+    	col sep=comma] 
+    	{x_cl4_02_15_n6_ret.csv};
+	\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis}[
+	    ymode=log,
+        %ymin=-0.005, ymax=0.07,
+        %xmin=0.1, xmax=2.5,
+        no markers,
+        every axis plot/.append style={very thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\tera \hertz}),
+        ylabel=Diattenuation,
+        %anchor=origin,
+        legend entries={{Masson}, {Result 1}},
+        legend style={legend columns=1, at={(0.25,0.95)}, anchor=north west,
+                      nodes={scale=0.90, transform shape}},
+        %reverse legend,
+        ]
+	    
+	    \addplot[blue] table [
+    	x expr=\thisrowno{1}*10^-12,
+    	y expr=\thisrowno{2},
+    	col sep=comma] 
+    	{masson_diat.csv};
+	    
+        \addplot[red] table [
+    	x expr=\thisrowno{1}*10^-12,
+    	y expr=\thisrowno{2},
+    	col sep=comma] 
+    	{x_cl4_02_15_n6_diat.csv};
+	\end{axis}
+\end{tikzpicture}
+
+\end{document}

@@ -29,10 +29,12 @@ with $\delta=\delta_y-\delta_x$, which is the polarization ellipse equation.
 
 \section{Index ellipsoid procedure}
 \label{sec:index_ellipse_proof}
+remove?
 % laser book
 
 \section{Effective permittivity inequality}
 \label{sec:bf_proof}
+outline
 % my papers maybe shorten it a bit or only give outline ...
 
 
@@ -60,7 +62,7 @@ From the first equation it follows that $\Delta=\pi$ $(\Delta \in [0,\pi])$ and 
     \label{eq:psi_min}
     \psi = \arctan \sqrt{\frac{p_2}{p_1}},
 \end{equation}
-that is, the intensity is zero for this $\psi=\psi_{min}$ given by equation \ref{eq:psi_min}, which is what we wanted to show.
+that is, the intensity is zero for this $\psi=\psi_{min}$ given by equation \ref{eq:psi_min}.
 
 \section{Basin-hopping algorithm}
 \label{sec:basin_hopping_algo}
@@ -108,7 +110,128 @@ where $T$ is known as the temperature and is a user defined parameter which shou
 \label{sec:sellmeier}
 Crystalline Quartz values and stuff
 
-\section{Alternative quarter wave loss function}
-\label{sec:int_loss_function}
+\newpage
 
+\chapter{Characterization of ceramic material samples}
+\setcounter{page}{1} % remove in thesis version
+\label{sec:ceramic_characterization}
+\section{Description}
+The 10 different material samples shown in figure \ref{fig:ceramic_samples} were characterized regarding their birefringence. To that extend each sample was placed in the focus of the two leftmost off axis parabolic mirrors as shown in figure \ref{fig:THz-TDS-HHI} (a). The sample holder is shown in figure \ref{fig:THz-TDS-HHI} (b) which enables a \SI{360}{\degree} manual rotation of the sample in the direction of the red arrow. The blue arrow in (a) and (b) indicates the polarization plane of the incident THz pulse. Each sample was placed in the holder so that the printing direction was approximately aligned with the \SI{0}{\degree} and \SI{180}{\degree} direction. Some samples were without a flat side but instead had an arrow drawn on them. In those cases we aligned the arrow so that it was parallel to the polarization of the THz radiation. At \SI{0}{\degree} the polarization plane and the printing direction of the 10 samples therefore align and at \SI{90}{\degree} they are orthogonal as shown in (b). 
 
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.1,angle=180,origin=c]{images/7_appendix/ceramic_samples.jpg}
+    \caption{Photo of the 10 characterized samples}
+    \label{fig:ceramic_samples}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \subcaptionbox{\label{fig:1}}
+        {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/7_appendix/Setup-THz-TDS-HHI.pdf}}
+    \qquad
+    \subcaptionbox{\label{fig:2}}
+        {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/sample_mount}}
+    
+    \caption{Subfigure (a): Main components of the measurement setup which consists of four off axis parabolic mirros, the sample mounted on a translation stage(manipulator) as well as the emitter and detector. Subfigure (b): Sample placed on a rotational mount. The blue arrow indicates the horizontal direction which is also the polarization plane of the incident radiation. The red arrow indicates the turn direction and the green arrow the direction in which the sample was printed.}
+    \label{fig:THz-TDS-HHI}
+\end{figure}
+
+Each measurement was taken with a relative humidity of less than \SI{1}{\percent} and a mechanical stage was used to move the sample out of the beam path for a reference measurement. Due to the relative long nitrogen purge time and the manual sample rotator we measured each sample at three angles; \SI{0}{\degree}, \SI{90}{\degree} and \SI{180}{\degree}.
+Table \ref{tab:ceramic_samples_table} lists the 10 samples, their respective handles which is used later and their respective measured thickness. The thickness was determined approximately at the center of each sample using a micrometer screw gauge. This thickness was then used for extraction of the refractive index for all three sample orientations. 
+
+% Habe ich nicht wirklich so genau gemacht. Habe die Proben so platziert dass das "Loch" im mount ungefähr abegedeckt war. Wird wahrscheinlich bis zu 5 mm fehler sein.
+
+%The samples were positioned in such a way that the center of the samples was approximately aligned with the axis of rotation. For the rectangular samples center refers to the crossections of the diagonals. For the round samples with flat sides, this corresponds to the center of the smallest circle, which would still incircle the whole sample. This means that the sample was measured on the same position for all three orientations. Nevertheless, due to a potential slight mispositioning of the sample in the rotational mount, the position at which the sample was measured might slightly differ for the three orientations of the sample. Therefore, a small offset could be induced between the extracted refractive index for the three orientations, considering that there is a possible small inhomogenity in the sample thickness. However, this variation can be considered insignificant for the presented results.
+
+\begin{table}[h]
+    \centering
+    \includestandalone[scale=1.0]{images/7_appendix/ceramic_samples_table}
+    \caption{The 10 characterized samples. The first five are the samples requested for the achromatic waveplate while the five in the lower half are the additionally characterized samples. The thickness is measured once at the center of the each sample using a micrometer.}
+    \label{tab:ceramic_samples_table}
+\end{table}
+
+\newpage
+
+\section{Results}
+The data collected from the measurements was evaluated using the commercial software Teralyzer. We used the same thickness for all three angles for a given sample to be able to compare the refractive index at the three different rotational angles. The thicknesses used for the evaluation of each sample is given in \ref{tab:ceramic_samples_table}. 
+It is possible to leave the thickness as a free parameter which can then be fitted and thereby slightly adjusted for each measurement to remove or reduce the oscillations seen in for example WP2 at \SI{0}{\degree}. Although, this introduces a slight frequency independent offset in the refractive index which depends on the fitted thickness and thereby changes the measured birefringence. We therefore chose to use one thickness for all three angles. 
+
+Figure \ref{fig:ceramic_WPs} shows the evaluated refractive index at the three angles for the requested waveplates 1-5 and figure \ref{fig:ceramic_MUTs} shows the results of the evaluation for the additional five samples. The strong attenuation of MUT1 limited the usable frequency range to \SI{0.8}{\tera \hertz}. 
+
+\begin{figure}[H]
+\centering
+\subcaptionbox{\label{fig:ceramic_WP1}}
+    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/WP1}}
+\qquad
+\subcaptionbox{\label{fig:ceramic_WP2}}
+    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/WP2}}
+\subcaptionbox{\label{fig:ceramic_WP3}}
+    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/WP3}}
+\qquad
+\subcaptionbox{\label{fig:ceramic_WP4}}
+    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/WP4}}
+\subcaptionbox{\label{fig:ceramic_WP5}}
+    {\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/WP5}}
+\caption{Evaluated refractive index for the five requested waveplates at three different rotational angles.}
+\label{fig:ceramic_WPs}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subcaptionbox{\label{fig:ceramic_MUT1}}
+    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/MUT1}}
+\qquad
+\subcaptionbox{\label{fig:ceramic_MUT2}}
+    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/MUT2}}
+\subcaptionbox{\label{fig:ceramic_MUT3}}
+    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/MUT3}}
+\qquad
+\subcaptionbox{\label{fig:ceramic_MUT4}}
+    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/MUT4}}
+\subcaptionbox{\label{fig:ceramic_MUT5}}
+    {\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/MUT5}}
+\caption{Evaluated refractive index for the five additional samples at three different rotational angles.}
+\label{fig:ceramic_MUTs}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subcaptionbox{\label{fig:ceramic_WP1_abs}}
+    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/WP1}}
+\qquad
+\subcaptionbox{\label{fig:ceramic_WP2_abs}}
+    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/WP2}}
+\subcaptionbox{\label{fig:ceramic_WP3_abs}}
+    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/WP3}}
+\qquad
+\subcaptionbox{\label{fig:ceramic_WP4_abs}}
+    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/WP4}}
+\subcaptionbox{\label{fig:ceramic_WP5_abs}}
+    {\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/WP5}}
+\caption{Evaluated absorption coefficient for the five requested waveplates at three different rotational angles.}
+\label{fig:ceramic_WPs_abs}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\subcaptionbox{\label{fig:ceramic_MUT1_abs}}
+    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/MUT1}}
+\qquad
+\subcaptionbox{\label{fig:ceramic_MUT2_abs}}
+    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/MUT2}}
+\subcaptionbox{\label{fig:ceramic_MUT3_abs}}
+    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/MUT3}}
+\qquad
+\subcaptionbox{\label{fig:ceramic_MUT4_abs}}
+    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/MUT4}}
+\subcaptionbox{\label{fig:ceramic_MUT5_abs}}
+    {\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/MUT5}}
+\caption{Evaluated absorption coefficient for the five additional samples at three different rotational angles.}
+\label{fig:ceramic_MUTs_abs}
+\end{figure}
+
+If we compare the measured refractive index and the absorption coefficient of these \ce{Al2O3} samples to the result from the measurement published in \cite{Ornik2018} of two similar \ce{Al2O3} samples, we see that the refractive index and absorption coefficient for WP1-WP5 and MUT3-MUT5 is approximately the same. Furthermore, we see that the refractive index and absorption coefficient of MUT1 is higher than the other samples since this sample consists of \ce{ZrO2}. The material of MUT2 was either \ce{ZrO2} or \ce{Al2O3}, based on the value of the refractive index we can conclude that MUT2 consists of \ce{Al2O3}. Finally, it seems that none of the samples have a measurable birefringence except MUT2 which has a birefringence of around $0.05$. The missing birefringence could be due to a different printing process and or different printing settings.
+
+\begin{comment}
+\end{comment}
