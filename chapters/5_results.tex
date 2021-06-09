@@ -32,7 +32,7 @@ Stacking a number of these ceramic discs or plates like the one shown in figure 
 \end{figure}
 
 
-We can obtain the birefringence of quartz using the reported values in \cite{DGrischkowsky1990}. Subsequently, the Sellemeier equation allows us to interpolate the values in the available data range which is from \SIrange{0.2}{2.0}{\tera \hertz}, details can be found in the appendix section \ref{sec:sellmeier}. Using the thicknesses and angles of the TAQ given in table \ref{tab:masson_result} as well as the birefringence of quartz we can then calculate $L_{\lambda/4}(\nu)$ for the TAQ and use it for comparison. To that end we optimized $L_{\lambda/4}$ for $n=6$ in the range from \SIrange{0.25}{1.50}{\tera \hertz}. The design parameters obtained from this optimization are shown in table \ref{tab:res_cl4} (Result 1). Additionally, the terms of $L_{\lambda/4}(\nu)$ of this result as well as those for the TAQ are plotted in figure \ref{fig:loss_function_cl4} as a function of frequency. We see that the magnitude of $L_{\lambda/4}$ for these two results is similar. This indicates that $L_{\lambda/4}$ is also a suitable measure of the quality of the result similar to $L_{M}$. At around \SI{1.5}{\tera \hertz} there is a clear a cut-off for result 1 after which $L_{\lambda/4}$ increases steeply. This steep increase starts at around \SI{1.6}{\tera \hertz} for the TAQ. Defining the bandwidth as the ratio between the upper and lower frequency we get a value of  $\frac{\SI{1.5}{\tera \hertz}}{\SI{0.3}{\tera \hertz}}=5$. 
+We can obtain the birefringence of quartz using the reported values in \cite{DGrischkowsky1990}. Subsequently, the Sellmeier equation allows us to interpolate the values in the available data range which is from \SIrange{0.2}{2.0}{\tera \hertz}, details can be found in the appendix section \ref{sec:sellmeier}. Using the thicknesses and angles of the TAQ given in table \ref{tab:masson_result} as well as the birefringence of quartz we can then calculate $L_{\lambda/4}(\nu)$ for the TAQ and use it for comparison. To that end we optimized $L_{\lambda/4}$ for $n=6$ in the range from \SIrange{0.25}{1.50}{\tera \hertz}. The design parameters obtained from this optimization are shown in table \ref{tab:res_cl4} (Result 1). Additionally, the terms of $L_{\lambda/4}(\nu)$ of this result as well as those for the TAQ are plotted in figure \ref{fig:loss_function_cl4} as a function of frequency. We see that the magnitude of $L_{\lambda/4}$ for these two results is similar. This indicates that $L_{\lambda/4}$ is also a suitable measure of the quality of the result similar to $L_{M}$. At around \SI{1.5}{\tera \hertz} there is a clear a cut-off for result 1 after which $L_{\lambda/4}$ increases steeply. This steep increase starts at around \SI{1.6}{\tera \hertz} for the TAQ. Defining the bandwidth as the ratio between the upper and lower frequency we get a value of  $\frac{\SI{1.5}{\tera \hertz}}{\SI{0.3}{\tera \hertz}}=5$. 
 
 \begin{table}[ht]
     \centering
@@ -52,39 +52,40 @@ Similar to quartz, the birefringence of the ceramic plates is relatively low. Th
 
 \begin{figure}[H]
     \centering
-    \includestandalone[scale=1]{images/5_chapter05/plots/ceramic/alpha}
+    \includestandalone[scale=0.8]{images/5_chapter05/plots/ceramic/alpha}
     \caption{$\alpha$ of the output state as a function of the frequency given a horizontal linear input for the TAQ and result 1. Ideally given a linear input the output should have an $\alpha$ of \SI{45}{\degree} independent of frequency. We see that the deviation of result 1 from the optimum is distributed more evenly on the frequency range, while for the TAQ the deviation is higher at lower frequencies.}
     \label{fig:cl4_alpha}
 \end{figure}
 
 Considering that $L_M$ and $L_{\lambda/4}$ are calculated from the same Jones matrix, which is constructed from the parameters of the TAQ and crystalline quartz, it shows that at least for some frequencies $L_{\lambda/4}$ is better at identifying deviations of the output from the optimal CP state. This could be due to the fact that the value of $L_{\lambda/4}$ is directly measures the deviation of the output from the RCP state.
 
-To answer the question whether result 1 actually represents a zero order waveplate, we calculate the thickness required to cause a quarter wave shift at the minimum of the frequency range for a linear input state with an azimuth of \SI{45}{\degree}. In other words the thickness of a zero order quarter waveplate at at the minimum frequency which is given by equation $\ref{eq:thickness_quarter_waveplate}$. In this case the minimum frequency is \SI{0.25}{\tera \hertz} at which the birefringence is $\Delta n = 0.047$. The required thickness is therefore approximately $d_{\lambda/4}=\frac{\SI{1200}{\micro \meter}}{4\cdot0.047}=\SI{6.38}{\milli \meter}$. Comparing this value to the total thickness of result 1 we see that it is around five times lower than the total thickness and almost \SI{4}{\milli \meter} thinner than the thickest plate. If we keep in mind that a probabilistic algorithm is part of the optimization method, then this could indicate that result 1 is not the thinnest possible configuration for the given frequency range and material. On the other hand however, we have to keep in mind that $d_{\lambda/4}$ is for an angle of \SI{45}{\degree} while the six plates of result 1 are at different angles reducing the phase shift. It is therefore questionable whether we can actually directly compare $d_{\lambda/4}$ to the total thickness and if the definition of waveplate order makes sense in the context of composite waveplates. 
+We can calculate the thickness required to cause a quarter wave shift at the minimum of the frequency range for a linear input state with an azimuth of \SI{45}{\degree}. In other words the thickness of a zero order quarter waveplate at the minimum frequency, this is given by equation $\ref{eq:thickness_quarter_waveplate}$. In this case the minimum frequency is \SI{0.25}{\tera \hertz} at which the birefringence is $\Delta n = 0.047$. The required thickness is therefore approximately $d_{\lambda/4}=\frac{\SI{1200}{\micro \meter}}{4\cdot0.047}=\SI{6.38}{\milli \meter}$. Comparing this value to the total thickness of result 1 we see that it is around five times lower than the total thickness and almost \SI{4}{\milli \meter} thinner than the thickest plate. If we keep in mind that a probabilistic algorithm is part of the optimization method, then this could indicate that result 1 is not the thinnest possible configuration for the given frequency range and material. On the other hand however, we have to keep in mind that $d_{\lambda/4}$ is for an angle of \SI{45}{\degree} while the six plates of result 1 are at different angles reducing the phase shift caused by each plate. It is therefore questionable whether we can actually directly compare $d_{\lambda/4}$ to the total thickness. 
 
-\begin{figure}[h]
+Furthermore, if we consider two results where the total thickness of the latter is larger, then the magnitude or intensity of the corresponding output state will in general be lower compared to the output of the first result. However, $L_{\lambda/4}(\nu)$ is insensitive to isotropic changes in the absorption. So if the ellipticity and orientation of the polarization ellipses corresponding to the two results are equal for all frequencies then $L_{\lambda/4}$ will attain the same value in both cases. In other words, $L_{\lambda/4}(\nu)$ is the same for two states $\bm{\mathcal{E}}$ and $p\bm{\mathcal{E}}$, $0<p<1$ for any frequency. The intensity coefficients $p_1^2$ and $p_2^2$ for the equivalent elliptic diattenuator Jones matrix describing the result with a larger total thickness will both be scaled by $p^2$. Since in the definition of $L_{\lambda/4}$ the elements of the Jones matrix enter as a ratio, the factor $p^2$ then subsequently cancels out and both results will attain the same value of $L_{\lambda/4}$. This in turn means that there is no direct penalty for increasing the thicknesses other than increasing the effect of dichroism. 
+
+\begin{figure}[H]
     \centering
-    \includestandalone[scale=0.8]{images/5_chapter05/plots/ceramic/convergence}
+    \includestandalone[scale=0.75]{images/5_chapter05/plots/ceramic/convergence}
     \caption{Minimum value of $L_{\lambda/4}$ as a function of the total iteration count for the frequency range \SIrange{0.25}{1.5}{\tera \hertz} and a plate count of six. This shows that for the chosen settings the algorithm convergences rather fast.}
     \label{fig:cl4_convergence}
 \end{figure}
 
-
-Furthermore, if we consider two results where the total thickness of the latter is larger, then the magnitude or intensity of the corresponding output state will in general be lower compared to the output of the first result. However, $L_{\lambda/4}(\nu)$ is insensitive to isotropic changes in the absorption. So if the ellipticity and orientation of the polarization ellipses corresponding to the two results are equal for all frequencies then $L_{\lambda/4}$ will attain the same value in both cases. In other words, $L_{\lambda/4}(\nu)$ is the same for two states $\bm{\mathcal{E}}$ and $p\bm{\mathcal{E}}$, $0<p<1$ for any frequency. The intensity coefficients $p_1^2$ and $p_2^2$ for the equivalent elliptic diattenuator Jones matrix describing the result with a larger total thickness will both be scaled by $p^2$. Since in the definition of $L_{\lambda/4}$ the elements of the Jones matrix enter as a ratio, the factor $p^2$ then subsequently cancels out and both results will attain the same value of $L_{\lambda/4}$. This in turn means that there is no penalty for increasing the thicknesses other than increasing the effect of dichroism. 
-
 To address the question whether result 1 is the global minimum or if there is a better suited one we plotted the minimum value of $\sum_{\nu}L_{\lambda/4}(\nu)$ as function of the current iteration step in figure  \ref{fig:cl4_convergence}. We see that the algorithm converges fairly fast and there are only major changes in the first 25 iterations. This indicates that finding a solution with $n=6$ which performs significantly better in the range of \SIrange{0.25}{1.50}{\tera \hertz} is unlikely using the current algorithm and loss function.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
-    \includestandalone[scale=0.75]{images/5_chapter05/plots/ceramic/pe_cl4_lp}
+    \includestandalone[scale=0.7]{images/5_chapter05/plots/ceramic/pe_cl4_lp}
     \caption{Polarization ellipse representation of the output states for a linear horizontal input at seven different frequencies. Left subfigure shows the output of the TAQ while the right side is for the ceramic AWP with the parameters from result 1.}
     \label{fig:cl4_pe_lp}
 \end{figure}
 
 Figure \ref{fig:cl4_pe_lp} shows the polarization ellipses of the normalized states at seven different frequencies given an initial linear horizontal input. The ellipses for the output of the TAQ is shown in the left subfigure while the right is for result 1. The arrows indicate the handedness of the polarization. We see that as expected we get LCP states in the frequency range in which the optimization took place. Outside of that range the states are significantly more elliptical. We also see a slightly better result for the intermediate frequencies compared to the lowest at \SI{0.3}{\tera \hertz}. 
 
-\begin{figure}[ht]
+% TODO note starts to work as lambda half at higher freq. -> 90deg azimuth
+
+\begin{figure}[H]
     \centering
-    \includestandalone[scale=0.75]{images/5_chapter05/plots/ceramic/pe_cl4_cp}
+    \includestandalone[scale=0.7]{images/5_chapter05/plots/ceramic/pe_cl4_cp}
     \caption{Polarization ellipse representation of the output states for a LCP input at seven different frequencies. Left subfigure shows the output of the TAQ while the right side is for the ceramic AWP with the parameters from result 1.}
     \label{fig:cl4_pe_cp}
 \end{figure}
@@ -115,33 +116,70 @@ A possibility to reduce the significance of this could be to decrease the bandwi
 
 \begin{figure}[ht]
     \centering
-    \includestandalone[scale=0.7]{images/5_chapter05/plots/ceramic/intensity}
+    \includestandalone[scale=0.75]{images/5_chapter05/plots/ceramic/intensity}
     \caption{Transmission as a function of frequency for result 1 and 2 compared to the quartz TAQ. In the right subfigure the frequency range is reduced to the range in which result 1 was optimized. The insertion losses of result 1 and 2 are significantly higher compared to the TAQ, which is due to the higher absorption of the ceramic plates compared to the quartz plates.}
     \label{fig:cl4_intensity}
 \end{figure}
 
-Figure \ref{fig:cl4_params} shows the two sets of parameterization angles ($\alpha$, $\delta$) and ($\psi$, $\chi$) for result 1 and the TAQ as a function of frequency. We see that the values of $\alpha$ and $\delta$ are around \SI{45}{\degree} and \SI{270}{\degree} respectively for both result 1 and the TAQ indicating LCP. Again, similar to what the polarization degree showed we see a transition to RCP outside of the optimized frequency range, where in the case of result 1 the transition is sharper. For both the TAQ and result 1 the transition happens via a decrease of $\delta$. Since the phase shift is proportional to the birefringence times the path length and increases for increasing frequency it could indicate that the birefringence is negative. Furthermore, since $\delta = \delta_y - \delta_x$ and $\delta$ decreases for frequencies above approximately \SI{1.6}{\tera \hertz}, it shows that the phase of the x-component advances faster which in turn could indicate that the fast axis is partly along the x-axis. The x-axis is defined as the axis along which the incident light is polarized. Additionally, we see a bump in $\alpha$ around \SI{1.75}{\tera \hertz}. This is likely due to the same reason that causes the sharper decrease of $\delta$ for result 1 compared to the TAQ, since $\delta$ and $\alpha$ are related via $\sin(2\chi)=\sin(2\alpha)\sin(\delta)$ and the trend of the ellipticity $\chi$ is similar in both cases. We further see that the azimuth $\psi$ changes rapidly with frequency where the vertical lines are due to the confinement of $\psi$ to the interval $\left[0, \pi\right]$. This means that if we were to use two identical AWPs of this type in series to create a $\lambda/2$ AWP it likely would not have the desired effect, since the output state is highly dependent on the azimuth of the input. As a reminder, the azimuth of the input state in all cases shown so far and for all frequencies is zero.
+Figure \ref{fig:cl4_params} shows the two sets of parameterization angles ($\alpha$, $\delta$) and ($\psi$, $\chi$) for result 1 and the TAQ as a function of frequency. We see that the values of $\alpha$ and $\delta$ are around \SI{45}{\degree} and \SI{270}{\degree} respectively for both result 1 and the TAQ indicating LCP. Again, similar to what the polarization degree showed we see a transition to RCP outside of the optimized frequency range, where in the case of result 1 the transition is sharper. For both the TAQ and result 1 the transition happens via a decrease of $\delta$. Since the phase shift is proportional to the birefringence times the path length and increases for increasing frequency it could indicate that the birefringence is negative. Furthermore, since $\delta = \delta_y - \delta_x$ and $\delta$ decreases for frequencies above approximately \SI{1.6}{\tera \hertz}, it shows that the phase of the x-component advances faster which in turn could indicate that the fast axis is partly along the x-axis. The x-axis is defined as the axis along which the incident light is polarized. Additionally, we see a bump in $\alpha$ around \SI{1.75}{\tera \hertz}. This is likely due to the same reason that causes the sharper decrease of $\delta$ for result 1 compared to the TAQ, since $\delta$ and $\alpha$ are related via $\sin(2\chi)=\sin(2\alpha)\sin(\delta)$ and the trend of the ellipticity $\chi$ is similar in both cases. We further see that the azimuth $\psi$ changes rapidly with frequency. This means that if we were to use two identical AWPs of this type in series to create a $\lambda/2$ AWP it likely would not have the desired effect, since the output state is highly dependent on the azimuth of the input. As a reminder, the azimuth of the input state for all frequencies and in all cases shown so far is zero.
 
 \begin{figure}[ht]
     \centering
-    \includestandalone[scale=0.84]{images/5_chapter05/plots/ceramic/params}
-    \caption{The two sets of parameterization angles ($\alpha$, $\delta$) and ($\psi$, $\chi$) a function of frequency, where the left and right subfigure shows the angles for the TAQ and result 1 respectively. The values of $\alpha$ and $\delta$ are as expected for LCP as well as after the transition to RCP for both designs. The variation of the azimuth $\psi$ makes it impossible to place two of these designs in series to form a $\lambda/2$ AWP. As expected, for LCP and RCP frequencies $\chi$ attains a value of plus or minus \SI{45}{\degree} respectively.}
+    \includestandalone[scale=0.75]{images/5_chapter05/plots/ceramic/params_dotted}
+    \caption{The two sets of parameterization angles ($\alpha$, $\delta$) and ($\psi$, $\chi$) as a function of frequency, where the left and right subfigure shows the angles for the TAQ and result 1 respectively. The values of $\alpha$ and $\delta$ are as expected for LCP as well as after the transition to RCP for both designs. The variation of the azimuth $\psi$ makes it impossible to place two of these designs in series to form a $\lambda/2$ AWP. As expected, for LCP and RCP frequencies $\chi$ attains a value of plus or minus \SI{45}{\degree} respectively.}
     \label{fig:cl4_params}
 \end{figure}
 
-We also calculated the retardance as well as the diattenuation for both the TAQ and result 1 which is shown in figure \ref{fig:cl4_ret_diat}. The retardance and the diattenuation of an optical element is calculated directly from the Jones matrix describing the element and is therefore independent of the input state. 
+The calculated retardance as well as the diattenuation for both the TAQ and result 1 is shown in the left and right subfigure of figure \ref{fig:cl4_ret_diat} respectively. The retardance and the diattenuation of an optical element is obtained directly from the Jones matrix describing the element and is therefore independent of the input state. Additionally, as a reminder the retardance and diattenuation are, respectively, defined as the phase and relative intensity transmittance difference between the eigenpolarizations after passing the waveplate. It can be shown that this phase shift and transmittance difference are the maximum possible of all states \cite{Lu1994}. 
+
+We see that the diattenuation is increasing with frequency similar to the dichroism. Since quartz has a lower amount of dichroism compared to the \ce{Al2O3} ceramic we also find that the diattenuation of the TAQ is smaller compared to the ceramic waveplate. The sharp spikes around \SI{0.5}{\tera \hertz} and \SI{0.9}{\tera \hertz} are the frequencies where the dichroism is almost zero or in other words the absorption is direction independent, which we also recognize in figure \ref{fig:ri_abs}. Furthermore, any state that is not an eigenstate will therefore experience a smaller phase shift and compared to the retardance at a given frequency. This means that the retardance is an indicator of the order of the waveplate since it shows the maximum possible number or fractions of shifted wavelengths, both results can therefore be considered as zero order waveplates since the retardance is less than $2\pi$ \cite{Samoylov2004}. 
+%Furthermore, in the frequency region where the optimization took place we see an approximately linear increase of the retardance with frequency for both results which is likely explained by the linear relationship between the phase shift and frequency given by equation \ref{eq:wp_eq}. The following steep decrease is typical for a single zero order quarter waveplate as can be seen in for example . 
 
 \begin{figure}[H]
     \centering
-    \includestandalone[scale=1]{images/5_chapter05/plots/ceramic/ret_and_diat}
-    \caption{}
+    \includestandalone[scale=0.75]{images/5_chapter05/plots/ceramic/ret_and_diat}
+    \caption{Calculated retardance(left) and diattenuation(right) for the TAQ and result 1. The retardance stays below $2\pi$ indicating that both the TAQ and the waveplate from result 1 are zero order waveplates. The diattenuation is higher for result 1 due to the higher dichroism of the \ce{Al2O3} ceramic compared to quartz.}%TODO write more (done)
     \label{fig:cl4_ret_diat}
 \end{figure}
 
+Another interesting property are the principal axes of the waveplate. In case of a single birefringent linear retarder the principal axes are simply the fast and slow axis of the birefringent material; in other words linear polarization states for which the polarization planes align with the principal axes of the material. Although in general these axes are not always linear since they can be defined as the fastest and slowest propagating states of the optical element. For any given optical element the effective principal axes are therefore simply the eigenstates of the respective Jones matrix. As mentioned earlier these are also the states that are retarded the most or in other words most effectively phase shifted relative to each other. 
 
+To that extend we calculated the eccentricity and azimuth of the eigenstates for the TAQ and result 1 which is shown in figures \ref{fig:cl4_eigenstate_eccentricity} and \ref{fig:cl4_eigenstate_azimuths} respectively. We expect that the eccentricity is one and zero for linearly and circular polarized states respectively. It shows that the principle axes are elliptically polarized in the optimization frequency range for both the TAQ and result 1, which are therefore both elliptical waveplates. This also shows that these composite achromatic waveplates in general are not linear waveplates even though for an individual chromatic waveplate this is the case.
 
-To verify the design concept a set consisting of five ceramic discs similar to the three sketched in figure \ref{fig:ceramic_stack} as well as five additional test samples were produced by a third party. We characterized the newly printed samples but unfortunately they showed almost no birefringence, which therefore made them useless as waveplates. The description of the samples and the results of the measurement are shown in the appendix section \ref{sec:ceramic_characterization}. 
+\begin{figure}[H]
+    \centering
+    \includestandalone[scale=0.75]{images/5_chapter05/plots/ceramic/eigenstate_eccentricity}
+    \caption{Eccentricity of the two eigenstates for both the TAQ and result 1. It shows that both AWPs are examples of elliptical waveplates since the eccentricities in both cases are below one but above zero in the range in which the optimization took place.}
+    \label{fig:cl4_eigenstate_eccentricity}
+\end{figure}
 
+% TODO Fix phasewraps in plots (done)
+% TODO Fix fig 5.5 (done)
+We see that the azimuth shown in figure \ref{fig:cl4_eigenstate_azimuths} of the two eigenstates and thereby the angle of the effective principle axes for the TAQ and result 1 is slightly dispersive. Furthermore, we see that the axes do not align with any of the axes of the individual plates. This behaviour of the principle axes can be a problem for certain applications such as in the measurement of the polarization of the light from stars. Since then the axial dispersion results in changes in the orientation of the reference frame used to describe the determined Stokes parameters according to the frequency range \cite{Clarke2004, Bailey2019}. Although, since the plates in this work are supposed to be used for conversation of a certain state into another it is not as detrimental. Even though the axes are not independent of wavelength it is worth noting that the axes are at least pairwise orthogonal.
+
+\begin{figure}[H]
+    \centering
+    \includestandalone[scale=0.75]{images/5_chapter05/plots/ceramic/eigenstate_azimuths}
+    \caption{Azimuthal angle of the eigenstates for the TAQ and result 1, which shows the effective orientation of the principle axes. We see that the axes in both cases are slightly dispersive.}
+    \label{fig:cl4_eigenstate_azimuths}
+\end{figure}
+
+Since the input in the context of this work is linearly polarized we would ideally want the eigenstates to be linear. Furthermore, we get an interesting result in case of negligible dichroism. The Jones matrix $\hat{T}$ representing the composite waveplate can then be written as given in equation \ref{eq:equiv_matrix} or specifically as follows:
+\begin{equation}
+    \hat{T} = 
+    \begin{pmatrix} 
+    A & B \\
+    -B^* & A^*
+    \end{pmatrix}.
+\end{equation}
+If we then calculate the eigenstates we get the condition that they are linear if $\operatorname{Re}A=0$. In this case the retardation dephasing $\Delta_M$ given by equation \ref{eq:retardation_dephasing} coincides with the retardation defined as the absolute phase or angle difference between the two complex eigenvalues. Furthermore, in case of a half waveplate $A$ is purely imaginary \cite{McIntyre1968}. This means that it is sufficient to simply minimize $\operatorname{Re}A$.
+
+To verify the design concept experimentally a set consisting of five ceramic discs similar to the three sketched in figure \ref{fig:ceramic_stack} as well as five additional test samples were produced by a third party. We characterized the newly printed samples but unfortunately they showed almost no birefringence, which therefore made them useless as waveplates. The description of the samples and the results of the measurement are shown in the appendix section \ref{sec:ceramic_characterization}. 
+
+However, a design concept we could verify experimentally is the one based on form birefringent waveplates. This will be discussed in the following section.
+
+% TODO remark that there are a lot of parameters describing the waveplate and polarization state maybe ? Seems like a lot at least.
+% TODO ! zero order does make sense ... retardance < 2pi (done)
 
 %\begin{itemize}
 %    \item back in time we used other loss function. (described in appendix)
@@ -161,20 +199,55 @@ To verify the design concept a set consisting of five ceramic discs similar to t
 %    \item Ellipses, linear and circular (r/l?) input, shown output. (done,)
 %    \item alpha, azimuth, delay, ellip angle (done)
     %\item Transmission along two directions (lin -> wp -> x-pol int(out), (lin -> wp -> y-pol int(out))). Probably not? Maybe just intensity(freq) is enough (done)
-%    \item Retardance, Diattenuation
+%    \item Retardance, Diattenuation (done)
 %    \item See what interface does?
-%    \item Eigenstates?
+%    \item Eigenstates? (done)
 %    \item compare to Result 1 -> we do shorter range because of absorption (thinner plate(s))
 %    \item high abs compared to quartz (\cite{DGrischkowsky1990})
-%    \item things that need mention but no plot probably: tot. pol. deg., inhomogenity, normality. Check for more.
-%    \item poincare sphere (take python ss, cba to do it in latex tbh)
+%    \item things that need mention but no plot probably: tot. pol. deg., inhomogenity, normality. 
+%    \item poincare sphere (take python ss, cba to do it in latex) (maybe later)
 %\end{itemize}
 
 %\subsection{CST}
 %\subsection{Fabrication error}
 
-\section{Polymer}
-Hello
+\section{Composite AWP based on form birefringent polymer waveplates}
+The concept of form birefringent polymer waveplates is similar to the form birefringent silica waveplates described at the end of chapter \ref{ch:theory}. Specifically, instead of using SLE to create the form birefringent stratified structures we used a commercial 3D printer, in this case the Prusa i3 MK3S+. A 3D printer simply liquifies a polymer filament which is then deposited layer by layer at certain positions to create the structure given by a design file. Therefore, compared to SLE the process of 3D printing is different in the sense that it is an additive process while SLE is subtractive.  
+
+As a first step in the design process we chose a polymer which we would use for printing of the structures. Based on the measurements published in \cite{Busch2014} of seven different 3D printed polymer samples possibly suited for THz optics we selected high impact polystyrene (HIPS) and polypropylene (PP). These two polymers were shown to have a relatively low absorption coefficient at \SI{500}{\giga \hertz} which is a common property of most non-polar polymers \cite{Jordens2010, Castro-Camus2020} and low absorption is important since the final composite waveplate is rather thick. A \SI{2}{\milli \meter} thick rectangular sample of each material were printed and subsequently characterized using the GHz setup described in \ref{sec:GHz_setup}. The refractive index and absorption coefficient obtained from the measurement is shown in figure \ref{fig:HIPS_PP_ri}. We see that the refractive index does not change much over the frequency range for both materials. The absorption coefficient is slightly lower for PP compared to HIPS, which would make it better suited. Unfortunately, using PP we were only able to print squares due to its high flexibility and thermal expansion. All subsequent structures were therefore printed using the HIPS filament.
+
+\begin{figure}[H]
+    \centering
+    \includestandalone[scale=0.75]{images/5_chapter05/plots/polymer/HIPS_PP_ri}
+    \caption{Measured refractive index and absorption coefficient of the \SI{2}{\milli \meter} HIPS and PP samples.}
+    \label{fig:HIPS_PP_ri}
+\end{figure}
+
+The optimization was performed similar to the ceramic design. Although, we used the full frequency range since the bandwidth of the GHz setup was fairly narrow. Additionally, since the individual waveplates of this design are based on form birefringent waveplates we also optimized the stratification dimensions $a$ and $b$. To reduce the number of dimensions of the objective function we used the same values of $a$ and $b$ for all waveplates in the design; therefore all individual plates had the same birefringence. However, in the context of this work the main drawback of 3D printing is that the minimum feature size roughly depends on the nozzle diameter of the printer. In our case that was \SI{400}{\micro \meter}, in reality though we could only achieve a line width of around \SI{700}{\micro \meter} with an air gap width of approximately \SI{300}{\micro \meter}. In the end optimizing the stratification dimensions had no influence on the performance of the final design. Additionally, in the end the variation between the stratification dimensions of the actual print and the design was found to be insignificant. Again we optimized the objective function $L_{\lambda/4}$ given in equation \ref{eq:l4_loss_function}. We performed this optimization multiple times for up to $n=5$ and found a design consisting of four plates to be sufficient considering the reduced frequency range. The design with the lowest objective function value was chosen as the result of the optimization runs and the design parameters of this design are shown in table \ref{tab:res_hips_l4}.
+
+\begin{table}[ht]
+    \centering
+    \includestandalone[scale=1.0]{images/5_chapter05/polymer_result_table}
+    \caption{Design parameters for result 3 obtained through the optimization of $L_{\lambda/4}$ for $n=4$. }
+    \label{tab:res_hips_l4}
+\end{table}
+
+TODO! Send pdf + page cnt to jan
+
+\begin{itemize}
+    \item intro + Material selection (done)
+    \item Design description, maybe with photo. Optimization procedure see if still there somewhere. (partly done)
+    \item Maybe: expected parameters, dephasing, attenuation etc. poincare sphere
+    \item measurement execution if not in other chapter; 3
+    \item evaluation briefly like masson, fits etc. Skip polarizer error -> no polar plots.
+    \item Result of eval shows large deviation
+    \item explanation of deviation
+    \item unlikely due to dimension error through fabrication
+    \item expected birefringence vs measured from gratings. CST calculation + rytov (maybe transfer matrix method? Prob. not.)
+    \item indication: birefringence strongly influenced by printing direction https://archiv.ub.uni-marburg.de/diss/z2017/0786/ 
+    \item conclusion seems to work if we get the birefringence right. Not necessarily bad that it is higher but needs to be predictable. 
+\end{itemize}
+
 %\section{Fused silica glass}
 
 % Todo ref?

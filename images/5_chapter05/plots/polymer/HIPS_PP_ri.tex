@@ -1,0 +1,80 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{fillbetween}
+\usepackage{siunitx}
+\pgfplotsset{compat=1.5}
+
+\begin{document}
+
+\pgfplotsset{
+    table/search path={plot_data/5_chapter05/polymer},
+}
+
+\begin{tikzpicture}
+	\begin{axis}[
+        %ymin=3.02, ymax=3.17,
+        %xmin=0.25, xmax=2.7,
+        no markers,
+        every axis plot/.append style={ultra thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\giga \hertz}),
+        ylabel=Refractive index,
+        anchor=origin,
+        legend style={legend columns=1, at={(0.7,0.95)}, anchor=north west,
+                      nodes={scale=0.7, transform shape}}
+        ]
+        
+    	\addplot[red] table [
+    	x expr=\thisrowno{0},
+    	y expr=\thisrowno{3},
+    	col sep=semicolon] 
+    	{MUT 1-1.csv};
+    	\addlegendentry{HIPS}
+    	
+    	\addplot[blue] table [
+    	x expr=\thisrowno{0},
+    	y expr=\thisrowno{3},
+    	col sep=semicolon] 
+    	{MUT 4-1.csv};
+        \addlegendentry{PP}
+	    
+	\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+    \begin{axis}[
+        %ymin=3.02, ymax=3.17,
+        %xmin=0.25, xmax=3.0,
+        no markers,
+        every axis plot/.append style={ultra thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\giga \hertz}),
+        ylabel=Absorption coefficient $\left(\si{\per\centi\meter}\right)$,
+        legend style={legend columns=1, at={(0.7,0.95)}, anchor=north west,
+                      nodes={scale=0.75, transform shape}}
+        ]
+	    
+        \addplot[red] table [
+    	x expr=\thisrowno{0},
+    	y expr=\thisrowno{4},
+    	col sep=semicolon] 
+    	{MUT 1-1.csv};
+    	\addlegendentry{HIPS}
+        
+    	\addplot[blue] table [
+    	x expr=\thisrowno{0},
+    	y expr=\thisrowno{4},
+    	col sep=semicolon]
+    	{MUT 4-1.csv};
+        \addlegendentry{PP}
+        
+	\end{axis}
+	
+\end{tikzpicture}
+%\end{minipage}
+\end{document}

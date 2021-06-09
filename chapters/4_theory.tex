@@ -1,3 +1,5 @@
+\label{ch:theory}
+
 In this chapter we will introduce the basic underlying physical principles of birefringent waveplates. Simply put, the purpose of a waveplate is to modify the polarization state of EM waves in a controlled way as they pass through the waveplate. This is most commonly achieved by making the plates out of a birefringent material with a certain thickness. To this end, we first describe the polarization ellipse in section \ref{sec:polellipse}. Following this the underlying physical principles birefringence and dichroism are explained in more detail in section \ref{sec:wave_prop}. Finally, in section \ref{sec:waveplates} we then show what role these two principles play in regards to waveplates. Any change to a polarization state and the polarization states themselves, can be described mathematically using the Jones calculus which will be shown in section \ref{sec:math_desc}. At the end this leads up to the description of achromatic composite waveplates and the design as it is used in this work. Both are presented in section \ref{sec:jonescalc} of this chapter.
 
 \section{The polarization ellipse}
@@ -689,7 +691,7 @@ where $a_i=\cos^2(\alpha_i)\epsilon_{p,i}+\sin^2(\alpha_i)\epsilon_{s,i}$, $b_i=
 \begin{equation}
     \bm{E_r} = \frac{\epsilon_1-\frac{n_1}{n_2}\epsilon_2}{\epsilon_1+\frac{n_1}{n_2}\epsilon_2}\bm{E_i}, \qquad \bm{E_t} = \frac{2\epsilon_1}{\epsilon_1+\frac{n_1}{n_2}\epsilon_2}\bm{E_i},
 \end{equation}
-which with $\epsilon_i=n_i^2, i=1,2$ are the Fresnel equations for normal incidence. The next case we will consider is the interface between an isotropic medium, e.g. air, and a stratified medium. This means that the dielectric tensor of the first medium is $\epsilon_0$ times the identity matrix and for the second medium it is given by equation \ref{eq:lab_epsilon}. Again we can set the angles to zero. This is possible because the first medium is isotropic so that we can set the lab frame to align with the principle axes of medium 2. With this we can simplify equations \ref{eq:reflection_general} and \ref{eq:transmission_general}, resulting in:
+which with $\epsilon_i=n_i^2, i=1,2$ are the Fresnel equations for normal incidence. The next case we will consider is the interface between an isotropic medium, e.g. air, and a stratified medium. This means that the dielectric tensor of the first medium is $\epsilon_0$ times the identity matrix and for the second medium it is given by equation \ref{eq:lab_epsilon}. Again we can set the angles to zero. This is possible because the first medium is isotropic so that we can set the lab frame to align with the principal axes of medium 2. With this we can simplify equations \ref{eq:reflection_general} and \ref{eq:transmission_general}, resulting in:
 \begin{equation}
     \bm{E_r} =
     \begin{pmatrix}
@@ -704,7 +706,7 @@ which with $\epsilon_i=n_i^2, i=1,2$ are the Fresnel equations for normal incide
     \end{pmatrix}
     \bm{E_i},
 \end{equation}
-which agrees with the solution to a similar problem given in \cite{Lim1993}. Furthermore, in contrast to the previous case, we see that in this case need to distinguish between the two polarizations states. The final case we will consider is where both media are stratified so that their dielectric tensors are described by equation \ref{eq:lab_epsilon}. To be able to reduce equations \ref{eq:reflection_general} and \ref{eq:transmission_general} we limit ourselves to the case in which the principle axes of the two media in some way align with the axes of the lab system. In other words the angles $\alpha_1$ and $\alpha_2$ are a multiple of $\nicefrac{\pi}{2}$. In this case we get the following for equations \ref{eq:reflection_general} and \ref{eq:transmission_general}:
+which agrees with the solution to a similar problem given in \cite{Lim1993}. Furthermore, in contrast to the previous case, we see that in this case need to distinguish between the two polarizations states. The final case we will consider is where both media are stratified so that their dielectric tensors are described by equation \ref{eq:lab_epsilon}. To be able to reduce equations \ref{eq:reflection_general} and \ref{eq:transmission_general} we limit ourselves to the case in which the principal axes of the two media in some way align with the axes of the lab system. In other words the angles $\alpha_1$ and $\alpha_2$ are a multiple of $\nicefrac{\pi}{2}$. In this case we get the following for equations \ref{eq:reflection_general} and \ref{eq:transmission_general}:
 \begin{equation}
     \bm{E_r} =
     \begin{pmatrix}
@@ -789,7 +791,7 @@ The two most widely used representations of polarized light are Jones vectors an
 % TODO Removed the subsection ...
 \subsection{Stokes parameters}
 \label{sec:stokes_parameters}
-As mentioned; one of the advantages of the Stokes vectors are that they can describe any type of light. Since in the context of this work the light is always fully polarized we do not actually need this property and the Jones calculus will be sufficient. Nevertheless, the Stokes vectors will be helpful later on where they simplify the description and introduction of the Poincaré sphere, which is a useful tool for visualizing the effects of polarization altering elements and the states themselves. At first we will show how the Stokes parameters can be obtained directly from observables, then how they relate to the electric field. The Stokes parameters are a set of four numbers, which describe the intensity and polarization state of light. The parameters have the unit of intensity, this intensity is not time dependent but instead averaged over the period $T$ of a measurement. A direct consequence of this is that we lose the phase information, which limits the use of the Stokes parameters for interference effect calculations. Each parameter has a filter or polarizer $F_0$ to $F_3$ associated with it which transmits and blocks half of the light equally. The following configuration of the filters is just one way of defining the parameters and is not unique, that is other equivalent configurations exist as well. In any case the filters associated with the four parameters $s_0$ to $s_3$ are a neutral, two linear and a circular polarizer respectively. Where a neutral filter lets any polarization pass, in other words for any polarization state the initial intensity is equal to the final intensity after passing a neutral filter, it does not do anything. Linear polarizers essentially function in the same way as a wiregrid polarizer, rather a wiregrid polarizer is a linear polarizer. A circular polarizer consists of a linear polarizer and a quarter waveplate where the linear polarizer is oriented at an angle of \SI{45}{\degree} to the principle axes of the waveplate. The light will therefore always emerge circular polarized. The transmission axes of $F_1$ and $F_2$ are oriented horizontally and at \SI{45}{\degree} respectively while $F_3$ is opaque to LCP light. The filters are then placed one at a time in the beam path and the transmitted intensities $I_0$ to $I_3$ are measured for each filter. The Stokes parameters can then be calculated using the following combinations:
+As mentioned; one of the advantages of the Stokes vectors are that they can describe any type of light. Since in the context of this work the light is always fully polarized we do not actually need this property and the Jones calculus will be sufficient. Nevertheless, the Stokes vectors will be helpful later on where they simplify the description and introduction of the Poincaré sphere, which is a useful tool for visualizing the effects of polarization altering elements and the states themselves. At first we will show how the Stokes parameters can be obtained directly from observables, then how they relate to the electric field. The Stokes parameters are a set of four numbers, which describe the intensity and polarization state of light. The parameters have the unit of intensity, this intensity is not time dependent but instead averaged over the period $T$ of a measurement. A direct consequence of this is that we lose the phase information, which limits the use of the Stokes parameters for interference effect calculations. Each parameter has a filter or polarizer $F_0$ to $F_3$ associated with it which transmits and blocks half of the light equally. The following configuration of the filters is just one way of defining the parameters and is not unique, that is other equivalent configurations exist as well. In any case the filters associated with the four parameters $s_0$ to $s_3$ are a neutral, two linear and a circular polarizer respectively. Where a neutral filter lets any polarization pass, in other words for any polarization state the initial intensity is equal to the final intensity after passing a neutral filter, it does not do anything. Linear polarizers essentially function in the same way as a wiregrid polarizer, rather a wiregrid polarizer is a linear polarizer. A circular polarizer consists of a linear polarizer and a quarter waveplate where the linear polarizer is oriented at an angle of \SI{45}{\degree} to the principal axes of the waveplate. The light will therefore always emerge circular polarized. The transmission axes of $F_1$ and $F_2$ are oriented horizontally and at \SI{45}{\degree} respectively while $F_3$ is opaque to LCP light. The filters are then placed one at a time in the beam path and the transmitted intensities $I_0$ to $I_3$ are measured for each filter. The Stokes parameters can then be calculated using the following combinations:
 
 \begin{equation}
     \label{eq:stokes_param_int}
@@ -1278,6 +1280,7 @@ we can carry out the multiplication to obtain the following representation of $\
 This Jones matrix describes a single waveplate and a train of waveplates is then simply given by the product of the individual $\hat{T}_{RDL}$ matrices. Obtaining the retardance and diattenuation of the final product can be achieved with a polar decomposition, which states that for any complex 2x2 matrix $\hat{T}$ there exist positive-definite\footnote{A Hermitian matrix $\hat{H}$ is positive-definite if $\bm{\mathcal{E}}^{\dagger}\hat{H}\bm{\mathcal{E}}$ is positive for any $\bm{\mathcal{E}}$} Hermitian matrices $\hat{H}$ and $\hat{H}'$ and a unitary matrix $\hat{U}$ such that $\hat{T}=\hat{U}\hat{H}=\hat{H}'\hat{U}$. This means that an arbitrary Jones matrix describing any non-depolarizing optical element can be written as a product of a retarder and diattenuator as follows \cite{GilPerez2017}:
 \begin{equation}
     \hat{T} = \hat{T}_R\hat{T}_D = \hat{T}_D'\hat{T}_R.
+    \label{eq:diattenuation_retarder}
 \end{equation}
 Furthermore, the retardance $\Delta$ defined through the eigenvalues of $\hat{T}_R$ can be calculated using the following expression:
 \begin{equation}
@@ -1317,9 +1320,11 @@ As we have seen already waveplates are highly wavelength sensitive due to the in
     A & B \\
     -B^* & A^*
     \end{pmatrix},
+    \label{eq:equiv_matrix}
 \end{equation}
 where according to equation \ref{eq:wp_eq} the $\Delta_i$ are proportional to the frequency and the thickness $d_i$ of the i-th waveplate. From the previous section we know that $\hat{T}_M$ can be written as the product of a diattenuator and a retarder. Therefore, setting $p_1=p_2=1$ and comparing the coefficients of $\hat{T}_{M}$ to a retarder represented by $\hat{T}_{RL}(\psi, \Delta_M)$ they get an expression for the so called resulting retardation dephasing $\Delta_M$:
 \begin{equation}
+    \label{eq:retardation_dephasing}
     \tan^2 \frac{\Delta_M}{2} = \frac{\operatorname{Im}A^2+\operatorname{Im}B^2}
     {\operatorname{Re}A^2+\operatorname{Re}B^2}.
 \end{equation}
@@ -1370,6 +1375,7 @@ where the $\Delta_i$ are given by equation \ref{eq:wp_eq} which directly depends
 \end{equation}
 Circularly polarized states have the property that one component is real and the other imaginary. We use this to obtain the following loss function associated with the $\lambda/4$ waveplate:
 \begin{equation}
+\label{eq:l4_loss_function}
     L_{\lambda/4}(\bm{\psi}, \bm{d}, \bm{a}, \bm{b})=
     \sum_{\nu}\operatorname{Re}\left(r\right)^2+\left(1-\operatorname{Im}\left(r\right)\right)^2,
 \end{equation}
@@ -1400,9 +1406,10 @@ In the present chapter four different representations of the polarization state 
 
 % TODO Masson polar decomp and compare to elliptical with A,B.. matrix. Check what I wrote.
 
-% TODO for results?. Give explanation why two l4 dont give l2. Problem is l4 is also rotator (is it?) -> different azimuths -> different outputs since l4 is rotator depending on azimuth ... 
+% TODO for results?. Give explanation why two l4 dont give l2. Problem is l4 is also rotator (is it?) -> different azimuths -> different outputs since l4 is rotator depending on azimuth ... (done)
+
 % only for 100% pure circ is azimuth undef. (never happens)
 
-% TODO write summary + transition to chapter 4, right?
+% TODO write summary + transition to chapter 4, right? depends on final structure
 
 % TODO remark that passivity means that abs(T_ij) <= 1 used in l_2 loss function.
