@@ -1,0 +1,68 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\usepackage{siunitx}
+\pgfplotsset{compat=1.5}
+
+\begin{document}
+
+\pgfplotsset{
+    table/search path={plot_data/5_chapter05/polymer/ret_and_diat},
+}
+
+\begin{tikzpicture}
+	\begin{axis}[
+	    %ymode=log,
+        ymax=3.05,
+        %xmin=0.1, xmax=2.5,
+        no markers,
+        every axis plot/.append style={very thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\giga \hertz}),
+        ylabel=Retardance (rad),
+        %anchor=origin,
+        legend entries={{Result 3}},
+        legend style={legend columns=1, at={(0.10,0.95)}, anchor=north west,
+                      nodes={scale=0.90, transform shape}},
+        %reverse legend,
+        ]
+	    
+	    \addplot[red] table [
+    	x expr=\thisrowno{1}*10^-9,
+    	y expr=\thisrowno{2},
+    	col sep=comma] 
+    	{retardance.csv};
+	    
+	\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis}[
+	    %ymode=log,
+        %ymin=-0.005, ymax=0.07,
+        %xmin=0.1, xmax=2.5,
+        no markers,
+        every axis plot/.append style={very thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\giga \hertz}),
+        ylabel=Diattenuation,
+        %anchor=origin,
+        legend entries={{Result 3}},
+        legend style={legend columns=1, at={(0.6,0.95)}, anchor=north west,
+                      nodes={scale=0.90, transform shape}},
+        %reverse legend,
+        ]
+	    
+	    \addplot[red] table [
+    	x expr=\thisrowno{1}*10^-9,
+    	y expr=\thisrowno{2},
+    	col sep=comma] 
+    	{diattenuation.csv};
+	    
+	\end{axis}
+\end{tikzpicture}
+
+\end{document}

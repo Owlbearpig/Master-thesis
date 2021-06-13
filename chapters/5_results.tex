@@ -132,7 +132,9 @@ Figure \ref{fig:cl4_params} shows the two sets of parameterization angles ($\alp
 
 The calculated retardance as well as the diattenuation for both the TAQ and result 1 is shown in the left and right subfigure of figure \ref{fig:cl4_ret_diat} respectively. The retardance and the diattenuation of an optical element is obtained directly from the Jones matrix describing the element and is therefore independent of the input state. Additionally, as a reminder the retardance and diattenuation are, respectively, defined as the phase and relative intensity transmittance difference between the eigenpolarizations after passing the waveplate. It can be shown that this phase shift and transmittance difference are the maximum possible of all states \cite{Lu1994}. 
 
-We see that the diattenuation is increasing with frequency similar to the dichroism. Since quartz has a lower amount of dichroism compared to the \ce{Al2O3} ceramic we also find that the diattenuation of the TAQ is smaller compared to the ceramic waveplate. The sharp spikes around \SI{0.5}{\tera \hertz} and \SI{0.9}{\tera \hertz} are the frequencies where the dichroism is almost zero or in other words the absorption is direction independent, which we also recognize in figure \ref{fig:ri_abs}. Furthermore, any state that is not an eigenstate will therefore experience a smaller phase shift and compared to the retardance at a given frequency. This means that the retardance is an indicator of the order of the waveplate since it shows the maximum possible number or fractions of shifted wavelengths, both results can therefore be considered as zero order waveplates since the retardance is less than $2\pi$ \cite{Samoylov2004}. 
+We see that the diattenuation is increasing with frequency similar to the dichroism. Since quartz has a lower amount of dichroism compared to the \ce{Al2O3} ceramic we also find that the diattenuation of the TAQ is smaller compared to the ceramic waveplate. Even though the diattenuation is several orders of magnitude higher for result 1 we still theoretically see a similar performance compared to the TAQ. This means that either the influence of dichroism on the performance is less significant or the model accounts for it correctly. Additionally, the sharp spikes around \SI{0.5}{\tera \hertz} and \SI{0.9}{\tera \hertz} are the frequencies where the dichroism is almost zero or in other words the absorption is direction independent, which we also recognize in figure \ref{fig:ri_abs}. 
+
+Furthermore, any state that is not an eigenstate will experience a smaller phase shift and compared to the retardance at a given frequency. This means that the retardance is an indicator of the order of the waveplate since it shows the maximum possible number or fractions of shifted wavelengths, both results can therefore be considered as zero order waveplates since the retardance is less than $2\pi$ \cite{Samoylov2004}. 
 %Furthermore, in the frequency region where the optimization took place we see an approximately linear increase of the retardance with frequency for both results which is likely explained by the linear relationship between the phase shift and frequency given by equation \ref{eq:wp_eq}. The following steep decrease is typical for a single zero order quarter waveplate as can be seen in for example . 
 
 \begin{figure}[H]
@@ -155,7 +157,7 @@ To that extend we calculated the eccentricity and azimuth of the eigenstates for
 
 % TODO Fix phasewraps in plots (done)
 % TODO Fix fig 5.5 (done)
-We see that the azimuth shown in figure \ref{fig:cl4_eigenstate_azimuths} of the two eigenstates and thereby the angle of the effective principle axes for the TAQ and result 1 is slightly dispersive. Furthermore, we see that the axes do not align with any of the axes of the individual plates. This behaviour of the principle axes can be a problem for certain applications such as in the measurement of the polarization of the light from stars. Since then the axial dispersion results in changes in the orientation of the reference frame used to describe the determined Stokes parameters according to the frequency range \cite{Clarke2004, Bailey2019}. Although, since the plates in this work are supposed to be used for conversation of a certain state into another it is not as detrimental. Even though the axes are not independent of wavelength it is worth noting that the axes are at least pairwise orthogonal.
+We see that the azimuth shown in figure \ref{fig:cl4_eigenstate_azimuths} of the two eigenstates and thereby the angle of the effective principle axes for the TAQ and result 1 is slightly dispersive. Furthermore, we see that the axes do not align with any of the axes of the individual plates. This behavior of the principle axes can be a problem for certain applications such as in the measurement of the polarization of the light from stars. Since then the axial dispersion results in changes in the orientation of the reference frame used to describe the determined Stokes parameters according to the frequency range \cite{Clarke2004, Bailey2019}. Although, since the plates in this work are supposed to be used for conversation of a certain state into another it is not as detrimental. Even though the axes are not independent of wavelength it is worth noting that the axes are at least pairwise orthogonal.
 
 \begin{figure}[H]
     \centering
@@ -187,7 +189,7 @@ However, a design concept we could verify experimentally is the one based on for
 %    same printer as previous samples but with slightly different printing and sintering parameters and in the meantime printer had been moved to new location.
 %\end{itemize}
 
-% TODO fix colors and change masson in legend to TAQ
+% TODO fix colors and change masson in legend to TAQ (example, fig 5.4)
 % TODO Jones paper 1941 hurwitz. unitary matrix can be represented as rotator + retarder
 % TODO Add pic like fig 1 in https://doi.org/10.1364/AO.54.009758 (done)
 % TODO add no, ne, bf plot of sapphire(?)
@@ -219,31 +221,103 @@ As a first step in the design process we chose a polymer which we would use for 
 \begin{figure}[H]
     \centering
     \includestandalone[scale=0.75]{images/5_chapter05/plots/polymer/HIPS_PP_ri}
-    \caption{Measured refractive index and absorption coefficient of the \SI{2}{\milli \meter} HIPS and PP samples.}
+    \caption{Measured refractive index and absorption coefficient of the \SI{2}{\milli \meter} HIPS and PP samples. The tails at the frequency boundaries are system artifacts.}
     \label{fig:HIPS_PP_ri}
 \end{figure}
 
-The optimization was performed similar to the ceramic design. Although, we used the full frequency range since the bandwidth of the GHz setup was fairly narrow. Additionally, since the individual waveplates of this design are based on form birefringent waveplates we also optimized the stratification dimensions $a$ and $b$. To reduce the number of dimensions of the objective function we used the same values of $a$ and $b$ for all waveplates in the design; therefore all individual plates had the same birefringence. However, in the context of this work the main drawback of 3D printing is that the minimum feature size roughly depends on the nozzle diameter of the printer. In our case that was \SI{400}{\micro \meter}, in reality though we could only achieve a line width of around \SI{700}{\micro \meter} with an air gap width of approximately \SI{300}{\micro \meter}. In the end optimizing the stratification dimensions had no influence on the performance of the final design. Additionally, in the end the variation between the stratification dimensions of the actual print and the design was found to be insignificant. Again we optimized the objective function $L_{\lambda/4}$ given in equation \ref{eq:l4_loss_function}. We performed this optimization multiple times for up to $n=5$ and found a design consisting of four plates to be sufficient considering the reduced frequency range. The design with the lowest objective function value was chosen as the result of the optimization runs and the design parameters of this design are shown in table \ref{tab:res_hips_l4}.
+The optimization was performed similar to the ceramic design. Although, since the individual waveplates of this design are based on form birefringent waveplates we also optimized the stratification dimensions $a$ and $b$. To reduce the number of dimensions of the objective function we used the same values of $a$ and $b$ for all waveplates in the design; therefore all individual plates had the same birefringence. However, in the context of this work the main drawback of 3D printing is that the minimum feature size roughly depends on the nozzle diameter of the printer. In our case that was \SI{400}{\micro \meter}, in reality though we could only achieve a minimum feature size of around \SI{700}{\micro \meter} with an air gap width of approximately \SI{300}{\micro \meter}. This means that optimizing the stratification dimensions had no influence on the performance of the final design. Additionally, the variation between the stratification dimensions of the actual print and the design was found to be insignificant. 
+Therefore, with a spatial period of around \SI{1}{\milli \meter} and a wavelength of \SI{2.725}{\milli \meter} at \SI{110}{\giga \hertz} we could still almost obtain a $1:3$ ratio considering the condition given in equation \ref{eq:rytov_cond1} that the wavelength should be larger than the stratification period for the approximation of the form birefringence to be reasonable. 
+
+In this case we used the full frequency range since the bandwidth of the GHz setup was fairly narrow. Furthermore, to reduce the run time of the optimization we reduced the frequency resolution to one tenth of the original since the number of 2x2 matrix multiplications for each function evaluation is given by $\frac{Bn}{\Delta \nu}$, where $B$, $n$ and $\Delta \nu$ is the bandwidth, number of individual waveplates and frequency resolution respectively. The objective function itself was similar to $L_{\lambda/4}$, although in equation \ref{eq:l4_loss_function} we changed $r$ to $r^{-1}$. This modification was added in order to investigate if as expected the handedness of the output would then also be inverted compared to the output of the other results based on the original objective function. We subsequently optimized the modified objective function multiple times for $n=1, ..., 5$ and found a design consisting of four plates to be sufficient considering the reduced frequency range. 
 
 \begin{table}[ht]
     \centering
     \includestandalone[scale=1.0]{images/5_chapter05/polymer_result_table}
-    \caption{Design parameters for result 3 obtained through the optimization of $L_{\lambda/4}$ for $n=4$. }
+    \caption{Design parameters for result 3 obtained through the optimization of $L_{\lambda/4}$ for $n=4$. We used the full bandwidth of the GHz setup for the optimization.}
     \label{tab:res_hips_l4}
 \end{table}
 
-TODO! Send pdf + page cnt to jan
+The design with the lowest objective function value was chosen as the result of the optimization runs and the design parameters of this design are shown in table \ref{tab:res_hips_l4} and photos of the resulting printed structure are shown in figure \ref{fig:sent2david}.
+
+\begin{figure}[H]
+    \centering
+    \subcaptionbox{\label{fig:sent2david_1}}
+        {\includegraphics[width=0.47\linewidth]{images/5_chapter05/polymer/sent2david_1.jpg}}
+    \subcaptionbox{\label{fig:sent2david_2}}
+        {\includegraphics[width=0.47\linewidth]{images/5_chapter05/polymer/sent2david_2.jpg}}
+    \caption{3D printed composite AWP with design dimensions given in table \ref{tab:res_hips_l4}. The waveplate is printed in one piece leaving no gaps between the individual waveplates. a) shows the backside and b) the front where "In" and "Out" marks the side of the input and output respectively.}
+    \label{fig:sent2david}
+\end{figure}
+
+Based on the result of the optimization we can again calculate a number of predicted properties of the output and the waveplate. First of all the expected effective refractive indices as well as the absorption coefficients parallel ($n_p$) and perpendicular ($n_s$) to the stratification given $a=\SI{630}{\micro \meter}$, $b=\SI{520}{\micro \meter}$ and the measured refractive index of HIPS are shown in figure \ref{fig:effective_ri_bf_hips}. We see that the expected birefringence is around $0.086$ with a relatively low dispersion although with a slight increase at lower frequencies. Since the effective refractive index is approximately an average of the refractive indices of HIPS and air we see an even lower absorption coefficient compared to the sample consisting of HIPS only. Additionally, the calculated dichroism of the stratified structure is decreasing with increasing frequency. Again, data at the first and last few \si{\giga \hertz} is not reliable due to system artifacts.
+
+\begin{figure}[H]
+    \centering
+    \includestandalone[scale=0.7]{images/5_chapter05/plots/polymer/effective_ri_bf}
+    \caption{Calculated effective refractive indices (Left) and absorption coefficient (Right) of stratified HIPS parallel ($n_p$) and perpendicular ($n_s$) to the stratification given $a=\SI{630}{\micro \meter}$, $b=\SI{520}{\micro \meter}$.}
+    \label{fig:effective_ri_bf_hips}
+\end{figure}
+
+Figure \ref{fig:polymer_pe_lp} shows the polarization ellipse representation of the normalized output for a horizontally linearly polarized and LCP input. We see that the output should be almost perfectly RCP as expected in case of a linear input. In case of a LCP input the output is linearly polarized and similarly to the \ce{Al2O3} ceramic designs at different azimuths depending on the frequency. 
+
+\begin{figure}[H]
+    \centering
+    \includestandalone[scale=0.7]{images/5_chapter05/plots/polymer/pe_lp}
+    \caption{a) and b) polarization ellipses of the normalized output at different frequencies for horizontally linearly polarized and LCP input respectively.}
+    \label{fig:polymer_pe_lp}
+\end{figure}
+
+HIPS is almost non-absorbing compared to \ce{Al2O3} ceramic which further means that the transmission losses shown in figure \ref{fig:polymer_intensity} are relatively low considering the fairly thick device thickness of almost \SI{3}{\centi \meter}. The biggest losses are around \SI{80}{\giga \hertz} with a transmission of \SI{1.8}{\decibel}.
+
+\begin{figure}[H]
+    \centering
+    \includestandalone[scale=0.7]{images/5_chapter05/plots/polymer/intensity}
+    \caption{Transmitted intensity as a function of frequency calculated based on the design given in table \ref{tab:res_hips_l4} and the measured absorption coefficient of HIPS.}
+    \label{fig:polymer_intensity}
+\end{figure}
+
+The circular and linear polarization degrees $V_c$ and $V_l$ are shown in figure \ref{fig:polymer_pol_deg}. $V_c$ is approximately one as expected for RCP light and $V_l$ is in the order of a few percent. We also see that at the edges of the frequency range the waveplate should perform slightly worse compared to other frequencies.
+
+\begin{figure}[H]
+    \centering
+    \includestandalone[scale=0.7]{images/5_chapter05/plots/polymer/polDeg}
+    \caption{Calculated circular and linear polarization degree $V_c$ and $V_l$ as a function of frequency. $V_c$ is almost one which indicates RCP light and $V_l$ is close to zero.}
+    \label{fig:polymer_pol_deg}
+\end{figure}
+
+
+
+\begin{itemize}
+    \item 1:3 ratio seems to be enough in other works too (cite)
+    \item Add calculated eff. ref. ind. + abs. coeff. -> bf (done)
+    \item retardance to show zero order
+    \item ellipse of output (done)
+    \item eigenstate azimuth + eccentricity
+    \item pol degrees (done)
+    \item transmitted intensity (done)
+    \item parameters
+    \item eccentricity ? 
+\end{itemize}
+
+% Ask David for original data? Non normalized.
+% Big TODO change all horizontally etc. to abbrevations please ...
+% Note: handedness of result 3 is wrong because sign of l4 is wrong J10/J00 instead of J00/J10 (done. Mention at ellipse handedness or circ pol degree (+1))
+% TODO write about periodicity compared to wavelength (done)
+% TODO Reduced freq. res. (done)
+% TODO Send pdf + page cnt to jan (done)
+
+% magnitude of dichorism for formbf hips. Is dichroism more important to account for here ?
 
 \begin{itemize}
     \item intro + Material selection (done)
-    \item Design description, maybe with photo. Optimization procedure see if still there somewhere. (partly done)
-    \item Maybe: expected parameters, dephasing, attenuation etc. poincare sphere
-    \item measurement execution if not in other chapter; 3
-    \item evaluation briefly like masson, fits etc. Skip polarizer error -> no polar plots.
+    \item Design description, maybe with photo. Optimization procedure see if still there somewhere. (done)
+    \item Maybe: expected parameters, dephasing, attenuation etc. poincare sphere when?
+    \item measurement execution if not put it in other chapter; 3
+    \item evaluation briefly like masson, fits etc. Skip polarizer offset error -> no polar plots.
     \item Result of eval shows large deviation
     \item explanation of deviation
     \item unlikely due to dimension error through fabrication
-    \item expected birefringence vs measured from gratings. CST calculation + rytov (maybe transfer matrix method? Prob. not.)
+    \item expected birefringence vs measured from gratings. CST calculation + rytov (maybe transfer matrix method? Just add at presentation)
     \item indication: birefringence strongly influenced by printing direction https://archiv.ub.uni-marburg.de/diss/z2017/0786/ 
     \item conclusion seems to work if we get the birefringence right. Not necessarily bad that it is higher but needs to be predictable. 
 \end{itemize}
