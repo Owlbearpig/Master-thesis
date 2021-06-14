@@ -1,0 +1,104 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{siunitx}
+\pgfplotsset{compat=1.5}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}
+
+\pgfplotsset{
+    table/search path={plot_data/5_chapter05/polymer/eigenstate_params},
+}
+
+
+
+\begin{tikzpicture}
+
+	\begin{axis}[
+	    %ymode=log,
+        %ymin=-0.15, ymax=5,
+        %xmin=0.1, xmax=2.0,
+        no markers,
+        every axis plot/.append style={very thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\giga \hertz}),
+        ylabel=Azimuth (rad),
+        ytick={-6.28318, -4.7123889, -3.14159, -2.356194, -1.5708, -0.78539816, 0, 0.78539816, 1.5708, 2.356194, 3.14159, 4.7123889, 6.28318},
+        yticklabels={$-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{3\pi}{4}$, $-\frac{\pi}{2}$, $-\frac{\pi}{4}$, 0, $\frac{\pi}{4}$, $\frac{\pi}{2}$, $\frac{3\pi}{4}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$},
+        %anchor=origin,
+        %legend entries={{$\alpha$}, {$\delta$}, {$\psi$}, {$\chi$}},
+        legend style={legend columns=1, at={(0.10,0.7)}, anchor=north west,
+                      nodes={scale=0.90, transform shape}},
+        %reverse legend,
+        unbounded coords=jump
+        ]
+	    \addlegendentry{\hspace{-0.9cm}\textbf{Result 3}}
+	    \addlegendentry{}
+        \addlegendentry{First eigenstate}
+        \addlegendentry{Second eigenstate}
+	    \addlegendimage{empty legend}
+	    \addlegendimage{empty legend}
+	    
+	    \addplot[red] table [
+    	x expr=\thisrowno{1}*10^-9,
+    	y expr=\thisrowno{2}*3.141593/180,
+    	col sep=comma] 
+    	{eigenstate_azimuths.csv};
+    	
+    	\addplot[blue] table [
+    	x expr=\thisrowno{1}*10^-9,
+    	y expr=\thisrowno{3}*3.141593/180,
+    	col sep=comma] 
+    	{eigenstate_azimuths.csv};
+	\end{axis}
+	
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis}[
+	    %ymode=log,
+        ymin=0.87, ymax=1.02,
+        %xmin=0.1, xmax=2.0,
+        no markers,
+        every axis plot/.append style={very thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\giga \hertz}),
+        ylabel=Eccentricity,
+        %ytick={-6.28318, -4.7123889, -3.14159, -1.5708, 0, 1.5708, 3.14159, 4.7123889, 6.28318},
+        %yticklabels={$-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{\pi}{2}$, 0, $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$},
+        %anchor=origin,
+        %legend entries={{$\alpha$}, {$\delta$}, {$\psi$}, {$\chi$}},
+        legend style={legend columns=1, at={(0.4,0.95)}, anchor=north west,
+                      nodes={scale=0.90, transform shape}},
+        %reverse legend,
+        ]
+	    \addlegendentry{\hspace{-0.9cm}\textbf{Result 3}}
+	    \addlegendentry{}
+        \addlegendentry{First eigenstate}
+        \addlegendentry{Second eigenstate}
+	    \addlegendimage{empty legend}
+	    \addlegendimage{empty legend}
+	    
+	    \addplot[red] table [
+    	x expr=\thisrowno{1}*10^-9,
+    	y expr=\thisrowno{2},%*3.141593/180,
+    	col sep=comma] 
+    	{eigenstate_eccentricity.csv};
+    	
+        \addplot[blue] table [
+    	x expr=\thisrowno{1}*10^-9,
+    	y expr=\thisrowno{3},%*3.141593/180,
+    	col sep=comma] 
+    	{eigenstate_eccentricity.csv};
+
+	\end{axis}
+
+\end{tikzpicture}
+\end{document}
+
+\end{document}
