@@ -226,7 +226,7 @@ As a first step in the design process we chose a polymer which we would use for 
 \end{figure}
 
 The optimization was performed similar to the ceramic design. Although, since the individual waveplates of this design are based on form birefringent waveplates we also optimized the stratification dimensions $a$ and $b$. To reduce the number of dimensions of the objective function we used the same values of $a$ and $b$ for all waveplates in the design; therefore all individual plates had the same birefringence. However, in the context of this work the main drawback of 3D printing is that the minimum feature size roughly depends on the nozzle diameter of the printer. In our case that was \SI{400}{\micro \meter}, in reality though we could only achieve a minimum feature size of around \SI{700}{\micro \meter} with an air gap width of approximately \SI{300}{\micro \meter}. This means that optimizing the stratification dimensions had no influence on the performance of the final design. Additionally, the variation between the stratification dimensions of the actual print and the design was found to be insignificant. 
-Therefore, with a spatial period of around \SI{1}{\milli \meter} and a wavelength of \SI{2.725}{\milli \meter} at \SI{110}{\giga \hertz} we could still almost obtain a $1:3$ ratio considering the condition given in equation \ref{eq:rytov_cond1} that the wavelength should be larger than the stratification period for the approximation of the form birefringence to be reasonable. 
+Therefore, with a spatial period of around \SI{1}{\milli \meter} and a wavelength of \SI{2.725}{\milli \meter} at \SI{110}{\giga \hertz} we could still almost obtain a $1:3$ ratio considering the condition given in equation \ref{eq:rytov_cond1} that the wavelength should be larger than the stratification period for the approximation of the form birefringence to be reasonable. Interestingly, in another work it was shown by comparing the values of the form birefringence of a periodically stratified medium to the result of a more accurate numerical theory that the approximation used in this work is valid even up to a $3:4$ wavelength-periodicity ratio \cite{Busch2016QuasioptischeT}.
 
 In this case we used the full frequency range since the bandwidth of the GHz setup was fairly narrow. Furthermore, to reduce the run time of the optimization we reduced the frequency resolution to one tenth of the original since the number of 2x2 matrix multiplications for each function evaluation is given by $\frac{Bn}{\Delta \nu}$, where $B$, $n$ and $\Delta \nu$ is the bandwidth, number of individual waveplates and frequency resolution respectively. The objective function itself was similar to $L_{\lambda/4}$, although in equation \ref{eq:l4_loss_function} we changed $r$ to $r^{-1}$. This modification was added in order to investigate if as expected the handedness of the output would then also be inverted compared to the output of the other results based on the original objective function. We subsequently optimized the modified objective function multiple times for $n=1, ..., 5$ and found a design consisting of four plates to be sufficient considering the reduced frequency range. 
 
@@ -285,54 +285,67 @@ The circular and linear polarization degrees $V_c$ and $V_l$ are shown in figure
     \label{fig:polymer_pol_deg}
 \end{figure}
 
+The calculated retardance and diattenuation of the waveplate from result 3 is shown in figure \ref{fig:polymer_ret_and_diat}. We again see that the waveplate can be considered to be zero order since the retardance is below $2\pi$. Additionally, we also see that the diattenuation again correlates with the dichroism. Furthermore, if we consider the inhomogeneity of the Jones matrix and the deviation of the two eigenstates from being mutually orthogonal which is shown in the two subfigures in figure \ref{fig:inhomogeneity_orthogonality} we see that there is a direct correlation between all three properties; the dichroism, inhomogeneity and the deviation from orthogonality. The eigenstates are therefore orthogonal and the Jones matrix is homogeneous when the dichroism is zero otherwise there is a slight deviation of up to \SI{1.6}{\degree}. 
+
 \begin{figure}[H]
     \centering
     \includestandalone[scale=0.7]{images/5_chapter05/plots/polymer/ret_and_diat}
-    \caption{}
+    \caption{Calculated retardance and diattenuation as a function of frequency based on the design dimensions from result 3. Result 3 represents a zero order waveplate since the retardance is lower than $2\pi$ for all frequencies. Again we see a correlation between the diattenuation and the dichroism of the structure.}
     \label{fig:polymer_ret_and_diat}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includestandalone[scale=0.7]{images/5_chapter05/plots/polymer/params_dotted}
-    \caption{}
-    \label{fig:polymer_params_dotted}
+    \includestandalone[scale=0.7]{images/5_chapter05/plots/polymer/inhomogeneity_orthogonality}
+    \caption{Left: calculated inhomogeneity $\nu$ of the Jones matrix representing the AWP of result 3. Right: the deviation from mutual orthogonality of its eigenstates as a function of frequency.}
+    \label{fig:inhomogeneity_orthogonality}
 \end{figure}
+
+Figure \ref{fig:polymer_eigenstate_params} shows the azimuth and eccentricity of the eigenstates for waveplate of result 3. Similar to the ceramic design and the TAQ we see that the eigenstates are again slightly elliptical and their azimuths show a small frequency dependency.
 
 \begin{figure}[H]
     \centering
     \includestandalone[scale=0.7]{images/5_chapter05/plots/polymer/eigenstate_params}
-    \caption{}
+    \caption{Left: calculated azimuths of the eigenstates as well as their eccentricity where the latter is shown in the right subfigure.}
     \label{fig:polymer_eigenstate_params}
 \end{figure}
 
+We calculated the $(\alpha, \delta)$ and $(\psi, \chi)$ parameterizations of the polarization ellipses representing the output of result 3 given a linearly horizontally polarized input, the individual parameters are shown figure \ref{fig:polymer_params_dotted}. $\alpha$ and $\delta$ are almost independent of the frequency as expected since $\alpha$ is a measure of how much the ellipse resembles a perfect circle and $\delta$ is the phase shift between the field components which is expected to be equal to $\frac{\pi}{2}$ for RCP. We see a similar frequency independent trend for the ellipticity angle $\chi$ which is expected to be around $\frac{\pi}{4}$. In theory the azimuth is undefined for a perfectly circular polarized state since it determines the orientation of the polarization ellipse. It should therefore not be relevant for the performance.
+
+\begin{figure}[H]
+    \centering
+    \includestandalone[scale=0.7]{images/5_chapter05/plots/polymer/params_dotted}
+    \caption{Two parameterizations $(\alpha, \delta)$ and $(\psi, \chi)$ of the output polarization ellipse for a linearly horizontally polarized input. $\alpha$ and $\delta$ are around $\frac{\pi}{4}$ and $\frac{\pi}{2}$ independently of frequency as expected for RCP. The azimuth $\psi$ shows a frequency dependency while the ellipticity angle $\chi$ is frequency independent with a value of approximately $\frac{\pi}{4}$.}
+    \label{fig:polymer_params_dotted}
+\end{figure}
+
+
+
 \begin{itemize}
-    \item 1:3 ratio seems to be enough in other works too (cite)
+    \item 1:3 ratio seems to be enough in other works too (done)
     \item Add calculated eff. ref. ind. + abs. coeff. -> bf (done)
-    \item retardance to show zero order (plot done)
+    \item retardance to show zero order (done)
     \item ellipse of output (done)
-    \item eigenstate azimuth + eccentricity (plot done)
+    \item eigenstate azimuth + eccentricity (done)
     \item pol degrees (done)
     \item transmitted intensity (done)
-    \item parameters (plot done)
-    \item inhomogenity correlates with dichroism/diattenuation since it removes reversal property. Also correlates with deviation from orthogonality of eigenstates. 
+    \item parameters (done)
+    \item inhomogenity correlates with dichroism/diattenuation since it removes reversal property. Also correlates with deviation from orthogonality of eigenstates. (done)
 \end{itemize}
 
-% expected parameters compared directly right away to measurement? -> describe measurement first??
-% Ask David for original data? Non normalized.
 % Big TODO change all horizontally etc. to abbrevations please ...
 % Note: handedness of result 3 is wrong because sign of l4 is wrong J10/J00 instead of J00/J10 (done. Mention at ellipse handedness or circ pol degree (+1))
 % TODO write about periodicity compared to wavelength (done)
 % TODO Reduced freq. res. (done)
 % TODO Send pdf + page cnt to jan (done)
 
-% magnitude of dichorism for formbf hips. Is dichroism more important to account for here ?
+% magnitude of dichorism for formbf hips. (done) Is dichroism more important to account for here ? Weekend tests ...
 
 \begin{itemize}
     \item intro + Material selection (done)
     \item Design description, maybe with photo. Optimization procedure see if still there somewhere. (done)
     \item Maybe: expected parameters, dephasing, attenuation etc. poincare sphere when?
-    \item measurement execution if not put it in other chapter; 3
+    \item measurement execution. Mes. of BF + WP is fairly simple, no need to add in chapter 3. 
     \item evaluation briefly like masson, fits etc. Skip polarizer offset error -> no polar plots.
     \item Result of eval shows large deviation
     \item explanation of deviation
