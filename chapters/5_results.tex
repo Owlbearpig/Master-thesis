@@ -319,19 +319,72 @@ We calculated the $(\alpha, \delta)$ and $(\psi, \chi)$ parameterizations of the
     \label{fig:polymer_params_dotted}
 \end{figure}
 
+Before we show the result of the actual measurement or characterization of the waveplate we also drew the Poincaré representation of the output of each individual waveplate at the frequencies \SI{90}{\giga \hertz} and \SI{105}{\giga \hertz} given an initial horizontally linearly polarized input. The lines connecting each state through the shortest path are supposed to represent the transformation of the state caused by the respective individual waveplate. We see that the incident linearly polarized state is gradually transformed into the RCP state. Interestingly, in \cite{Masson2006} they note that due to the retardance varying with frequency the path along the sphere also changes but as expected for an AWP the end state remains the same. Although, in the present case we do not see this happening; the path varies little with frequency. 
 
+\begin{figure}[H]
+    \centering
+    \subcaptionbox{\label{fig:res3_poincare_90ghz}}
+        {\includegraphics[width=0.47\linewidth]{images/5_chapter05/plots/polymer/poincare/Poincare_Res3_90GHz.png}}
+    \subcaptionbox{\label{fig:res3_poincare_105ghz}}
+        {\includegraphics[width=0.47\linewidth]{images/5_chapter05/plots/polymer/poincare/Poincare_Res3_105GHz.png}}
+    \caption{Poincaré sphere representation of the normalized input and output state of each individual waveplate of result 3. at a) \SI{90}{\giga \hertz} and b) \SI{105}{\giga \hertz}. We see that the initial input $(1,1,0,0)$ is gradually transformed to the final output $(1,0,0,1)$ for both frequencies shown here.}
+    \label{fig:res3_poincare}
+\end{figure}
 
-\begin{itemize}
-    \item 1:3 ratio seems to be enough in other works too (done)
-    \item Add calculated eff. ref. ind. + abs. coeff. -> bf (done)
-    \item retardance to show zero order (done)
-    \item ellipse of output (done)
-    \item eigenstate azimuth + eccentricity (done)
-    \item pol degrees (done)
-    \item transmitted intensity (done)
-    \item parameters (done)
-    \item inhomogenity correlates with dichroism/diattenuation since it removes reversal property. Also correlates with deviation from orthogonality of eigenstates. (done)
-\end{itemize}
+To characterize the waveplate the technique described in \cite{Masson2006} together with the GHz setup was used. To perform the measurement a single polarizer was inserted into the beam path following the waveplate. Originally in \cite{Masson2006} two polarizers were inserted although due to the strongly linearly polarized antennas one polarizer was considered to be sufficient in our measurement. The measurement itself is performed by measuring the transmitted signal $S(\phi)$ at different angles $\phi$ of the inserted polarizer with respect to the reference frame. In general the Jones vector representing the state after the waveplate can be written as follows:
+\begin{equation}
+    \bm{\mathcal{E}}_{wp}= 
+    \begin{pmatrix}
+    a \\
+    be^{i\delta}
+    \end{pmatrix},
+\end{equation}
+where $a,b$ are the major and minor ellipse axes and $\delta$ is the phase difference between the field components. The final state $\bm{\mathcal{E}}_{f}$ representing the measured signal is then simply $\bm{\mathcal{E}}_{wp}$ followed by the Jones matrices representing the rotated and fixed polarizer. We can calculate $\bm{\mathcal{E}}_{f}$ as follows:
+\begin{equation}
+    \bm{\mathcal{E}}_{f}= 
+    \begin{pmatrix}
+        1 & 0\\
+        0 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        c_{\phi} & -s_{\phi}\\
+        s_{\phi} & c_{\phi}
+    \end{pmatrix}
+    \begin{pmatrix}
+        1 & 0\\
+        0 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        c_{\phi} & s_{\phi}\\
+        -s_{\phi} & c_{\phi}
+    \end{pmatrix}
+    \bm{\mathcal{E}}_{wp}.
+\end{equation}
+The measured amplitude is then given by the following expression:
+\begin{equation}
+    S(\phi)=\sqrt{I} = \sqrt{\bm{\mathcal{E}}_{f} \bm{\mathcal{E}}_{f}^{\dagger}} = |c_{\phi}|\left[(ac_{\phi}+bs_{\phi}c_{\delta})^2 + (bs_{\phi}s_{\delta})^2\right]^{1/2}.
+    \label{eq:ampl_fit_func}
+\end{equation}
+The measurement is performed in steps of \SI{10}{\degree} of $\phi$. This leads to 36 individual measurements which are subsequently normalized with respect to the measurement where the polarizers are parallel. For a given frequency we fit equation \ref{eq:ampl_fit_func} or specifically the three parameters $a,b$ and $\delta$ to the measured amplitude as a function of $\phi$. The result of the measurement is shown in figure \ref{fig:meas_result}. 
+
+\begin{figure}[H]
+    \centering
+    \includestandalone[scale=0.7]{images/5_chapter05/plots/polymer/measurement_result}
+    \caption{}
+    \label{fig:meas_result}
+\end{figure}
+
+%\begin{itemize}
+%    \item 1:3 ratio seems to be enough in other works too (done)
+%    \item Add calculated eff. ref. ind. + abs. coeff. -> bf (done)
+%    \item retardance to show zero order (done)
+%    \item ellipse of output (done)
+%    \item eigenstate azimuth + eccentricity (done)
+%    \item pol degrees (done)
+%    \item transmitted intensity (done)
+%    \item parameters (done)
+%    \item inhomogenity correlates with dichroism/diattenuation since it removes reversal property. Also correlates with deviation from orthogonality of eigenstates. (done)
+%\end{itemize}
 
 % Big TODO change all horizontally etc. to abbrevations please ...
 % Note: handedness of result 3 is wrong because sign of l4 is wrong J10/J00 instead of J00/J10 (done. Mention at ellipse handedness or circ pol degree (+1))
@@ -344,13 +397,13 @@ We calculated the $(\alpha, \delta)$ and $(\psi, \chi)$ parameterizations of the
 \begin{itemize}
     \item intro + Material selection (done)
     \item Design description, maybe with photo. Optimization procedure see if still there somewhere. (done)
-    \item Maybe: expected parameters, dephasing, attenuation etc. poincare sphere when?
-    \item measurement execution. Mes. of BF + WP is fairly simple, no need to add in chapter 3. 
-    \item evaluation briefly like masson, fits etc. Skip polarizer offset error -> no polar plots.
+    \item Maybe: expected parameters, dephasing, attenuation etc. poincare sphere when? (done)
+    \item measurement execution. Mes. of BF + WP is fairly simple, no need to add in chapter 3. (done)
+    \item evaluation briefly like masson, fits etc. Skip polarizer offset error -> no polar plots. (done)
     \item Result of eval shows large deviation
     \item explanation of deviation
-    \item unlikely due to dimension error through fabrication
-    \item expected birefringence vs measured from gratings. CST calculation + rytov (maybe transfer matrix method? Just add remark at presentation)
+    \item unlikely due to dimension error through fabrication (maybe)
+    \item expected birefringence vs measured from gratings. CST calculation + rytov (maybe transfer matrix method? nah -> add remark at presentation)
     \item indication: we see birefringence strongly influenced by printing direction https://archiv.ub.uni-marburg.de/diss/z2017/0786/ 
     \item conclusion seems to work if we get the birefringence right. Not necessarily bad that it is higher but needs to be predictable. 
 \end{itemize}

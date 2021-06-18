@@ -1,0 +1,91 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\usepackage{siunitx}
+\pgfplotsset{compat=1.5}
+
+\begin{document}
+
+\pgfplotsset{
+    table/search path={plot_data/5_chapter05/polymer},
+}
+
+\begin{tikzpicture}
+	\begin{axis}[
+	    %ymode=log,
+        ymin=0.36, ymax=0.58,
+        xmin=71, xmax=114,
+        no markers,
+        every axis plot/.append style={very thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\giga \hertz}),
+        ylabel=Retardation $\frac{\delta}{\pi}$,
+        %anchor=origin,
+        legend style={legend columns=1, at={(0.15,0.55)}, anchor=north west,
+                      nodes={scale=0.90, transform shape}},
+        %reverse legend,
+        ]
+	    
+	    \addplot[red] table [
+    	x expr=\thisrowno{1},
+    	y expr=\thisrowno{4}/3.14159,
+    	col sep=comma] 
+    	{measurement_result.csv};
+	    \addlegendentry{$\delta$ measured}
+	    
+        \addplot[blue] table [
+    	x expr=\thisrowno{1}*10^-9,
+    	y expr=\thisrowno{3}/180,
+    	col sep=comma] 
+    	{params/params.csv};
+	    \addlegendentry{$\delta$ expected}
+	    
+	    \addplot[black, dotted, thin, forget plot] coordinates {(60,0.5) (120,0.5)};
+	    
+	    \addplot[green, dotted] coordinates {(60,0.56) (120,0.56)};
+	    \addlegendentry{+\SI{12}{\percent}}
+	    
+	    \addplot[green, dashed] coordinates {(60,0.40) (120,0.40)};
+	    \addlegendentry{-\SI{20}{\percent}}
+
+	\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis}[
+	    %ymode=log,
+        ymin=0.59, ymax=1.05,
+        xmin=71, xmax=114,
+        no markers,
+        every axis plot/.append style={very thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\giga \hertz}),
+        ylabel=Ellipse axis ratio,
+        %anchor=origin,
+        legend entries={{$\frac{b}{a}$ measured}, {$\frac{b}{a}$ expected}},
+        legend style={legend columns=1, at={(0.5,0.8)}, anchor=north west,
+                      nodes={scale=0.90, transform shape}},
+        %reverse legend,
+        ]
+	    
+	    \addplot[red] table [
+    	x expr=\thisrowno{1},
+    	y expr=\thisrowno{3}/\thisrowno{2},
+    	col sep=comma] 
+    	{measurement_result.csv};
+    	
+        \addplot[blue] table [
+    	x expr=\thisrowno{1}*10^-9,
+    	y expr=\thisrowno{3}/\thisrowno{2},
+    	col sep=comma] 
+    	{params/ellipse_axes.csv};
+        
+        \addplot[black, dotted, forget plot] coordinates {(60,1) (120,1)};
+        
+	\end{axis}
+\end{tikzpicture}
+
+\end{document}
