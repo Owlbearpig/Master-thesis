@@ -1,0 +1,56 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{fillbetween}
+\usepackage{siunitx}
+\pgfplotsset{compat=1.5}
+
+\begin{document}
+
+\pgfplotsset{
+    table/search path={plot_data/5_chapter05/polymer/dimension_errors},
+}
+
+\begin{tikzpicture}
+	\begin{axis}[
+	    name=ax1,
+	    %scale only axis,
+        %ymin=1, ymax=2,
+        xmin=71, xmax=114,
+        %axis y line*=left,
+        no markers,
+        every axis plot/.append style={very thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        %ytick={1.25, 1.5708, 1.80},
+        %yticklabels={1.25, $\frac{\pi}{2}$, 1.80},
+        xlabel=Frequency (\si{\giga \hertz}),
+        ylabel=Phase shift $\frac{\delta}{\pi}$ (rad),
+        legend entries={{Calculated}, {Measured}},
+        legend style={legend columns=2, at={(0.1,0.25)}, anchor=north west,
+                      nodes={scale=0.7, transform shape}}
+        ]
+        
+        \addplot[mark=none, black, samples=4, dotted, domain=0:130] {0.5*1.03};
+    	\addlegendentry{$\pm\SI{3}{\percent}$}
+    	\addplot[mark=none, black, samples=4, dotted, domain=0:130,forget plot] {0.5*0.97};
+        
+        \addplot[blue] table [
+        	x expr=\thisrowno{1}*10^-9,
+        	y expr=\thisrowno{2}/3.14159,
+        	col sep=comma] 
+        	{delta_design.csv};
+        	\addlegendentry{$a$, $b$ Design}
+        
+    	\addplot[red] table [
+            x expr=\thisrowno{1}*10^-9,
+            y expr=\thisrowno{2}/3.14159,
+            col sep=comma] 
+            {periodicity_measured_highres.csv};
+            \addlegendentry{$a$, $b$ Measured}
+    	
+	\end{axis}
+\end{tikzpicture}
+\end{document}

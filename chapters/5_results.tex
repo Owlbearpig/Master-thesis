@@ -331,6 +331,18 @@ Before we show the result of the actual measurement or characterization of the w
     \label{fig:res3_poincare}
 \end{figure}
 
+%\begin{itemize}
+%    \item 1:3 ratio seems to be enough in other works too (done)
+%    \item Add calculated eff. ref. ind. + abs. coeff. -> bf (done)
+%    \item retardance to show zero order (done)
+%    \item ellipse of output (done)
+%    \item eigenstate azimuth + eccentricity (done)
+%    \item pol degrees (done)
+%    \item transmitted intensity (done)
+%    \item parameters (done)
+%    \item inhomogenity correlates with dichroism/diattenuation since it removes reversal property. Also correlates with deviation from orthogonality of eigenstates. (done)
+%\end{itemize}
+
 To characterize the waveplate the technique described in \cite{Masson2006} together with the GHz setup was used. To perform the measurement a single polarizer was inserted into the beam path following the waveplate. Originally in \cite{Masson2006} two polarizers were inserted although due to the strongly linearly polarized antennas one polarizer was considered to be sufficient in our measurement. The measurement itself is performed by measuring the transmitted signal $S(\phi)$ at different angles $\phi$ of the inserted polarizer with respect to the reference frame. In general the Jones vector representing the state after the waveplate can be written as follows:
 \begin{equation}
     \bm{\mathcal{E}}_{wp}= 
@@ -365,44 +377,109 @@ The measured amplitude is then given by the following expression:
     S(\phi)=\sqrt{I} = \sqrt{\bm{\mathcal{E}}_{f} \bm{\mathcal{E}}_{f}^{\dagger}} = |c_{\phi}|\left[(ac_{\phi}+bs_{\phi}c_{\delta})^2 + (bs_{\phi}s_{\delta})^2\right]^{1/2}.
     \label{eq:ampl_fit_func}
 \end{equation}
-The measurement is performed in steps of \SI{10}{\degree} of $\phi$. This leads to 36 individual measurements which are subsequently normalized with respect to the measurement where the polarizers are parallel. For a given frequency we fit equation \ref{eq:ampl_fit_func} or specifically the three parameters $a,b$ and $\delta$ to the measured amplitude as a function of $\phi$. The result of the measurement is shown in figure \ref{fig:meas_result}. 
+The measurement is performed in steps of \SI{10}{\degree} of $\phi$. This leads to 36 individual measurements which are subsequently normalized with respect to the measurement where the polarizers are parallel. For a given frequency we fit equation \ref{eq:ampl_fit_func} or specifically the three parameters $a,b$ and $\delta$ to the measured amplitude as a function of $\phi$. The result of the evaluation is shown in figure \ref{fig:meas_result}, where the left subfigure shows the expected phase shift calculated based on the measured optical parameters of HIPS and the design dimensions given in table \ref{tab:res_hips_l4} compared to the phase shift evaluated from the measurement. The right subfigure of figure \ref{fig:meas_result} shows the calculated ratio of the major and minor axes $a$ and $b$ respectively which are again compared to the measured ratio. It is worth noting that the smooth curves are not due to filtering of the signal but are instead caused by the high SNR of the measuring system.
 
 \begin{figure}[H]
     \centering
     \includestandalone[scale=0.7]{images/5_chapter05/plots/polymer/measurement_result}
-    \caption{}
+    \caption{Left: Expected and measured phase shift $\delta$. Right: Ratio of the major and minor axes $a$ and $b$ respectively. For an achromatic $\lambda/4$ waveplate we expect a phase shift of $\frac{\pi}{2}$ and a ratio of 1 of the ellipse axes independent of frequency. The ideal value is in both plots shown as a black dotted horizontal line. The large deviation is explained in the following parts of this work.}
     \label{fig:meas_result}
 \end{figure}
 
-%\begin{itemize}
-%    \item 1:3 ratio seems to be enough in other works too (done)
-%    \item Add calculated eff. ref. ind. + abs. coeff. -> bf (done)
-%    \item retardance to show zero order (done)
-%    \item ellipse of output (done)
-%    \item eigenstate azimuth + eccentricity (done)
-%    \item pol degrees (done)
-%    \item transmitted intensity (done)
-%    \item parameters (done)
-%    \item inhomogenity correlates with dichroism/diattenuation since it removes reversal property. Also correlates with deviation from orthogonality of eigenstates. (done)
-%\end{itemize}
+Considering the results shown in figure \ref{fig:meas_result} we see large deviations between the expected and measured values. A major part of the subsequent work therefore consisted of finding the reason for this deviation. We first considered that there could be an error in the evaluation. However, since the measured signal shown in figure \ref{fig:measured_amplitude} shows a similar trend without performing any post-processing this is unlikely.
 
+\begin{figure}[H]
+    \centering
+    \includestandalone[scale=0.7]{images/5_chapter05/plots/polymer/measured_amplitude}
+    \caption{Normalized measured amplitude for 10 different angles of the polarizer.}
+    \label{fig:measured_amplitude}
+\end{figure}
+
+We further considered the impact of differences between the dimensions of the actual printed waveplate and the design. The total thickness of the waveplate was measured to be \SI{27}{\milli \meter}. We further calculated the phase shift based on the design values in table \ref{tab:res_hips_l4} but to investigate the influence of thickness variations we added a maximum random error of \SI{\pm 5}{\percent} to the thickness of each individual waveplate. Performing this procedure we produced 50 designs with random thickness variations. 
+
+\begin{figure}[H]
+    \centering
+    \includestandalone[scale=0.7]{images/5_chapter05/plots/polymer/dimension_errors/delta_width_error}
+    \caption{Left: Random thickness error of maximum \SI{\pm 5}{\percent} added to each individual waveplate. Right: \SI{5}{\percent} reduction of the thickness of each waveplate. A lower resolution is used to speed up the calculation.}
+    \label{fig:delta_width_err}
+\end{figure}
+
+The result of this is shown in the left subfigure of figure \ref{fig:delta_width_err} where the red curve shows the phase shift of one of the designs picked at random. The green and blue curves show the phase shift of the designs with the minimum and  maximum  average  phase shift respectively. The right subfigure shows a \SI{5}{\percent} contraction of each plate. We see that thickness variations are unlikely to have caused the large deviation between the expected and measured result.
+
+Another possibility could be angle variations between the design and the produced waveplate. Again, to examine this possibility we therefore produced 50 designs with angle variations in a similar fashion as it was done for the designs with thickness errors. The result is shown in figure \ref{} where the left subfigure shows the phase shift for the designs with a maximum of \SI{\pm2}{\degree} angle deviation added to each waveplate. The right subfigure shows a maximum \SI{\pm5}{\degree} misalignment error, that is the same angle was added to all four waveplates. Again, we see that angle misalignments are unlikely to have caused the deviation due to the random nature of the deviations. Additionally, angle errors are unlikely in the first place since the waveplate is printed in one piece, and comparing to the errors caused by thickness variations we see that it is important to ensure a correct alignment in case of individually stacked waveplates. 
+
+\begin{figure}[H]
+    \centering
+    \includestandalone[scale=0.7]{images/5_chapter05/plots/polymer/dimension_errors/delta_angle_error}
+    \caption{Left: Random angle deviation of maximum \SI{\pm2}{\degree} added to each waveplate. Right: 50 different designs where we added the same but maximum of \SI{5}{\degree} deviation to every waveplate.}
+    \label{fig:delta_angle_err}
+\end{figure}
+
+The last structural parameter is the periodicity of the stratification. We took 10 photos of the waveplate from the top and bottom at different positions and measured $a$ and $b$. Two of the photos are shown in figure \ref{fig:hips_wp_photos}; the photo to
+the left is from the bottom side and the right photo is from the top side.
+
+\begin{figure}[H]
+\centering
+    \subcaptionbox{\label{fig:p2bot4}}
+        {\hspace*{-2em}\includegraphics[width=0.47\linewidth]{images/5_chapter05/plots/polymer/dimension_errors/p2_bot_4.png}}
+    \qquad
+    \subcaptionbox{\label{fig:p2top2}}
+        {\hspace*{-2em}\includegraphics[width=0.47\linewidth]{images/5_chapter05/plots/polymer/dimension_errors/p2_top_2.png}}
+    \caption{Microscope image of the 3D printed waveplate. Left: Bottom surface, right: Top surface.}
+\label{fig:hips_wp_photos}
+\end{figure}
+
+We calculated the average values of $a$ and $b$ for the 10 different positions and obtained the following: $a=\SI[separate-uncertainty = true]{734.55(4560)}{\micro \meter}$, $b=\SI[separate-uncertainty = true]{392.95(3820)}{\micro \meter}$ and $d=\SI[separate-uncertainty = true]{1139.00(3360)}{\micro \meter}$ while the expected values are $a=\SI{600}{\micro \meter}$, $b=\SI{500}{\micro \meter}$ and $d=\SI{1100}{\micro \meter}$. Using these values of $a$ and $b$ together with the measured optical parameters of HIPS we calculated the new adjusted form birefringence for the average stratification.
+The result of this is shown in figure \ref{fig:ri_stripe_err} shows the calculated refractive indices and the averaged $a$ and $b$ as well as the design ($a$, $b$) for the parallel $(n_p)$ and perpendicular $(n_s)$ direction relative to the stratification. We see that the refractive indices in both directions are approximately $0.05$ smaller for the design values of $a$ and $b$ compared to the measured values. However the birefringence is around $0.01$ larger for the values of the design.
+
+\begin{figure}[H]
+    \centering
+    \includestandalone[scale=.65]{images/5_chapter05/plots/polymer/dimension_errors/ri_stripe_error}
+    \caption{Left: Calculated refractive indices $n_p$ and $n_s$ using the measured material parameters, once for the average of the measured values ($a$, $b$) and once for the design values given in table \ref{tab:res_hips_l4}. Right: The calculated birefringence for the measured and the design values ($a$, $b$).}
+    \label{fig:ri_stripe_err}
+\end{figure}
+
+With these values of the birefringence for the measured values of $a$ and $b$ we again calculate the phase shift shown in figure \ref{fig:delta_stripe_err}. Even though the difference between the values of the actual printed structure and the design values are quite large we see that it has little to no impact on the expected phase difference. We can therefore with fairly high certainty rule out that the deviation of the stratification dimensions is the cause of the measured phase shift deviation.
+
+\begin{figure}[H]
+    \centering
+    \includestandalone[scale=.7]{images/5_chapter05/plots/polymer/dimension_errors/delta_stripe_error}
+    \caption{The resulting phase shift using the calculated birefringence for the design values of $a$ and $b$ as well as the measured values of $a$ and $b$.}
+    \label{fig:delta_stripe_err}
+\end{figure}
+
+It is worth mentioning that we also considered an error in the characterization of the optical parameters of the \SI{2}{\milli \meter} HIPS sample which are used to calculate the form birefringence. However, we can give an estimate of how large this deviation would have to be to obtain the measured phase shift. This can be accomplished by gradually increasing the refractive index of HIPS and calculating the expected phase shift until we see the measured value. Assuming that the absorption is negligible we found that we would have to add at least $0.15$ to the originally measured refractive index of HIPS to obtain the measurement result. Additionally, a subsequent characterization of the original \SI{2}{\milli \meter} HIPS sample using the two THz-TDS setups showed a deviation smaller than $0.01$ compared to the refractive index measurement performed using the GHz setup.
+
+Since we had found most other possibilities to be unlikely the last option was that there was a problem determining the birefringence. We therefore compared the calculated birefringence to a CST simulation\footnote{CST Studio Suite is a commercial software for analyzing electromagnetic components using the finite element method. A few additional remarks to the simulation in the appendix section \ref{sec:CST simulation}}. 
+
+
+We printed test grating ...
+
+
+% TODO Did I mention bowtie antennas (done)
 % Big TODO change all horizontally etc. to abbrevations please ...
 % Note: handedness of result 3 is wrong because sign of l4 is wrong J10/J00 instead of J00/J10 (done. Mention at ellipse handedness or circ pol degree (+1))
 % TODO write about periodicity compared to wavelength (done)
 % TODO Reduced freq. res. (done)
 % TODO Send pdf + page cnt to jan (done)
 
-% magnitude of dichorism for formbf hips. (done) Is dichroism more important to account for here ? Weekend tests ...
-
+% magnitude of dichorism for formbf hips. (done) Is dichroism more important to account for here ? 
+% TODO theory chapter intermission rewrite, no hermann waveplate.
 \begin{itemize}
     \item intro + Material selection (done)
     \item Design description, maybe with photo. Optimization procedure see if still there somewhere. (done)
     \item Maybe: expected parameters, dephasing, attenuation etc. poincare sphere when? (done)
     \item measurement execution. Mes. of BF + WP is fairly simple, no need to add in chapter 3. (done)
     \item evaluation briefly like masson, fits etc. Skip polarizer offset error -> no polar plots. (done)
-    \item Result of eval shows large deviation
+    \item add single waveplate to result plots for comparison like masson (replace csv file)
+    \item why are the curves so smooth? (done, I think)
+    \item Result of eval shows large deviation (done)
     \item explanation of deviation
+    \item mention even data shows deviation? -> unlikely faulty evaluation (done)
     \item unlikely due to dimension error through fabrication (maybe)
+        \item Wrong material parameters (done)
+        \item Dimension error from printing (done)
+        \item Theory for determination of bf wrong: -> comparison to CST (done)
     \item expected birefringence vs measured from gratings. CST calculation + rytov (maybe transfer matrix method? nah -> add remark at presentation)
     \item indication: we see birefringence strongly influenced by printing direction https://archiv.ub.uni-marburg.de/diss/z2017/0786/ 
     \item conclusion seems to work if we get the birefringence right. Not necessarily bad that it is higher but needs to be predictable. 

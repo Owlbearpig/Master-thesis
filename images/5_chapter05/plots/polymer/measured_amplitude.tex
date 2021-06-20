@@ -1,0 +1,128 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{fillbetween}
+\usepackage{siunitx}
+\pgfplotsset{compat=1.5}
+
+\begin{document}
+
+\pgfplotsset{
+    table/search path={plot_data/5_chapter05/polymer},
+}
+
+\begin{tikzpicture}
+	\begin{axis}[
+	    name=ax1,
+	    %scale only axis,
+        ymin=-0.05, ymax=1.19,
+        xmin=74, xmax=111,
+        %axis y line*=left,
+        no markers,
+        every axis plot/.append style={thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        %ytick={1.25, 1.5708, 1.80},
+        %yticklabels={1.25, $\frac{\pi}{2}$, 1.80},
+        xlabel=Frequency (\si{\giga \hertz}),
+        ylabel=Normalized amplitude,
+        %legend entries={{Calculated}, {Measured}},
+        legend style={legend columns=2, at={(0.25,0.45)}, anchor=north west,
+                      nodes={scale=0.7, transform shape}}
+        ]
+        \addplot[red] table [
+    	x expr=\thisrowno{1}*10^-9,
+    	y expr=\thisrowno{2},
+    	col sep=comma] 
+    	{amplitude_measurement.csv};
+    	\addlegendentry{\SI{0}{\degree}}
+        
+    	\addplot[green] table [
+    	x expr=\thisrowno{1}*10^-9,
+    	y expr=\thisrowno{3},
+    	col sep=comma] 
+    	{amplitude_measurement.csv};
+    	\addlegendentry{\SI{10}{\degree}}
+    	
+    	\addplot[blue] table [
+    	x expr=\thisrowno{1}*10^-9,
+    	y expr=\thisrowno{7},
+    	col sep=comma] 
+    	{amplitude_measurement.csv};
+    	\addlegendentry{\SI{50}{\degree}}
+    	
+    	\addplot[black] table [
+    	x expr=\thisrowno{1}*10^-9,
+    	y expr=\thisrowno{12},
+    	col sep=comma] 
+    	{amplitude_measurement.csv};
+    	\addlegendentry{\SI{100}{\degree}}
+    	
+    	\addplot[yellow] table [
+    	x expr=\thisrowno{1}*10^-9,
+    	y expr=\thisrowno{17},
+    	col sep=comma] 
+    	{amplitude_measurement.csv};
+    	\addlegendentry{\SI{150}{\degree}}
+    	
+	\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+	\begin{axis}[
+	    name=ax1,
+	    %scale only axis,
+        ymin=-0.05, ymax=1.19,
+        xmin=74, xmax=111,
+        %axis y line*=left,
+        no markers,
+        every axis plot/.append style={thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        %ytick={1.25, 1.5708, 1.80},
+        %yticklabels={1.25, $\frac{\pi}{2}$, 1.80},
+        xlabel=Frequency (\si{\giga \hertz}),
+        ylabel=Normalized amplitude,
+        %legend entries={{Calculated}, {Measured}},
+        legend style={legend columns=2, at={(0.25,0.4)}, anchor=north west,
+                      nodes={scale=0.7, transform shape}}
+        ]
+    	\addplot[red] table [
+    	x expr=\thisrowno{1}*10^-9,
+    	y expr=\thisrowno{21},
+    	col sep=comma] 
+    	{amplitude_measurement.csv};
+    	\addlegendentry{\SI{190}{\degree}}
+    	
+    	\addplot[green] table [
+    	x expr=\thisrowno{1}*10^-9,
+    	y expr=\thisrowno{25},
+    	col sep=comma] 
+    	{amplitude_measurement.csv};
+    	\addlegendentry{\SI{230}{\degree}}
+    	
+    	\addplot[blue] table [
+    	x expr=\thisrowno{1}*10^-9,
+    	y expr=\thisrowno{29},
+    	col sep=comma] 
+    	{amplitude_measurement.csv};
+    	\addlegendentry{\SI{270}{\degree}}
+    	
+    	\addplot[black] table [
+    	x expr=\thisrowno{1}*10^-9,
+    	y expr=\thisrowno{34},
+    	col sep=comma] 
+    	{amplitude_measurement.csv};
+    	\addlegendentry{\SI{320}{\degree}}
+    	
+    	\addplot[yellow] table [
+    	x expr=\thisrowno{1}*10^-9,
+    	y expr=\thisrowno{38},
+    	col sep=comma] 
+    	{amplitude_measurement.csv};
+    	\addlegendentry{\SI{360}{\degree}}
+    	
+	\end{axis}
+\end{tikzpicture}
+\end{document}
