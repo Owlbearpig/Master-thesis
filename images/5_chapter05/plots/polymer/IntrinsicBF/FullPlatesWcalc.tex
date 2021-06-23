@@ -1,0 +1,97 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{fillbetween}
+\usepackage{siunitx}
+%\pgfplotsset{compat=1.5}
+
+\begin{document}
+
+\pgfplotsset{
+    table/search path={plot_data/5_chapter05/polymer/IntrinsicBF},
+}
+
+\begin{tikzpicture}
+	\begin{axis}[
+	    %scale only axis,
+        ymin=-0.01, ymax=0.05,
+        xmin=74, xmax=115,
+        %axis y line*=left,
+        %no markers,
+        every axis plot/.append style={ultra thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\giga \hertz}),
+        ylabel=Birefringence,
+        legend style={legend columns=1, at={(0.07,0.95)}, anchor=north west,
+                      nodes={scale=0.7, transform shape}}
+        ]
+        
+    	\addplot[red] table [
+        	x expr=\thisrowno{1},
+        	y expr=\thisrowno{2},
+        	col sep=comma] 
+        	{fullplates_bf_lowres.csv};
+        \addlegendentry{\SI{2}{\milli \meter}, ZigZag/crossed pattern}
+    	
+    	\addplot[blue] table [
+        	x expr=\thisrowno{1},
+        	y expr=\thisrowno{3},
+        	col sep=comma] 
+        	{fullplates_bf_lowres.csv};
+        \addlegendentry{\SI{2}{\milli \meter}, same direction}
+    	
+	   \addplot[green] table [
+        	x expr=\thisrowno{1},
+        	y expr=\thisrowno{4},
+        	col sep=comma] 
+        	{fullplates_bf_lowres.csv};
+        \addlegendentry{\SI{8}{\milli \meter}, same direction}
+        
+        \addplot[black, dotted] table [
+        	x expr=\thisrowno{1}*10^-9,
+        	y expr=\thisrowno{2},
+        	col sep=comma] 
+        	{fitted_bf_and_delta.csv};
+        \addlegendentry{Calculated intrinsic birefringence}
+        
+	\end{axis}
+\end{tikzpicture}
+\pgfplotsset{
+    table/search path={plot_data/5_chapter05/polymer},
+}
+\begin{tikzpicture}
+	\begin{axis}[
+	    %scale only axis,
+        %ymin=-0.01, ymax=0.05,
+        xmin=71, xmax=115,
+        %axis y line*=left,
+        %no markers,
+        every axis plot/.append style={ultra thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\giga \hertz}),
+        ylabel=Phase shift (rad),
+        legend style={legend columns=1, at={(0.4,0.95)}, anchor=north west,
+                      nodes={scale=0.7, transform shape}}
+        ]
+        
+    	\addplot[red] table [
+        	x expr=\thisrowno{1}*10^-9,
+        	y expr=\thisrowno{2},
+        	col sep=comma] 
+        	{delta_measured_6degOffset.csv};
+        \addlegendentry{Measured phase shift}
+    	
+    	\addplot[dotted] table [
+        	x expr=\thisrowno{1}*10^-9,
+        	y expr=\thisrowno{3},
+        	col sep=comma] 
+        	{IntrinsicBF/fitted_bf_and_delta.csv};
+        \addlegendentry{Calculated phase shift}
+        
+	\end{axis}
+\end{tikzpicture}
+\end{document}

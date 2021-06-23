@@ -17,7 +17,7 @@
 	\begin{axis}[
 	    name=ax1,
 	    %scale only axis,
-        ymin=0.36, ymax=0.58,
+        ymin=0.29, ymax=0.58,
         xmin=71, xmax=114,
         %axis y line*=left,
         no markers,
@@ -41,7 +41,7 @@
         	x expr=\thisrowno{1}*10^-9,
         	y expr=\thisrowno{2}/3.14159,
         	col sep=comma] 
-        	{delta_measured.csv};
+        	{delta_measured_6degOffset.csv};
         	\addlegendentry{Measured}
         
     	\addplot[blue] table [
@@ -71,7 +71,7 @@
 	\begin{axis}[
 	    name=ax1,
 	    %scale only axis,
-        ymin=0.36, ymax=0.58,
+        ymin=0.29, ymax=0.58,
         xmin=71, xmax=114,
         %axis y line*=left,
         no markers,
@@ -95,7 +95,7 @@
         	x expr=\thisrowno{1}*10^-9,
         	y expr=\thisrowno{2}/3.14159,
         	col sep=comma] 
-        	{delta_measured.csv};
+        	{delta_measured_6degOffset.csv};
         	\addlegendentry{Measured}
         
     	\addplot[blue] table [

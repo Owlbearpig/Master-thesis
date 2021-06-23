@@ -1,0 +1,102 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{fillbetween}
+\usepackage{siunitx}
+\pgfplotsset{compat=1.5}
+
+\begin{document}
+
+\pgfplotsset{
+    table/search path={plot_data/5_chapter05/polymer/slimGrating},
+}
+
+\begin{tikzpicture}
+	\begin{axis}[
+	    name=ax1,
+	    %scale only axis,
+        ymin=1.15, ymax=1.49,
+        xmin=71, xmax=115,
+        %axis y line*=left,
+        no markers,
+        every axis plot/.append style={ultra thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\giga \hertz}),
+        ylabel=Refractive index,
+        legend entries={},
+        legend style={legend columns=2, at={(0.1,0.95)}, anchor=north west,
+                      nodes={scale=0.7, transform shape}}
+        ]
+        
+    	\addplot[red] table [
+        	x expr=\thisrowno{1}*10^-9,
+        	y expr=\thisrowno{2},
+        	col sep=comma] 
+        	{singlegratingSlim_measured_ri.csv};
+        \addlegendentry{\SI{0}{\degree}, Measured}
+    	
+    	\addplot[blue] table [
+        	x expr=\thisrowno{1}*10^-9,
+        	y expr=\thisrowno{3},
+        	col sep=comma] 
+        	{singlegratingSlim_measured_ri.csv};
+        \addlegendentry{\SI{90}{\degree}, Measured}
+    	
+	   \addplot[red, dashed] table [
+        	x expr=\thisrowno{1}*10^-9,
+        	y expr=\thisrowno{3},
+        	col sep=comma] 
+        	{singlegratingSlim_birefringence_calc_highres.csv};
+        \addlegendentry{$n_p$ calculated}
+        
+        \addplot[blue, dashed] table [
+        	x expr=\thisrowno{1}*10^-9,
+        	y expr=\thisrowno{2},
+        	col sep=comma] 
+        	{singlegratingSlim_birefringence_calc_highres.csv};
+        \addlegendentry{$n_s$ calculated}
+	    
+	\end{axis}
+\end{tikzpicture}
+\hspace{10pt}
+\begin{tikzpicture}
+	\begin{axis}[
+	    name=ax1,
+	    %scale only axis,
+        ymin=0.075, ymax=0.125,
+        xmin=71, xmax=115,
+        %axis y line*=left,
+        no markers,
+        yticklabels={0.06,0.07,0.08,0.09,0.10,0.11,0.12,0.13},
+        every axis plot/.append style={ultra thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\giga \hertz}),
+        ylabel=Birefringence,
+        legend entries={},
+        legend style={legend columns=1, at={(0.1,0.9)}, anchor=north west,
+                      nodes={scale=0.7, transform shape}}
+        ]
+        
+    	\addplot[red] table [
+        	x expr=\thisrowno{1}*10^-9,
+        	y expr=\thisrowno{2}-\thisrowno{3},
+        	col sep=comma] 
+        	{singlegratingSlim_measured_ri.csv};
+        \addlegendentry{Measured, bow-tie setup}
+    	
+        \addplot[blue, dashed] table [
+        	x expr=\thisrowno{1}*10^-9,
+        	y expr=\thisrowno{4},
+        	col sep=comma] 
+        	{singlegratingSlim_birefringence_calc_highres.csv};
+        \addlegendentry{Calculated, \SI{4}{\milli \meter} grating $a$ and $b$}
+	    
+	\end{axis}
+\end{tikzpicture}
+
+
+\end{document}
