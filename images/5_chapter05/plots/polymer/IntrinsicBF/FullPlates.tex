@@ -33,21 +33,21 @@
         	x expr=\thisrowno{1},
         	y expr=\thisrowno{2},
         	col sep=comma] 
-        	{fullplates_bf_lowres.csv};
+        	{fullplates_bf.csv};
         \addlegendentry{\SI{2}{\milli \meter}, ZigZag/crossed pattern}
     	
     	\addplot[blue] table [
         	x expr=\thisrowno{1},
-        	y expr=\thisrowno{3},
+        	y expr=\thisrowno{4},
         	col sep=comma] 
-        	{fullplates_bf_lowres.csv};
+        	{fullplates_bf.csv};
         \addlegendentry{\SI{2}{\milli \meter}, same direction}
     	
 	   \addplot[green] table [
         	x expr=\thisrowno{1},
-        	y expr=\thisrowno{4},
+        	y expr=\thisrowno{6},
         	col sep=comma] 
-        	{fullplates_bf_lowres.csv};
+        	{fullplates_bf.csv};
         \addlegendentry{\SI{8}{\milli \meter}, same direction}
         
 	\end{axis}

@@ -17,7 +17,7 @@
 	\begin{axis}[
 	    name=ax1,
 	    %scale only axis,
-        %ymin=1, ymax=2,
+        ymin=0.85, ymax=1.7,
         xmin=74, xmax=114,
         %axis y line*=left,
         no markers,
@@ -37,19 +37,19 @@
     	%\addlegendentry{$\pm\SI{3}{\percent}$}
     	%\addplot[mark=none, black, samples=4, dotted, domain=0:130,forget plot] {1.5708*0.97};
         
-        \addplot[blue] table [
+        \addplot[red] table [
         	x expr=\thisrowno{1}*10^-9,
         	y expr=\thisrowno{2},
         	col sep=comma] 
         	{delta_measured_6degOffset.csv};
-        	\addlegendentry{Measured (data Braunschweig)}
+        	\addlegendentry{Measurement}
         
-    	\addplot[red] table [
+    	\addplot[blue] table [
             x expr=\thisrowno{1}*10^-9,
             y expr=\thisrowno{2},
             col sep=comma]
             {delta_bf_from_slimgrating.csv};
-            \addlegendentry{\SI{4}{\milli \meter} grating birefringence}
+            \addlegendentry{Calculated (measured birefringence)}
     	
 	\end{axis}
 \end{tikzpicture}
