@@ -20,29 +20,84 @@
 % Line spacing
 \renewcommand{\baselinestretch}{1.0}
 
-%################################################################################################
-% title
-\title{
-{Achromatic Composite Waveplates in the Terahertz Frequency Range}\\
-{\large University of THz}\\
-%{\includegraphics[]{tcVF8.jpg}}
-}
-\author{ALEX}
-\date{10 10 1910}
-% title
-%################################################################################################
-
 % beginning of the end ...
 \begin{document}
-\maketitle
+
+% Title
+\begin{titlepage}
+  \vspace{3cm}
+  \thispagestyle{empty}
+  \begin{center}
+    \begin{LARGE}
+      \textbf{Master Thesis}
+    \end{LARGE}\\
+    Fachbereich Physik \\
+    Semiconductor Photonics \\
+    Prof. Dr. Martin Koch
+    \\[1cm]
+    \begin{figure}[h]
+    \hspace{0.8cm}
+      \centering
+      \includegraphics[width=0.75\textwidth]{images/title_logo.pdf}
+    \end{figure}
+    \vspace{2cm}
+    \begin{LARGE}
+      Achromatic Composite Waveplates in the Terahertz Frequency Range
+    \end{LARGE}\\[2cm]
+    \begin{LARGE}
+      Alexander Jäckel
+    \end{LARGE}
+    \\
+    Matrikelnummer: 2589893
+  \end{center}
+%   \vspace{10pt}
+  \vfill
+%   \begin{center}
+    \noindent\begin{tabular}{ll}
+      Datum: & 10.10.1707 \\
+      %Anschrift: & Emil-von-Behring-Straße 28, 35041 Marburg \\
+      %E-mail: & christian.dersch@physik.uni-marburg.de\\
+      %Matrikelnummer: & 2321750 \\
+      Betreuer: & Jan Ornik \\
+      Erstprüfer: & Prof. Dr. Martin Koch \\
+      %Zweitprüfer: & Prof. Dr. Andreas Schrimpf  \\
+    \end{tabular}
+%   \end{center}
+\end{titlepage}
 
 %################################################################################################
 % frontmatter
-\chapter*{Abstract}
 
 %\chapter*{Dedication?} % don't need this tbh
 
-\chapter*{Declaration - Copy the one from email} % disabled for draft
+\newpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+\begin{LARGE}
+\textbf{Erklärung}
+\end{LARGE}
+\end{center}
+Hiermit erkläre ich, dass ich meine Masterarbeit mit dem Thema:
+\begin{quote}
+\textsl{Achromatic Composite Waveplates in the Terahertz Frequency Range}
+\end{quote}
+selbständig verfasst sowie alle wesentlichen Quellen und Hilfsmittel angegeben habe.
+\\
+\vspace{1cm}
+\\
+Name, Vorname: Jäckel, Alexander
+\\
+\vspace{1cm}
+\\
+\noindent\begin{tabularx}{\textwidth}[b]{lp{2cm}p{5cm}}
+% \cline{2-2}%
+\cline{3-3}
+Marburg, den DATE & & Alexander Jäckel \\
+% & & & \documentauthor \\
+\end{tabularx}
+
+%\chapter*{Abstract} % don't need this...
 
 \chapter*{Acknowledgements}
 I want to thank Jan and my PC for being there to type on :) + David for doing all the work : )
@@ -55,29 +110,29 @@ I want to thank Jan and my PC for being there to type on :) + David for doing al
 %################################################################################################
 
 \chapter{Introduction}
-%\input{chapters/1_introduction} % disable for draft
+\input{chapters/1_introduction} % disable for draft 1
 
 \chapter{THz Time Domain Spectroscopy}
-%\input{chapters/2_TDS} % disable for draft
+\input{chapters/2_TDS} % disable for draft 1
 
 \chapter{Experimental setups}
-%\input{chapters/3_setup} % disable for draft
+%\input{chapters/3_setup} % disable for draft 1
 
 \chapter{Theory}
-%\input{chapters/4_theory} % disable for draft
+%\input{chapters/4_theory} % disable for draft 2, 3
 
 \chapter{Results}
-\input{chapters/5_results} % disable for draft
+%\input{chapters/5_results} % disable for draft 10
 
 \chapter{Conclusion}
-%\input{chapters/6_conclusion} % disable for draft
+\input{chapters/6_conclusion} % disable for draft 1
 
 \appendix
 \chapter{Overflow}
-%\input{chapters/7_appendix} % disable for draft
+\input{chapters/7_appendix} % disable for draft 5, 6, 7, 8, 9
 
 \sloppy
-%\printbibliography % disable for draft
+\printbibliography % disable for draft 4
 
 % phew
 \end{document}

@@ -1,0 +1,61 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepgfplotslibrary{fillbetween}
+\usepackage{siunitx}
+\pgfplotsset{compat=1.5}
+
+\begin{document}
+
+\pgfplotsset{
+    table/search path={plot_data/7_appendix/cst_sim},
+}
+
+\begin{tikzpicture}
+    \begin{axis}[
+        colormap/jet,
+        ymin=-55, ymax=5,
+        every axis plot/.append style={thick},
+        axis line style = very thick,
+        every tick/.style={black, very thick},
+        xlabel=Frequency (\si{\giga \hertz}),
+        ylabel=$|S_{21}|$ (\si{\decibel}),
+        anchor=origin,
+        ]
+        \foreach \i in {1,...,6}{
+        \addplot [no markers, mesh, point meta=\i] table [y index=\i, col sep=comma] {cst_bf_plot_data.csv};
+        }
+            
+        \node (d18) at (axis cs:117.1,-42){\tiny $d=\SI{18}{\milli \meter}$};
+        \node (d18d) at (axis cs:117.1,-36){};
+        \draw[->, >=stealth](d18)--(d18d);
+        
+        \node (d19) at (axis cs:102,-47){\tiny $d=\SI{19}{\milli \meter}$};
+        \node (d19d) at (axis cs:102,-42){};
+        \draw[->, >=stealth](d19)--(d19d);
+        
+        \node (d20) at (axis cs:97,-42){\tiny $d=\SI{20}{\milli \meter}$};
+        \node (d20d) at (axis cs:97,-35){};
+        \draw[->, >=stealth](d20)--(d20d);
+                
+        \node (d21) at (axis cs:92.1,-39){\tiny $d=\SI{21}{\milli \meter}$};
+        \node (d21d) at (axis cs:92.1,-34){};
+        \draw[->, >=stealth](d21)--(d21d);
+                
+        \node (d22) at (axis cs:85.3,-36){\tiny \hspace{2em} $d=\SI{22}{\milli \meter}$};
+        \node (d22d) at (axis cs:85.3,-31){};
+        \draw[->, >=stealth](d22)--(d22d);
+                
+        \node (d23) at (axis cs:82.7,-40){\tiny $d=\SI{23}{\milli \meter}$};
+        \node (d23d) at (axis cs:82.7,-34){};
+        \draw[->, >=stealth](d23)--(d23d);
+                
+        %\node[anchor=west] (d24) at (axis cs:80,-50.8){\tiny $d=\SI{24}{\milli \meter}$};
+        %\node (d24d) at (axis cs:75,-50.8){};
+        %\draw[->, >=stealth](d24)--(d24d);
+        
+    \end{axis}
+\end{tikzpicture}
+\end{document}

@@ -44,6 +44,7 @@ In order to reproduce the TAQ the birefringence is required which can obtained f
     \caption{The left subfigure shows the value of $L_{\lambda/4}$ as a function of frequency for the two results compared to the TAQ published in \cite{Masson2006}. We see that in the range in which the optimization took place the magnitude of $L_{\lambda/4}$ for the three results is fairly similar. The right subfigure shows the values of $L_M$ and $L_{\lambda/4}$ for the TAQ design with respect to the frequency. The largest difference between the two is around \SI{0.5}{\tera \hertz} and \SI{0.7}{\tera \hertz}, otherwise the trend of the two objective functions is relatively similar.}
     \label{fig:loss_function_cl4}
 \end{figure}
+% comment here 1
 
 Similar to quartz, the birefringence of the ceramic plates is relatively low. This in turn means that for the waveplates to have an effect in the lower end of the spectrum the individual plates must be fairly thick, this means that we end up with a total thickness of around \SI{32}{\milli \meter}. Although, if we shift the frequency range of the optimization to \SIrange[range-phrase=-, range-units=single]{0.5}{2.25}{\tera \hertz} then we obtain a second result (result 2) for which the bandwidth is almost five as well $\left(\frac{\SI{2.25}{\tera \hertz}}{\SI{0.5}{\tera \hertz}}=4.5\right)$. With that the total thickness of the AWP can be reduced to \SI{26}{\milli \meter} compared to the \SI{32}{\milli \meter} of result 1. The design parameters of result 2 are given in the lower half of table \ref{tab:res_cl4} and the dotted line in the left subfigure of figure \ref{fig:loss_function_cl4} shows the individual terms of $L_{\lambda/4}$ for each frequency bound by the available material data range. The right subfigure shows a comparison between $L_M(\nu)$ and $L_{\lambda/4}(\nu)$ for the TAQ. We see that the shape of the two functions match fairly well except for the lower frequencies and especially at around \SI{0.55}{\tera \hertz} we see a larger deviation. Figure \ref{fig:cl4_alpha} shows $\alpha$ for the output state given a HLP input as a function of the frequency for result 1 and the TAQ. Since $\alpha$ is a measure of the ellipticity of the output state it shows the difference between a circular shape and the shape of the output. For a circle $\alpha$ is $\arctan(1)=\SI{45}{\degree}$ which is therefore the target value. If we compare $\alpha$ for the TAQ and at the frequency \SI{0.55}{\tera \hertz} to $L_{\lambda/4}$ at the same frequency, we see that the large deviation from the optimum is correctly indicated by $L_{\lambda/4}$ while $L_M$ shows a minimum and thereby fails to recognize the deviation. We see the same situation at around \SI{0.75}{\tera \hertz}.
 
@@ -58,7 +59,9 @@ Considering that $L_M$ and $L_{\lambda/4}$ are calculated from the same Jones ma
 
 We can calculate the thickness required to cause a quarter wave shift at the minimum of the frequency range for a linearly polarized input with an azimuth of \SI{45}{\degree}. In other words the thickness of a ceramic zero order quarter waveplate at the minimum frequency, this is given by equation $\ref{eq:thickness_quarter_waveplate}$. In this case the minimum frequency is \SI{0.25}{\tera \hertz}, at this frequency the birefringence is $\Delta n = 0.047$. The required thickness is therefore approximately $d_{\lambda/4}=\frac{\SI{1200}{\micro \meter}}{4\cdot0.047}=\SI{6.38}{\milli \meter}$. Comparing this value to the total thickness of result 1 we see that it is around five times lower than the total thickness and almost \SI{4}{\milli \meter} thinner than the thickest plate. If we keep in mind that a probabilistic algorithm is part of the optimization method, then this could indicate that result 1 is not the thinnest possible configuration for the given frequency range and material. On the other hand however, we have to keep in mind that $d_{\lambda/4}$ is for an angle of \SI{45}{\degree} while the six plates of result 1 are at different angles reducing the phase shift caused by each plate. It is therefore questionable whether we can actually directly compare $d_{\lambda/4}$ to the total thickness. 
 
-Furthermore, if we consider two results where the total thickness of the latter is larger, then the magnitude or intensity of the corresponding output state will in general be lower compared to the output of the first result. However, $L_{\lambda/4}(\nu)$ is insensitive to isotropic changes in the absorption. So if the ellipticity and orientation of the polarization ellipses corresponding to the two results are equal for all frequencies then $L_{\lambda/4}$ will attain the same value in both cases. In other words, $L_{\lambda/4}(\nu)$ is the same for two states $\bm{\mathcal{E}}$ and $p\bm{\mathcal{E}}$, $0<p<1$ for any frequency. The intensity coefficients $p_1^2$ and $p_2^2$ for the equivalent elliptic diattenuator Jones matrix describing the result with a larger total thickness will both be scaled by $p^2$. Since in the definition of $L_{\lambda/4}$ the elements of the Jones matrix enter as a ratio, the factor $p^2$ then subsequently cancels out and both results will attain the same value of $L_{\lambda/4}$. This in turn means that there is no direct penalty for increasing the thicknesses other than increasing the effect of dichroism. 
+Furthermore, if we consider two results where the total thickness of the latter is larger, then the magnitude or intensity of the corresponding output state will in general be lower compared to the output of the first result. However, $L_{\lambda/4}(\nu)$ is insensitive to isotropic changes in the absorption. So if the ellipticity and orientation of the polarization ellipses corresponding to the two results are equal for all frequencies then $L_{\lambda/4}$ will attain the same value in both cases. In other words, $L_{\lambda/4}(\nu)$ is the same for two states $\bm{\mathcal{E}}$ and $p\bm{\mathcal{E}}$, $0<p<1$ for any frequency. The intensity coefficients $p_1^2$ and $p_2^2$ for the equivalent elliptic diattenuator Jones matrix describing the result with a larger total thickness will both be scaled by $p^2$. Since in the definition of $L_{\lambda/4}$ the elements of the Jones matrix enter as a ratio, the factor $p^2$ then subsequently cancels out and both results will attain the same value of $L_{\lambda/4}$. This in turn means that there is no direct penalty for increasing the thicknesses other than increasing the effect of dichroism.
+
+To address the question whether result 1 is the global minimum or if there is a better suited one we plotted the minimum value of $\sum_{\nu}L_{\lambda/4}(\nu)$ as function of the current iteration step in figure  \ref{fig:cl4_convergence}. We see that the algorithm converges fairly fast and we only noticed major changes for approximately the first 25 iterations. This indicates that finding a solution with $n=6$ which performs significantly better in the range of \SIrange{0.25}{1.50}{\tera \hertz} is unlikely using the current algorithm and loss function.
 
 \begin{figure}[H]
     \centering
@@ -66,8 +69,6 @@ Furthermore, if we consider two results where the total thickness of the latter 
     \caption{Minimum value of $L_{\lambda/4}$ as a function of the total iteration count for the frequency range \SIrange{0.25}{1.5}{\tera \hertz} and a plate count of six. This shows that for the chosen settings the algorithm convergences rather fast.}
     \label{fig:cl4_convergence}
 \end{figure}
-
-To address the question whether result 1 is the global minimum or if there is a better suited one we plotted the minimum value of $\sum_{\nu}L_{\lambda/4}(\nu)$ as function of the current iteration step in figure  \ref{fig:cl4_convergence}. We see that the algorithm converges fairly fast and we only noticed major changes for approximately the first 25 iterations. This indicates that finding a solution with $n=6$ which performs significantly better in the range of \SIrange{0.25}{1.50}{\tera \hertz} is unlikely using the current algorithm and loss function.
 
 \begin{figure}[H]
     \centering
@@ -90,6 +91,7 @@ Figure \ref{fig:cl4_pe_lp} shows the polarization ellipses of the normalized sta
 Figure \ref{fig:cl4_pe_cp} is similar to figure \ref{fig:cl4_pe_lp} except that the input in this case is LCP. In theory a quarter waveplate should produce a linearly polarized output for a circularly polarized input. We see that this is the case for the TAQ up to at least \SI{1.50}{\tera \hertz}, after which the state increasingly deviates from the linear ellipse shape. Interestingly the ellipses of result 1 have a lower ellipticity compared to those of the TAQ, which indicates that the TAQ is better suited for turning a circularly polarized input into a linear polarized output. The reason for this could be that we only consider the circularity of the output state in the loss function used to obtain result 1, while for the TAQ the resulting phase shift was directly optimized. This could therefore indicate that it is not sufficient to only consider the circularity of the output state in the loss function and a measure of the linearity should be included as well. Although, on the other hand the relatively large deviation that can be seen at \SI{1.50}{\tera \hertz} can also be recognized in the plot of the loss function in figure \ref{fig:loss_function_cl4}. Which means that the deviation is recognized by the loss function but a minimum was not found that minimizes $L_{\lambda/4}$ at this frequency. This could therefore indicate that it is more difficult to minimize $L_{\lambda/4}$ compared to minimizing $L_M$.
 
 The circular and linear polarization degrees $V_c$ and $V_l$ for a linearly polarized input state is shown in figure \ref{fig:cl4_pol_deg} as a function of frequency for result 1 and the TAQ. Subfigures (a) and (c) show the full frequency range of $V_c$ and $V_l$ respectively, while subfigures (b) and (d) show the first \SI{1.6}{\tera \hertz}. For clarity $V_c$ is offset by one in (b) so that values of $V_c$ closer to zero are in fact closer to negative one. We see that as expected $V_c$ is around $-1$ in the optimization range for both the TAQ and result 1 which indicates that the light is almost purely LCP. Interestingly, outside of the optimization frequency range the light switches to be primarily RCP. Furthermore, subfigure (b) shows that $V_c$ for result 1 varies less for frequencies below \SI{0.6}{\tera \hertz} and more for higher frequencies compared to the TAQ and varies less overall. This could be due to the difference between the refractive indices used for quartz during optimization and the values used for the calculation of $V_c$, since these deviations are fairly small. Subfigure (c) shows that the linear polarization degree increases to one and decreases again while the light switches to RCP. Subfigure (d) shows a similar trend as (b) in the sense that result 1 is closer to zero at lower frequencies compared to the TAQ. We also see that $V_l$ is not zero, the light is therefore not perfectly CP but also partly LP, which is difficult to see in the polarization ellipse representation. 
+% comment here 2
 
 \begin{figure}[H]
 \centering
@@ -150,6 +152,7 @@ To that extend we calculated the eccentricity and azimuth of the eigenstates for
     \caption{Eccentricity of the two eigenstates for both the TAQ and result 1. It shows that both AWPs are examples of elliptical waveplates since the eccentricities in both cases are below one but above zero in the range in which the optimization took place.}
     \label{fig:cl4_eigenstate_eccentricity}
 \end{figure}
+%comment here 3
 
 % TODO Fix phasewraps in plots (done)
 % TODO Fix fig 5.5 (done)
@@ -179,14 +182,16 @@ However, a design concept we could verify experimentally is the one based on for
 \section{Composite AWP based on form birefringent polymer waveplates}
 The concept of form birefringent polymer waveplates is almost identical to the form birefringent silica waveplates described at the end of chapter \ref{ch:theory}. Specifically, instead of using SLE to create the form birefringent stratified structures we used a commercial 3D printer, in this case the Prusa i3 MK3S+. A 3D printer simply liquifies a polymer filament which is then deposited layer by layer and line by line at certain positions to create the structure given by the compiled G-code file. 3D printing is therefore an additive process while SLE is subtractive.
 
-As a first step in the design process we chose a polymer or rather a polymer filament which would be used for the printing of the structures. Based on the measurements published in \cite{Busch2014} of seven different 3D printed polymer samples possibly suited for THz optics we selected high impact polystyrene (HIPS) and polypropylene (PP) for further characterization. These two polymers were shown to have a relatively low absorption coefficient at \SI{500}{\giga \hertz} which is a common property of most non-polar polymers \cite{Jordens2010, Castro-Camus2020}, low absorption is important since the final composite waveplate is rather thick. A \SI{2}{\milli \meter} thick rectangular sample of each material were printed and subsequently characterized using the GHz setup described in \ref{sec:GHz_setup}. The refractive index and absorption coefficient obtained from the measurement is shown in figure \ref{fig:HIPS_PP_ri}. We see that the refractive index does not change much over the frequency range for both materials. The absorption coefficient is slightly lower for PP compared to HIPS, which would make it better suited. Unfortunately, using PP we were only able to print simple squares due to its high flexibility and thermal expansion. All subsequent structures and samples were therefore printed using the HIPS filament.
+As a first step in the design process we chose a polymer or rather a polymer filament which would be used for the printing of the structures. Based on the measurements published in \cite{Busch2014} of seven different 3D printed polymer samples possibly suited for THz optics we selected high impact polystyrene (HIPS) and polypropylene (PP) for further characterization. These two polymers were shown to have a relatively low absorption coefficient at \SI{500}{\giga \hertz} which is a common property of most non-polar polymers \cite{Jordens2010, Castro-Camus2020}, low absorption is important since the final composite waveplate is rather thick. A \SI{2}{\milli \meter} thick rectangular sample of each material were printed and subsequently characterized using the GHz setup described in \ref{sec:GHz_setup}. The refractive index and absorption coefficient obtained from the measurement is shown in figure \ref{fig:HIPS_PP_ri}.
 
 \begin{figure}[H]
     \centering
-    \includestandalone[scale=0.75]{images/5_chapter05/plots/polymer/HIPS_PP_ri}
+    \includestandalone[scale=0.7]{images/5_chapter05/plots/polymer/HIPS_PP_ri}
     \caption{Measured refractive index and absorption coefficient of the \SI{2}{\milli \meter} HIPS and PP samples. The tails at the frequency boundaries are due to system artifacts.}
     \label{fig:HIPS_PP_ri}
 \end{figure}
+
+ We see that the refractive index does not change much over the frequency range for both materials. The absorption coefficient is slightly lower for PP compared to HIPS, which would make it better suited. Unfortunately, using PP we were only able to print simple squares due to its high flexibility and thermal expansion. All subsequent structures and samples were therefore printed using the HIPS filament.
 
 The optimization was performed similar to the ceramic design. Although, since the individual waveplates of this design are based on form birefringent waveplates we also optimized the stratification dimensions $a$ and $b$. To reduce the number of dimensions of the objective function we used the same values of $a$ and $b$ for all waveplates in the design; therefore all individual plates had the same birefringence. However, in the context of this work the main drawback of 3D printing is that the minimum feature size roughly depends on the nozzle diameter of the 3D printer. In our case we were working with a nozzle diameter of \SI{400}{\micro \meter}. However, we could only achieve a minimum feature size of around \SI{700}{\micro \meter} with an air gap width of approximately \SI{300}{\micro \meter}. This means that effectively optimizing the stratification dimensions had no influence on the performance of the final design. Additionally, the variation between the stratification dimensions of the actual print and the design was found to be insignificant. 
 Therefore, with a spatial period of around \SI{1}{\milli \meter} and a wavelength of \SI{2.725}{\milli \meter} at \SI{110}{\giga \hertz} we could still obtain almost a $1:3$ ratio considering the condition given in equation \ref{eq:rytov_cond1} that the wavelength should at least be larger than the stratification period for the approximation of the form birefringence to be reasonable. Interestingly, in another work it was shown by comparing the values of the form birefringence of a periodically stratified medium to the result of a more accurate numerical theory that the approximation of the birefringence used in this work is valid even up to a $3:4$ wavelength-periodicity ratio \cite{Busch2016}.
@@ -220,6 +225,7 @@ Based on the result of the optimization we can again calculate a number of predi
     \caption{Calculated effective refractive indices (Left) and absorption coefficient (Right) of stratified HIPS parallel ($n_p$) and perpendicular ($n_s$) to the stratification given $a=\SI{630}{\micro \meter}$, $b=\SI{520}{\micro \meter}$.}
     \label{fig:effective_ri_bf_hips}
 \end{figure}
+% comment here 4
 
 Figure \ref{fig:polymer_pe_lp} shows the polarization ellipse representation of the normalized output for a HLP and LCP input. We see that the output should be almost perfectly RCP as expected in case of a linear input. In case of a LCP input the output is linearly polarized and again at different azimuths depending on the frequency, similarly to the \ce{Al2O3} ceramic designs. 
 
@@ -263,6 +269,7 @@ The calculated retardance and diattenuation of the waveplate from result 3 is sh
     \caption{Left: calculated inhomogeneity $\nu$ of the Jones matrix representing the AWP of result 3. Right: the deviation from mutual orthogonality of its eigenstates as a function of frequency.}
     \label{fig:inhomogeneity_orthogonality}
 \end{figure}
+% comment here 5
 
 Figure \ref{fig:polymer_eigenstate_params} shows the azimuth and eccentricity of the eigenstates based on result 3. Similar to the ceramic design and the TAQ we see that the eigenstates are again slightly elliptical and their azimuths show a small frequency dependency.
 
@@ -305,7 +312,7 @@ Before we discuss the characterization of the waveplate it is worth considering 
 %    \item parameters (done)
 %    \item inhomogenity correlates with dichroism/diattenuation since it removes reversal property. Also correlates with deviation from orthogonality of eigenstates. (done)
 %\end{itemize}
-\begin{comment}
+
 To characterize the waveplate the measurement technique described in \cite{Masson2006} was applied to the GHz setup. The measurement was performed using a single polarizer which was inserted into the beam path between the waveplate and detector. Originally in \cite{Masson2006} two polarizers were inserted although due to the strongly linearly polarized antennas one polarizer was considered to be sufficient for this setup. The measurement itself is performed by measuring the amplitude $S(\phi)$ of the transmitted signal at different angles $\phi$ of the inserted polarizer with respect to the reference frame. In general the Jones vector representing the state after the waveplate can be written as follows:
 \begin{equation}
     \bm{\mathcal{E}}_{wp}= 
@@ -340,14 +347,16 @@ The measured amplitude is then given by the following expression:
     S(\phi)=\sqrt{I} = \sqrt{\bm{\mathcal{E}}_{f} \bm{\mathcal{E}}_{f}^{\dagger}} = |c_{\phi}|\left[(ac_{\phi}+bs_{\phi}c_{\delta})^2 + (bs_{\phi}s_{\delta})^2\right]^{1/2}.
     \label{eq:ampl_fit_func}
 \end{equation}
-The measurement is performed in steps of \SI{10}{\degree} of $\phi$. This leads to 36 individual measurements which are subsequently normalized with respect to the measurement where the polarizer and polarization plane of the detector are parallel. For a given frequency we fit equation \ref{eq:ampl_fit_func} or specifically the three parameters $a,b$ and $\delta$ to the measured amplitude as a function of $\phi$. The result of the evaluation is shown in figure \ref{fig:meas_result}, where the left subfigure shows the expected phase shift calculated based on the measured optical parameters of HIPS and the design dimensions given in table \ref{tab:res_hips_l4} compared to the phase shift evaluated from the measurement data. The right subfigure of figure \ref{fig:meas_result} shows the calculated ratio of the major and minor axes $a$ and $b$ respectively which again are compared to the measured ratio. It is worth noting that the smooth curves are not due to filtering of the signal but are instead caused by the high SNR of the system.
-
+The measurement is performed in steps of \SI{10}{\degree} of $\phi$. This leads to 36 individual measurements which are subsequently normalized with respect to the measurement where the polarizer and polarization plane of the detector are parallel. For a given frequency we fit equation \ref{eq:ampl_fit_func} or specifically the three parameters $a,b$ and $\delta$ to the measured amplitude as a function of $\phi$. The result of the evaluation is shown in figure \ref{fig:meas_result}, where the left subfigure shows the expected phase shift calculated based on the measured optical parameters of HIPS and the design dimensions given in table \ref{tab:res_hips_l4} compared to the phase shift evaluated from the obtained data. 
+% comment here 6
 \begin{figure}[H]
     \centering
-    \includestandalone[scale=0.7]{images/5_chapter05/plots/polymer/measurement_result}
+    \includestandalone[scale=0.65]{images/5_chapter05/plots/polymer/measurement_result}
     \caption{Left: Expected and measured phase shift $\delta$. Right: Ratio of the major and minor axes $a$ and $b$ respectively. For an achromatic $\lambda/4$ waveplate we expect a phase shift of $\frac{\pi}{2}$ and a ratio of 1 of the ellipse axes independent of frequency. The ideal values are in both plots shown as a black dotted horizontal line and the dashed line represents a single waveplate. The large deviation is explained in the following parts of this work.}
     \label{fig:meas_result}
 \end{figure}
+
+The right subfigure of figure \ref{fig:meas_result} shows the calculated ratio of the major and minor axes $a$ and $b$ respectively which again are compared to the measured ratio. It is worth noting that the smooth curves are not due to filtering of the signal but are instead caused by the high SNR of the system.
 
 Considering the results shown in figure \ref{fig:meas_result} we see large deviations between the expected and measured values. A major part of the subsequent work therefore consisted of finding the cause of this deviation. We first considered that there could be an error in the evaluation. However, since already the measured signal shown in figure \ref{fig:measured_amplitude} shows a similar trend without performing any post-processing this was considered unlikely.
 
@@ -358,7 +367,7 @@ Considering the results shown in figure \ref{fig:meas_result} we see large devia
     \label{fig:measured_amplitude}
 \end{figure}
 
-We further considered the impact of differences between the dimensions of the actual printed waveplate and the design. The total thickness of the waveplate was measured to be \SI{27}{\milli \meter}. We further calculated the phase shift based on the design values in table \ref{tab:res_hips_l4} but to investigate the influence of thickness variations we added a maximum random error of \SI{\pm 5}{\percent} to the thickness of each individual waveplate. Performing this procedure we produced 50 designs with random thickness variations. 
+We further considered the impact of differences between the dimensions of the actual printed waveplate and the design. The total thickness of the waveplate was measured to be \SI{27}{\milli \meter}. We further calculated the phase shift based on the design values in table \ref{tab:res_hips_l4} but to investigate the influence of thickness variations we added a maximum random error of \SI{\pm 5}{\percent} to the thickness of each individual waveplate. Performing this procedure we produced 50 designs with random thickness variations. The result of this is shown in the left subfigure of figure \ref{fig:delta_width_err} where the blue curve shows the phase shift of one of the designs picked at random and the red curve shows the phase shift obtained from the measurement. The green and blue dashed curves show the phase shift of the designs with the minimum and  maximum  average  phase shift respectively. The right subfigure shows a \SI{5}{\percent} contraction of each plate. We see that thickness variations are unlikely to have caused the large deviation between the expected and measured result.
 
 \begin{figure}[H]
     \centering
@@ -367,9 +376,8 @@ We further considered the impact of differences between the dimensions of the ac
     \label{fig:delta_width_err}
 \end{figure}
 
-The result of this is shown in the left subfigure of figure \ref{fig:delta_width_err} where the blue curve shows the phase shift of one of the designs picked at random and the red curve shows the phase shift obtained from the measurement. The green and blue dashed curves show the phase shift of the designs with the minimum and  maximum  average  phase shift respectively. The right subfigure shows a \SI{5}{\percent} contraction of each plate. We see that thickness variations are unlikely to have caused the large deviation between the expected and measured result.
-
-Another possibility could that the deviation is caused by angle variations between the design and the produced waveplate. Again, to examine this hypothesis we produced 50 designs with angle variations in a similar fashion as it was done for the designs with thickness errors. The result is shown in figure \ref{fig:delta_angle_err} where the left subfigure shows the phase shift for the designs with a maximum of \SI{\pm2}{\degree} angle deviation added to each waveplate. The right subfigure shows a maximum \SI{\pm5}{\degree} misalignment error, in other words the same angle was added to all four waveplates. Again, we see that angle misalignments are unlikely to have caused the deviation due to the random nature of the deviations at each frequency. Additionally, angle errors are unlikely in the first place since the waveplate is printed in one piece. Furthermore, comparing to the errors caused by thickness variations we see that it is important to ensure a correct alignment in case of individually stacked waveplates. 
+Another possibility could that the deviation is caused by angle variations between the design and the produced waveplate. Again, to examine this hypothesis we produced 50 designs with angle variations in a similar fashion as it was done for the designs with thickness errors. The result is shown in figure \ref{fig:delta_angle_err} where the left subfigure shows the phase shift for the designs with a maximum of \SI{\pm2}{\degree} angle deviation added to each waveplate. The right subfigure shows a maximum \SI{\pm5}{\degree} misalignment error, in other words the same angle was added to all four waveplates. 
+% comment here 7
 
 \begin{figure}[H]
     \centering
@@ -377,6 +385,8 @@ Another possibility could that the deviation is caused by angle variations betwe
     \caption{Left: Random angle deviation of maximum \SI{\pm2}{\degree} added to each waveplate. Right: 50 different designs where we added the same but maximum of \SI{5}{\degree} deviation to every waveplate.}
     \label{fig:delta_angle_err}
 \end{figure}
+
+Again, we see that angle misalignments are unlikely to have caused the deviation due to the random nature of the deviations at each frequency. Additionally, angle errors are unlikely in the first place since the waveplate is printed in one piece. Furthermore, comparing to the errors caused by thickness variations we see that it is important to ensure a correct alignment in case of individually stacked waveplates. 
 
 The last structural parameter is the periodicity of the stratification. We took 10 photos using a microscope of the waveplate from the top and bottom at different positions and measured $a$ and $b$. Two of the photos are shown in figure \ref{fig:hips_wp_photos}; the photo to
 the left is from the bottom side and the right photo is from the top side.
@@ -402,6 +412,7 @@ We calculated the average values of $a$ and $b$ for the 10 different positions a
 \end{figure}
 
 With these values of the birefringence for the measured values of $a$ and $b$ we again calculated the phase shift which is shown in figure \ref{fig:delta_stripe_err}. Even though the difference between the values of the actual printed structure and the design values are quite large we see that it has little impact on the expected phase difference. We can therefore with fairly high certainty rule out that the deviation of the stratification dimensions is the cause of the measured phase shift deviation.
+% comment here 8
 
 \begin{figure}[H]
     \centering
@@ -429,6 +440,7 @@ If we assume the simulated form birefringence is correct and consider that the d
     \caption{Left: Measurement of the refractive index of the \SI{4}{\milli \meter} thick grating at \SI{0}{\degree} and \SI{90}{\degree} as well as the calculated refractive indices using $a=\SI{631.37}{\micro \meter}$, $b=\SI{460.25}{\micro\meter}$. At \SI{0}{\degree} the bars of the grating are aligned horizontally ($n_p$). Right: The birefringence of the calculation and measurement.}
     \label{fig:ri_slim_grating}
 \end{figure}
+% comment here 9
 
 To test this we printed a single \SI{4}{\milli \meter} thick grating for which we again measured the average width of the material bars and air gaps using a camera mounted to a microscope and found that $a=\SI[separate-uncertainty = true]{631.37(2970)}{\micro \meter}$ and $b=\SI[separate-uncertainty = true]{460.25(4231)}{\micro \meter}$. We then proceeded to measure the birefringence using the bow-tie setup. Again, similar to previous measurements of the birefringence we simply measured the refractive index for two perpendicular directions; in this case parallel and perpendicular to the stratification of the grating. The result of the measurement is shown in figure \ref{fig:ri_slim_grating} and is compared to the expected form birefringence which is calculated using $a=\SI{631.37}{\micro \meter}$, $b=\SI{460.25}{\micro \meter}$ as well as the refractive index of HIPS based on the characterization of the \SI{2}{\milli \meter} thick square sample (figure \ref{fig:HIPS_PP_ri}). We see that the measured refractive indices both parallel and perpendicular to the stratification are larger than expected, the same is true for the birefringence which is around $0.02$ larger than expected. Therefore, the result of this measurement indeed confirms that the birefringence is significantly deviating from the expectation and that there is an additional effect which changes the measured birefringence besides the form birefringence. We find another indication that this is the case by calculating the expected phase shift of the waveplate given by result 3 but instead of the calculated form birefringence we use the measured birefringence shown in figure \ref{fig:ri_slim_grating}. The result of this is shown in figure \ref{fig:delta_gratings_bf}. Even though this does not quite reproduce the measured result it is still the most plausible explanation for the deviation seen in the result, if we consider that this additional birefringence might vary between structures then it could fully explain the deviation seen in the result of the measurement.
 
@@ -459,6 +471,7 @@ Moreover, the expected form birefringence will also be slightly larger since the
     \caption{Measured birefringence based on the result of the refractive index measurement shown in figure \ref{fig:ri_fullplates}.}
     \label{fig:FullPlates_bf}
 \end{figure}
+% comment here 10
 
 We can calculate the additional amount of birefringence necessary to have caused the phase shift seen in the original measurement (\ref{fig:meas_result}), the result of this calculation is shown in the left subfigure of figure \ref{fig:FullPlatesWcalc} as the dashed black line. 
 
@@ -473,7 +486,7 @@ The calculation of the form birefringence is based on the measured values of $a$
 
 We can therefore conclude that the waveplates in addition to the form birefringence obtain an additional intrinsic birefringence from the printing process since the material bars or elongated elements making up the grating are all printed in the same direction. The added birefringence was unaccounted for during the designing process of the waveplate and therefore results in a deviation of the phase shift from the expectation. Additionally, we know from the previous calculations that the intrinsic birefringence is strong enough to be able to cause the deviation. The other effects mentioned earlier can of course also be present but are causing smaller deviations which therefore makes them difficult to distinguish in the measurement. The additional birefringence is not necessarily a disadvantage if it is predictable and can be accounted for correctly, since then the total thickness of the waveplate can possibly be reduced. Assuming the intrinsic birefringence, which explains the measurement result, is the only effect which is unaccounted for in the model and the design then we with a fairly high certainty conclude that the waveplate does indeed work. 
 
-
+\begin{comment}
 \end{comment}
 
 
