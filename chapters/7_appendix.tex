@@ -42,7 +42,6 @@ We want to show that $\epsilon_{s}<\epsilon_{p}$, where $\epsilon_{s}$ and $\eps
 
 Although, showing that this is true is fairly lengthy, we therefore only briefly describe the underlying idea. Since $\epsilon$ is bounded by $1$ and $4$ we can show that the right side of equation \ref{eq:inequality_proof}, which is a function of $\epsilon$ and $f$, is decreasing or increasing on some subset of the interval or the full interval if possible. If the right side is found to be increasing(decreasing) then we can simply show that the inequality is true at the lower(upper) bound of the interval. To show that the function is increasing(decreasing) we calculate the derivative with right to $\epsilon$ and show that it is strictly positive(negative), this gives us a new reduced inequality. Since equation \ref{eq:inequality_proof} is a polynomial the process will eventually terminate and we obtain simple inequalities for different subsections of the interval $[1,4]$. Doing this we were able to show that the inequality given in \ref{eq:inequality_proof} is true on the given interval and for all $f$ in $[0,1]$.
 
-\begin{comment}
 % Jan measurement setup (done)
 \section{Transmission minimum of diattenuating linear retarder} 
 \label{sec:transmission_min}
@@ -125,21 +124,21 @@ where the $A_j$, $B_j$ are fit parameters determined empirically and $\lambda$ i
 
 \begin{figure}[H]
     \centering
-    \includestandalone[scale=0.7]{images/7_appendix/plots/quartz_fits/ri_quartz}
+    \includegraphics[scale=0.7]{images/7_appendix/plots/quartz_fits/ri_quartz.pdf}
     \caption{Refractive index of crystalline quartz along the fast (left subfigure) and slow (right subfigure) direction. Data points are obtained from \cite{DGrischkowsky1990} and subsequently used to fit the parameters of equation \ref{eq:sellmeier}.}
     \label{fig:ri_quartz}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includestandalone[scale=0.7]{images/7_appendix/plots/quartz_fits/abs_quartz}
+    \includegraphics[scale=0.7]{images/7_appendix/plots/quartz_fits/abs_quartz.pdf}
     \caption{Absorption coefficient of crystalline quartz along the fast (left subfigure) and slow (right subfigure) direction. Data points are obtained from \cite{DGrischkowsky1990} which are used to determine the coefficients of a polynomial fit.}
     \label{fig:abs_quartz}
 \end{figure}
 
 \begin{table}[H]
     \centering
-    \includestandalone[scale=0.9]{images/7_appendix/sellmeier_parameters_table}
+    \includegraphics[scale=0.9]{images/7_appendix/sellmeier_parameters_table.pdf}
     \caption{Sellmeier parameters of crystalline quartz obtained from the fit of equation \ref{eq:sellmeier} to the measurement result published in \cite{DGrischkowsky1990}.}
     \label{tab:sellmeier_parameters_table}
 \end{table}
@@ -163,7 +162,7 @@ where we assume that the order is zero. Therefore, varying $d$ in small steps an
 
 \begin{figure}[H]
     \centering
-    \includestandalone[scale=1.2]{images/7_appendix/plots/cst_sim/bf_sim}
+    \includegraphics[scale=1.2]{images/7_appendix/plots/cst_sim/bf_sim.pdf}
     \caption{$|S_{21}|$ as a function of frequency obtained through the simulation of the unit cell shown in figure \ref{fig:CST_model} for different thicknesses of the structure.}
     \label{fig:bf_sim}
 \end{figure}
@@ -187,7 +186,7 @@ The 10 different material samples shown in figure \ref{fig:ceramic_samples} were
         {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/7_appendix/Setup-THz-TDS-HHI.pdf}}
     \qquad
     \subcaptionbox{\label{fig:setup_2}}
-        {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/sample_mount}}
+        {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/7_appendix/sample_mount.pdf}}
     
     \caption{Subfigure (a): Main components of the measurement setup which consists of four off axis parabolic mirros, the sample mounted on a translation stage(manipulator) as well as the emitter and detector. Subfigure (b): Sample placed on a rotational mount. The blue arrow indicates the horizontal direction which is also the polarization plane of the incident radiation. The red arrow indicates the turn direction and the green arrow the direction in which the sample was printed.}
     \label{fig:THz-TDS-HHI}
@@ -198,11 +197,10 @@ Table \ref{tab:ceramic_samples_table} lists the 10 samples, their respective han
 
 \begin{table}[h]
     \centering
-    \includestandalone[scale=1.0]{images/7_appendix/ceramic_samples_table}
+    \includegraphics[scale=1.0]{images/7_appendix/ceramic_samples_table.pdf}
     \caption{The 10 characterized samples. The first five are the samples requested for the achromatic waveplate while the five in the lower half are the additionally characterized samples. The thickness is measured once at the center of the each sample using a micrometer.}
     \label{tab:ceramic_samples_table}
 \end{table}
-% comment here 1
 
 \newpage
 
@@ -215,79 +213,73 @@ Figure \ref{fig:ceramic_WPs} shows the evaluated refractive index at the three a
 \begin{figure}[H]
 \centering
 \subcaptionbox{\label{fig:ceramic_WP1}}
-    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/WP1}}
+    {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real/WP1.pdf}}
 \qquad
 \subcaptionbox{\label{fig:ceramic_WP2}}
-    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/WP2}}
+    {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real/WP2.pdf}}
 \subcaptionbox{\label{fig:ceramic_WP3}}
-    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/WP3}}
+    {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real/WP3.pdf}}
 \qquad
 \subcaptionbox{\label{fig:ceramic_WP4}}
-    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/WP4}}
+    {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real/WP4.pdf}}
 \subcaptionbox{\label{fig:ceramic_WP5}}
-    {\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/WP5}}
+    {\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real/WP5.pdf}}
 \caption{Evaluated refractive index for the five requested waveplates at three different rotational angles.}
 \label{fig:ceramic_WPs}
 \end{figure}
-% comment here 2
 
 \begin{figure}[H]
 \centering
 \subcaptionbox{\label{fig:ceramic_MUT1}}
-    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/MUT1}}
+    {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real/MUT1.pdf}}
 \qquad
 \subcaptionbox{\label{fig:ceramic_MUT2}}
-    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/MUT2}}
+    {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real/MUT2.pdf}}
 \subcaptionbox{\label{fig:ceramic_MUT3}}
-    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/MUT3}}
+    {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real/MUT3.pdf}}
 \qquad
 \subcaptionbox{\label{fig:ceramic_MUT4}}
-    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/MUT4}}
+    {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real/MUT4.pdf}}
 \subcaptionbox{\label{fig:ceramic_MUT5}}
-    {\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real/MUT5}}
+    {\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real/MUT5.pdf}}
 \caption{Evaluated refractive index for the five additional samples at three different rotational angles.}
 \label{fig:ceramic_MUTs}
 \end{figure}
-% comment here 3
 
 \begin{figure}[H]
 \centering
 \subcaptionbox{\label{fig:ceramic_WP1_abs}}
-    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/WP1}}
+    {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real_abs/WP1.pdf}}
 \qquad
 \subcaptionbox{\label{fig:ceramic_WP2_abs}}
-    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/WP2}}
+    {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real_abs/WP2.pdf}}
 \subcaptionbox{\label{fig:ceramic_WP3_abs}}
-    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/WP3}}
+    {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real_abs/WP3.pdf}}
 \qquad
 \subcaptionbox{\label{fig:ceramic_WP4_abs}}
-    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/WP4}}
+    {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real_abs/WP4.pdf}}
 \subcaptionbox{\label{fig:ceramic_WP5_abs}}
-    {\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/WP5}}
+    {\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real_abs/WP5.pdf}}
 \caption{Evaluated absorption coefficient for the five requested waveplates at three different rotational angles.}
 \label{fig:ceramic_WPs_abs}
 \end{figure}
-% comment here 4
 
 \begin{figure}[H]
 \centering
 \subcaptionbox{\label{fig:ceramic_MUT1_abs}}
-    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/MUT1}}
+    {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real_abs/MUT1.pdf}}
 \qquad
 \subcaptionbox{\label{fig:ceramic_MUT2_abs}}
-    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/MUT2}}
+    {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real_abs/MUT2.pdf}}
 \subcaptionbox{\label{fig:ceramic_MUT3_abs}}
-    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/MUT3}}
+    {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real_abs/MUT3.pdf}}
 \qquad
 \subcaptionbox{\label{fig:ceramic_MUT4_abs}}
-    {\hspace*{-2em}\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/MUT4}}
+    {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real_abs/MUT4.pdf}}
 \subcaptionbox{\label{fig:ceramic_MUT5_abs}}
-    {\includestandalone[width=0.45\linewidth]{images/7_appendix/plots/real_abs/MUT5}}
+    {\includegraphics[width=0.45\linewidth]{images/7_appendix/plots/real_abs/MUT5.pdf}}
 \caption{Evaluated absorption coefficient for the five additional samples at three different rotational angles.}
 \label{fig:ceramic_MUTs_abs}
 \end{figure}
 
 If we compare the measured refractive index and the absorption coefficient of these \ce{Al2O3} samples to the result from the measurement published in \cite{Ornik2018} of two similar \ce{Al2O3} samples, we see that the refractive index and absorption coefficient for WP1-WP5 and MUT3-MUT5 is approximately the same. Furthermore, we see that the refractive index and absorption coefficient of MUT1 is higher than the other samples since this sample consists of \ce{ZrO2}. The material of MUT2 was either \ce{ZrO2} or \ce{Al2O3}, based on the value of the refractive index we can conclude that MUT2 consists of \ce{Al2O3}. Finally, it seems that none of the samples have a measurable birefringence except MUT2 which has a birefringence of around $0.05$. The missing birefringence could be due to a different printing process and or different printing settings.
-
-
-\end{comment}
