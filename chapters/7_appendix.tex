@@ -45,7 +45,7 @@ Although, showing that this is true is fairly lengthy, we therefore only briefly
 % Jan measurement setup (done)
 \section{Transmission minimum of diattenuating linear retarder} 
 \label{sec:transmission_min}
-The setup consists of a linear horizontal polarizer $\hat{T}_{DL}(\psi=0, p_1=1, 0)$, linear diattenuating retarder (waveplate) $\hat{T}_{RDL}(\psi, \Delta, p_1, p_2)$ and another linear horizontal polarizer $\hat{T}_{DL}(\psi=0, p_1=1, 0)$ in the given order. The input is a normalized horizontal linear state $\bm{\mathcal{E}}_{\SI{0}{\degree}}$. The intensity of the output is then simply $I_o=T_{1,1}(T_{1,1})^*$, requiring $0\overset{!}{=}I_o$ we get the following:
+The setup consists of a linear horizontal polarizer $\hat{T}_{DL}(\psi=0, p_1=1, 0)$, linear diattenuating retarder (waveplate) $\hat{T}_{RDL}(\psi, \Delta, p_1, p_2)$ and another linear horizontal polarizer $\hat{T}_{DL}(\psi=0, p_1=1, 0)$ in the given order. The input is a normalized horizontal linear state $\bm{\mathcal{E}}_{\SI{0}{\degree}}$. The intensity of the output is then simply $I_o=T_{1,1}(T_{1,1})^*$, requiring $I_o\overset{!}{=}0$ we get the following:
 \begin{equation}
     0=(p_1c_\psi^2e^{i\Delta/2}+p_2s_\psi^2e^{-i\Delta/2})(p_1c_\psi^2e^{-i\Delta/2}+p_2s_\psi^2e^{i\Delta/2}).
 \end{equation}
@@ -111,7 +111,7 @@ where $T$ is known as the temperature and is a user defined parameter which shou
     \label{fig:Basin-hopping}
 \end{figure}
 
-\section{Quartz Sellmeier fit}
+\section{Quartz Sellmeier approximation}
 \label{sec:sellmeier}
 In \cite{DGrischkowsky1990} the optical parameters along the fast and slow direction of crystalline quartz in the frequency range \SIrange{0.2}{2.0}{\tera\hertz} were published. The result was obtained through a measurement similar to the THz-TDS measurements performed in this work. In order to obtain an interpolation of the refractive indices with a sufficiently high accuracy from the publication we fitted the 3rd order Sellmeier relation which is given by the following expression:
 
