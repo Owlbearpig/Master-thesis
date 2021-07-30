@@ -1,0 +1,26 @@
+\label{ch:conclusion}
+
+The objective of this work was to investigate if a composite 3D printed AWP based on form birefringence can be realized. For this purpose we designed, produced and characterized a 3D printed form birefringent AWP prototype specialized to operate in the frequency range from \SIrange{75}{110}{\giga \hertz}. Specifically, the design of the AWP we proposed in this work describes a single structure, however it can be understood as individual form birefringent monochromatic waveplates which are combined in series at different angles to form the AWP. To obtain the specific design parameters, given the frequency range and optical material parameters, we modeled the structure mathematically using the Jones calculus. Each constituent waveplate can then be described by a Jones matrix and the matrix product describes the full structure. Further, we proposed an objective function based on the Jones matrix describing the structure which we optimized to obtain the design parameters. 
+
+To test the performance of the objective function we considered a second similar composite AWP based on 3D printed \ce{Al2O3} ceramic which in another work was shown to be intrinsically birefringent. In other words, this ceramic AWP relies on intrinsic birefringence and not form birefringence to produce the polarization change. Further, we were able to confirm that the design produced by optimizing the objective function proposed in this work performed similar to another composite AWP presented in a previous publication. Unfortunately, we were unable to verify this experimentally since individual waveplates produced according to the design parameters showed no birefringence. This was likely due to slightly modified print settings compared to the ones used in the original publication. Therefore, how the print process and settings affect the intrinsic birefringence of the printed ceramic plates is still work in progress.
+
+Regarding the main question of this work we produced an instance of the initially described form birefringent composite AWP design by optimizing the objective function. Subsequently, we printed the AWP according to the obtained design dimensions using a commercial 3D printer. The following characterization showed a broadband response compared to what would be expected from a single birefringent waveplate. However, the measured values of the phase shift showed a significant deviation compared to the expectation. We therefore considered different error sources which could influence the observed phase shift and found the most likely explanation of the deviation to be an error in the estimation of the birefringence. Subsequent followup measurements of test samples showed that the printing process induced a mesoscopic birefringence in addition to the expected form birefringence in the printed structure. We therefore attribute the deviation to this effect which was unaccounted for in the calculation. 
+
+A more thorough characterization of the birefringence would therefore be required to produce a better performing composite form birefringent AWP. Although, even a rough correction to the birefringence used in the design process could potentially lead to a significant improvement due to the non-linear relationship between the phase shift and the birefringence. Specifically, since the measured birefringence of the test samples also seemed to depend on the thickness of the sample this would need to be investigated in the followup characterization. Another possible workaround would be to search for other 3D printable materials with a lower mesoscopic birefringence or consider other manufacturing techniques. 
+
+%- We can not at this point answer whether it works or not and a more thorough characterization is required to 
+%We produced two AWP designs based on a \ce{Al2O3} ceramic and a HIPS polymer, respectively. 
+
+%- Add mention of goal: We want to test whether a composite AWP consisting of form birefringent waveplates can be used to cause a certain polarization change over a frequency range.
+
+%- Summary: We proposed a new loss function based on the Jones calculus which was then used in the design process. 
+%\newline
+    %- Add about form birefringence
+    %\newline
+    %- Also compared the optimization result to another result obtained with a different objective function. (Ceramic)
+%\newline
+%We tested the design obtained from optimizing the loss function by 3D printing and subsequently characterizing the waveplate/structure. It was not done by us, not sure if needs to be mentioned again. 
+%\newline
+%- Large deviation but we could identify a likely cause. We did see a broadband response compared to a single waveplate.
+%\newline
+%- Outlook: What more can be done? What I'm doing now. We should be able to obtain better results fairly easily...

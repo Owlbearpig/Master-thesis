@@ -291,9 +291,12 @@ quotes
 \bibliographystyle{unsrtnat}
 \usepackage[
     natbib=true,
-    style=numeric,
+    %style=numeric,
+    style=ieee,
+    citestyle=numeric-comp,
     sorting=none,
-    url = false
+    url = false,
+    backend=biber,
 ]{biblatex}
 
 \DeclareSourcemap{ % Mendeley sucks balls. https://tex.stackexchange.com/questions/428959/get-biblatex-to-show-url-for-webpage-references
