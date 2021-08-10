@@ -34,13 +34,13 @@ with $\delta=\delta_y-\delta_x$.
 
 \section{Effective permittivity inequality}
 \label{sec:bf_proof}
-We want to show that $\epsilon_{s}<\epsilon_{p}$, where $\epsilon_{s}$ and $\epsilon_{p}$ are given in equation \ref{eq:rytov_2nd_order_final}. We assume that $1\leq\epsilon\leq4$ and that the ratio $r=\frac{d}{\lambda}$ is less than $0.6$ which is reasonable considering the condition stated in equation \ref{eq:rytov_cond1}. In order to slightly simplify the equations we can measure lengths in units of $d$ this means that $a+b=1$ or setting $a=f$ we end up with the following inequality we want to show:
+We want to show that $\epsilon_{s}<\epsilon_{p}$, where $\epsilon_{s}$ and $\epsilon_{p}$ are given in equation \ref{eq:rytov_2nd_order_final}. We assume that $1<\epsilon\leq4$ and that the ratio $r=\frac{d}{\lambda}$ is less than $0.6$ which is reasonable considering the condition stated in equation \ref{eq:rytov_cond1}. In order to slightly simplify the equations we can measure lengths in units of $d$ this means that $a+b=1$ or setting $a=f$ we end up with the following inequality we want to show:
 \begin{equation}
     \label{eq:inequality_proof}
     0<1+\frac{\tilde{\epsilon}_{p}-\tilde{\epsilon}_{s}}{f^2(1-f)^2(\epsilon-1)^2c}-\frac{\tilde{\epsilon}_{p}\tilde{\epsilon}_{s}^3}{\epsilon^2},\quad c=\frac{1}{3}r^2\pi^2.
 \end{equation}
 
-Although, showing that this is true is fairly lengthy, we therefore only briefly describe the underlying idea. Since $\epsilon$ is bounded by $1$ and $4$ we can show that the right side of equation \ref{eq:inequality_proof}, which is a function of $\epsilon$ and $f$, is decreasing or increasing on some subset of the interval or the full interval if possible. If the right side is found to be increasing(decreasing) then we can simply show that the inequality is true at the lower(upper) bound of the interval. To show that the function is increasing(decreasing) we calculate the derivative with right to $\epsilon$ and show that it is strictly positive(negative), this gives us a new reduced inequality. Since equation \ref{eq:inequality_proof} is a polynomial the process will eventually terminate and we obtain simple inequalities for different subsections of the interval $[1,4]$. Doing this we were able to show that the inequality given in \ref{eq:inequality_proof} is true on the given interval and for all $f$ in $[0,1]$.
+Although, showing that this is true is fairly lengthy, we therefore only briefly describe the underlying idea. Since $\epsilon$ is bounded by $1$ and $4$ we can show that the right side of equation \ref{eq:inequality_proof}, which is a function of $\epsilon$ and $f$, is decreasing or increasing on some subset of the interval or the full interval if possible. If the right side is found to be increasing(decreasing) then we can simply show that the inequality is true at the lower(upper) bound of the interval. To show that the function is increasing(decreasing) we calculate the derivative with right to $\epsilon$ and show that it is strictly positive(negative), this gives us a new reduced inequality. Since equation \ref{eq:inequality_proof} is a polynomial the process will eventually terminate and we obtain simple inequalities for different subsections of the interval $(1,4]$. Doing this we were able to show that the inequality given in \ref{eq:inequality_proof} is true on the given interval and for all $f$ in $[0,1]$.
 
 % Jan measurement setup (done)
 \section{Transmission minimum of diattenuating linear retarder} 
@@ -120,19 +120,31 @@ In \cite{DGrischkowsky1990} the optical parameters along the fast and slow direc
     n^2(\lambda) - 1 = \frac{A_1\lambda^2}{\lambda^2-B_1}+\frac{A_2\lambda^2}{\lambda^2-B_2}+\frac{A_3\lambda^2}{\lambda^2-B_3},
 \end{equation}
 
-where the $A_j$, $B_j$ are fit parameters determined empirically and $\lambda$ is the wavelength in micrometres \cite{Sellmeier1872}. It is worth noting that the same method is used in \cite{Vilas2013} to obtain the wavelength dependency of the refractive indices along the two axes of \ce{MgF2} which are also used for the design development of an AWP. Furthermore, we fitted a polynomial to interpolate the absorption coefficients. The data points obtained from \cite{DGrischkowsky1990} as well as the corresponding fits for the refractive indices and absorption coefficients are shown in figures \ref{fig:ri_quartz} and \ref{fig:abs_quartz} respectively. The fitted Sellemeier coefficients are shown in table \ref{tab:sellmeier_parameters_table}. Since the refractive indices and absorption coefficients of the fast and slow axes are fairly smooth the fits are quite close to the data points. We use these fitted values for the calculations based on the optical parameters of crystalline quartz to reproduce the TAQ design.
+where the $A_j$, $B_j$ are fit parameters determined empirically and $\lambda$ is the wavelength in micrometres \cite{Sellmeier1872}. It is worth noting that the same method is used in \cite{Vilas2013} to obtain the wavelength dependency of the refractive indices along the two axes of \ce{MgF2} which are also used for the design development of an AWP. Furthermore, we fitted a polynomial to interpolate the absorption coefficients. The data points obtained from \cite{DGrischkowsky1990} as well as the corresponding fits for the refractive indices and absorption coefficients are shown in figures \ref{fig:ri_quartz} and \ref{fig:abs_quartz}, respectively. The fitted Sellmeier coefficients are shown in table \ref{tab:sellmeier_parameters_table}. Since the refractive indices and absorption coefficients of the fast and slow axes are fairly smooth the fits are quite close to the data points. We use these fitted values for the calculations based on the optical parameters of crystalline quartz to reproduce the TAQ design.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.7]{images/appendix/plots/quartz_fits/ri_quartz.pdf}
-    \caption{Refractive index of crystalline quartz along the fast (left subfigure) and slow (right subfigure) direction. Data points are obtained from \cite{DGrischkowsky1990} and subsequently used to fit the parameters of equation \ref{eq:sellmeier}.}
+    \begin{subfigure}[b]{.5\linewidth}
+    \caption{}\label{}
+    \centering\includegraphics[scale=0.7]{images/appendix/plots/quartz_fits/ri_quartz_a.pdf}
+    \end{subfigure}%
+    \begin{subfigure}[b]{.5\linewidth}
+    \caption{}\label{}
+    \centering\includegraphics[scale=0.7]{images/appendix/plots/quartz_fits/ri_quartz_b.pdf}
+    \end{subfigure}
+    \caption{Refractive index of crystalline quartz along (a) the fast and (b) slow direction. Data points are obtained from \cite{DGrischkowsky1990} and subsequently used to fit the parameters of equation \ref{eq:sellmeier}.}
     \label{fig:ri_quartz}
 \end{figure}
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.7]{images/appendix/plots/quartz_fits/abs_quartz.pdf}
-    \caption{Absorption coefficient of crystalline quartz along the fast (left subfigure) and slow (right subfigure) direction. Data points are obtained from \cite{DGrischkowsky1990} which are used to determine the coefficients of a polynomial fit.}
+    \begin{subfigure}[b]{.5\linewidth}
+    \caption{}\label{}
+    \centering\includegraphics[scale=0.7]{images/appendix/plots/quartz_fits/abs_quartz_a.pdf}
+    \end{subfigure}%
+    \begin{subfigure}[b]{.5\linewidth}
+    \caption{}\label{}
+    \centering\includegraphics[scale=0.7]{images/appendix/plots/quartz_fits/abs_quartz_b.pdf}
+    \end{subfigure}
+    \caption{Absorption coefficient of crystalline quartz along the (a) fast and (b) slow direction. Data points are obtained from \cite{DGrischkowsky1990} which are used to determine the coefficients of a polynomial fit.}
     \label{fig:abs_quartz}
 \end{figure}
 
@@ -145,7 +157,7 @@ where the $A_j$, $B_j$ are fit parameters determined empirically and $\lambda$ i
 
 \section{Stratified structure CST simulation}
 \label{sec:CST simulation}
-In order to obtain the form birefringence of a single stratified structure numerically we performed a unit cell simulation in the frequency domain of the structure shown in figure \ref{fig:CST_model}. For this type of simulation the unit cell is assumed to be repeating itself infinitely in the x- and y-direction according to the coordinate system shown in the figure, this saves a lot of memory and computing time and is nevertheless a good model of the real structure. The lower part of the unit cell (light blue) represents the material which in this case is modeled using the measured optical parameters of HIPS and the upper part represents the air gap ($n=1$, dark blue). To model the grating the height (y-direction) of the HIPS and air layer is therefore $a=\SI{735}{\micro \meter}$ and $b=\SI{393}{\micro \meter}$ respectively. The thickness of the grating $d$ is measured by the z-coordinate and is variable. 
+In order to obtain the form birefringence of a single stratified structure numerically we performed a unit cell simulation in the frequency domain of the structure shown in figure \ref{fig:CST_model}. For this type of simulation the unit cell is assumed to be repeating itself infinitely in the x- and y-direction according to the coordinate system shown in the figure, this saves a lot of memory and computing time and is nevertheless a good model of the real structure. The lower part of the unit cell (light blue) represents the material which in this case is modeled using the measured optical parameters of HIPS and the upper part represents the air gap ($n=1$, dark blue). To model the grating the height (y-direction) of the HIPS and air layer is therefore $a=\SI{735}{\micro \meter}$ and $b=\SI{393}{\micro \meter}$, respectively. The thickness of the grating $d$ is measured by the z-coordinate and is variable. 
 
 \begin{figure}[H]
     \centering
@@ -167,10 +179,10 @@ where we assume that the order is zero. Therefore, varying $d$ in small steps an
     \label{fig:bf_sim}
 \end{figure}
 
-\chapter{Characterization of ceramic material samples}
+\section{Characterization of ceramic material samples}
 %\setcounter{page}{1} % remove in thesis version
 \label{sec:ceramic_characterization}
-\section{Description}
+
 The 10 different material samples shown in figure \ref{fig:ceramic_samples} were characterized regarding their birefringence. To that extend each sample was placed in the focus of the two leftmost off axis parabolic mirrors as shown in figure \ref{fig:THz-TDS-HHI} (a). The sample holder is shown in figure \ref{fig:THz-TDS-HHI} (b) which enables a \SI{360}{\degree} manual rotation of the sample in the direction of the red arrow. The blue arrow in (a) and (b) indicates the polarization plane of the incident THz pulse. Each sample was placed in the holder so that the printing direction was approximately aligned with the \SI{0}{\degree} and \SI{180}{\degree} direction. Some samples were without a flat side but instead had an arrow drawn on them. In those cases we aligned the arrow so that it was parallel to the polarization of the THz radiation. At \SI{0}{\degree} the polarization plane and the printing direction of the 10 samples therefore align and at \SI{90}{\degree} they are orthogonal as shown in (b). 
 
 \begin{figure}
@@ -188,7 +200,7 @@ The 10 different material samples shown in figure \ref{fig:ceramic_samples} were
     \subcaptionbox{\label{fig:setup_2}}
         {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/appendix/sample_mount.pdf}}
     
-    \caption{Subfigure (a): Main components of the measurement setup which consists of four off axis parabolic mirros, the sample mounted on a translation stage(manipulator) as well as the emitter and detector. Subfigure (b): Sample placed on a rotational mount. The blue arrow indicates the horizontal direction which is also the polarization plane of the incident radiation. The red arrow indicates the turn direction and the green arrow the direction in which the sample was printed.}
+    \caption{(a) Main components of the measurement setup which consists of four off axis parabolic mirrors, the sample mounted on a translation stage(manipulator) as well as the emitter and detector. (b) Sample placed on a rotational mount. The blue arrow indicates the horizontal direction which is also the polarization plane of the incident radiation. The red arrow indicates the turn direction and the green arrow the direction in which the sample was printed.}
     \label{fig:THz-TDS-HHI}
 \end{figure}
 
@@ -204,7 +216,7 @@ Table \ref{tab:ceramic_samples_table} lists the 10 samples, their respective han
 
 \newpage
 
-\section{Results}
+\subsection{Results}
 The data collected from the measurements was evaluated using the commercial software Teralyzer. We used the same thickness for all three angles for a given sample to be able to compare the refractive index at the three different rotational angles. The thicknesses used for the evaluation of each sample is given in \ref{tab:ceramic_samples_table}. 
 It is possible to leave the thickness as a free parameter which can then be fitted and thereby slightly adjusted for each measurement to remove or reduce the oscillations seen in for example WP2 at \SI{0}{\degree}. Although, this introduces a slight frequency independent offset in the refractive index which depends on the fitted thickness and thereby changes the measured birefringence. We therefore chose to use one thickness for all three angles. 
 

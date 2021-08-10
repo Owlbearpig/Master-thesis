@@ -25,7 +25,7 @@ Poincaré's representation will be explained in section \ref{sec:math_desc}. The
 \end{minipage}
 \newline
 
-where $\bm{E}, \bm{H}$ denote the electric and magnetizing fields respectively,  $\bm{D}=\hat{\epsilon} \bm{E}$ is the electric displacement for a linear medium, $t$ is the time and $\hat{\epsilon}$ is the permittivity which depends on the material and is a complex function of the frequency. The materials used in this work are non magnetic, which means that the magnetic and magnetizing fields are proportional: $\bm{B} = \mu_0 \bm{H}$, where $\mu_0$ denotes the vacuum permeability. $\rho_f, \bm{J}_f$ are the free charge and current density, respectively. Usually in optics there are no free charge carriers or free currents, which is also the case for all materials in this work, so we set $\rho_f=\bm{J}_f=0$ \cite{Roth2019}. If we then further assume that the materials are homogeneous so that $\hat{\epsilon}$ does not depend on position, then we can reduce equations \ref{eq:maxwell1}-\ref{eq:maxwell4} to the following symmetrical set of equations:
+where $\bm{E}, \bm{H}$ denote the electric and magnetizing fields, respectively.  $\bm{D}=\hat{\epsilon} \bm{E}$ is the electric displacement for a linear medium, $t$ is the time and $\hat{\epsilon}$ is the permittivity which depends on the material and is a complex function of the frequency. The materials used in this work are non magnetic, which means that the magnetic and magnetizing fields are proportional: $\bm{B} = \mu_0 \bm{H}$, where $\mu_0$ denotes the vacuum permeability. $\rho_f, \bm{J}_f$ are the free charge and current density, respectively. Usually in optics there are no free charge carriers or free currents, which is also the case for all materials in this work, so we set $\rho_f=\bm{J}_f=0$ \cite{Roth2019}. If we then further assume that the materials are homogeneous so that $\hat{\epsilon}$ does not depend on position, then we can reduce equations \ref{eq:maxwell1}-\ref{eq:maxwell4} to the following symmetrical set of equations:
 
 \noindent\begin{minipage}{.5\linewidth}
 \begin{align}
@@ -63,7 +63,7 @@ A solution to the wave equation is a monochromatic coherent plane wave with a fr
     \label{eq:planewave}
     \bm{E} = \bm{E_0} e^{i(\bm{k}\bm{r} - \omega t + \delta)},
 \end{equation}
-where $\bm{r}$ and $\bm{k}$ denote the position and wave vector respectively, $\bm{E_0}$ is a complex vector which denotes the maximum amplitude and oscillation direction of the wave, $\delta$ is the phase constant. If we assume the wave propagates along the z-direction in a Cartesian coordinate system, then the amplitude will be orthogonal to the z-direction, i.e a transverse wave. This follows directly from equation \ref{eq:maxwell1reduced}. From the Helmholtz equation we then find the requirement that the wave number, which is the magnitude of the wave vector, and the angular frequency are related by:
+where $\bm{r}$ and $\bm{k}$ denote the position and wave vector, respectively, $\bm{E_0}$ is a complex vector which denotes the maximum amplitude and oscillation direction of the wave, $\delta$ is the phase constant. If we assume the wave propagates along the z-direction in a Cartesian coordinate system, then the amplitude will be orthogonal to the z-direction, i.e a transverse wave. This follows directly from equation \ref{eq:maxwell1reduced}. From the Helmholtz equation we then find the requirement that the wave number, which is the magnitude of the wave vector, and the angular frequency are related by:
 \begin{equation}
     \label{eq:wavevector_req}
     k = \sqrt{\mu_0 \hat{\epsilon}} \omega
@@ -96,12 +96,11 @@ With this in place we can visualize the different polarization states, that is t
 \begin{figure}[h]
     \centering
     \includegraphics[scale=1.1]{images/theory/tikz_linear_pol.pdf}
-    \caption{The black curve shows the superposition of the two sinusoidal waves from equation \ref{eq:plane_wave_realparts}, which is the same as the real part of a LP plane wave at an angle of \SI{45}{\degree} to the x-axis. In addition, the horizontal and the vertical components of the field vector are shown as the red and blue curves respectively.}
+    \caption{The black curve shows the superposition of the two sinusoidal waves from equation \ref{eq:plane_wave_realparts}, which is the same as the real part of a LP plane wave at an angle of \SI{45}{\degree} to the x-axis. In addition, the horizontal and the vertical components of the field vector are shown as the red and blue curves, respectively.}
     \label{fig:E_planewave}
 \end{figure}
 
-Now, if $\delta$ is exactly $\nicefrac{\pi}{2}$ and $E_{0x} = E_{0y}$, then we have the case shown in figure \ref{fig:circ_pol_planewave} (b). A field with this kind of polarization traces out a circle as time passes for a fixed position in space. On the other hand, if we keep time fixed then the field vector describes a helix along the direction of propagation. This means that the field only changes direction but not its magnitude. This type of polarization is therefore called circular polarization (CP). Additionally, because we can trace out a circle in two different directions (clockwise or counterclockwise) we can therefore distinguish between two different types of circular polarizations. These two types are called left CP (LCP) or right CP (RCP) depending on the direction the circle is traced out, either in a left- or right-handed sense. This is called the handedness of the light, which can be determined using the right hand rule. For that we fix the right hand at a point on the helix and point the thumb away from the receiver, that is against the direction of propagation. Then the light is right-handed if the helix is traced out in the direction of the other fingers as time evolves, otherwise it is left-handed. The light shown to the left of figure \ref{fig:circ_pol_planewave} is therefore left-handed while the example on the right side of figure \ref{fig:circ_pol_planewave} shows right-handed CP light. The reason why we have two types of CP in the first place, is the fact that one component can lead the other, as we can see in figure \ref{fig:circ_pol_planewave}. Where for RCP the horizontal component leads the vertical one by a quarter period $\left(\delta = \frac{\pi}{2}\right)$, for LCP it is the other way around and $\delta = -\frac{\pi}{2}$. 
-
+Now, if $\delta$ is exactly $\nicefrac{\pi}{2}$ and $E_{0x} = E_{0y}$, then we have the case shown in figure \ref{fig:circ_pol_planewave} (b). A field with this kind of polarization traces out a circle as time passes for a fixed position in space. On the other hand, if we keep time fixed then the field vector describes a helix along the direction of propagation. This means that the field only changes direction but not its magnitude. This type of polarization is therefore called circular polarization (CP). Additionally, because we can trace out a circle in two different directions (clockwise or counterclockwise) we can therefore distinguish between two different types of circular polarizations. These two types are called left CP (LCP) or right CP (RCP) depending on the direction the circle is traced out, either in a left- or right-handed sense. This is called the handedness of the light, which can be determined using the right hand rule. For that we fix the right hand at a point on the helix and point the thumb away from the receiver, that is against the direction of propagation. Then the light is right-handed if the helix is traced out in the direction of the other fingers as time evolves, otherwise it is left-handed. The light shown in figure \ref{fig:circ_pol_planewave} (a) is therefore left-handed while figure \ref{fig:circ_pol_planewave} (b) shows right-handed CP light. The reason why we have two types of CP in the first place, is the fact that one component can lead the other, as we can see in figure \ref{fig:circ_pol_planewave}. Where for RCP the horizontal component leads the vertical one by a quarter period $\left(\delta = \frac{\pi}{2}\right)$, for LCP it is the other way around and $\delta = -\frac{\pi}{2}$. 
 
 \begin{figure}
 \centering
@@ -109,16 +108,16 @@ Now, if $\delta$ is exactly $\nicefrac{\pi}{2}$ and $E_{0x} = E_{0y}$, then we h
     {\includegraphics[scale=0.8]{images/theory/tikz_circ_pol_lh.pdf}}
 \subcaptionbox{\label{fig:circ_pol_planewave_b}}
     {\includegraphics[scale=0.8]{images/theory/tikz_circ_pol_rh.pdf}}
-\caption{The left figure shows an example of LCP light and the right figure RCP light. Furthermore, handedness originates from one component leading the other. In the case of LCP light the vertical component leads the horizontal component and vice versa for RCP light.}
+\caption{An example of (a) LCP light and (b) RCP light. Furthermore, handedness originates from one component leading the other. In the case of LCP light the vertical component leads the horizontal component and vice versa for RCP light.}
 \label{fig:circ_pol_planewave}
 \end{figure}
 
-Finally, the last polarization state we have not mentioned yet, even though it is in fact the most general, is the elliptical polarization state. The polarization states we have dealt with so far have all been limiting cases of this state. For a fixed position this is fairly simple to visualize geometrically; LP light traces out a line while CP light traces out a circle, both of these shapes are degenerate forms of an ellipse. A summary of the different degenerate states and the corresponding amplitude and phase combinations are shown in table \ref{tab:pol_state_summary}, which is divided into three parts with a pair of states in each. The linear horizontal/vertical polarization (LHP/LVP) states are at the top, the linear $\pm\SI{45}{\degree}$ polarization ($L_{\pm45}P$) states are in the middle and the CP states are at the bottom. The last column shows the corresponding degenerate ellipse for each state.
+Finally, the last polarization state we have not mentioned yet, even though it is in fact the most general, is the elliptical polarization state. The polarization states we have dealt with so far have all been limiting cases of this state. For a fixed position this is fairly simple to visualize geometrically; LP light traces out a line while CP light traces out a circle, both of these shapes are degenerate forms of an ellipse. A summary of the different degenerate states and the corresponding amplitude and phase combinations are shown in table \ref{tab:pol_state_summary}, which is divided into three parts with a pair of states in each. The horizontal/vertical linear polarization (HLP/VLP) states are at the top, the $\pm\SI{45}{\degree}$ linear polarization ($L_{\pm45}P$) states are in the middle and the CP states are at the bottom. The last column shows the corresponding degenerate ellipse for each state.
 
 \begin{table}[h]
     \centering
     \includegraphics[scale=1]{images/theory/pol_summary_table.pdf}
-    \caption{Summary of the different degenerate polarization states, with corresponding representing symbols. The first four states are linearly polarized at different angles relative to the x-axis; $\SI{0}{\degree}$, $\SI{90}{\degree}$, $\SI{45}{\degree}$ and $\SI{-45}{\degree}$ respectively. The last two are the RCP and LCP states.}
+    \caption{Summary of the different degenerate polarization states, with corresponding representing symbols. The first four states are linearly polarized at different angles relative to the x-axis; $\SI{0}{\degree}$, $\SI{90}{\degree}$, $\SI{45}{\degree}$ and $\SI{-45}{\degree}$, respectively. The last two are the RCP and LCP states.}
     \label{tab:pol_state_summary}
 \end{table}
 
@@ -148,7 +147,7 @@ where we have defined $\tan \alpha = \frac{E_{0y}}{E_{0x}}$ so that $\alpha$ and
 \begin{figure}[h]
     \centering
     \includegraphics[scale=1.0]{images/theory/tikz_pol_ellipse.pdf}
-    \caption{Example of a polarization ellipse, which shows the ellipticity $\chi$ and orientation angle $\psi$ geometrically. The major and minor axes of the polarization ellipse are denoted by $a$ and $b$ respectively. We see that $\chi$ changes with the shape of the ellipse while $\psi$ is simply the orientation relative to the x-axis.}
+    \caption{Example of a polarization ellipse, which shows the ellipticity $\chi$ and orientation angle $\psi$ geometrically. The major and minor axes of the polarization ellipse are denoted by $a$ and $b$, respectively. We see that $\chi$ changes with the shape of the ellipse while $\psi$ is simply the orientation relative to the x-axis.}
     \label{fig:pol_ellipse}
 \end{figure}
 
@@ -330,7 +329,7 @@ where n is the effective index of refraction. There are only three different dir
     \label{fig:tikz_rytov_derivation}
 \end{figure}
 
-We set the z-axis perpendicular to the layers so that $\bm{k}$ and $\hat{\bm{e}}_z$ are perpendicular. For this case the electric field has two components and the magnetic has one: $\bm{E}=\bm{E_{\bot}} + \bm{E_{\parallel}} = E_x \hat{\bm{e}}_x + E_{z} \hat{\bm{e}}_z$ and $\bm{H}=H_y=H \hat{\bm{e}}_y$. That is we set the y- and z-axis along the directions of $\bm{H}$ and $\bm{E_{\bot}}$ respectively. Again, we start from Maxwell's equations. We use Ampère's law (equation \ref{eq:maxwell3}) and Faraday's law of induction (equation \ref{eq:maxwell4}). Again there are no free charges or currents although now we have that $\bm{B} = \hat{\mu} \bm{H}$. The equations transformed into k-space $(\partial_t \xrightarrow{\mathscr{F}} ik)$ are:
+We set the z-axis perpendicular to the layers so that $\bm{k}$ and $\hat{\bm{e}}_z$ are perpendicular. For this case the electric field has two components and the magnetic has one: $\bm{E}=\bm{E_{\bot}} + \bm{E_{\parallel}} = E_x \hat{\bm{e}}_x + E_{z} \hat{\bm{e}}_z$ and $\bm{H}=H_y=H \hat{\bm{e}}_y$. That is we set the y- and z-axis along the directions of $\bm{H}$ and $\bm{E_{\bot}}$, respectively. Again, we start from Maxwell's equations. We use Ampère's law (equation \ref{eq:maxwell3}) and Faraday's law of induction (equation \ref{eq:maxwell4}). Again there are no free charges or currents although now we have that $\bm{B} = \hat{\mu} \bm{H}$. The equations transformed into k-space $(\partial_t \xrightarrow{\mathscr{F}} ik)$ are:
 \begin{equation}
     \label{eq:rytov_maxwell_initial}
     \bm{\nabla}\times\bm{E} =-ik \hat{\mu} \bm{H},
@@ -474,7 +473,7 @@ If we include the second order terms in the expression the approximation results
     \mu_{e} &= \mu_{e,0} + \frac{k^2a^2b^2}{12d^2}\frac{a\epsilon_1 + b\epsilon_2}{a\epsilon_2 + b\epsilon_1}\left(n_1^2-n_2^2\right)\left(\mu_1-\mu_2\right).
 \end{split}
 \end{align}
-The $x^5$ term becomes too difficult to solve for $n$, so this is a good place to stop the expansion. The expressions as they are given in equation \ref{eq:rytov_2nd_order} are not directly applicable to the geometries and devices discussed later in this work. Like the geometry we just discussed the structure of the present devices are also layered, but the fields in question have field components parallel and perpendicular to the layering. This geometry is shown in figure \ref{fig:stratified_structure} where the electric field has components $E_{\bot}$ and $E_{\parallel}$ which are respectively perpendicular and parallel to the layering. The geometries shown in figure \ref{fig:tikz_rytov_derivation} and \ref{fig:stratified_structure} are equivalent except that the former has been rotated by $\SI{-90}{\degree}$ around the y-axis. 
+The $x^5$ term becomes too difficult to solve for $n$, so this is a good place to stop the expansion. The expressions as they are given in equation \ref{eq:rytov_2nd_order} are not directly applicable to the geometries and devices discussed later in this work. Like the geometry we just discussed the structure of the present devices are also layered, but the fields in question have field components parallel and perpendicular to the layering. This geometry is shown in figure \ref{fig:stratified_structure} where the electric field has components $E_{\bot}$ and $E_{\parallel}$ which are perpendicular and parallel to the layering, respectively. The geometries shown in figure \ref{fig:tikz_rytov_derivation} and \ref{fig:stratified_structure} are equivalent except that the former has been rotated by $\SI{-90}{\degree}$ around the y-axis. 
 
 \begin{figure}[h]
     \centering
@@ -499,7 +498,7 @@ with the first order terms:
     \qquad
     \tilde{\epsilon}_{p} = \frac{a\epsilon_1+b\epsilon_2}{a+b},
 \end{equation}
-where $s$ and $p$ indicate the perpendicular and parallel directions respectively. If not stated otherwise then equations \ref{eq:rytov_2nd_order_final} and \ref{eq:rytov_1st_order_final} are used throughout this work to calculate the birefringence in the case of form birefringent materials. Additionally, we see that Maxwell's equations at the start of the derivation in this section as well as the boundary conditions are invariant under rotations of the geometry around the z-axis. This means that equations \ref{eq:rytov_2nd_order_final} and \ref{eq:rytov_1st_order_final} are invariant under such rotations as well. The optic axis must therefore be along the z-direction. Furthermore, this means that the effective permeability is $\epsilon_{p}$ throughout the whole xy-plane. Therefore the structure has one optic axis which makes it uniaxial. Moreover, we can write the dielectric tensor in the principal coordinate system of the geometry as follows:
+where $s$ and $p$ indicate the perpendicular and parallel directions, respectively. If not stated otherwise then equations \ref{eq:rytov_2nd_order_final} and \ref{eq:rytov_1st_order_final} are used throughout this work to calculate the birefringence in the case of form birefringent materials. Additionally, we see that Maxwell's equations at the start of the derivation in this section as well as the boundary conditions are invariant under rotations of the geometry around the z-axis. This means that equations \ref{eq:rytov_2nd_order_final} and \ref{eq:rytov_1st_order_final} are invariant under such rotations as well. The optic axis must therefore be along the z-direction. Furthermore, this means that the effective permeability is $\epsilon_{p}$ throughout the whole xy-plane. Therefore the structure has one optic axis which makes it uniaxial. Moreover, we can write the dielectric tensor in the principal coordinate system of the geometry as follows:
 \begin{equation}
     \label{eq:rytov_tensor}
     \hat{\epsilon} = 
@@ -509,7 +508,7 @@ where $s$ and $p$ indicate the perpendicular and parallel directions respectivel
         0 & 0 & \epsilon_{s} \\
     \end{pmatrix}
 \end{equation}
-The question is though whether the structure is positive or negative uniaxial. To answer this we need to determine if $n_{s} < n_{p}$. Since the permittivities of the individual layers are complex numbers or rather complex functions the effective permittivities are as well and therefore also the refractive indices. Hence, for the inequality to make sense we only compare the real parts of the refractive indices. To this end we therefore set $(n_r+in_i)^2 \overset{!}{=} \epsilon_r + i\epsilon_i$ where the subscripts $i$ and $r$ indicate the real and imaginary parts respectively. Comparing the coefficients then gives us expressions for the real and imaginary parts of the refractive index:
+The question is though whether the structure is positive or negative uniaxial. To answer this we need to determine if $n_{s} < n_{p}$. Since the permittivities of the individual layers are complex numbers or rather complex functions the effective permittivities are as well and therefore also the refractive indices. Hence, for the inequality to make sense we only compare the real parts of the refractive indices. To this end we therefore set $(n_r+in_i)^2 \overset{!}{=} \epsilon_r + i\epsilon_i$ where the subscripts $i$ and $r$ indicate the real and imaginary parts, respectively. Comparing the coefficients then gives us expressions for the real and imaginary parts of the refractive index:
 \begin{equation}
     n_r = \sqrt{\frac{|\epsilon|+\epsilon_r}{2}}, 
     \qquad 
@@ -551,7 +550,7 @@ The previous section answered the question about how each field component propag
 \begin{figure}[h]
     \centering
     \includegraphics[scale=2.7]{images/theory/tikz_interface_derivation.pdf}
-    \caption{A wave with wavevector $\bm{k_i}$ which is normally incident on the boundary between two anisotropic media. The wave propagates along the x-direction. The general solution to the wave equation allows a wave propagating in both positive and negative x-direction; a transmitted and reflected wave with wavevectors $\bm{k_t}$ and $\bm{k_r}$ respectively.}
+    \caption{A wave with wavevector $\bm{k_i}$ which is normally incident on the boundary between two anisotropic media. The wave propagates along the x-direction. The general solution to the wave equation allows a wave propagating in both positive and negative x-direction; a transmitted and reflected wave with wavevectors $\bm{k_t}$ and $\bm{k_r}$, respectively.}
     \label{fig:interface_derivation}
 \end{figure}
 
@@ -573,12 +572,12 @@ where the $t$ subscript denotes the field components and paths tangential to bot
     \label{eq:t_boundary_cond_e}
     \bm{n} \times (\bm{E_1} - \bm{E_2}) = 0,
 \end{equation}
-where $\bm{n}$ is normal to the interface, $\bm{E_1}$ and $\bm{E_2}$ are the electric fields in medium one and two respectively. Furthermore, since we have no free currents and the materials are non-magnetic we can derive a condition for the tangential components of the magnetic field in a similar manner. We use Ampère's circuital law (\ref{eq:maxwell4reduced}) which we write it in integral form. Subsequently we shrink the integration area around the interface. This yields:
+where $\bm{n}$ is normal to the interface, $\bm{E_1}$ and $\bm{E_2}$ are the electric fields in medium one and two, respectively. Furthermore, since we have no free currents and the materials are non-magnetic we can derive a condition for the tangential components of the magnetic field in a similar manner. We use Ampère's circuital law (\ref{eq:maxwell4reduced}) which we write it in integral form. Subsequently we shrink the integration area around the interface. This yields:
 \begin{equation}
     \label{eq:t_boundary_cond_b}
     \bm{n} \times (\bm{B_1} - \bm{B_2}) = 0,
 \end{equation}
-where $\bm{B_1}$ and $\bm{B_2}$ are the magnetic fields in medium one and two respectively.
+where $\bm{B_1}$ and $\bm{B_2}$ are the magnetic fields in medium one and two, respectively.
 Again, to obtain interface conditions for the normal components of the fields we apply the same procedure. We start with Gauss's law for magnetism $(\bm{\nabla}\cdot \bm{B} = 0)$. If we integrate over a volume enclosing the interface, and then shrink this volume we get a condition for the normal component of the magnetic field at the boundary:
 \begin{equation}
     \label{eq:n_boundary_cond_b}
@@ -686,7 +685,7 @@ we get a similar relation between the incident and transmitted field:
     \end{pmatrix}
     \bm{E_i},
 \end{equation}
-where $a_i=\cos^2(\alpha_i)\epsilon_{p,i}+\sin^2(\alpha_i)\epsilon_{s,i}$, $b_i=\frac{1}{2}\sin(2\alpha_i)(\epsilon_{p,i}-\epsilon_{s,i})$, $c_i = a_i(\alpha_i + \nicefrac{\pi}{2})$ with $i=1,2$ for medium 1 and 2 respectively, $x_{\pm}=x_1\pm \frac{n_{p,1}}{n_{p,2}} x_2, x=a,b,c$ and finally $d=a_+c_+-b_+b_+$. We can consider special cases to check the plausibility of the two expressions \ref{eq:transmission_general} and \ref{eq:reflection_general}. To that extend we first consider the case in which both media are isotropic dielectrics. We therefore set $\hat{\epsilon}_1$ and $\hat{\epsilon}_2$ equal to the identity matrix times $\epsilon_1$ and $\epsilon_2$ respectively. Furthermore, since in this case both media are isotropic we can set $\alpha_1 = \alpha_2 = 0$. This reduces equations \ref{eq:reflection_general} and \ref{eq:transmission_general} to the following:
+where $a_i=\cos^2(\alpha_i)\epsilon_{p,i}+\sin^2(\alpha_i)\epsilon_{s,i}$, $b_i=\frac{1}{2}\sin(2\alpha_i)(\epsilon_{p,i}-\epsilon_{s,i})$, $c_i = a_i(\alpha_i + \nicefrac{\pi}{2})$ with $i=1,2$ for medium 1 and 2, respectively. $x_{\pm}=x_1\pm \frac{n_{p,1}}{n_{p,2}} x_2, x=a,b,c$ and $d=a_+c_+-b_+b_+$. We can consider special cases to check the plausibility of the two expressions \ref{eq:transmission_general} and \ref{eq:reflection_general}. To that extend we first consider the case in which both media are isotropic dielectrics. We therefore set $\hat{\epsilon}_1$ and $\hat{\epsilon}_2$ equal to the identity matrix times $\epsilon_1$ and $\epsilon_2$, respectively. Furthermore, since in this case both media are isotropic we can set $\alpha_1 = \alpha_2 = 0$. This reduces equations \ref{eq:reflection_general} and \ref{eq:transmission_general} to the following:
 \begin{equation}
     \bm{E_r} = \frac{\epsilon_1-\frac{n_1}{n_2}\epsilon_2}{\epsilon_1+\frac{n_1}{n_2}\epsilon_2}\bm{E_i}, \qquad \bm{E_t} = \frac{2\epsilon_1}{\epsilon_1+\frac{n_1}{n_2}\epsilon_2}\bm{E_i},
 \end{equation}
@@ -755,7 +754,7 @@ As mentioned earlier the Stokes parameters can also be related to the electric f
     &\bm{E}_y(t) = \bm{e_y}E_{0y}(t)\cos [(\Bar{k}z-\Bar{\omega} t) + \delta_y(t)],
 \end{split}
 \end{align}
-where the bar superscript indicates averaging, $\bm{e_x}$ and $\bm{e_y}$ are the unit vectors in the x- and y-directions respectively. On a side note, the quasi prefix is added because waves in reality do not have an infinite extend and so the Fourier transform is not quite a sharp delta peak. The total wave packet can be regarded as a traveling wave of frequency $\Bar{\omega}$, known as the carrier. $\Bar{k}$ and $\Bar{\omega}$ are therefore known as the spatial and temporal carrier frequencies. 
+where the bar superscript indicates averaging, $\bm{e_x}$ and $\bm{e_y}$ are the unit vectors in the x- and y-directions, respectively. On a side note, the quasi prefix is added because waves in reality do not have an infinite extend and so the Fourier transform is not quite a sharp delta peak. The total wave packet can be regarded as a traveling wave of frequency $\Bar{\omega}$, known as the carrier. $\Bar{k}$ and $\Bar{\omega}$ are therefore known as the spatial and temporal carrier frequencies. 
 With $\bm{E}(t)=\bm{E}_x(t)+\bm{E}_y(t)$ we can rewrite the Stokes parameters as:
 \begin{align}
 \begin{split}
@@ -766,7 +765,7 @@ With $\bm{E}(t)=\bm{E}_x(t)+\bm{E}_y(t)$ we can rewrite the Stokes parameters as
     &s_3 = 2\langle E_{0x}E_{0y}\sin \delta \rangle_T,
 \end{split}
 \end{align}
-where the angled brackets denote time averaging and $\delta=\delta_y-\delta_x$ as in section \ref{sec:polellipse} about the polarization ellipse. In fact these relations can also be obtained by time averaging equation \ref{eq:pol_ellipse} which describes the polarization ellipse. Additionally, the constant $\epsilon_0 c / 2$ has been left out so that the parameters are not equal but instead proportional to the intensities. In theory, for monochromatic light we could leave out the averaging since then the amplitudes and the phases are time independent. If the light is unpolarized then $\langle E_{0x}^2 \rangle_T = \langle E_{0y}^2 \rangle_T$ and $s_1$ is zero. $s_2$ and $s_3$ are zero as well since $\cos \delta$ and $\sin \delta$ averages to zero in this case. The Stokes parameters are often normalized by dividing through by $s_0$ so that the light has an intensity of one. Natural light then has the Stokes parameters $(s_0,s_1,s_2,s_3)=(1,0,0,0)$. Horizontal and vertical polarized light has the Stokes parameters $(1,1,0,0)$ and $(1,-1,0,0)$ respectively, since then either the horizontal or the vertical component is zero. Furthermore, we can square the last three expressions in equation \ref{eq:stokes_param_e} to get the following expression:
+where the angled brackets denote time averaging and $\delta=\delta_y-\delta_x$ as in section \ref{sec:polellipse} about the polarization ellipse. In fact these relations can also be obtained by time averaging equation \ref{eq:pol_ellipse} which describes the polarization ellipse. Additionally, the constant $\epsilon_0 c / 2$ has been left out so that the parameters are not equal but instead proportional to the intensities. In theory, for monochromatic light we could leave out the averaging since then the amplitudes and the phases are time independent. If the light is unpolarized then $\langle E_{0x}^2 \rangle_T = \langle E_{0y}^2 \rangle_T$ and $s_1$ is zero. $s_2$ and $s_3$ are zero as well since $\cos \delta$ and $\sin \delta$ averages to zero in this case. The Stokes parameters are often normalized by dividing through by $s_0$ so that the light has an intensity of one. Natural light then has the Stokes parameters $(s_0,s_1,s_2,s_3)=(1,0,0,0)$. Horizontal and vertical polarized light has the Stokes parameters $(1,1,0,0)$ and $(1,-1,0,0)$, respectively, since then either the horizontal or the vertical component is zero. Furthermore, we can square the last three expressions in equation \ref{eq:stokes_param_e} to get the following expression:
 \begin{equation}
     \label{eq:stokes_char_eq}
     s_0^2 = s_1^2 + s_2^2 + s_3^2,
@@ -779,7 +778,7 @@ which in the context of this work is equal to one. In the same sense we can defi
 \begin{equation}
     V_l = \frac{\sqrt{s_1^2+s_2^2}}{s_0} = V \cos 2\chi \qquad V_c = \frac{s_3}{s_0} = V \sin 2\chi,
 \end{equation} % TODO we get -1 for degC check if it is LCP
-where the angle $\chi$ is the ellipticity angle in the polarization ellipse representation. $V_l$ and $V_c$ are measures of how close the state is to the pure linear and circular polarization states respectively. Since $\chi$ is in the interval $\left[-\frac{\pi}{4}, +\frac{\pi}{4}\right]$, $\cos 2\chi$ is strictly positive. Meanwhile, in this range the values of $V_c$ lie in the interval $\left[-1, +1\right]$, where negative values indicate that the light is LCP and RCP if $V_c$ is positive. Furthermore, we see that $V_l$, $V_c$ and $V$ are related in the following way:
+where the angle $\chi$ is the ellipticity angle in the polarization ellipse representation. $V_l$ and $V_c$ are measures of how close the state is to the pure linear and circular polarization states, respectively. Since $\chi$ is in the interval $\left[-\frac{\pi}{4}, +\frac{\pi}{4}\right]$, $\cos 2\chi$ is strictly positive. Meanwhile, in this range the values of $V_c$ lie in the interval $\left[-1, +1\right]$, where negative values indicate that the light is LCP and RCP if $V_c$ is positive. Furthermore, we see that $V_l$, $V_c$ and $V$ are related in the following way:
 \begin{equation}
     V = \sqrt{V_l^2 + V_c^2}.
 \end{equation}
@@ -845,7 +844,7 @@ where the vector $\bm{p}=V\bm{u}$ is called the polarization vector or Bloch vec
     \label{fig:poincare_sphere_intro}
 \end{figure}
 
-Several properties can be observed directly from this geometrical representation. For example all linear polarized states will exist in the plane with $s_3=0$. Similar, the points $s_{2+}(1,0,0)$, $s_{1-}(-1,0,0)$, $s_{2+}(0,1,0)$ and $s_{2-}(0,-1,0)$ are assigned to the linear polarization states whose planes of polarization are along the horizontal, vertical, \SI{+45}{\degree} and \SI{-45}{\degree} axes respectively. States with a positive ellipticity $\psi$ lie on the northern hemisphere and the RCP state is located at the north pole ($s_{3+}(0,0,1)$). Likewise, all points on the southern hemisphere correspond to states with a negative ellipticity and the point $s_{3-}(0,0,-1)$ at the south pole corresponds to the LCP state. Furthermore, a pair of points on opposing sides of the sphere correspond to a pair of orthogonal states. An example of this is shown in figure \ref{fig:poincare_sphere_intro} as the pair $\bm{u}$ and $-\bm{u}$. Another useful feature of this representation is that when the light propagates in a medium and the polarization state changes it describes a trajectory on the sphere. This makes it possible to visualize the effect of an optical element or even a series of elements on a given initial polarization state.
+Several properties can be observed directly from this geometrical representation. For example all linear polarized states will exist in the plane with $s_3=0$. Similar, the points $s_{2+}(1,0,0)$, $s_{1-}(-1,0,0)$, $s_{2+}(0,1,0)$ and $s_{2-}(0,-1,0)$ are assigned to the linear polarization states whose planes of polarization are along the horizontal, vertical, \SI{+45}{\degree} and \SI{-45}{\degree} axes, respectively. States with a positive ellipticity $\psi$ lie on the northern hemisphere and the RCP state is located at the north pole ($s_{3+}(0,0,1)$). Likewise, all points on the southern hemisphere correspond to states with a negative ellipticity and the point $s_{3-}(0,0,-1)$ at the south pole corresponds to the LCP state. Furthermore, a pair of points on opposing sides of the sphere correspond to a pair of orthogonal states. An example of this is shown in figure \ref{fig:poincare_sphere_intro} as the pair $\bm{u}$ and $-\bm{u}$. Another useful feature of this representation is that when the light propagates in a medium and the polarization state changes it describes a trajectory on the sphere. This makes it possible to visualize the effect of an optical element or even a series of elements on a given initial polarization state.
 
 \subsection{Jones vectors}
 \label{sec:jones_vectors}
@@ -936,7 +935,7 @@ where we see that the rightmost factor is a Jones vector representing elliptical
     1
     \end{pmatrix},
 \end{equation}
-where the basis vectors $\bm{e}_x$ and $\bm{e}_y$ represents light linear polarized along the X and Y axes respectively. In fact any complex 2x1 vector can be regarded as a Jones vector. It is therefore clear that the Jones vectors form a vector space and with that other bases can be defined as well. Consequently, the reference frame change from XY to X'Y' can be represented by an orthogonal transformation which can be defined as:
+where the basis vectors $\bm{e}_x$ and $\bm{e}_y$ represents light linear polarized along the X and Y axes, respectively. In fact any complex 2x1 vector can be regarded as a Jones vector. It is therefore clear that the Jones vectors form a vector space and with that other bases can be defined as well. Consequently, the reference frame change from XY to X'Y' can be represented by an orthogonal transformation which can be defined as:
 \begin{equation}
     \label{eq:jones_vector_transformation}
     \bm{\mathcal{E}}' = \hat{Q}(\theta) \bm{\mathcal{E}}, \qquad
@@ -962,7 +961,7 @@ In the present chapter four different representations of the polarization state 
 \begin{table}[H]
     \centering
     \includegraphics[scale=1]{images/theory/pol_statevectors_table.pdf}
-    \caption{Summary of all the normalized Jones and Stokes vectors for the degenerate polarization states.}
+    \caption{Summary of all the normalized Jones and Stokes vectors for the degenerate polarization states as well as the associated symbols used to denote the Jones vectors throughout this work.}
     \label{tab:pol_statevectors}
 \end{table}
 
