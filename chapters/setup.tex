@@ -6,29 +6,55 @@ The THz-TDS TeraWave system is based on an erbium doped \SI{1560}{\nano \meter} 
 
 The detector/emitter modules are further integrated into the measurement setup shown in figure \ref{fig:3_THz-TDS-HHI} (a). All shown components are contained in a sealed box which makes it possible to purge the environment with nitrogen to avoid absorption by water vapor contained in the air. The setup consists of four off-axis parabolic mirrors (OAPM) and a rotational sample holder shown in subfigure (b) which is further mounted to a mechanical stage. If not stated otherwise all measurements conducted using this setup were performed by placing the sample into the focus plane between the second and third OAPM, which first focus and then collimate the THz radiation. The mechanical stage allows us to move the sample out of the THz beam for reference measurements without releasing the nitrogen. A measurement with a wiregrid polarizer showed that the polarization of the emitted THz radiation is mainly linearly horizontally polarized relative to the optical table, this is indicated by the blue arrow. Using this setup the birefringence of a sample can be characterized by rotating sample mount with the sample.
 
+%\begin{figure}[H]
+%    \begin{subfigure}[b]{.5\linewidth}
+%    \caption{}\label{}
+%    \centering\includegraphics[width=0.45\linewidth]{images/setup/Setup-THz-TDS-HHI.pdf}
+%    \end{subfigure}%
+%    \begin{subfigure}[b]{.5\linewidth}
+%    \caption{}\label{}
+%    \centering\includegraphics[width=0.45\linewidth]{images/setup/sample_mount_simple_nosample.pdf}
+%    \end{subfigure}
+%    \caption{(a) The main components of the measurement setup which consists of four off-axis parabolic mirrors, the sample mounted on a translation stage (Manipulator) as well as the emitter and detector. (b) The rotational sample mount where the blue arrow indicates the horizontal direction which is also the polarization plane of the incident radiation.}
+%    \label{fig:3_THz-TDS-HHI}
+%\end{figure}
+
 \begin{figure}[H]
     \centering
     \subcaptionbox{\label{fig:1}}
-        {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/setup/Setup-THz-TDS-HHI.pdf}}
+        {\hspace*{-2em}\includegraphics[width=0.4\linewidth]{images/setup/Setup-THz-TDS-HHI.pdf}}
     \qquad
     \subcaptionbox{\label{fig:2}}
-        {\hspace*{-2em}\includegraphics[width=0.45\linewidth]{images/setup/sample_mount_simple_nosample.pdf}}
+        {\hspace*{-2em}\includegraphics[width=0.4\linewidth]{images/setup/sample_mount_simple_nosample.pdf}}
     
     \caption{(a) The main components of the measurement setup which consists of four off-axis parabolic mirrors, the sample mounted on a translation stage (Manipulator) as well as the emitter and detector. (b) The rotational sample mount where the blue arrow indicates the horizontal direction which is also the polarization plane of the incident radiation.}
     \label{fig:3_THz-TDS-HHI}
 \end{figure}
 
-\begin{figure}
-\centering
-\subcaptionbox{\label{fig:circ_pol_planewave_a}}
-    {\includegraphics[scale=0.7]{images/setup/plots/pulse_example_a.pdf}}
-\subcaptionbox{\label{fig:circ_pol_planewave_b}}
-    {\includegraphics[scale=0.7]{images/setup/plots/pulse_example_b.pdf}}
-\caption{(a) Example of a THz pulse from a reference measurement with 100 averages. (b) Spectrum of the pulse. The inset shows the first \SI{1}{\tera \hertz} of the spectrum with a bandwidth of around \SI{4.5}{\tera \hertz} and a signal peak at around \SI{500}{\giga \hertz}.}
-\label{fig:HHI_pulse_example}
+Figure \ref{fig:HHI_pulse_example} (a) shows the time-domain signal from a \SI{100}{\pico \second} long reference measurement which consists of 100 averages recorded at \SI{80}{\milli \second} per trace. Figure \ref{fig:HHI_pulse_example} (b) shows the spectrum of the pulse. We see that the spectrum contains frequency components up to around \SI{4.5}{\tera \hertz} with a signal peak at around \SI{500}{\giga \hertz}. Below around \SI{200}{\giga \hertz} the signal becomes quite noisy. Additionally, we see that with an average of 100 traces the peak dynamic range for this setup is around \SI{60}{\decibel}.
+
+\begin{figure}[H]
+    \begin{subfigure}[b]{.5\linewidth}
+    \caption{}\label{}
+    \centering\includegraphics[scale=0.62]{images/setup/plots/pulse_example_a.pdf}
+    \end{subfigure}%
+    \begin{subfigure}[b]{.5\linewidth}
+    \caption{}\label{}
+    \centering\includegraphics[scale=0.62]{images/setup/plots/pulse_example_b.pdf}
+    \end{subfigure}
+    \caption{(a) Example of a THz pulse from a reference measurement with 100 averages. (b) Spectrum of the pulse. The inset shows the first \SI{1}{\tera \hertz} of the spectrum with a bandwidth of around \SI{4.5}{\tera \hertz} and a signal peak at around \SI{500}{\giga \hertz}.}
+    \label{fig:HHI_pulse_example}
 \end{figure}
 
-Figure \ref{fig:HHI_pulse_example} (a) shows the time-domain signal from a \SI{100}{\pico \second} long reference measurement which consists of 100 averages recorded at \SI{80}{\milli \second} per trace. Figure \ref{fig:HHI_pulse_example} (b) shows the spectrum of the pulse. We see that the spectrum contains frequency components up to around \SI{4.5}{\tera \hertz} with a signal peak at around \SI{500}{\giga \hertz}. Below around \SI{200}{\giga \hertz} the signal becomes quite noisy. Additionally, we see that with an average of 100 traces the peak dynamic range for this setup is around \SI{60}{\decibel}.
+%\begin{figure}
+%\centering
+%\subcaptionbox{\label{fig:circ_pol_planewave_a}}
+%    {\includegraphics[scale=0.7]{images/setup/plots/pulse_example_a.pdf}}
+%\subcaptionbox{\label{fig:circ_pol_planewave_b}}
+%    {\includegraphics[scale=0.7]{images/setup/plots/pulse_example_b.pdf}}
+%\caption{(a) Example of a THz pulse from a reference measurement with 100 averages. (b) Spectrum of the pulse. The inset shows the first \SI{1}{\tera \hertz} of the spectrum with a bandwidth of around \SI{4.5}{\tera \hertz} and a signal peak at around \SI{500}{\giga \hertz}.}
+%\label{fig:HHI_pulse_example}
+%\end{figure}
 
 \section{THz-TDS bow-tie setup}
 \label{sec:bow_tie_setup}
